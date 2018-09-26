@@ -24,4 +24,4 @@ class Vault extends Component {
   }
 }
 
-export default Pivot;
+export default Vault;
