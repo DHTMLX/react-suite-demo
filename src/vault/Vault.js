@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Vault} from "dhx-vault";
 import "dhx-vault/codebase/vault.css";
 
-class Pivot extends Component {
+class Vault extends Component {
   componentDidMount() {
     this.vault = new Vault(this.el, {
       data: this.props.data,
