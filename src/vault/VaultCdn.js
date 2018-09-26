@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import fromCDN from "from-cdn";
 
 
-class Pivot extends Component {
+class Vault extends Component {
   constructor(props) {
     super(props);
 
@@ -39,4 +39,4 @@ class Pivot extends Component {
   }
 }
 
-export default Pivot;
+export default Vault;
