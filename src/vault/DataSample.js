@@ -3,7 +3,7 @@ import {DataCollection} from "dhx-vault";
 
 import Vault from "./Vault";
 
-class Pivot extends Component {
+class Vault extends Component {
   constructor(props) {
     super(props);
 
@@ -40,4 +40,4 @@ class Pivot extends Component {
   }
 }
 
-export default Pivot;
+export default Vault;
