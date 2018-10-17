@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import {Vault} from "dhx-vault";
+import {Vault as VaultBase} from "dhx-vault";
 import "dhx-vault/codebase/vault.css";
 
 class Vault extends Component {
   componentDidMount() {
-    this.vault = new Vault(this.el, {
+    this.vault = new VaultBase(this.el, {
       mode:"grid",
     });
     this.vault.data.parse([

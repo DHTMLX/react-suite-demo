@@ -3,7 +3,7 @@ import {DataCollection} from "dhx-vault";
 
 import Vault from "./Vault";
 
-class Vault extends Component {
+class VaultData extends Component {
   constructor(props) {
     super(props);
 
@@ -36,8 +36,8 @@ class Vault extends Component {
     this.files.add({ name:"myfile.png", size:24560 });
   }
   clear = () => {
-    this.files.removeAll()
+    this.files.removeAll();
   }
 }
 
-export default Vault;
+export default VaultData;

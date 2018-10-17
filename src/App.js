@@ -7,6 +7,11 @@ import DataSample from "./vault/DataSample";
 import ConfigSample from "./vault/ConfigSample";
 import CDNSample from "./vault/CDNSample";
 
+import SpreadsheetBasicSample from "./spreadsheet/BasicSample";
+import SpreadsheetDataSample from "./spreadsheet/DataSample";
+import SpreadsheetConfigSample from "./spreadsheet/ConfigSample";
+import SpreadsheetCDNSample from "./spreadsheet/CDNSample";
+
 class App extends Component {
   render() {
     return (
@@ -23,12 +28,25 @@ class App extends Component {
               <Link to="/config">Pre-configured widget</Link>
               <Link to="/cdn">Load from CDN</Link>
             </nav>
+            <h3>Spreadsheet</h3>
+            <nav>
+              <Link to="/spreadsheet/basic">Basic usage</Link>
+              <Link to="/spreadsheet/data">Data / Events</Link>
+              <Link to="/spreadsheet/config">Pre-configured widget</Link>
+              <Link to="/spreadsheet/cdn">Load from CDN</Link>
+            </nav>
           </div>
           <div className='app-content'>
             <Route path="/basic" component={BasicSample}/>
             <Route path="/data" component={DataSample}/>
             <Route path="/config" component={ConfigSample}/>
             <Route path="/cdn" component={CDNSample}/>
+            
+            <Route path="/spreadsheet/basic" component={SpreadsheetBasicSample}/>
+            <Route path="/spreadsheet/data" component={SpreadsheetDataSample}/>
+            <Route path="/spreadsheet/config" component={SpreadsheetConfigSample}/>
+            <Route path="/spreadsheet/cdn" component={SpreadsheetCDNSample}/>
+
             <Route exact path="/" render={() => (
               <Redirect to="/basic"/>
             )}/>

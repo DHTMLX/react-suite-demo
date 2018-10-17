@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import {Vault} from "dhx-vault";
+import PropTypes from 'prop-types';
+import { Vault as VaultBase } from "dhx-vault";
 import "dhx-vault/codebase/vault.css";
 
 class Vault extends Component {
   componentDidMount() {
-    this.vault = new Vault(this.el, {
+    this.vault = new VaultBase(this.el, {
       data: this.props.data,
       mode: this.props.mode,
-      uploader:{
-          autosend: this.props.autosend,
-          target: this.props.target
+      uploader: {
+        autosend: this.props.autosend,
+        target: this.props.target
       },
       toolbar: this.props.toolbar
     });
@@ -23,5 +24,13 @@ class Vault extends Component {
     );
   }
 }
-
+Vault.propTypes = {
+  data: PropTypes.array,
+  mode: PropTypes.string,
+  uploader: PropTypes.shape({
+    autosend: PropTypes.bool,
+    target: PropTypes.any
+  }),
+  toolbar: PropTypes.bool
+};
 export default Vault;
