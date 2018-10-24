@@ -27,10 +27,8 @@ class Vault extends Component {
 Vault.propTypes = {
   data: PropTypes.array,
   mode: PropTypes.string,
-  uploader: PropTypes.shape({
-    autosend: PropTypes.bool,
-    target: PropTypes.any
-  }),
+  autosend: PropTypes.bool,
+  target: PropTypes.any,
   toolbar: PropTypes.bool
 };
 export default Vault;

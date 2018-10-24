@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import fromCDN from "from-cdn";
-
+import PropTypes from 'prop-types';
 
 class Vault extends Component {
   constructor(props) {
@@ -12,13 +12,13 @@ class Vault extends Component {
     ]);
   }
   componentDidMount() {
-    this.ready.then( () => {
+    this.ready.then(() => {
       /* global dhx */
       this.vault = new dhx.Vault(this.el, {
         mode: this.props.mode,
-        uploader:{
-            autosend: this.props.autosend,
-            target: this.props.target
+        uploader: {
+          autosend: this.props.autosend,
+          target: this.props.target
         },
         toolbar: this.props.toolbar
       });
@@ -38,5 +38,12 @@ class Vault extends Component {
     );
   }
 }
-
+Vault.propTypes = {
+  data: PropTypes.array,
+  mode: PropTypes.string,
+  autosend: PropTypes.bool,
+  target: PropTypes.any,
+  toolbar: PropTypes.bool,
+  ready: PropTypes.any
+};
 export default Vault;

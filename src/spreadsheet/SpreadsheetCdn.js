@@ -30,7 +30,7 @@ class Spreadsheet extends Component {
   }
   render() {
     return (
-      <div ref={el => this.el = el} className="widget-box" style={{ width: 800, height:400 }}></div>
+      <div ref={el => this.el = el} className="widget-box" style={{ width: 800, height: 400 }}></div>
     );
   }
 }

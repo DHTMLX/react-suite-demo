@@ -37,19 +37,22 @@ class App extends Component {
             </nav>
           </div>
           <div className='app-content'>
-            <Route path="/basic" component={BasicSample}/>
-            <Route path="/data" component={DataSample}/>
-            <Route path="/config" component={ConfigSample}/>
-            <Route path="/cdn" component={CDNSample}/>
-            
-            <Route path="/spreadsheet/basic" component={SpreadsheetBasicSample}/>
-            <Route path="/spreadsheet/data" component={SpreadsheetDataSample}/>
-            <Route path="/spreadsheet/config" component={SpreadsheetConfigSample}/>
-            <Route path="/spreadsheet/cdn" component={SpreadsheetCDNSample}/>
+            <Route path="/basic" component={BasicSample} />
+            <Route path="/data" component={DataSample} />
+            <Route path="/config" component={ConfigSample} />
+            <Route path="/cdn" component={CDNSample} />
+
+            <Route path="/spreadsheet/basic" component={SpreadsheetBasicSample} />
+            <Route path="/spreadsheet/data" component={SpreadsheetDataSample} />
+            <Route path="/spreadsheet/config" component={SpreadsheetConfigSample} />
+            <Route path="/spreadsheet/cdn" component={SpreadsheetCDNSample} />
 
             <Route exact path="/" render={() => (
-              <Redirect to="/basic"/>
-            )}/>
+              <Redirect to="/basic" />
+            )} />
+            <Route exact path="/spreadsheet/" render={() => (
+              <Redirect to="/spreadsheet/basic" />
+            )} />
           </div>
         </div>
       </div>
