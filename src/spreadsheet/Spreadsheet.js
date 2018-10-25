@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Spreadsheet as SpreadsheetBase } from "dhx-spreadsheet";
+import { Spreadsheet } from "dhx-spreadsheet";
 import PropTypes from 'prop-types';
 import "dhx-spreadsheet/codebase/spreadsheet.css";
 
-class Spreadsheet extends Component {
+class SpreadsheetComponent extends Component {
   componentDidMount() {
-    this.spreadsheet = new SpreadsheetBase(this.el, {
+    this.spreadsheet = new Spreadsheet(this.el, {
       menu: this.props.menu,
       editLine: this.props.editLine,
       toolbar: this.props.toolbar,
@@ -22,7 +22,7 @@ class Spreadsheet extends Component {
     );
   }
 }
-Spreadsheet.propTypes = {
+SpreadsheetComponent.propTypes = {
   menu: PropTypes.bool,
   editLine: PropTypes.bool,
   toolbar: PropTypes.array,
@@ -30,4 +30,4 @@ Spreadsheet.propTypes = {
   colsCount: PropTypes.number
 };
 
-export default Spreadsheet;
+export default SpreadsheetComponent;

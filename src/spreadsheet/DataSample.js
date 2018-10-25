@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Spreadsheet from "./Spreadsheet";
+import SpreadsheetComponent from "./Spreadsheet";
 
 
 class DataSample extends Component {
@@ -20,7 +20,7 @@ class DataSample extends Component {
     return (
       <div className='app-box'>
         <p>Data and events</p>
-        <Spreadsheet ref={this.spreadsheet}></Spreadsheet>
+        <SpreadsheetComponent ref={this.spreadsheet}></SpreadsheetComponent>
         <div style={{ padding: "8px 0" }}>{this.state.event}</div>
         <button onClick={this.parseData}>Parse data</button>
         <button onClick={this.clearAll}>Clear all</button>

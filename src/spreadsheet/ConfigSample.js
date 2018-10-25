@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Spreadsheet from "./SpreadsheetConfigured";
+import SpreadsheetComponent from "./SpreadsheetConfigured";
 
 
 class ConfigSample extends Component {
@@ -7,7 +7,7 @@ class ConfigSample extends Component {
     return (
       <div className='app-box'>
         <p>Pre-configured component</p>
-        <Spreadsheet />
+        <SpreadsheetComponent />
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Spreadsheet from "./Spreadsheet";
+import SpreadsheetComponent from "./Spreadsheet";
 
 
 class BasicSample extends Component {
@@ -7,15 +7,15 @@ class BasicSample extends Component {
     return (
       <div className='app-box'>
         <p>Basic spreadsheet</p>
-        <Spreadsheet></Spreadsheet>
+        <SpreadsheetComponent></SpreadsheetComponent>
 
         <hr />
         <p>Spreadsheet with menu</p>
-        <Spreadsheet menu></Spreadsheet>
+        <SpreadsheetComponent menu></SpreadsheetComponent>
 
         <hr />
         <p>Minimal layout</p>
-        <Spreadsheet editLine={false} ></Spreadsheet>
+        <SpreadsheetComponent editLine={false} ></SpreadsheetComponent>
       </div>
     );
   }

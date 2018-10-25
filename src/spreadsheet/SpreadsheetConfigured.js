@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Spreadsheet as SpreadsheetBase } from "dhx-spreadsheet";
+import { Spreadsheet } from "dhx-spreadsheet";
 import "dhx-spreadsheet/codebase/spreadsheet.css";
 
-class Spreadsheet extends Component {
+class SpreadsheetComponent extends Component {
   componentDidMount() {
-    this.spreadsheet = new SpreadsheetBase(this.el, {
+    this.spreadsheet = new Spreadsheet(this.el, {
       editLine: false
     });
     this.spreadsheet.parse([
@@ -24,4 +24,4 @@ class Spreadsheet extends Component {
   }
 }
 
-export default Spreadsheet;
+export default SpreadsheetComponent;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import fromCDN from "from-cdn";
 
-class Spreadsheet extends Component {
+class SpreadsheetComponent extends Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,7 @@ class Spreadsheet extends Component {
     );
   }
 }
-Spreadsheet.propTypes = {
+SpreadsheetComponent.propTypes = {
   menu: PropTypes.bool,
   editLine: PropTypes.bool,
   toolbar: PropTypes.array,
@@ -42,4 +42,4 @@ Spreadsheet.propTypes = {
   colsCount: PropTypes.number
 };
 
-export default Spreadsheet;
+export default SpreadsheetComponent;
