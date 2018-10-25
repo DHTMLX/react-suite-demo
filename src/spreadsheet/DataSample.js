@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Spreadsheet from "./Spreadsheet";
 
 
-class BasicSample extends Component {
+class DataSample extends Component {
   constructor(props) {
     super(props);
     this.spreadsheet = React.createRef();
@@ -19,7 +19,7 @@ class BasicSample extends Component {
   render() {
     return (
       <div className='app-box'>
-        <p>Basic vault</p>
+        <p>Data and events</p>
         <Spreadsheet ref={this.spreadsheet}></Spreadsheet>
         <div style={{ padding: "8px 0" }}>{this.state.event}</div>
         <button onClick={this.parseData}>Parse data</button>
@@ -40,4 +40,4 @@ class BasicSample extends Component {
   }
 }
 
-export default BasicSample;
+export default DataSample;

@@ -2,23 +2,16 @@ import React, { Component } from 'react';
 import Spreadsheet from "./SpreadsheetCdn";
 
 
-class BasicSample extends Component {
+class CDNSample extends Component {
   render() {
     return (
       <div className='app-box'>
-        <p>Basic spreadsheet</p>
+        <p>Code for spreadsheet on this page is loaded through CDN on demand</p>
+        <p>You can use promise or event to catch the moment when UI is ready to load the data</p>
         <Spreadsheet></Spreadsheet>
-
-        <hr />
-        <p>Spreadsheet with menu</p>
-        <Spreadsheet menu></Spreadsheet>
-
-        <hr />
-        <p>Minimal layout</p>
-        <Spreadsheet editLine={false} ></Spreadsheet>
       </div>
     );
   }
 }
 
-export default BasicSample;
+export default CDNSample;

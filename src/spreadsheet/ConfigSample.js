@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Spreadsheet from "./SpreadsheetConfigured";
 
 
-class BasicSample extends Component {
+class ConfigSample extends Component {
   render() {
     return (
       <div className='app-box'>
@@ -13,4 +13,4 @@ class BasicSample extends Component {
   }
 }
 
-export default BasicSample;
+export default ConfigSample;
