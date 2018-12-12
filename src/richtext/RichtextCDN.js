@@ -6,8 +6,8 @@ class RichtextComponent extends Component {
     super(props);
 
     this.ready = fromCDN([
-      "https://cdn.dhtmlx.com/richtext/3.0/richtext.js",
-      "https://cdn.dhtmlx.com/richtext/3.0/richtext.css"
+      "https://cdn.dhtmlx.com/richtext/1.0/richtext.min.js",
+      "https://cdn.dhtmlx.com/richtext/1.0/richtext.min.css"
     ]);
   }
 
