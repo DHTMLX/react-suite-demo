@@ -2281,6 +2281,11 @@ detect-port-alt@1.1.6:
     address "^1.0.1"
     debug "^2.6.0"
 
+dhx-spreadsheet@^3.0.0:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/dhx-spreadsheet/-/dhx-spreadsheet-3.0.2.tgz#4d669a1da70ff1b5f4084ea9d3abc218e5c243b6"
+  integrity sha512-V0S/qnMwabr2jFPcqiIhgE6Q29pNh1fJ6KtRd9cE25XovD0v7+m8qETvbaCc+3YJ3X2ADJozbyaMgEpCkV9ICA==
+
 dhx-vault@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/dhx-vault/-/dhx-vault-3.0.0.tgz#5f5abd592521fa7122876ac4383e5bcb78668300"

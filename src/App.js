@@ -12,6 +12,9 @@ import SpreadsheetDataSample from "./spreadsheet/DataSample";
 import SpreadsheetConfigSample from "./spreadsheet/ConfigSample";
 import SpreadsheetCDNSample from "./spreadsheet/CDNSample";
 
+import RichtextBasicSample from "./richtext/BasicSample";
+import RichtextDataSample from "./richtext/DataSample";
+
 class App extends Component {
   render() {
     return (
@@ -35,6 +38,11 @@ class App extends Component {
               <Link to="/spreadsheet/config">Pre-configured widget</Link>
               <Link to="/spreadsheet/cdn">Load from CDN</Link>
             </nav>
+            <h3>Richtext</h3>
+            <nav>
+              <Link to="/richtext/basic">Basic usage</Link>
+              <Link to="/richtext/data">Data / Events</Link>
+            </nav>
           </div>
           <div className='app-content'>
             <Route path="/basic" component={BasicSample} />
@@ -47,11 +55,17 @@ class App extends Component {
             <Route path="/spreadsheet/config" component={SpreadsheetConfigSample} />
             <Route path="/spreadsheet/cdn" component={SpreadsheetCDNSample} />
 
+            <Route path="/richtext/basic" component={RichtextBasicSample} />
+            <Route path="/richtext/data" component={RichtextDataSample} />
+
             <Route exact path="/" render={() => (
               <Redirect to="/basic" />
             )} />
             <Route exact path="/spreadsheet/" render={() => (
               <Redirect to="/spreadsheet/basic" />
+            )} />
+            <Route exact path="/richtext/" render={() => (
+              <Redirect to="/richtext/basic" />
             )} />
           </div>
         </div>

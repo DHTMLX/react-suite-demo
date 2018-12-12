@@ -39,3 +39,16 @@ nav a.active {
   background: #666;
   color:white;
 }
+
+textarea {
+  width: 950px;
+  height: 200px;
+  outline: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: Roboto,Arial,Tahoma,Verdana,sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 20px;
+}
