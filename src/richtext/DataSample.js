@@ -22,7 +22,7 @@ To learn more, read our [documentation](https://docs.dhtmlx.com/richtext/index.h
     return (
       <div className='app-box'>
         <p>HTML serialize</p>
-        <RichtextComponent value={this.state.html}></RichtextComponent>
+        <RichtextComponent value={this.state.html} onChange={val => this.updateHTML(val)}></RichtextComponent>
         <textarea readOnly value={this.state.html}></textarea>
 
         <hr />
