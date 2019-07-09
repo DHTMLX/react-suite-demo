@@ -7,8 +7,8 @@ export default class About extends Component {
 		
 	render() {
 		return (
-			<div>
-				Hi im a react-dhx components system
+			<div style={{textAlign: 'center'}}>
+				<h1 style={{color: 'rgba(0,0,0, 0.7)', fontWeight: '500'}}>DHX - react sample examples</h1>
 			</div>
 		)
 	}
