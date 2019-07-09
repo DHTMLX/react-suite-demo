@@ -14,7 +14,7 @@ import {
 					type: 'customButton', 
 					css: 'logo-button',
 					html: '<img src="/static/logo_r.svg" alt="DHTMLX - React"/>',
-					group: "navIgate",
+					group: "nav",
 					twoState: true
 				},
 				{
@@ -23,13 +23,13 @@ import {
 				{
 					value: 'Calendar',
 					id: 'calendar-link',
-					group: "navIgate",
+					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'Timepicker',
-					id: 'timepicker-link',
-					group: "navIgate",
+					value: 'Toolbar',
+					id: 'toolbar-link',
+					group: "nav",
 					twoState: true
 				}
 			]

@@ -10,6 +10,7 @@ import Toolbar from './Toolbar';
 import About from './About'
 
 import CalendarPage from './calendar/CalendarPage';
+import ToolbarPage from './toolbar/ToolbarPage';
 
 // import BasicSample from "./vault/BasicSample";
 // import DataSample from "./vault/DataSample";
@@ -98,6 +99,13 @@ class App extends PureComponent {
             style={{maxHeight: 'calc(100vh - 57px)', overflow: 'auto'}}>
             <Route path="/calendar" component={() => (
               <CalendarPage 
+                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                setActiveExapmle = {id => this.setActiveExapmle(id)}
+                />
+              )}
+            />
+            <Route path="/toolbar" component={() => (
+              <ToolbarPage 
                 handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
                 setActiveExapmle = {id => this.setActiveExapmle(id)}
                 />
