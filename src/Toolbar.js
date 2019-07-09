@@ -63,6 +63,13 @@ export default class Toolbar extends PureComponent {
 					type: 'spacer',
 				},
 				{
+					id: 'doc',
+					type: 'customButton',
+					html: '<span></span>',
+					css: 'dock-button',
+					hidden: true,
+				},
+				{
 					id: 'trial',
 					type: 'customButton',
 					css: 'trial-button',
@@ -73,6 +80,9 @@ export default class Toolbar extends PureComponent {
 		this.toolbar.data.update('basic_link', {active: true})
 		this.toolbar.events.on('click', id => {
 			switch (id) {
+				case 'doc': 
+					window.open('https://docs.dhtmlx.com/suite/' + this.props.activeWidget.toLowerCase() + '__index.html', '_blank')
+					break;
 				case 'trial':
 					window.open('https://dhtmlx.com/docs/products/dhtmlxSuite/download.shtml', '_blank')	
 					break;
@@ -96,10 +106,11 @@ export default class Toolbar extends PureComponent {
 			this.props.toolbarNav.map((item, key) => {
 				this.toolbar.data.update('separ', {hidden: false})
 				this.toolbar.data.update(item + "_link", {hidden: false})
+				this.toolbar.data.update('doc', {html:'DHX ' + this.props.activeWidget + ' documentation', hidden: false })
 				return null
 			})
 		} else {
-			const itemsToHide = ['separ', 'basic_link', 'cdn_link', 'pre_link', 'props_link', 'events_link', 'data_link']
+			const itemsToHide = ['separ', 'basic_link', 'cdn_link', 'pre_link', 'props_link', 'events_link', 'data_link', 'doc']
 			itemsToHide.map(item => {
 				this.toolbar.data.update(item, {hidden: true})
 				return null
