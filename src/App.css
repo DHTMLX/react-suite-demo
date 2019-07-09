@@ -1,54 +1,90 @@
-.app-screen{
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.app-header{
-  width: 100%;
-  box-shadow: 0px 2px 4px silver;
-}
-.app-header h1 {
-  font-size: 22px;
-  padding: 10px 20px; margin: 0;
-  font-weight: normal;
-}
-.app-sidebar{
-  flex-basis: 200px;
-  border-right: 1px solid silver;
-}
-.app-sidebar h3 {
-  font-weight: normal;
-  margin:4px 0 0 0; padding: 10px;
-}
-.app-page{
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-}
-.app-content{
-  margin-top: 4px;
-  width: 100%;
+.logo-button {
+	text-align: center;
 }
 
-nav a {
-  display: block;
-  padding: 7px 10px;
-  color: #4444ff;
+.logo-button button {
+	background: transparent;
+	border: none;
+	padding: 0;
+	width: 100%;
+	padding: 24px;
 }
-nav a.active {
-  background: #666;
-  color:white;
+.logo-button img {
+	width: 100%;
+	height: auto;
 }
 
-textarea {
-  width: 950px;
-  height: 200px;
-  outline: none;
-  border: none;
-  color: rgba(0, 0, 0, 0.7);
-  font-family: Roboto,Arial,Tahoma,Verdana,sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-  margin-top: 20px;
+.trial-button button {
+	flex: 0 0 auto;
+	-webkit-box-sizing: border-box;
+					box-sizing: border-box;
+	border: none;
+	outline: none;
+	padding: 6px 28px;
+	border-radius: 2px;
+	font-family: Roboto,Arial,Tahoma,Verdana,sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 500;
+	text-transform: uppercase;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	cursor: pointer;
+
+	background: #0288D1;
+	color: #fff;
+	border-radius: 32px;
+	text-decoration: none;
+	text-transform: capitalize;
+	transition: background 0.2s ease-in-out;
+}
+.trial-button button:hover{
+	background: #027abc;
+}
+.hgroup {
+	text-align: center;
+	padding: 48px 24px;
+	background-color: #fff;
+	color: rgba(0,0,0,.7);
+	transition: background-color 0.2s ease;
+	
+}
+.hgroup a {
+	text-decoration: none;
+	display: block;
+	color: #0288D1;
+	margin-bottom: 12px;
+}
+.hgroup .anchor {
+	display: block;
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	margin-bottom: 0;
+	top: 50%;
+	right: 0;
+	opacity: 0;
+	transition: opacity 0.2s ease-in;
+	transform: translateY(-50%);
+}
+.hgroup p {
+	margin: 0;
+	margin-bottom: 24px;
+}
+.hgroup h3 {
+	margin-top: 0;
+	padding: 0 30px;
+	position: relative;
+	display: inline-block;
+}
+.hgroup h3:hover .anchor {
+	opacity: 1;
+}
+.dhx_navbar-title.dhx_navbar-title--toolbar {
+	font-size: 18px;
+	margin-right: 12px!important;
+}
+.active {
+	background-color: rgba(0,0,0,.07);
 }
