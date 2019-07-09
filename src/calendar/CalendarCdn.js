@@ -38,7 +38,10 @@ CalendarCdn.propTypes = {
     PropTypes.string,
     PropTypes.instanceOf(Date)
   ]),
-	date: PropTypes.string,
+	date: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.instanceOf(Date)
+  ]),
 	css: PropTypes.string,
 	mark: PropTypes.func,
 	block: PropTypes.func,
