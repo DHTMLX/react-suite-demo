@@ -104,11 +104,11 @@ export default class Toolbar extends PureComponent {
 		
 		if (this.props.toolbarNav.length > 0) {
 			this.props.toolbarNav.map((item, key) => {
-				this.toolbar.data.update('separ', {hidden: false})
 				this.toolbar.data.update(item + "_link", {hidden: false})
-				this.toolbar.data.update('doc', {html:'DHX ' + this.props.activeWidget + ' documentation', hidden: false })
 				return null
 			})
+			this.toolbar.data.update('separ', {hidden: false})
+			this.toolbar.data.update('doc', {html:'DHX ' + this.props.activeWidget + ' documentation', hidden: false })
 		} else {
 			const itemsToHide = ['separ', 'basic_link', 'cdn_link', 'pre_link', 'props_link', 'events_link', 'data_link', 'doc']
 			itemsToHide.map(item => {
