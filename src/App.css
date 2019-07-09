@@ -3,6 +3,7 @@
 }
 
 .logo-button button {
+	cursor: pointer;
 	background: transparent;
 	border: none;
 	padding: 0;
@@ -55,6 +56,7 @@
 	
 }
 .hgroup a {
+	cursor: pointer;
 	text-decoration: none;
 	display: block;
 	color: #0288D1;
@@ -93,12 +95,13 @@
 	background-color: rgba(0,0,0,.07);
 }
 .dock-button button {
+	cursor: pointer;
 	border: none;
 	font-size: 14px;
 	text-decoration: underline;
 	font-family: Roboto;
 	color: #0288D1
 }
-.dock-button button:active {
+.dock-button button:focus {
 	outline: none;
 }
