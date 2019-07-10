@@ -89,6 +89,7 @@ class Toolbar extends Component {
     );
   }
 }
+
 Toolbar.propTypes = {
   css: PropTypes.string,
   data: PropTypes.instanceOf([
