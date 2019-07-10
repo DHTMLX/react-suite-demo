@@ -3,6 +3,7 @@ import Toolbar from './Toolbar';
 import ToolbarCdn from './ToolbarCdn';
 import ToolbarConfigured from './ToolbarConfigured';
 import ToolbarProps from './ToolbarProps';
+import ToolbarData from './ToolbarData';
 import ToolbarEvents from './ToolbarEvents';
 
 export default class ToolbarPage extends Component {
@@ -89,6 +90,20 @@ export default class ToolbarPage extends Component {
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<ToolbarEvents />
+					</div>
+				</section>
+				<section className="hgroup" id="data">
+					<h3>
+						Work with data
+						<a href="#data" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'data')}>
+							<img src="/static/link.svg" alt="" />
+						</a>
+					</h3>
+					<p>
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/calendar/ToolbarEvents.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+					</p>
+					<div style={{display: 'flex', justifyContent: 'center'}}>
+						<ToolbarData />
 					</div>
 				</section>
 			</main>

@@ -105,3 +105,6 @@
 .dock-button button:focus {
 	outline: none;
 }
+.data-form-buttons button {
+	margin: 20px;
+}

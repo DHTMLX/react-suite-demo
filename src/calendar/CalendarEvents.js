@@ -18,7 +18,7 @@ class CalendarEvents extends Component {
     let counter = 1;
 
     events.forEach((event) =>  {
-      this.calendar.events.on(event, function () {
+      this.calendar.events.on(event,() => {
         message({position: "top-right", expire: 3000, text: getEvent(event), icon: "dxi dxi-close" });
       });
     });

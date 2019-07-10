@@ -1,19 +1,87 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Toolbar as ToolbarDHX, message } from "dhx-suite";
+import { Toolbar as ToolbarDHX, message, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.css";
 
 class ToolbarEvents extends Component {
   componentDidMount() {
     this.toolbar = new ToolbarDHX(this.el, {
-      css: "dhx_widget--bordered",
-      value: new Date(),
+      css: "dhx_widget--bordered dhx_widget--bg_white",
+      data: [
+      {
+        id: "add",
+        icon: "dxi dxi-plus",
+        value: "Add"
+      },
+      {
+        type: "separator"
+      },
+      {
+        id: "language",
+        value: "Language",
+        items: [{
+            id: "eng",
+            value: "English"
+          },
+          {
+            id: "spa",
+            value: "Spanish"
+          },
+          {
+            id: "rus",
+            value: "Russian"
+          },
+          {
+            id: "de",
+            value: "Deutsch"
+          }
+        ]
+      },
+      {
+        id: "skin",
+        value: "Skin",
+        items: [{
+            id: "material",
+            value: "Material"
+          },
+          {
+            id: "skyblue",
+            value: "Skyblue"
+          },
+          {
+            id: "web",
+            value: "Web"
+          },
+          {
+            id: "terrace",
+            value: "Terrace"
+          },
+        ]
+      },
+      {
+        type: "separator"
+      },
+      {
+        id: "edit",
+        value: "Edit"
+      },
+      {
+        id: "search",
+        type: "input",
+        placeholder: "Search",
+        icon: "dxi dxi-magnify"
+      },
+      {
+        type: "spacer"
+      }]
     });
     
     let events = [
-      "change",
-      "dateHover",
-      "beforeChange"
+      "inputcreated",
+      "click",
+      "openmenu",
+      "inputfocus",
+      "inputblur",
     ];
     let counter = 1;
 
@@ -32,12 +100,19 @@ class ToolbarEvents extends Component {
   }
   render() {
     return (
-      <div ref={el => this.el = el}></div>
+      <div 
+        style = {{width: '100%'}}
+        ref = {el => this.el = el} > 
+      </div>
     );
   }
 }
 ToolbarEvents.propTypes = {
-  
+  css: PropTypes.string,
+  data: PropTypes.instanceOf([
+    PropTypes.array,
+    PropTypes.instanceOf(TreeCollection)
+  ])
 };
 
 export default ToolbarEvents;
