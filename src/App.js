@@ -47,7 +47,7 @@ class App extends PureComponent {
           return null
         })
         this.toolbar.toolbar.data.update(idFromUrlHash + '_link', {active: true})
-      }
+      } 
     }, 600);
   }
   
@@ -55,6 +55,11 @@ class App extends PureComponent {
     this.setState({
       activeWidget: activeWidget.charAt(0).toUpperCase() + activeWidget.slice(1)
     })
+    this.el && this.el.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+      inline: 'center',
+     });
   }
   setToolBarNavItems(array) {
     if (!isEqual(array, this.state.toolbarNav)) {
@@ -63,7 +68,7 @@ class App extends PureComponent {
       })
     }
   }
-  setActiveExapmle(id, getActiveByUrl) {
+  setActiveExapmle(id) {
     let elHash = "#" + id
     const el = this.el.querySelector(elHash);
     const mainY = el.getBoundingClientRect().top + this.el.scrollTop;

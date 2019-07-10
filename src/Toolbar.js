@@ -4,6 +4,7 @@ import { Toolbar as ToolbarDHX } from 'dhx-suite'
 
 export default class Toolbar extends PureComponent {
 	componentDidMount() {
+		console.log('object')
 		this.toolbar = new ToolbarDHX(this.el, {
 			css: 'dhx_widget--border_bottom',
       data: [
@@ -101,9 +102,16 @@ export default class Toolbar extends PureComponent {
 	}
 	componentDidUpdate() {
 		this.toolbar.data.update('title', {value: `Using DHTMLX ${this.props.activeWidget || 'widgets'} in a React app`})
+
+		if (!this.props.toolbarNav.includes(window.location.hash.slice(1))) {
+			this.toolbar.data.map(item => {
+				item.active = false
+			})		
+		}
+		this.toolbar.data.update('basic_link', {active: true})
 		
 		if (this.props.toolbarNav.length > 0) {
-			this.props.toolbarNav.map((item, key) => {
+			this.props.toolbarNav.map(item => {
 				this.toolbar.data.update(item + "_link", {hidden: false})
 				return null
 			})
