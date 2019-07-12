@@ -5,7 +5,7 @@
   "dependencies": {
     "dhx-richtext": "^3.0.0",
     "dhx-spreadsheet": "^3.0.0",
-    "dhx-suite": "^6.0.0",
+    "dhx-suite": "^6.0.2",
     "dhx-vault": "^3.0.0",
     "from-cdn": "^1.0.0",
     "lodash": "^4.17.11",

@@ -2291,10 +2291,10 @@ dhx-spreadsheet@^3.0.0:
   resolved "https://registry.yarnpkg.com/dhx-spreadsheet/-/dhx-spreadsheet-3.0.2.tgz#4d669a1da70ff1b5f4084ea9d3abc218e5c243b6"
   integrity sha512-V0S/qnMwabr2jFPcqiIhgE6Q29pNh1fJ6KtRd9cE25XovD0v7+m8qETvbaCc+3YJ3X2ADJozbyaMgEpCkV9ICA==
 
-dhx-suite@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/dhx-suite/-/dhx-suite-6.0.0.tgz#c22578e8d62c6a50a08b4a5e5084ffdf8d6c5db3"
-  integrity sha512-5VZ7zFnJxGs2aUPs5NFSzhwUYvvbPSg25THX8zzrWDDpA8MO57YK+4qly9QyYJ0cLKGekluyQhya1ClBc5EjEQ==
+dhx-suite@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/dhx-suite/-/dhx-suite-6.0.2.tgz#9a3fe9a08f835813df06c38b15884f5df13d732b"
+  integrity sha512-52upTFQFnyNRcXvslBZIVpCLpJs8H3dhRTQctt/nXI66sgKTmtyRnIsTuV3lyIiCRDUvtQSNcISxELW9EXX/Sg==
 
 dhx-vault@^3.0.0:
   version "3.0.0"
@@ -4690,11 +4690,6 @@ jsx-ast-utils@^2.0.0:
   dependencies:
     array-includes "^3.0.3"
 
-jump.js@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/jump.js/-/jump.js-1.0.1.tgz#0de2b1631ba9a1c2c6b8572ad277d877e8503600"
-  integrity sha1-DeKxYxupocLGuFcq0nfYd+hQNgA=
-
 killable@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/killable/-/killable-1.0.1.tgz#4c8ce441187a061c7474fb87ca08e2a638194892"
@@ -6451,14 +6446,6 @@ react-scripts@1.1.5:
     whatwg-fetch "2.0.3"
   optionalDependencies:
     fsevents "^1.1.3"
-
-react-scrollable-anchor@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/react-scrollable-anchor/-/react-scrollable-anchor-0.6.1.tgz#fd6e78026c744f76414053d06903b82adccb54d9"
-  integrity sha1-/W54Amx0T3ZBQFPQaQO4KtzLVNk=
-  dependencies:
-    jump.js "1.0.1"
-    prop-types "^15.5.10"
 
 react@^16.5.0:
   version "16.5.2"

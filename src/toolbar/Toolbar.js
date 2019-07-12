@@ -4,9 +4,9 @@ import { Toolbar as ToolbarDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.css";
 
 class Toolbar extends Component {
-  componentDidMount() {
-    this.toolbar = new ToolbarDHX(this.el, {
-      css: "dhx_widget--bordered dhx_widget--bg_white",
+  constructor(props){
+    super(props)
+    this.state = {
       data: [
         {
           id: "add",
@@ -75,6 +75,12 @@ class Toolbar extends Component {
           type: "spacer"
         }
       ]
+    }
+  }
+  componentDidMount() {
+    this.toolbar = new ToolbarDHX(this.el, {
+      css: "dhx_widget--bordered dhx_widget--bg_white",
+      data: this.state.data,
     });
   }
   componentWillUnmount() {

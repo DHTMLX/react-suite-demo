@@ -4,11 +4,28 @@ import { Toolbar as ToolbarDHX , TreeCollection} from "dhx-suite";
 
 class Toolbar extends Component {
   componentDidMount() {
-    let {css} = this.props
+    let { css, data } = this.props
     this.calendar = new ToolbarDHX(this.el, {
       css: css,
-      data: [
-      {
+      data: data,
+    })
+  }
+  componentWillUnmount() {
+    this.calendar.destructor();
+  }
+  render() {
+    return (
+      <div 
+        style={{width: '100%'}}
+        ref={el => this.el = el} > 
+      </div>
+    );
+  }
+} 
+
+class ToolbarProps extends Component {
+  render() {
+    const data = [{
         id: "add",
         icon: "dxi dxi-plus",
         value: "Add"
@@ -73,31 +90,17 @@ class Toolbar extends Component {
       },
       {
         type: "spacer"
-      }]
-    })
-  }
-  componentWillUnmount() {
-    this.calendar.destructor();
-  }
-  render() {
-    return (
-      <div 
-        style = {{width: '100%'}}
-        ref = {el => this.el = el} > 
-      </div>
-    );
-  }
-} 
-
-class ToolbarProps extends Component {
-  render() {
+      }
+    ]
     return (
       <Toolbar 
-        css={"dhx_widget--bordered"}
+        css={"dhx_widget--bordered dhx_widget--bg_white"}
+        data={data}
       />
     );
   }
 }
+
 ToolbarProps.propTypes = {
   css: PropTypes.string,
   data: PropTypes.instanceOf([

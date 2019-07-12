@@ -1,196 +1,63 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Toolbar as ToolbarDHX, Form, TreeCollection } from "dhx-suite";
+import { Toolbar as ToolbarDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.css";
 
-class ToolbarData extends Component {
+class Toolbar extends Component {
   componentDidMount() {
-    this.form = new Form(this.form, {
-      rows: [{
-          align: "center",
-          cellCss: "data-form-buttons",
-          cols: [
-            {
-              id: "clear",
-              type: "button",
-              value: "Clear data",
-              size: "medium",
-              view: "flat",
-              color: "primary",
-              gravity: false,
-            },
-            {
-              type: "button",
-              id: "parse",
-              value: "Parse data",
-              size: "medium",
-              view: "flat",
-              color: "primary",
-              gravity: false,
-            },
-          ]
-        }]
+    let { css, data } = this.props
+    this.calendar = new ToolbarDHX(this.el, {
+      css: css,
+      data: data
     })
-    this.form.events.on('buttonclick', id => {
-      if (id === 'clear') {
-        this.clearData()
-      } else {
-        this.parseData()
-      } 
-    })
-    this.toolbar = new ToolbarDHX(this.el, {
-      css: "dhx_widget--bordered dhx_widget--bg_white",
-      data: [
-        {
-          id: "add",
-          icon: "dxi dxi-plus",
-          value: "Add"
-        },
-        {
-          type: "separator"
-        },
-        {
-          id: "language",
-          value: "Language",
-          items: [{
-              id: "eng",
-              value: "English"
-            },
-            {
-              id: "spa",
-              value: "Spanish"
-            },
-            {
-              id: "rus",
-              value: "Russian"
-            },
-            {
-              id: "de",
-              value: "Deutsch"
-            }
-          ]
-        },
-        {
-          id: "skin",
-          value: "Skin",
-          items: [{
-              id: "material",
-              value: "Material"
-            },
-            {
-              id: "skyblue",
-              value: "Skyblue"
-            },
-            {
-              id: "web",
-              value: "Web"
-            },
-            {
-              id: "terrace",
-              value: "Terrace"
-            },
-          ]
-        },
-        {
-          type: "separator"
-        },
-        {
-          id: "edit",
-          value: "Edit"
-        },
-        {
-          id: "search",
-          type: "input",
-          placeholder: "Search",
-          icon: "dxi dxi-magnify"
-        },
-        {
-          type: "spacer"
-        }
-      ]
-    });
-  }
-  clearData(){
-    this.toolbar.data.parse([])
-  }
-  parseData(){
-    this.toolbar.data.parse([
-      {
-        id: "add",
-        icon: "dxi dxi-plus",
-        value: "Add"
-      },
-      {
-        type: "separator"
-      },
-      {
-        id: "language",
-        value: "Language",
-        items: [{
-            id: "eng",
-            value: "English"
-          },
-          {
-            id: "spa",
-            value: "Spanish"
-          },
-          {
-            id: "rus",
-            value: "Russian"
-          },
-          {
-            id: "de",
-            value: "Deutsch"
-          }
-        ]
-      },
-      {
-        id: "skin",
-        value: "Skin",
-        items: [{
-            id: "material",
-            value: "Material"
-          },
-          {
-            id: "skyblue",
-            value: "Skyblue"
-          },
-          {
-            id: "web",
-            value: "Web"
-          },
-          {
-            id: "terrace",
-            value: "Terrace"
-          },
-        ]
-      },
-      {
-        type: "separator"
-      },
-      {
-        id: "edit",
-        value: "Edit"
-      },
-      {
-        id: "search",
-        type: "input",
-        placeholder: "Search",
-        icon: "dxi dxi-magnify"
-      },
-      {
-        type: "spacer"
-      }
-    ])
   }
   componentWillUnmount() {
-    this.toolbar.destructor();
+    this.calendar.destructor();
   }
+  render() {
+    return (
+      <div 
+        style = {{width: '100%'}}
+        ref = {el => this.el = el} > 
+      </div>
+    );
+  }
+} 
+class ToolbarData extends PureComponent {
+  constructor(props){
+    super(props)
+    this.state = {
+      count: 0
+    }
+    this.data = new TreeCollection();
+
+    this.data.load('./static/toolbar.json').then(() => {
+      this.data.events.on('change', () => {
+        this.setState({
+          count: this.data.getItem('add').count
+        })
+      })
+    })
+  }
+
+  handleClickAdd() {
+    this.data.update('add', {count: this.data.getItem('add').count + 1})
+  }
+  handleClickReset() {
+    this.data.update('add', {count: 0})
+  }
+
   render() {
     return ( 
       <div style = {{width: '100%'}}>
-        <div ref = {el => this.el = el}></div>
-        <div ref = {el=> this.form = el}></div>
+        <Toolbar 
+          css="dhx_widget--bordered dhx_widget--bg_white"
+          data={this.data}
+        />
+        <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
+          <button className="button" onClick={() => this.handleClickAdd()}>Increment notifications</button>
+          <button className="button" onClick={() => this.handleClickReset()}>Reset {this.state.count} notifications</button>
+        </div>
       </div>
     );
   }

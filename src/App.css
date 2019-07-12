@@ -15,7 +15,7 @@
 	height: auto;
 }
 
-.trial-button button {
+.trial-button button, .button {
 	flex: 0 0 auto;
 	-webkit-box-sizing: border-box;
 					box-sizing: border-box;
@@ -40,10 +40,10 @@
 	text-transform: capitalize;
 	transition: background 0.2s ease-in-out;
 }
-.trial-button button:hover{
+.trial-button button:hover, .button:hover{
 	background: #027abc;
 }
-.trial-button button:active{
+.trial-button button:focus, .button:focus{
 	outline: none;
 }
 
@@ -107,4 +107,7 @@
 }
 .data-form-buttons button {
 	margin: 20px;
+}
+.button:not(:last-child) {
+	margin-right: 20px;
 }

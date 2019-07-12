@@ -23,7 +23,7 @@ class CalendarEvents extends Component {
       });
     });
 
-    function getEvent(event, args) {
+    function getEvent(event) {
       return "Event " + counter++ + ": " + event
     }
   }
