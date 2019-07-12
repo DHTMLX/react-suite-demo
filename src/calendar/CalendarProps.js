@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Calendar as CalendarDHX } from "dhx-suite";
+import "dhx-suite/codebase/suite.css";
 
 class Calendar extends Component {
   componentDidMount() {

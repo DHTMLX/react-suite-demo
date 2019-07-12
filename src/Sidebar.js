@@ -31,7 +31,25 @@ import {
 					id: 'toolbar-link',
 					group: "nav",
 					twoState: true
-				}
+				},
+				{
+					value: 'Timepicker',
+					id: 'timepicker-link',
+					group: "nav",
+					twoState: true
+				},
+				{
+					value: 'Slider',
+					id: 'slider-link',
+					group: "nav",
+					twoState: true
+				},
+				{
+					value: 'Colorpicker',
+					id: 'colorpicker-link',
+					group: "nav",
+					twoState: true
+				},
 			]
 		});
 		const activeWidget = window.location.pathname.slice(1)
