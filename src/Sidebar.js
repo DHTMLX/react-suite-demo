@@ -56,6 +56,12 @@ import {
 					group: "nav",
 					twoState: true
 				},
+				{
+					value: 'Ribbon',
+					id: 'ribbon-link',
+					group: "nav",
+					twoState: true
+				},
 			]
 		});
 		const activeWidget = window.location.pathname.slice(1)

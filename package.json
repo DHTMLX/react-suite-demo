@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mdi/font": "^3.8.95",
     "dhx-richtext": "^3.0.0",
     "dhx-spreadsheet": "^3.0.0",
     "dhx-suite": "^6.0.2",
