@@ -1,5 +1,5 @@
 
-import React, { Component, TreeCollection } from 'react';
+import React, { Component } from 'react';
 import fromCDN from "from-cdn";
 import PropTypes from 'prop-types';
 
@@ -47,7 +47,6 @@ SidebarCDN.propTypes = {
   collapsed: PropTypes.bool, 
   data: PropTypes.oneOfType([
     PropTypes.array,
-    PropTypes.instanceOf(TreeCollection)
   ])
 };
 export default SidebarCDN;
