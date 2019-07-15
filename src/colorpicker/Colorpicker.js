@@ -20,7 +20,13 @@ class Colorpicker extends Component {
   }
 }
 Colorpicker.propTypes = {
-  
+  css: PropTypes.string,
+	paletteOnly: PropTypes.bool,
+	grayShades: PropTypes.bool,
+	pickerOnly: PropTypes.bool,
+	customColors: PropTypes.string,
+	palette: PropTypes.array,
+	width: PropTypes.string,
 };
 
 export default Colorpicker;

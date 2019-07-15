@@ -6,9 +6,12 @@ import "dhx-suite/codebase/suite.css";
 
 class Colorpicker extends Component {
   componentDidMount() {
-    let {css } = this.props
+    let {css, paletteOnly, grayShades, pickerOnly } = this.props
     this.colorpicker = new ColorpickerDHX(this.el, {
       css: css,
+      paletteOnly: paletteOnly,
+      grayShades: grayShades,
+      pickerOnly: pickerOnly,
     })
   }
   componentWillUnmount() {
@@ -26,12 +29,21 @@ class ColorpickerProps extends Component {
     return (
       <Colorpicker 
 				css="dhx_widget--bordered"
+        paletteOnly={true}
+        grayShades={true}
+        pickerOnly={true}
       />
     );
   }
 }
 ColorpickerProps.propTypes = {
-  
+  css: PropTypes.string,
+	paletteOnly: PropTypes.bool,
+	grayShades: PropTypes.bool,
+	pickerOnly: PropTypes.bool,
+	customColors: PropTypes.string,
+	palette: PropTypes.array,
+	width: PropTypes.string,
 };
 
 export default ColorpickerProps;
