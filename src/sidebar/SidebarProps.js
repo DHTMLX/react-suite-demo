@@ -6,9 +6,12 @@ import "dhx-suite/codebase/suite.css";
 
 class Sidebar extends Component {
   componentDidMount() {
-    let {css, data } = this.props
+    let {css, width, data, minWidth, collapsed } = this.props
     this.sidebar = new SidebarDHX(this.el, {
       css: css,
+      width: width,
+      minWidth: minWidth,
+      collapsed: collapsed,
       data: data
     })
   }
@@ -34,6 +37,9 @@ class SidebarProps extends Component {
     return (
       <Sidebar 
 				css="dhx_widget--bordered dhx_widget--bg_white"
+        width= {300}
+        minWidth= {120}
+        collapsed= {false}
         data={this.getData()}
       />
     );

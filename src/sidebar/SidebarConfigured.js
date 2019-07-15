@@ -1,13 +1,16 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Sidebar as SidebarDHX, TreeCollection } from "dhx-suite";
-import "dhx-suite/codebase/suite.css";
+import { Sidebar as SidebarDHX, TreeCollection } from 'dhx-suite';
+import 'dhx-suite/codebase/suite.css';
 
 class SidebarConfigured extends Component {
   componentDidMount() {
     this.sidebar = new SidebarDHX(this.el, {
-			css: "dhx_widget--bordered dhx_widget--bg_white",
+      css: 'dhx_widget--bordered dhx_widget--bg_white',
+      width: 300,
+      minWidth: 120,
+      collapsed: false
     });
     this.sidebar.data.load('./static/sidebar.json')
   }
