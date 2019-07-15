@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Toolbar as ToolbarDHX, message, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.css";
 
-class ToolbarEvents extends Component {
+class Toolbar extends Component {
   componentDidMount() {
     this.toolbar = new ToolbarDHX(this.el, {
       css: "dhx_widget--bordered dhx_widget--bg_white",
@@ -75,38 +75,39 @@ class ToolbarEvents extends Component {
         type: "spacer"
       }]
     });
-    
-    let events = [
-      "inputcreated",
-      "click",
-      "openmenu",
-      "inputfocus",
-      "inputblur",
-    ];
-    let counter = 1;
-
-    events.forEach((event) =>  {
-      this.toolbar.events.on(event, function () {
-        message({position: "top-right", expire: 3000, text: getEvent(event), icon: "dxi dxi-close" });
-      });
-    });
-
-    function getEvent(event,) {
-      return "Event " + counter++ + ": " + event
-    }
   }
+
+  handleClick(id) {
+    console.log('object', id)
+    let counter = 0
+    message({position: "top-right", expire: 3000, text:  "Click id" + ": " + id, icon: "dxi dxi-close" });
+  }
+
   componentWillUnmount() {
     this.toolbar.destructor();
   }
+
   render() {
     return (
       <div 
         style = {{width: '100%'}}
+        onClick = {(item) => this.handleClick(item.target.getAttribute("dhx_id"))}
         ref = {el => this.el = el} > 
       </div>
     );
   }
 }
+class ToolbarEvents extends Component {
+  handleClick(item) {
+    console.log(item)
+  }
+  render() {
+    return (
+      <Toolbar/> 
+    )
+  }
+}
+
 ToolbarEvents.propTypes = {
   css: PropTypes.string,
   data: PropTypes.instanceOf([
