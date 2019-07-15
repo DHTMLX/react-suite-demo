@@ -5,14 +5,14 @@ import { Toolbar as ToolbarDHX , TreeCollection} from "dhx-suite";
 class Toolbar extends Component {
   componentDidMount() {
     let { css, data } = this.props
-    this.calendar = new ToolbarDHX(this.el, {
+    this.toolbar = new ToolbarDHX(this.el, {
       css: css,
       data: data,
     })
     
   }
   componentWillUnmount() {
-    this.calendar.destructor();
+    this.toolbar.destructor();
   }
   render() {
     return (
