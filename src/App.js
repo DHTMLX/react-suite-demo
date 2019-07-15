@@ -14,6 +14,7 @@ import ToolbarPage from './toolbar/ToolbarPage';
 import TimepickerPage from './timepicker/TimepickerPage';
 import SliderPage from './slider/SliderPage';
 import ColorpickerPage from './colorpicker/ColorpickerPage';
+import SidebarPage from './sidebar/SidebarPage';
 
 // import BasicSample from "./vault/BasicSample";
 // import DataSample from "./vault/DataSample";
@@ -135,6 +136,13 @@ class App extends PureComponent {
             />
             <Route path="/colorpicker" component={() => (
               <ColorpickerPage 
+                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                setActiveExapmle = {id => this.setActiveExapmle(id)}
+                />
+              )}
+            />
+            <Route path="/sidebar" component={() => (
+              <SidebarPage 
                 handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
                 setActiveExapmle = {id => this.setActiveExapmle(id)}
                 />
