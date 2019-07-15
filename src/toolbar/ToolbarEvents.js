@@ -78,7 +78,7 @@ class Toolbar extends Component {
   }
 
   handleClick(id) {
-    message({position: "top-right", expire: 3000, text:  "Click id" + ": " + id, icon: "dxi dxi-close" });
+    message({position: "top-right", expire: 3000, text:  `"Click id: ${id}`, icon: "dxi dxi-close" });
   }
 
   componentWillUnmount() {

@@ -6,7 +6,7 @@ import "dhx-suite/codebase/suite.css";
 
 class Slider extends Component {
   componentDidMount() {
-    let {css, min, max, step, thumbLabel, tick, majorTick, tickTemplate } = this.props
+    let { min, max, step, thumbLabel, tick, majorTick, tickTemplate } = this.props
     this.slider = new SliderDHX(this.el, {
       min: min,
       max: max, 
