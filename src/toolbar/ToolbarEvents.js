@@ -78,8 +78,6 @@ class Toolbar extends Component {
   }
 
   handleClick(id) {
-    console.log('object', id)
-    let counter = 0
     message({position: "top-right", expire: 3000, text:  "Click id" + ": " + id, icon: "dxi dxi-close" });
   }
 

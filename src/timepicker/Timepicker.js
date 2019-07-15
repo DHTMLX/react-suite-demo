@@ -20,7 +20,9 @@ class Timepicker extends Component {
   }
 }
 Timepicker.propTypes = {
-  
+  css: PropTypes.string,
+	timeFormat: PropTypes.oneOf([12, 24]),
+	actions: PropTypes.bool,
 };
 
 export default Timepicker;

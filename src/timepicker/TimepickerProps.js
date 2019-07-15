@@ -6,9 +6,11 @@ import "dhx-suite/codebase/suite.css";
 
 class Timepicker extends Component {
   componentDidMount() {
-    let {css } = this.props
+    let {css, actions, timeFormat } = this.props
     this.timepicker = new TimepickerDHX(this.el, {
       css: css,
+      actions: actions,
+      timeFormat: timeFormat,
     })
   }
   componentWillUnmount() {
@@ -26,12 +28,16 @@ class TimepickerProps extends Component {
     return (
       <Timepicker 
 				css="dhx_widget--bordered"
+        actions={true}
+        timeFormat={12} 
       />
     );
   }
 }
 TimepickerProps.propTypes = {
-  
+  css: PropTypes.string,
+	timeFormat: PropTypes.oneOf([12, 24]),
+	actions: PropTypes.bool,
 };
 
 export default TimepickerProps;
