@@ -100,7 +100,7 @@ export default class ToolbarPage extends Component {
 						</a>
 					</h3>
 					<p>
-						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/toolbar/ToolbarEvents.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/toolbar/ToolbarData.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<ToolbarData />

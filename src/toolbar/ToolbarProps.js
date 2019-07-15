@@ -9,7 +9,6 @@ class Toolbar extends Component {
       css: css,
       data: data,
     })
-    
   }
   componentWillUnmount() {
     this.toolbar.destructor();
