@@ -20,6 +20,7 @@ import DataviewPage from './dataview/DataviewPage';
 import ListPage from './list/ListPage';
 import GridPage from './grid/GridPage';
 import MenuPage from './menu/MenuPage';
+import FormPage from './form/FormPage';
 
 class App extends PureComponent {
   constructor(props) {
@@ -168,6 +169,13 @@ class App extends PureComponent {
             />
             <Route path="/menu" component={() => (
               <MenuPage 
+                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                setActiveExapmle = {id => this.setActiveExapmle(id)}
+                />
+              )}
+            />
+            <Route path="/form" component={() => (
+              <FormPage 
                 handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
                 setActiveExapmle = {id => this.setActiveExapmle(id)}
                 />
