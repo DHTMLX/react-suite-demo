@@ -37,6 +37,8 @@ class ToolbarCdn extends Component {
 }
 ToolbarCdn.propTypes = {
   css: PropTypes.string,
-  data: PropTypes.array,
+  data: PropTypes.oneOfType([
+    PropTypes.array,
+  ])
 };
 export default ToolbarCdn;
