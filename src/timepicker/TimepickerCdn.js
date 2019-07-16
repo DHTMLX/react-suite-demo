@@ -19,13 +19,15 @@ class TimepickerCDN extends Component {
         css: "dhx_widget--bordered",
       });
 
-      if (this.props.ready)
+      if (this.props.ready) {
         this.props.ready(this.timepicker);
+      }
     });
   }
   componentWillUnmount() {
-    if (this.timepicker)
-		this.timepicker.destructor();
+    if (this.timepicker) {
+      this.timepicker.destructor();
+    }
   }
   render() {
     return (

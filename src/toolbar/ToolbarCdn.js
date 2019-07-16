@@ -17,14 +17,16 @@ class ToolbarCdn extends Component {
       this.toolbar = new dhx.Toolbar(this.el, {
         css: "dhx_widget--bordered dhx_widget--bg_white",
       });
-      if (this.props.ready)
+      if (this.props.ready) {
         this.props.ready(this.toolbar)
         this.toolbar.data.load('./static/toolbar.json')
+      }
     });
   }
   componentWillUnmount() {
-    if (this.toolbar)
+    if (this.toolbar) {
       this.toolbar.destructor();
+    }
   }
   render() {
     return (

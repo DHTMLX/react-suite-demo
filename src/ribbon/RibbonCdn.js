@@ -20,15 +20,17 @@ class RibbonCDN extends Component {
         css: "dhx_widget--bordered dhx_widget--bg_white",
       });
 
-      if (this.props.ready)
+      if (this.props.ready) {
         this.props.ready(this.ribbon);
         this.ribbon.data.load('./static/ribbon.json')
+      }
     });
   }
   componentWillUnmount() {
-    if (this.ribbon)
+    if (this.ribbon) {
       this.ribbon.destructor();
     }
+  }
   render() {
     return (
       <div ref={el => this.el = el}></div>

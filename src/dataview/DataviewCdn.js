@@ -30,13 +30,15 @@ class DataviewCDN extends Component {
         itemsInRow: 4,
       });
       this.dataview.data.load('./static/dataview.json')
-      if (this.props.ready)
+      if (this.props.ready) {
         this.props.ready(this.dataview);
+      }
     });
   }
   componentWillUnmount() {
-    if (this.dataview)
-		this.dataview.destructor();
+    if (this.dataview) {
+      this.dataview.destructor();
+    }
   }
   render() {
     return (

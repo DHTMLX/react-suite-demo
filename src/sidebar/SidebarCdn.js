@@ -19,14 +19,16 @@ class SidebarCDN extends Component {
         css: "dhx_widget--bordered dhx_widget--bg_white",
       });
 
-      if (this.props.ready)
+      if (this.props.ready) {
         this.props.ready(this.sidebar);
         this.sidebar.data.load('./static/sidebar.json')
+      }
     });
   }
   componentWillUnmount() {
-    if (this.sidebar)
-		this.sidebar.destructor();
+    if (this.sidebar) {
+      this.sidebar.destructor();
+    }
   }
   render() {
     return (

@@ -15,16 +15,17 @@ class SliderCDN extends Component {
   componentDidMount() {
     this.ready.then(() => {
       /* global dhx */
-			this.slider = new dhx.Slider(this.el, {
-      });
+			this.slider = new dhx.Slider(this.el);
 
-      if (this.props.ready)
+      if (this.props.ready) {
         this.props.ready(this.slider);
+      }
     });
   }
   componentWillUnmount() {
-    if (this.slider)
-		this.slider.destructor();
+    if (this.slider) {
+      this.slider.destructor();
+    }
   }
   render() {
     return (
