@@ -1,32 +1,30 @@
 import React, { Component, PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Ribbon as RibbonDHX, TreeCollection } from "dhx-suite";
+import { Menu as MenuDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.css";
 import "@mdi/font/css/materialdesignicons.min.css";
 
-class Ribbon extends Component {
+class Menu extends Component {
   componentDidMount() {
     let { css, data } = this.props
-    this.ribbon = new RibbonDHX(this.el, {
+    this.menu = new MenuDHX(this.el, {
       css: css,
       data: data
     })
   }
   componentWillUnmount() {
-    this.ribbon.destructor();
+    this.menu.destructor();
   }
   render() {
     return (
       <div 
-        style={{
-          display: 'inline-flex'
-        }}
+        style={{width: '100%', maxWidth: 1200}}
         ref={el => this.el = el} > 
       </div>
     );
   }
 } 
-class RibbonData extends PureComponent {
+class MenuData extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
@@ -35,16 +33,16 @@ class RibbonData extends PureComponent {
     this.data = new TreeCollection();
     this.data.events.on('load', () => {
       this.setState({
-        isDisabled: this.data.getItem('print').disabled,
+        isDisabled: this.data.getItem('edit').disabled,
       })
     })
   }
 
   componentDidMount() {
-    this.data.load('./static/ribbon.json').then(() => {
+    this.data.load('./static/menu.json').then(() => {
       this.data.events.on('change', () => {
         this.setState({
-          isDisabled: this.data.getItem('print').disabled,
+          isDisabled: this.data.getItem('edit').disabled,
         })
       })
     })
@@ -53,26 +51,26 @@ class RibbonData extends PureComponent {
     this.data.events.detach('load')
   }
   handlePrintEnable() {
-    this.data.update('print', {disabled: !this.data.getItem('print').disabled})
+    this.data.update('edit', {disabled: !this.data.getItem('edit').disabled})
   }
 
   render() {
     return ( 
-      <div>
-        <Ribbon 
+      <div style={{width: '100%', maxWidth: 1200}}>
+        <Menu 
           css="dhx_widget--bordered dhx_widget--bg_white"
           data={this.data}
         />
         <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
           <button className="button" onClick={() => this.handlePrintEnable()}>
-            {`${ this.state.isDisabled ? 'Enable' : 'Disable'}`} Print button
+            {`${ this.state.isDisabled ? 'Enable' : 'Disable'}`} edit
           </button>
         </div>
       </div>
     );
   }
 }
-RibbonData.propTypes = {
+MenuData.propTypes = {
   css: PropTypes.string,
   data: PropTypes.instanceOf([
     PropTypes.array,
@@ -80,4 +78,4 @@ RibbonData.propTypes = {
   ])
 };
 
-export default RibbonData;
+export default MenuData;
