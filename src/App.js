@@ -18,6 +18,7 @@ import SidebarPage from './sidebar/SidebarPage';
 import RibbonPage from './ribbon/RibbonPage';
 import DataviewPage from './dataview/DataviewPage';
 import ListPage from './list/ListPage';
+import GridPage from './grid/GridPage';
 
 class App extends PureComponent {
   constructor(props) {
@@ -152,6 +153,13 @@ class App extends PureComponent {
             />
             <Route path="/list" component={() => (
               <ListPage 
+                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                setActiveExapmle = {id => this.setActiveExapmle(id)}
+                />
+              )}
+            />
+            <Route path="/grid" component={() => (
+              <GridPage 
                 handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
                 setActiveExapmle = {id => this.setActiveExapmle(id)}
                 />
