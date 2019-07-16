@@ -18,10 +18,10 @@ class SidebarCDN extends Component {
 			this.sidebar = new dhx.Sidebar(this.el, {
         css: "dhx_widget--bordered dhx_widget--bg_white",
       });
-
+      this.sidebar.data.load('./static/sidebar.json')
+      
       if (this.props.ready) {
         this.props.ready(this.sidebar);
-        this.sidebar.data.load('./static/sidebar.json')
       }
     });
   }
