@@ -68,6 +68,12 @@ import {
 					group: "nav",
 					twoState: true
 				},
+				{
+					value: 'List',
+					id: 'list-link',
+					group: "nav",
+					twoState: true
+				},
 			]
 		});
 		const activeWidget = window.location.pathname.slice(1)

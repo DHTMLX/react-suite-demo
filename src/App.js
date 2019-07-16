@@ -17,21 +17,7 @@ import ColorpickerPage from './colorpicker/ColorpickerPage';
 import SidebarPage from './sidebar/SidebarPage';
 import RibbonPage from './ribbon/RibbonPage';
 import DataviewPage from './dataview/DataviewPage';
-
-// import BasicSample from "./vault/BasicSample";
-// import DataSample from "./vault/DataSample";
-// import ConfigSample from "./vault/ConfigSample";
-// import CDNSample from "./vault/CDNSample";
-
-// import SpreadsheetBasicSample from "./spreadsheet/BasicSample";
-// import SpreadsheetDataSample from "./spreadsheet/DataSample";
-// import SpreadsheetConfigSample from "./spreadsheet/ConfigSample";
-// import SpreadsheetCDNSample from "./spreadsheet/CDNSample";
-
-// import RichtextBasicSample from "./richtext/BasicSample";
-// import RichtextDataSample from "./richtext/DataSample";
-// import RichtextConfigSample from "./richtext/ConfigSample";
-// import RichtextCDNSample from "./richtext/CDNSample";
+import ListPage from './list/ListPage';
 
 class App extends PureComponent {
   constructor(props) {
@@ -159,6 +145,13 @@ class App extends PureComponent {
             />
             <Route path="/dataview" component={() => (
               <DataviewPage 
+                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                setActiveExapmle = {id => this.setActiveExapmle(id)}
+                />
+              )}
+            />
+            <Route path="/list" component={() => (
+              <ListPage 
                 handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
                 setActiveExapmle = {id => this.setActiveExapmle(id)}
                 />
