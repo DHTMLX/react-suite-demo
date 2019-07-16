@@ -62,6 +62,12 @@ import {
 					group: "nav",
 					twoState: true
 				},
+				{
+					value: 'Dataview',
+					id: 'dataview-link',
+					group: "nav",
+					twoState: true
+				},
 			]
 		});
 		const activeWidget = window.location.pathname.slice(1)
