@@ -9,9 +9,7 @@ import ToolbarEvents from './ToolbarEvents';
 export default class ToolbarPage extends Component {
 
 	componentDidMount() {
-		let toolbarNavItems = [...this.el.querySelectorAll('section')]
-		toolbarNavItems = toolbarNavItems.map(item => item.id)
-		this.props.handleToolbarNavItems(toolbarNavItems)
+		this.props.handleToolbarNavItems([...this.el.querySelectorAll('section')].map(item => item.id))
 	}
 	handleAnchorClick(e, id) {
 		e.preventDefault()

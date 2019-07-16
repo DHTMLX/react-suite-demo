@@ -8,9 +8,7 @@ import CalendarEvents from './CalendarEvents';
 export default class CalendarPage extends Component {
 
 	componentDidMount() {
-		let toolbarNavItems = [...this.el.querySelectorAll('section')]
-		toolbarNavItems = toolbarNavItems.map(item => item.id)
-		this.props.handleToolbarNavItems(toolbarNavItems)
+		this.props.handleToolbarNavItems([...this.el.querySelectorAll('section')].map(item => item.id))
 	}
 	handleAnchorClick(e, id) {
 		e.preventDefault()
