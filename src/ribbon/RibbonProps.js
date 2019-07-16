@@ -33,7 +33,7 @@ class RibbonProps extends Component {
   render() {
     return (
       <Ribbon 
-				css="dhx_widget--bordered"
+				css="dhx_widget--bordered dhx_widget--bg_white"
         data={this.getData()}
       />
     );

@@ -17,7 +17,7 @@ class RibbonCDN extends Component {
     this.ready.then(() => {
       /* global dhx */
 			this.ribbon = new dhx.Ribbon(this.el, {
-        css: "dhx_widget--bordered",
+        css: "dhx_widget--bordered dhx_widget--bg_white",
       });
 
       if (this.props.ready)
@@ -37,7 +37,7 @@ class RibbonCDN extends Component {
 }
 RibbonCDN.propTypes = {
   css: PropTypes.string,
-  data: PropTypes.instanceOf([
+  data: PropTypes.oneOfType([
     PropTypes.array,
   ])
 };

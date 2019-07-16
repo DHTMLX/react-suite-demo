@@ -30,18 +30,28 @@ class RibbonData extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
-      isDisabled: true
+      isDisabled: '',
     }
     this.data = new TreeCollection();
-    this.data.load('./static/ribbon.json').then(() => {
-      this.data.events.on('change', () => {
-        this.setState({
-          isDisabled: this.data.getItem('print').disabled
-        })
+    this.data.events.on('load', () => {
+      this.setState({
+        isDisabled: this.data.getItem('print').disabled,
       })
     })
   }
 
+  componentDidMount() {
+    this.data.load('./static/ribbon.json').then(() => {
+      this.data.events.on('change', () => {
+        this.setState({
+          isDisabled: this.data.getItem('print').disabled,
+        })
+      })
+    })
+  }
+  componentWillUnmount() {
+    this.data.events.detach('load')
+  }
   handlePrintEnable() {
     this.data.update('print', {disabled: !this.data.getItem('print').disabled})
   }
@@ -55,7 +65,7 @@ class RibbonData extends PureComponent {
         />
         <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
           <button className="button" onClick={() => this.handlePrintEnable()}>
-            {`${this.state.isDisabled ? 'Enable' : 'Disable'} `} Print button
+            {`${ this.state.isDisabled ? 'Enable' : 'Disable'}`} Print button
           </button>
         </div>
       </div>

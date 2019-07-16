@@ -8,7 +8,7 @@ import "@mdi/font/css/materialdesignicons.min.css";
 class Ribbon extends Component {
   componentDidMount() {
     this.ribbon = new RibbonDHX(this.el, {
-      css: "dhx_widget--bordered",
+      css: "dhx_widget--bordered dhx_widget--bg_white",
     });
     this.ribbon.data.load('./static/ribbon.json')
   }
