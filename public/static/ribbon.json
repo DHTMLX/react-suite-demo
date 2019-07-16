@@ -67,7 +67,8 @@
                         "id": "left",
                         "value": "Left",
                         "group": "align",
-                        "icon": "mdi mdi-format-align-left"
+                        "icon": "mdi mdi-format-align-left",
+                        "active": true
                     },
                     {
                         "id": "center",
