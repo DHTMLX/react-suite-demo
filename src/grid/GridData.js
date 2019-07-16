@@ -1,7 +1,7 @@
-
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Grid as GridDHX, DataCollection } from "dhx-suite";
+
 import "dhx-suite/codebase/suite.css";
 
 class Grid extends Component {
@@ -15,6 +15,7 @@ class Grid extends Component {
       data: data
     })
   }
+
   componentWillUnmount() {
     this.grid.destructor();
   }
@@ -25,11 +26,39 @@ class Grid extends Component {
   }
 } 
 
-class GridProps extends Component {
-  getData() {
-    const data = new DataCollection()
-    data.load('./static/grid.json')
-    return data
+class GridData extends PureComponent {
+  constructor(props){
+    super(props)
+    this.state = {
+      firstItem: null,
+    }
+    this.data = new DataCollection()
+
+    this.data.events.on('load', () => {
+      console.log('object',this.data.getId(0), this.data.getItem(this.data.getId(0)))
+      this.setState({
+        firstItem: this.data.getItem(this.data.getId(0)).country,
+      })
+    })
+
+    this.data.load('./static/grid.json').then(() => {
+      this.data.events.on('change', () => {
+        console.log('object',this.data.getId(0), this.data.getItem(this.data.getId(0)))
+        this.setState({
+          firstItem: this.data.getItem(this.data.getId(0)).country,
+        })
+      })
+    })
+  }
+
+  componentWillUnmount() {
+    this.data.events.detach('load')
+  }
+  handleRemoveItem() {
+    this.data.remove(this.data.getId(0))
+  }
+  handleReset() {
+    this.data.load('./static/grid.json')
   }
   render() {
     const columns = [
@@ -44,21 +73,31 @@ class GridProps extends Component {
       { width: 125, id: "age", header: [{ text: "Med. Age" }] },
       { width: 125, id: "urban", header: [{ text: "Urban Pop" }] }
     ]
-    return (
-      <Grid 
-				rowHeight={60}
-        columnsAutoWidth={true}
-        fitToContainer={true}
-        columns={columns}
-        data={this.getData()}
-      />
+    return ( 
+      <div style={{width: '100%', maxWidth: 1350, height: '550px'}}>
+        <Grid 
+          rowHeight={60}
+          columnsAutoWidth={true}
+          fitToContainer={true}
+          columns={columns}
+          data={this.data}
+        />
+        <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
+          <button className="button" onClick={() => this.handleRemoveItem()}>
+             Remove {this.state.firstItem} row
+          </button>
+          <button className="button" onClick={() => this.handleReset()} disabled={this.state.itemsCount !== 0}>
+            Reset 
+          </button>
+        </div>
+      </div>
     );
   }
 }
-GridProps.propTypes = {
+Grid.propTypes = {
   columns: PropTypes.array,
 	spans: PropTypes.array,
-	data: PropTypes.array,
+	data: PropTypes.object,
 	headerRowHeight: PropTypes.number,
 	footerRowHeight: PropTypes.number,
 	columnsAutoWidth: PropTypes.oneOfType([
@@ -87,4 +126,4 @@ GridProps.propTypes = {
 	$footer: PropTypes.bool,
 };
 
-export default GridProps;
+export default GridData;

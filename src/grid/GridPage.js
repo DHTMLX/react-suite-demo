@@ -5,6 +5,7 @@ import GridCdn from './GridCdn';
 
 import GridConfigured from './GridConfigured';
 import GridProps from './GridProps';
+import GridData from './GridData';
 
 export default class GridPage extends Component {
 
@@ -75,6 +76,20 @@ export default class GridPage extends Component {
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<GridProps />
+					</div>
+				</section>
+				<section className="hgroup" id="data">
+					<h3>
+						Work with data
+						<a href="#data" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'data')}>
+							<img src="/static/link.svg" alt="" />
+						</a>
+					</h3>
+					<p>
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/grid/GridData.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+					</p>
+					<div style={{display: 'flex', justifyContent: 'center'}}>
+						<GridData />
 					</div>
 				</section>
 			</main>

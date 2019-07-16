@@ -86,7 +86,7 @@ export default class ListPage extends Component {
 						</a>
 					</h3>
 					<p>
-						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/dataview/DataviewData.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/list/ListData.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<ListData />
