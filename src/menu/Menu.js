@@ -17,7 +17,7 @@ class Menu extends Component {
   }
   render() {
     return (
-      <div style={{width: '100%', maxWidth: 1200}}ref={el => this.el = el}></div>
+      <div style={{width: '100%', maxWidth: 1200}} ref={el => this.el = el}></div>
     );
   }
 }
