@@ -14,7 +14,10 @@
 	width: 100%;
 	height: auto;
 }
-
+.button:disabled {
+	pointer-events: none;
+	opacity: 0.6;
+}
 .trial-button button, .button {
 	flex: 0 0 auto;
 	-webkit-box-sizing: border-box;

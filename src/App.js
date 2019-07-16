@@ -16,6 +16,7 @@ import SliderPage from './slider/SliderPage';
 import ColorpickerPage from './colorpicker/ColorpickerPage';
 import SidebarPage from './sidebar/SidebarPage';
 import RibbonPage from './ribbon/RibbonPage';
+import DataviewPage from './dataview/DataviewPage';
 
 // import BasicSample from "./vault/BasicSample";
 // import DataSample from "./vault/DataSample";
@@ -151,6 +152,13 @@ class App extends PureComponent {
             />
             <Route path="/ribbon" component={() => (
               <RibbonPage 
+                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                setActiveExapmle = {id => this.setActiveExapmle(id)}
+                />
+              )}
+            />
+            <Route path="/dataview" component={() => (
+              <DataviewPage 
                 handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
                 setActiveExapmle = {id => this.setActiveExapmle(id)}
                 />
