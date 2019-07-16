@@ -58,7 +58,7 @@ class SidebarData extends PureComponent {
         />
         <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
           <button className="button" onClick={() => this.handleClickAdd()}>Increment notifications</button>
-          <button className="button" onClick={() => this.handleClickReset()}>Reset {this.state.count} notifications</button>
+          <button className="button" onClick={() => this.handleClickReset()} disabled={(!this.state.count)}>Reset {this.state.count} notifications</button>
         </div>
       </div>
     );
