@@ -84,7 +84,7 @@ export default class RibbonPage extends Component {
 						</a>
 					</h3>
 					<p>
-						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/sidebar/RibbonData.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/ribbon/RibbonData.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<RibbonData />

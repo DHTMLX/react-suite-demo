@@ -84,7 +84,7 @@ export default class SidebarPage extends Component {
 						</a>
 					</h3>
 					<p>
-						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/sidebar/ToolbarData.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/sidebar/SidebarData.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<SidebarData />

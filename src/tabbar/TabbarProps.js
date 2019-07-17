@@ -21,7 +21,7 @@ class Tabbar extends Component {
   }
   render() {
     return (
-      <div ref={el => this.el = el}></div>
+      <div style={{maxWidth: 850}} ref={el => this.el = el}></div>
     );
   }
 } 
@@ -36,7 +36,7 @@ class TabbarProps extends Component {
     ]
     return (
       <Tabbar 
-        mode={"left"}
+        mode={"right"}
         css={"dhx_widget--bordered dhx_widget--bg_white"}
         tabWidth={140}
         tabHeight={60}
