@@ -98,6 +98,12 @@ import {
 					group: "nav",
 					twoState: true
 				},
+				{
+					value: 'Combobox',
+					id: 'combobox-link',
+					group: "nav",
+					twoState: true
+				},
 			]
 		});
 		const activeWidget = window.location.pathname.slice(1)

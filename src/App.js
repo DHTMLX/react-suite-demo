@@ -22,17 +22,18 @@ import GridPage from './grid/GridPage';
 import MenuPage from './menu/MenuPage';
 import FormPage from './form/FormPage';
 import TabbarPage from './tabbar/TabbarPage';
+import ComboboxPage from './combobox/ComboboxPage';
 
 class App extends PureComponent {
   constructor(props) {
     super(props)
-  
     this.state = {
       activeWidget: "",
       toolbarNav: [], 
     }
   }
   componentDidMount() {
+    console.log('app componentDidMount')
     let idFromUrlHash = window.location.hash.slice(1)
     setTimeout(() => {
       if (this.el && this.state.toolbarNav.includes(idFromUrlHash)) {
@@ -189,46 +190,17 @@ class App extends PureComponent {
                 />
               )}
             />
+            <Route path="/combobox" component={() => (
+              <ComboboxPage 
+                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                setActiveExapmle = {id => this.setActiveExapmle(id)}
+                />
+              )}
+            />
             <Route exact path="/" render={() => (
               <About handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}/>
               )} 
             />
-            
-            {/* <Route path="/basic" component={BasicSample} />
-            <Route path="/data" component={DataSample} />
-            <Route path="/config" component={ConfigSample} />
-            <Route path="/cdn" component={CDNSample} />
-
-            <Route path="/spreadsheet/basic" component={SpreadsheetBasicSample} />
-            <Route path="/spreadsheet/data" component={SpreadsheetDataSample} />
-            <Route path="/spreadsheet/config" component={SpreadsheetConfigSample} />
-            <Route path="/spreadsheet/cdn" component={SpreadsheetCDNSample} />
-
-            <Route path="/richtext/basic" component={RichtextBasicSample} />
-            <Route path="/richtext/data" component={RichtextDataSample} />
-            <Route path="/richtext/config" component={RichtextConfigSample} />
-            <Route path="/richtext/cdn" component={RichtextCDNSample} /> */}
-            {/* <h3>Vault</h3>
-              <nav>
-                <Link to="/basic">Basic usage</Link>
-                <Link to="/data">Data / Events</Link>
-                <Link to="/config">Pre-configured widget</Link>
-                <Link to="/cdn">Load from CDN</Link>
-              </nav>
-              <h3>Spreadsheet</h3>
-              <nav>
-                <Link to="/spreadsheet/basic">Basic usage</Link>
-                <Link to="/spreadsheet/data">Data / Events</Link>
-                <Link to="/spreadsheet/config">Pre-configured widget</Link>
-                <Link to="/spreadsheet/cdn">Load from CDN</Link>
-              </nav>
-              <h3>Richtext</h3>
-              <nav>
-                <Link to="/richtext/basic">Basic usage</Link>
-                <Link to="/richtext/data">Data / Events</Link>
-                <Link to="/richtext/config">Pre-configured widget</Link>
-                <Link to="/richtext/cdn">Load from CDN</Link>
-              </nav> */}
           </div>
         </div>
       </div>
