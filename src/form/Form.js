@@ -52,7 +52,7 @@ class Form extends Component {
   }
   render() {
     return (
-      <form ref={el => this.el = el}></form>
+      <form style={{textAlign: 'left'}} ref={el => this.el = el}></form>
     );
   }
 }
