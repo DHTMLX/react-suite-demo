@@ -10,7 +10,7 @@ class Tree extends Component {
       css: css,
       keyNavigation: keyNavigation,
       autoload: autoload,
-      checkbox: true,
+      checkbox: checkbox,
       data: data
     })
   }
