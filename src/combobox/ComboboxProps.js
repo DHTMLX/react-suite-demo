@@ -18,21 +18,21 @@ class Combobox extends Component {
       virtual,
       placeholder, 
     } = this.props
-    this.combobox = new ComboboxDHX(this.el, {
-      data: data,
-      multiselection: multiselection,
-      label: label,
-      labelInline: labelInline,
-      labelWidth: labelWidth,
-      selectAllButton: selectAllButton,
-      required: required,
-      showItemsCount: showItemsCount,
-      virtual: virtual,
-      placeholder: placeholder,
-    })
+      this.combobox = new ComboboxDHX(this.el, {
+        data: data,
+        multiselection: multiselection,
+        label: label,
+        labelInline: labelInline,
+        labelWidth: labelWidth,
+        selectAllButton: selectAllButton,
+        required: required,
+        showItemsCount: showItemsCount,
+        virtual: virtual,
+        placeholder: placeholder,
+      })
   }
   componentWillUnmount() {
-    // this.combobox.destructor();
+    this.combobox.destructor();
   }
   render() {
     return (

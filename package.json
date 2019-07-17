@@ -9,6 +9,7 @@
     "dhx-suite": "^6.0.2",
     "dhx-vault": "^3.0.0",
     "from-cdn": "^1.0.0",
+    "loadash": "^1.0.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "react-router-dom": "^4.3.1",

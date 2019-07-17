@@ -7,10 +7,10 @@ import "dhx-suite/codebase/suite.css";
 class Combobox extends PureComponent {
   componentDidMount() {
     this.combobox = new ComboboxDHX(this.el)
-    this.combobox.data.load('./static/combobox.json')
+    this.combobox && this.combobox.data.load('./static/combobox.json')
   }
   componentWillUnmount() {
-    // this.combobox.destructor();
+    this.combobox && this.combobox.destructor();
   }
   render() {
     return (

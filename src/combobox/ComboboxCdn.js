@@ -24,7 +24,7 @@ class ComboboxCDN extends Component {
   }
   componentWillUnmount() {
     if (this.combobox) {
-			// this.combobox.destructor();
+			this.combobox.destructor();
 		}
   }
   render() {

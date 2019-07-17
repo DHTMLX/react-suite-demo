@@ -23,6 +23,7 @@ import MenuPage from './menu/MenuPage';
 import FormPage from './form/FormPage';
 import TabbarPage from './tabbar/TabbarPage';
 import ComboboxPage from './combobox/ComboboxPage';
+import TreePage from './tree/TreePage';
 
 class App extends PureComponent {
   constructor(props) {
@@ -192,6 +193,13 @@ class App extends PureComponent {
             />
             <Route path="/combobox" component={() => (
               <ComboboxPage 
+                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                setActiveExapmle = {id => this.setActiveExapmle(id)}
+                />
+              )}
+            />
+            <Route path="/tree" component={() => (
+              <TreePage 
                 handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
                 setActiveExapmle = {id => this.setActiveExapmle(id)}
                 />
