@@ -21,6 +21,7 @@ import ListPage from './list/ListPage';
 import GridPage from './grid/GridPage';
 import MenuPage from './menu/MenuPage';
 import FormPage from './form/FormPage';
+import TabbarPage from './tabbar/TabbarPage';
 
 class App extends PureComponent {
   constructor(props) {
@@ -176,6 +177,13 @@ class App extends PureComponent {
             />
             <Route path="/form" component={() => (
               <FormPage 
+                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                setActiveExapmle = {id => this.setActiveExapmle(id)}
+                />
+              )}
+            />
+            <Route path="/tabbar" component={() => (
+              <TabbarPage 
                 handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
                 setActiveExapmle = {id => this.setActiveExapmle(id)}
                 />

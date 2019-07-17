@@ -92,6 +92,12 @@ import {
 					group: "nav",
 					twoState: true
 				},
+				{
+					value: 'Tabbar',
+					id: 'tabbar-link',
+					group: "nav",
+					twoState: true
+				},
 			]
 		});
 		const activeWidget = window.location.pathname.slice(1)

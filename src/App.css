@@ -81,7 +81,7 @@
 	margin: 0;
 	margin-bottom: 24px;
 }
-.hgroup h3 {
+.hgroup h3:not([class*="dhx_"]) {
 	margin-top: 0;
 	padding: 0 30px;
 	position: relative;
