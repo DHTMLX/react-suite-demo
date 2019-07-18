@@ -24,6 +24,7 @@ import FormPage from './form/FormPage';
 import TabbarPage from './tabbar/TabbarPage';
 import ComboboxPage from './combobox/ComboboxPage';
 import TreePage from './tree/TreePage';
+import TreegridPage from './treegrid/TreegridPage';
 
 class App extends PureComponent {
   constructor(props) {
@@ -200,6 +201,13 @@ class App extends PureComponent {
             />
             <Route path="/tree" component={() => (
               <TreePage 
+                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                setActiveExapmle = {id => this.setActiveExapmle(id)}
+                />
+              )}
+            />
+            <Route path="/treegrid" component={() => (
+              <TreegridPage 
                 handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
                 setActiveExapmle = {id => this.setActiveExapmle(id)}
                 />
