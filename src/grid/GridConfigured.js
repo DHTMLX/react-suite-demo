@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Grid as GridDHX } from "dhx-suite";
+import { Grid as GridDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.css";
 
 class GridConfigured extends Component {
@@ -37,7 +37,10 @@ class GridConfigured extends Component {
 GridConfigured.propTypes = {
   columns: PropTypes.array,
 	spans: PropTypes.array,
-	data: PropTypes.array,
+	data: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.instanceOf(TreeCollection)
+  ]),
 	headerRowHeight: PropTypes.number,
 	footerRowHeight: PropTypes.number,
 	columnsAutoWidth: PropTypes.oneOfType([

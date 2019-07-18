@@ -1,6 +1,6 @@
 import React, { Component, PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Grid as GridDHX, DataCollection } from "dhx-suite";
+import { Grid as GridDHX, TreeCollection } from "dhx-suite";
 
 import "dhx-suite/codebase/suite.css";
 
@@ -32,10 +32,9 @@ class GridData extends PureComponent {
     this.state = {
       firstItem: null,
     }
-    this.data = new DataCollection()
+    this.data = new TreeCollection()
 
     this.data.events.on('load', () => {
-      console.log('object',this.data.getId(0), this.data.getItem(this.data.getId(0)))
       this.setState({
         firstItem: this.data.getItem(this.data.getId(0)).country,
       })
@@ -43,7 +42,6 @@ class GridData extends PureComponent {
 
     this.data.load('./static/grid.json').then(() => {
       this.data.events.on('change', () => {
-        console.log('object',this.data.getId(0), this.data.getItem(this.data.getId(0)))
         this.setState({
           firstItem: this.data.getItem(this.data.getId(0)).country,
         })
@@ -97,7 +95,10 @@ class GridData extends PureComponent {
 Grid.propTypes = {
   columns: PropTypes.array,
 	spans: PropTypes.array,
-	data: PropTypes.object,
+	data: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.instanceOf(TreeCollection)
+  ]),
 	headerRowHeight: PropTypes.number,
 	footerRowHeight: PropTypes.number,
 	columnsAutoWidth: PropTypes.oneOfType([

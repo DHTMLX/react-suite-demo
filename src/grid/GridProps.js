@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Grid as GridDHX, DataCollection } from "dhx-suite";
+import { Grid as GridDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.css";
 
 class Grid extends Component {
@@ -27,7 +27,7 @@ class Grid extends Component {
 
 class GridProps extends Component {
   getData() {
-    const data = new DataCollection()
+    const data = new TreeCollection()
     data.load('./static/grid.json')
     return data
   }
@@ -58,7 +58,10 @@ class GridProps extends Component {
 GridProps.propTypes = {
   columns: PropTypes.array,
 	spans: PropTypes.array,
-	data: PropTypes.array,
+	data: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.instanceOf(TreeCollection)
+  ]),
 	headerRowHeight: PropTypes.number,
 	footerRowHeight: PropTypes.number,
 	columnsAutoWidth: PropTypes.oneOfType([
