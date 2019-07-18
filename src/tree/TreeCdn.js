@@ -16,7 +16,7 @@ class TreeCDN extends Component {
     this.ready.then(() => {
       /* global dhx */
 			this.tree = new dhx.Tree(this.el, {
-        css: "dhx_widget--bordered dhx_widget--bg_white",
+        css: "dhx_widget--bg_white",
       });
       this.tree.data.load('./static/tree.json')
       if (this.props.ready) {

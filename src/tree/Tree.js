@@ -7,7 +7,7 @@ import "dhx-suite/codebase/suite.css";
 class Tree extends Component {
   componentDidMount() {
     this.tree = new TreeDHX(this.el, {
-      css: "dhx_widget--bordered dhx_widget--bg_white",
+      css: "dhx_widget--bg_white",
     });
     this.tree.data.load('./static/tree.json')
   }

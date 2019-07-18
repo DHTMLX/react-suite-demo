@@ -35,7 +35,7 @@ class TreeProps extends Component {
   render() {
     return (
       <Tree 
-        css={"dhx_widget--bordered dhx_widget--bg_white"}
+        css={"dhx_widget--bg_white"}
         keyNavigation={true}
         autoload={true}
         checkbox={true}
