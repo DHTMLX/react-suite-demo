@@ -10,7 +10,7 @@ class Combobox extends PureComponent {
     this.combobox && this.combobox.data.load('./static/combobox.json')
   }
   componentWillUnmount() {
-    this.combobox && this.combobox.destructor();
+    this.combobox.destructor();
   }
   render() {
     return (
