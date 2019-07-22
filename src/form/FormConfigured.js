@@ -34,7 +34,6 @@ class FormConfigured extends Component {
           label: "I agree",
           name: "agree",
           labelInline: true,
-          id: "agree",
           value: "checkboxvalue",
         },
         {
