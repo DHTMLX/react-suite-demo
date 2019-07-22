@@ -16,7 +16,7 @@ class Tree extends Component {
   }
   render() {
     return (
-      <div style={{minWidth: 270}} ref={el => this.el = el}></div>
+      <div style={{minWidth: 270, padding: 10, background: '#fff'}} ref={el => this.el = el}></div>
     );
   }
 }
