@@ -177,7 +177,7 @@ import {
   }
 	render() {
 		return (
-			<div style={{maxHeight: "100%"}} ref={el => this.el = el}>
+			<div style={{maxHeight: "100vh"}} ref={el => this.el = el}>
 				
 			</div>
 		)
