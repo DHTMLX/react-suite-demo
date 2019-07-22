@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { alert as dhxAlert, confirm as dhxConfirm, message as dhxMessage} from "dhx-suite";
-import "dhx-suite/codebase/suite.css";
+import "dhx-suite/codebase/suite.min.css";
 
 
 class Message extends Component {

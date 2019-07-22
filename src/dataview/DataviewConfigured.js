@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { DataView as DataviewDHX, DataCollection } from "dhx-suite";
-import "dhx-suite/codebase/suite.css";
+import "dhx-suite/codebase/suite.min.css";
 
 const template = (item) => (
   `<div class='item_wrap item-wrap--grid'>

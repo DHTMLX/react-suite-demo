@@ -2,7 +2,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Combobox as ComboboxDHX, DataCollection } from "dhx-suite";
-import "dhx-suite/codebase/suite.css";
+import "dhx-suite/codebase/suite.min.css";
 
 class Combobox extends PureComponent {
   componentDidMount() {

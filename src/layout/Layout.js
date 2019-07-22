@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Layout as LayoutDHX } from "dhx-suite";
 import ReactDOMServer from 'react-dom/server';
-import "dhx-suite/codebase/suite.css";
+import "dhx-suite/codebase/suite.min.css";
 
 class Test extends Component {
 	constructor(){

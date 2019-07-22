@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Layout as LayoutDHX } from "dhx-suite";
-import "dhx-suite/codebase/suite.css";
+import "dhx-suite/codebase/suite.min.css";
 
 class LayoutConfigured extends Component {
   componentDidMount() {

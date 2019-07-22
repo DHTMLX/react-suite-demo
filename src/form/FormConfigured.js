@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Form as FormDHX } from "dhx-suite";
-import "dhx-suite/codebase/suite.css";
+import "dhx-suite/codebase/suite.min.css";
 
 class FormConfigured extends Component {
   componentDidMount() {

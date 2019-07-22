@@ -2,7 +2,7 @@ import React, { Component, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { DataView as DataviewDHX, DataCollection } from "dhx-suite";
 
-import "dhx-suite/codebase/suite.css";
+import "dhx-suite/codebase/suite.min.css";
 import "@mdi/font/css/materialdesignicons.min.css";
 
 

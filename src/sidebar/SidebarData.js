@@ -1,7 +1,7 @@
 import React, { Component, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Sidebar as SidebarDHX, TreeCollection } from "dhx-suite";
-import "dhx-suite/codebase/suite.css";
+import "dhx-suite/codebase/suite.min.css";
 
 class Sidebar extends Component {
   componentDidMount() {

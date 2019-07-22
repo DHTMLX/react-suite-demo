@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Route } from "react-router-dom";
 import './App.css';
-import "dhx-suite/codebase/suite.css";
+import "dhx-suite/codebase/suite.min.css";
 
 import { isEqual } from 'lodash';
 
