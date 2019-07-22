@@ -26,6 +26,10 @@ import ComboboxPage from './combobox/ComboboxPage';
 import TreePage from './tree/TreePage';
 import TreegridPage from './treegrid/TreegridPage';
 import ChartPage from './chart/ChartPage';
+import LayoutPage from './layout/LayoutPage';
+import WindowPage from './window/WindowPage';
+import MessagePage from './message/MessagePage';
+import PopupPage from './popup/PopupPage';
 
 class App extends PureComponent {
   constructor(props) {
@@ -216,6 +220,34 @@ class App extends PureComponent {
             />
             <Route path="/chart" component={() => (
               <ChartPage 
+                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                setActiveExapmle = {id => this.setActiveExapmle(id)}
+                />
+              )}
+            />
+            {/* <Route path="/layout" component={() => (
+              <LayoutPage 
+                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                setActiveExapmle = {id => this.setActiveExapmle(id)}
+                />
+              )}
+            /> */}
+            <Route path="/window" component={() => (
+              <WindowPage 
+                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                setActiveExapmle = {id => this.setActiveExapmle(id)}
+                />
+              )}
+            />
+            <Route path="/message" component={() => (
+              <MessagePage 
+                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                setActiveExapmle = {id => this.setActiveExapmle(id)}
+                />
+              )}
+            />
+            <Route path="/popup" component={() => (
+              <PopupPage 
                 handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
                 setActiveExapmle = {id => this.setActiveExapmle(id)}
                 />

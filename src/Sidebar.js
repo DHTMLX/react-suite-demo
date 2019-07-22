@@ -122,6 +122,30 @@ import {
 					group: "nav",
 					twoState: true
 				},
+				// {
+				// 	value: 'Layout',
+				// 	id: 'layout-link',
+				// 	group: "nav",
+				// 	twoState: true
+				// },
+				{
+					value: 'Window',
+					id: 'window-link',
+					group: "nav",
+					twoState: true
+				},
+				{
+					value: 'Message',
+					id: 'message-link',
+					group: "nav",
+					twoState: true
+				},
+				{
+					value: 'Popup',
+					id: 'popup-link',
+					group: "nav",
+					twoState: true
+				},
 			]
 		});
 		const activeWidget = window.location.pathname.slice(1)
