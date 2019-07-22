@@ -33,22 +33,29 @@ class TreeData extends PureComponent {
       count: 0
     }
     this.data = new TreeCollection();
-
+    this.data.events.on('load', () => {
+      let i = this.data.map(item => item.opened ? 1 : 0).reduce((a, b) => a + b, 0)
+        this.setState({
+          count: i
+        })
+    })
     this.data.load('./static/tree.json').then(() => {
       this.data.events.on('change', () => {
+        let i = this.data.map(item => item.opened ? 1 : 0).reduce((a, b) => a + b, 0)
         this.setState({
-          count: this.data.getItem('add').count
+          count: i
         })
       })
     })
   }
-
-  handleClickAdd() {
-    this.data.update('add', {count: this.data.getItem('add').count + 1})
+  
+  handleClick() {
+    this.data.map(item => this.data.update(item.id, {opened: false}))
+    this.setState({
+      count: 0
+    })
   }
-  handleClickReset() {
-    this.data.update('add', {count: 0})
-  }
+  
 
   render() {
     return ( 
@@ -56,12 +63,12 @@ class TreeData extends PureComponent {
         <Tree 
           css={"dhx_widget--bg_white"}
           keyNavigation={true}
-          autoload={false}
+          autoload={true}
           checkbox={true}
           data={this.data}
         />
         <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
-          <button className="button" onClick={() => this.handleClickAdd()}>Increment notifications</button>
+          <button className="button" onClick={() => this.handleClick()} disabled={!this.state.count}>{this.state.count ? `Collapse ${this.state.count} item(s)` : 'Nothing to collapse'} </button>
         </div>
       </div>
     );

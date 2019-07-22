@@ -40,7 +40,6 @@
 	color: #fff;
 	border-radius: 32px;
 	text-decoration: none;
-	text-transform: capitalize;
 	transition: background 0.2s ease-in-out;
 }
 .trial-button button:hover, .button:hover{
