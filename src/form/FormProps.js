@@ -16,7 +16,7 @@ class Form extends Component {
     })
   }
   componentWillUnmount() {
-    this.form.destructor();
+    this.form && this.form.destructor();
   }
   render() {
     return (
