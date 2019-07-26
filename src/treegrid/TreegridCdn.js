@@ -9,7 +9,7 @@ class TreegridCDN extends Component {
 
     this.ready = fromCDN([
       "https://cdn.dhtmlx.com/suite/edge/suite.js",
-      "https://cdn.dhtmlx.com/suite/edge/suite.min.css"
+      "https://cdn.dhtmlx.com/suite/edge/suite.css"
     ]);
   }
   componentDidMount() {
