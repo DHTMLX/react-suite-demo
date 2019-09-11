@@ -15,7 +15,7 @@ class TreegridCDN extends Component {
   componentDidMount() {
     this.ready.then(() => {
       /* global dhx */
-			this.treegrid = new dhx.TreeGrid(this.el, {
+			this.treegrid = new dhx.Treegrid(this.el, {
         css: "dhx_widget--bordered",
         width: 1020,
         height: 500,

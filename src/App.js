@@ -24,9 +24,9 @@ import FormPage from './form/FormPage';
 import TabbarPage from './tabbar/TabbarPage';
 import ComboboxPage from './combobox/ComboboxPage';
 import TreePage from './tree/TreePage';
-import TreegridPage from './treegrid/TreegridPage';
+// import TreegridPage from './treegrid/TreegridPage';
 import ChartPage from './chart/ChartPage';
-import LayoutPage from './layout/LayoutPage';
+// import LayoutPage from './layout/LayoutPage';
 import WindowPage from './window/WindowPage';
 import MessagePage from './message/MessagePage';
 import PopupPage from './popup/PopupPage';
@@ -211,13 +211,6 @@ class App extends PureComponent {
                 />
               )}
             />
-            <Route path="/treegrid" component={() => (
-              <TreegridPage 
-                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                setActiveExapmle = {id => this.setActiveExapmle(id)}
-                />
-              )}
-            />
             <Route path="/chart" component={() => (
               <ChartPage 
                 handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
@@ -225,13 +218,6 @@ class App extends PureComponent {
                 />
               )}
             />
-            {/* <Route path="/layout" component={() => (
-              <LayoutPage 
-                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                setActiveExapmle = {id => this.setActiveExapmle(id)}
-                />
-              )}
-            /> */}
             <Route path="/window" component={() => (
               <WindowPage 
                 handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}

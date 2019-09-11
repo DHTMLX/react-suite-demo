@@ -75,10 +75,11 @@ class Toolbar extends Component {
         type: "spacer"
       }]
     });
+    this.toolbar.events.on('click', id => this.handleClick(id))
   }
 
   handleClick(id) {
-    message({position: "top-right", expire: 3000, text:  `"Click id: ${id}`, icon: "dxi dxi-close" });
+    id && message({position: "top-right", expire: 3000, text:  `"Click id: ${id}`, icon: "dxi dxi-close" });
   }
 
   componentWillUnmount() {
@@ -89,16 +90,12 @@ class Toolbar extends Component {
     return (
       <div 
         style = {{width: '100%'}}
-        onClick = {(item) => this.handleClick(item.target.getAttribute("dhx_id"))}
         ref = {el => this.el = el} > 
       </div>
     );
   }
 }
 class ToolbarEvents extends Component {
-  handleClick(item) {
-    console.log(item)
-  }
   render() {
     return (
       <Toolbar/> 

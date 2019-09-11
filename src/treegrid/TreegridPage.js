@@ -44,7 +44,7 @@ export default class TreegridPage extends Component {
 						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/treegrid/TreegridCDN.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
-						<TreegridCdn /> 
+						{/* <TreegridCdn />  */}
 					</div>
 					
 				</section>
