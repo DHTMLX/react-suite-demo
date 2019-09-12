@@ -110,12 +110,12 @@ import {
 					group: "nav",
 					twoState: true
 				},
-				{
-					value: 'Treegrid',
-					id: 'treegrid-link',
-					group: "nav",
-					twoState: true
-				},
+				// {
+				// 	value: 'Treegrid',
+				// 	id: 'treegrid-link',
+				// 	group: "nav",
+				// 	twoState: true
+				// },
 				{
 					value: 'Chart',
 					id: 'chart-link',

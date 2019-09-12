@@ -40,7 +40,6 @@ class App extends PureComponent {
     }
   }
   componentDidMount() {
-    console.log('app componentDidMount')
     let idFromUrlHash = window.location.hash.slice(1)
     setTimeout(() => {
       if (this.el && this.state.toolbarNav.includes(idFromUrlHash)) {
