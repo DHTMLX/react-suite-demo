@@ -1,0 +1,35 @@
+.dhx_dataview-item:after {
+	content: "";
+	display: block;
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+}
+.app-card {
+	/* cursor: pointer; */
+}
+.app-card__inner {
+	cursor: pointer;
+	position: relative;
+}
+.app-card__image {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -80%);
+}
+.app-card__inner:hover {
+	background-size: 65px;
+}
+
+.app-card__header {
+	position: absolute;
+	left: 50%;
+	bottom: 0px;
+	margin-bottom: 0;
+	color: #03A9F4;
+	transform: translateX(-50%)
+}

@@ -7,7 +7,7 @@ import { isEqual } from 'lodash';
 
 import Sidebar from './Sidebar';
 import Toolbar from './Toolbar';
-import About from './About'
+import Dataview from './Dataview'
 
 import CalendarPage from './calendar/CalendarPage';
 import ToolbarPage from './toolbar/ToolbarPage';
@@ -94,7 +94,7 @@ class App extends PureComponent {
   }
   render() {
     return (
-      <div className='app-screen' style={{minHeight: '100vh', display: 'flex'}}>
+      <div className='app-screen' style={{minHeight: '100vh', maxHeight: '100vh', display: 'flex', overflow: "hidden"}}>
         <Sidebar handleActiveWidgetChange={(activeWidget) => this.setActiveWidget(activeWidget)}/>
         <div className="app-screen__inner"  style={{flexBasis: 'auto', flexGrow: 1}}>
           <Toolbar 
@@ -104,7 +104,7 @@ class App extends PureComponent {
             toolbarNav={this.state.toolbarNav}/>
           <div className='app-content' 
             ref={(el) => this.el = el} 
-            style={{maxHeight: 'calc(100vh - 57px)', overflow: 'auto'}}>
+            style={{height: 'calc(100vh - 57px)', overflow: 'auto', display: "flex"}}>
             <Route path="/calendar" component={() => (
               <CalendarPage 
                 handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
@@ -239,8 +239,8 @@ class App extends PureComponent {
               )}
             />
             <Route exact path="/" render={() => (
-              <About handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}/>
-              )} 
+              <Dataview handleActiveWidgetChange={(activeWidget) => this.setActiveWidget(activeWidget)}/>
+            )} 
             />
           </div>
         </div>
