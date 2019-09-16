@@ -95,6 +95,10 @@ class Dataview extends PureComponent {
 					value: 'Popup',
 					id: 'popup-link',
 				},
+				{
+					value: 'Pivot',
+					id: 'pivot-link',
+				},
 			]
 		});
 		this.dataview.events.on('click', (id) => {

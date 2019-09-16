@@ -30,6 +30,7 @@ import ChartPage from './chart/ChartPage';
 import WindowPage from './window/WindowPage';
 import MessagePage from './message/MessagePage';
 import PopupPage from './popup/PopupPage';
+import PivotPage from './pivot/PivotPage';
 
 class App extends PureComponent {
   constructor(props) {
@@ -233,6 +234,13 @@ class App extends PureComponent {
             />
             <Route path="/popup" component={() => (
               <PopupPage 
+                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                setActiveExapmle = {id => this.setActiveExapmle(id)}
+                />
+              )}
+            />
+            <Route path="/pivot" component={() => (
+              <PivotPage 
                 handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
                 setActiveExapmle = {id => this.setActiveExapmle(id)}
                 />

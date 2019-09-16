@@ -2286,6 +2286,11 @@ detect-port-alt@1.1.6:
     address "^1.0.1"
     debug "^2.6.0"
 
+dhx-pivot@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/dhx-pivot/-/dhx-pivot-1.4.0.tgz#6075316b45f7c52c7dcd08d16dda7bc0806a1b2c"
+  integrity sha512-/ZRZg4i/RbMs/BeoexSvIeoRAN5GHdp1i7QxSCfRxpRzcecErorGFg1wO8fOfd4M419Ymof/Et6yiYb3v88tJg==
+
 dhx-richtext@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/dhx-richtext/-/dhx-richtext-1.1.1.tgz#6d0afbfe82ddcd2c744da20b40a087bfc37b070a"
@@ -2296,10 +2301,10 @@ dhx-spreadsheet@^3.0.0:
   resolved "https://registry.yarnpkg.com/dhx-spreadsheet/-/dhx-spreadsheet-3.0.2.tgz#4d669a1da70ff1b5f4084ea9d3abc218e5c243b6"
   integrity sha512-V0S/qnMwabr2jFPcqiIhgE6Q29pNh1fJ6KtRd9cE25XovD0v7+m8qETvbaCc+3YJ3X2ADJozbyaMgEpCkV9ICA==
 
-dhx-suite@^6.0.3:
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/dhx-suite/-/dhx-suite-6.0.3.tgz#22870982bad9da44630fa2cdf7c75714ce34e44f"
-  integrity sha512-gMBC2M2LqZJmIsp83b8prSvCpGlFWwA7boDKbDYjZf1N71M0Y0pQLbTA5qzeGCxoIJu8Tdvi0gRmCjGBVR2bvA==
+dhx-suite@^6.1.3:
+  version "6.1.5"
+  resolved "https://registry.yarnpkg.com/dhx-suite/-/dhx-suite-6.1.5.tgz#31d260b684cb26b2a9592b1c5715dbda43a582c5"
+  integrity sha512-wX47RCxfS2IJFK4U9fSf2XGaDmXMvIc0e5eygOgRbXts1/5U0l0OEFMvnINXe87boTFsJ7MJydSBmPBXml+eOA==
 
 dhx-vault@^3.0.0:
   version "3.0.0"
