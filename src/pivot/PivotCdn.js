@@ -2,26 +2,41 @@
 import React, { Component } from 'react';
 import fromCDN from "from-cdn";
 import PropTypes from 'prop-types';
+import dataset from "./dataset"
+import { Pivot as PivotDHX, css } from "dhx-pivot";
 
 class PivotCDN extends Component {
   constructor(props) {
     super(props);
 
     this.ready = fromCDN([
-      "https://cdn.dhtmlx.com/suite/edge/suite.js",
-      "https://cdn.dhtmlx.com/suite/edge/suite.css"
+      "https://cdn.dhtmlx.com/pivot/edge/pivot.js",
+      "https://cdn.dhtmlx.com/pivot/edge/pivot.css"
     ]);
   }
   componentDidMount() {
     this.ready.then(() => {
       /* global dhx */
-			this.pivot = new dhx.Pivot(this.el, {
-        css: "dhx_widget--bordered",
-      });
-
-      if (this.props.ready) {
-        this.props.ready(this.pivot);
-			}
+      if (this.el) {
+        this.pivot = new dhx.Pivot(this.el, {
+          data: dataset,
+          fields: {
+            rows: ["form", "name"],
+            columns: ["year"],
+            values: [{ id: "oil", method: "count" }, { id: "oil", method: "sum" }],
+          },
+          fieldList: [
+            { id: "name", label: "Name" },
+            { id: "year", label: "Year" },
+            { id: "continent", label: "Continent" },
+            { id: "form", label: "Form" },
+            { id: "gdp", label: "GDP" },
+            { id: "oil", label: "Oil" },
+            { id: "balance", label: "Balance" },
+            { id: "when", label: "When", type: "date", format: "%d/%m/%Y" }
+          ]
+        });
+      }
     });
   }
   componentWillUnmount() {
@@ -31,10 +46,13 @@ class PivotCDN extends Component {
   }
   render() {
     return (
-      <div ref={el => this.el = el}></div>
+      <div ref={el => this.el = el} style={{textAlign: 'left', minHeight: '800px'}}></div>
     );
   }
 }
 PivotCDN.propTypes = {
+  data: PropTypes.array,
+  fields: PropTypes.array,
+  fieldList: PropTypes.array,
 };
 export default PivotCDN;

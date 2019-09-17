@@ -7,10 +7,11 @@ import dataset from "./dataset"
 
 class Pivot extends Component {
   componentDidMount() {
-    console.log(dataset);
-    window.dhx = {}
-    window.dhx.css = css;
-    // window.dhx.css.add = () => null;
+    if (!window.dhx || !window.dhx.css) {
+      window.dhx = {}
+      window.dhx.css = css
+    }
+        
     this.pivot = new PivotDHX(this.el, {
         data: dataset,
 				fields: {
@@ -31,16 +32,18 @@ class Pivot extends Component {
     });
   }
   componentWillUnmount() {
-    // this.pivot.destructor();
+    this.pivot.destructor();
   }
   render() {
     return (
-      <div ref={el => this.el = el}></div>
+      <div ref={el => this.el = el} style={{textAlign: 'left', minHeight: '800px'}}></div>
     );
   }
 }
 Pivot.propTypes = {
-  
+  data: PropTypes.array,
+  fields: PropTypes.array,
+  fieldList: PropTypes.array,
 };
 
 export default Pivot;

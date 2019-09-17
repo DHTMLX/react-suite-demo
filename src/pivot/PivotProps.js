@@ -1,14 +1,20 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Pivot as PivotDHX } from "dhx-pivot";
+import { Pivot as PivotDHX, css } from "dhx-pivot";
+import dataset from "./dataset"
 
 class Pivot extends Component {
   componentDidMount() {
-    window.dhx.css = {}
-    let { css } = this.props
+    if (!window.dhx && !(window.dhx && window.dhx.css)) {
+      window.dhx = {}
+      window.dhx.css = css
+    }
+    let { data, fieldList, fields } = this.props
     this.pivot = new PivotDHX(this.el, {
-      css: css,
+      data: data,
+      fields: fields,
+      fieldList: fieldList
     })
   }
   componentWillUnmount() {
@@ -16,7 +22,7 @@ class Pivot extends Component {
   }
   render() {
     return (
-      <div ref={el => this.el = el}></div>
+      <div ref={el => this.el = el} style={{textAlign: 'left', minHeight: '800px'}}></div>
     );
   }
 } 
@@ -25,13 +31,34 @@ class PivotProps extends Component {
   render() {
     return (
       <Pivot 
-				css="dhx_widget--bordered"
+        data={dataset} 
+        fields = {
+          {
+            rows: ["form", "name"],
+            columns: ["year"],
+            values: [{ id: "oil", method: "count" }, { id: "oil", method: "sum" }]
+          }
+        }
+        fieldList = {
+          [
+            { id: "name", label: "Name" },
+            { id: "year", label: "Year" },
+            { id: "continent", label: "Continent" },
+            { id: "form", label: "Form" },
+            { id: "gdp", label: "GDP" },
+            { id: "oil", label: "Oil" },
+            { id: "balance", label: "Balance" },
+            { id: "when", label: "When", type: "date", format: "%d/%m/%Y" }
+          ]
+        }
       />
     );
   }
 }
 PivotProps.propTypes = {
-  
+  data: PropTypes.array,
+  fields: PropTypes.array,
+  fieldList: PropTypes.array,
 };
 
 export default PivotProps;

@@ -32,7 +32,7 @@ export default class PivotPage extends Component {
 						<Pivot /> 
 					</div>
 				</section>
-				{/* <section className="hgroup" id="cdn">
+				<section className="hgroup" id="cdn">
 					<h3>
 						CDN basic inintialization 
 						<a href="#cdn" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'cdn')}>
@@ -74,7 +74,7 @@ export default class PivotPage extends Component {
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<PivotProps />
 					</div>
-				</section> */}
+				</section>
 			</main>
 		)
 	}
