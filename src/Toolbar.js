@@ -113,6 +113,11 @@ export default class Toolbar extends PureComponent {
 		this.toolbar.data.update('basic_link', {active: true})
 		
 		if (this.props.toolbarNav.length > 0) {
+			const itemsToHide = ['separ', 'basic_link', 'cdn_link', 'pre_link', 'props_link', 'events_link', 'data_link', 'doc']
+			itemsToHide.map(item => {
+				this.toolbar.data.update(item, {hidden: true})
+				return null
+			})
 			this.props.toolbarNav.map(item => {
 				this.toolbar.data.update(item + "_link", {hidden: false})
 				return null
