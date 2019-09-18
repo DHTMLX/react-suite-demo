@@ -8,7 +8,6 @@ class SidebarConfigured extends Component {
   componentDidMount() {
     this.sidebar = new SidebarDHX(this.el, {
       css: 'dhx_widget--bordered dhx_widget--bg_white',
-      width: 300,
       minWidth: 120,
       collapsed: false
     });

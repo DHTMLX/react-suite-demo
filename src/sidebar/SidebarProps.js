@@ -37,7 +37,7 @@ class SidebarProps extends Component {
     return (
       <Sidebar 
 				css="dhx_widget--bordered dhx_widget--bg_white"
-        width= {300}
+        width= {200}
         minWidth= {120}
         collapsed= {false}
         data={this.getData()}
