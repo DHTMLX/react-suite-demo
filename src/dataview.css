@@ -7,7 +7,14 @@
 	right: 0;
 	bottom: 0;
 	top: 0;
+	box-shadow: 0 2px 4px rgba(0,0,0,.15);
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
 }
+.dhx_dataview-item:hover:after  {
+	opacity: 1;
+}
+
 .app-card {
 	/* cursor: pointer; */
 }
