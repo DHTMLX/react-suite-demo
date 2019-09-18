@@ -41,5 +41,6 @@ class PopupCDN extends Component {
   }
 }
 PopupCDN.propTypes = {
+  css: PropTypes.string,
 };
 export default PopupCDN;

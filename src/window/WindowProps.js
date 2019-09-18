@@ -31,7 +31,26 @@ class WindowProps extends Component {
   }
 }
 WindowProps.propTypes = {
-  
+  css: PropTypes.string,
+
+	title: PropTypes.string,
+	html: PropTypes.string,
+
+	minWidth: PropTypes.number,
+	minHeight: PropTypes.number,
+
+	left: PropTypes.number,
+	top: PropTypes.number,
+	width: PropTypes.number,
+	height: PropTypes.number,
+
+	footer: PropTypes.bool,
+	header: PropTypes.bool,
+	viewportOverflow: PropTypes.bool,
+	resizable: PropTypes.bool,
+	movable: PropTypes.bool,
+	modal: PropTypes.bool,
+	closable: PropTypes.bool,
 };
 
 export default WindowProps;

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import fromCDN from "from-cdn";
 import PropTypes from 'prop-types';
 import dataset from "./dataset"
-import { Pivot as PivotDHX, css } from "dhx-pivot";
 
 class PivotCDN extends Component {
   constructor(props) {
