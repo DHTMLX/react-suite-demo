@@ -21,7 +21,7 @@ export default class ComboboxPage extends Component {
 			<main ref={(el) => this.el = el}>
 				<section className="hgroup active" id="basic">
 					<h3>
-						NPM basic inintialization 
+						NPM basic initialization 
 						<a href="#basic" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'basic')}>
 							<img src="/static/link.svg" alt="" />
 						</a>
@@ -35,13 +35,13 @@ export default class ComboboxPage extends Component {
 				</section>
 				<section className="hgroup" id="cdn">
 					<h3>
-						CDN basic inintialization 
+						CDN basic initialization 
 						<a href="#cdn" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'cdn')}>
 							<img src="/static/link.svg" alt="" />
 						</a>
 					</h3>
 					<p>
-						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/combobox/ComboboxCDN.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/combobox/ComboboxCdn.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<ComboboxCdn /> 

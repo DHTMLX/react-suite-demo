@@ -88,7 +88,8 @@ class DataviewData extends PureComponent {
           keyNavigation={true}
         />
         <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
-          <button className="button" onClick={() => this.handleRemoveItem()}>
+          <button className="button" onClick={() => this.handleRemoveItem()}
+            disabled={this.state.itemsCount === 0}>
              Remove one of {this.state.itemsCount} items
           </button>
           <button className="button" onClick={() => this.handleReset()} disabled={this.state.itemsCount !== 0}>

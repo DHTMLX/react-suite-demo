@@ -55,8 +55,8 @@ class ToolbarData extends PureComponent {
           data={this.data}
         />
         <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
-          <button className="button" onClick={() => this.handleClickAdd()}>Increment notifications</button>
-          <button className="button" onClick={() => this.handleClickReset()} disabled={(!this.state.count)}>Reset {this.state.count} notifications</button>
+          <button className="button" onClick={() => this.handleClickAdd()}>Add notification</button>
+          <button className="button" onClick={() => this.handleClickReset()} disabled={(!this.state.count)}>Reset {this.state.count} notification(s))</button>
         </div>
       </div>
     );
