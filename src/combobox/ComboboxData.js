@@ -70,12 +70,16 @@ class ComboboxData extends PureComponent {
   handleRemoveItem() {
     this.data.remove(this.data.getId(this.data.getLength() - 1))
   }
+  handleClick() {
+    console.log(this.data)
+    this.data.map(item =>console.log('item.id', item.id) || this.data.update(item.id, {$selected: true}))
+  }
   handleReset() {
     this.data.load('./static/combobox.json')
   }
   render() {
     return ( 
-      <div>
+      <div style={{ maxWidth: 400}}>
         <Combobox 
           data={this.data}
           multiselection={true}
@@ -84,13 +88,12 @@ class ComboboxData extends PureComponent {
           labelWidth={150}
           selectAllButton={true}
           required={true}
-          showItemsCount={true}
           virtual={true}
           placeholder={"Click to choose"}
         />
         <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
-          <button className="button" onClick={() => this.handleRemoveItem()}>
-             Remove one of {this.state.itemsCount} items
+          <button className="button" onClick={() => this.handleClick()}>
+            Select {this.state.itemsCount} items
           </button>
           <button className="button" onClick={() => this.handleReset()} disabled={this.state.itemsCount !== 0}>
             Reset 

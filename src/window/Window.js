@@ -15,15 +15,12 @@ class Window extends Component {
       closable: true
     });
   }
-  handleShow = () => {
-    this.window.show()
-  }
   componentWillUnmount() {
     this.window && this.window.destructor();
   }
   render() {
     return (
-      <button className="button" onClick={() => this.handleShow()}>
+      <button className="button" onClick={() => this.window.show()}>
         Show Window 
       </button>
     );

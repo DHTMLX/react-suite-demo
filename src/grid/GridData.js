@@ -36,14 +36,14 @@ class GridData extends PureComponent {
 
     this.data.events.on('load', () => {
       this.setState({
-        firstItem: this.data.getItem(this.data.getId(0)).country,
+        firstItem: this.data.getId(0) ? this.data.getItem(this.data.getId(0)).country : '',
       })
     })
 
     this.data.load('./static/grid.json').then(() => {
       this.data.events.on('change', () => {
         this.setState({
-          firstItem: this.data.getItem(this.data.getId(0)).country,
+          firstItem: this.data.getId(0) ? this.data.getItem(this.data.getId(0)).country : '',
         })
       })
     })
@@ -52,12 +52,14 @@ class GridData extends PureComponent {
   componentWillUnmount() {
     this.data.events.detach('load')
   }
-  handleRemoveItem() {
-    this.data.remove(this.data.getId(0))
+  handleClick() {
+    if (this.state.firstItem) {
+      this.data.remove(this.data.getId(0))
+    } else {
+      this.data.load('./static/grid.json')
+    }
   }
-  handleReset() {
-    this.data.load('./static/grid.json')
-  }
+  
   render() {
     const columns = [
       { width: 200, id: "country", header: [{ text: "Country" }] },
@@ -81,11 +83,8 @@ class GridData extends PureComponent {
           data={this.data}
         />
         <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
-          <button className="button" onClick={() => this.handleRemoveItem()}>
-             Remove {this.state.firstItem} row
-          </button>
-          <button className="button" onClick={() => this.handleReset()} disabled={this.state.itemsCount !== 0}>
-            Reset 
+          <button className="button" onClick={() => this.handleClick()}>
+            {this.state.firstItem ? `Remove ${this.state.firstItem} row` : 'Reset'}
           </button>
         </div>
       </div>

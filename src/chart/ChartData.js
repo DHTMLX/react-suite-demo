@@ -55,12 +55,12 @@ class ChartData extends PureComponent {
   componentWillUnmount() {
     this.data.events.detach('load')
   }
-  handleRemoveItem() {
-    this.data.remove(this.data.getId(0))
+  handleClick() {
+    this.state.itemsCount === 0 
+      ?  this.data.load('./static/chart.json')
+      : this.data.remove(this.data.getId(0))
   }
-  handleReset() {
-    this.data.load('./static/chart.json')
-  }
+
   render() {
     const scales = {
       "bottom" : {
@@ -91,11 +91,8 @@ class ChartData extends PureComponent {
           data={this.data}
         />
         <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
-          <button className="button" onClick={() => this.handleRemoveItem()} disabled={this.state.itemsCount === 0}>
-            Remove {this.state.firstItem} month data
-          </button>
-          <button className="button" onClick={() => this.handleReset()} disabled={this.state.itemsCount !== 0}>
-            Reset 
+          <button className="button" onClick={() => this.handleClick()} >
+           {this.state.itemsCount === 0 ? 'Reset' : `Remove ${this.state.firstItem} month data`}
           </button>
         </div>
       </div>

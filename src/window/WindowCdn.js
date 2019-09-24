@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import fromCDN from "from-cdn";
 import PropTypes from 'prop-types';
 
@@ -15,8 +15,12 @@ class WindowCDN extends Component {
   componentDidMount() {
     this.ready.then(() => {
       /* global dhx */
-			this.window = new dhx.Window(this.el, {
-        css: "dhx_widget--bordered",
+			this.window = new dhx.Window({
+        width: 440, 
+        height: 520, 
+        title: "Window",
+        closable: true,
+        html: "<p>Here is a neat and flexible JavaScript window system with a fast and simple initialization.</p><p>Inspect all the DHTMLX window samples to discover each and every feature.</p><img style='display: block; width: 200px; height: 200px; margin-top: 20px; margin-left: auto; margin-right: auto' src='./static/developer.svg'>"
       });
 
       if (this.props.ready) {
@@ -31,7 +35,12 @@ class WindowCDN extends Component {
   }
   render() {
     return (
-      <div ref={el => this.el = el}></div>
+      <Fragment>
+        <div ref={el => this.el = el}></div>
+        <button className="button" onClick={() => this.window.show()}>
+          Show Window 
+        </button>
+      </Fragment>
     );
   }
 }

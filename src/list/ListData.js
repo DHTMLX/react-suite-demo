@@ -43,6 +43,7 @@ class ListData extends PureComponent {
     this.data.events.on('load', () => {
       this.setState({
         itemsCount: this.data.getLength(),
+        
       })
     })
 
@@ -58,12 +59,14 @@ class ListData extends PureComponent {
   componentWillUnmount() {
     this.data.events.detach('load')
   }
-  handleRemoveItem() {
-    this.data.remove(this.data.getId(0))
+  handleClick() {
+    if(this.state.itemsCount === 0) {
+      this.data.load('./static/dataview.json')
+    } else {
+      this.data.remove(this.data.getId(0))
+    }
   }
-  handleReset() {
-    this.data.load('./static/dataview.json')
-  }
+
   render() {
     return ( 
       <div>
@@ -77,12 +80,8 @@ class ListData extends PureComponent {
           keyNavigation={true}
         />
         <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
-          <button className="button" onClick={() => this.handleRemoveItem()}
-            disabled={this.state.itemsCount === 0}>
-             Remove first of {this.state.itemsCount} items
-          </button>
-          <button className="button" onClick={() => this.handleReset()} disabled={this.state.itemsCount !== 0}>
-            Reset 
+          <button className="button" onClick={() => this.handleClick()}>
+             {this.state.itemsCount === 0 ? 'Reset' : `Remove first of ${this.state.itemsCount} items`}
           </button>
         </div>
       </div>

@@ -82,10 +82,21 @@ export default class Toolbar extends PureComponent {
 		this.toolbar.events.on('click', id => {
 			switch (id) {
 				case 'doc': 
-					window.open('https://docs.dhtmlx.com/suite/' + this.props.activeWidget.toLowerCase() + '__index.html', '_blank')
+					if (this.props.activeWidget === 'Pivot') {
+						window.open('https://docs.dhtmlx.com/pivot/index.html', '_blank')
+					} else if (this.props.activeWidget === 'Combobox') {
+						window.open('https://docs.dhtmlx.com/suite/combo__index.html', '_blank')
+					}
+					else {
+						window.open('https://docs.dhtmlx.com/suite/' + this.props.activeWidget.toLowerCase() + '__index.html', '_blank')
+					}
 					break;
 				case 'trial':
-					window.open('https://dhtmlx.com/docs/products/dhtmlxSuite/download.shtml', '_blank')	
+					if (this.props.activeWidget === 'Pivot') {
+						window.open('https://dhtmlx.com/docs/products/dhtmlxPivot/download.shtml', '_blank')
+					} else {
+						window.open('https://dhtmlx.com/docs/products/dhtmlxSuite/download.shtml', '_blank')
+					}
 					break;
 				case 'basic_link':
 				case 'cdn_link':
