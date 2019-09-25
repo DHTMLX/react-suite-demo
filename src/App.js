@@ -247,7 +247,7 @@ class App extends PureComponent {
                 />
               )}
             />
-            <Route path="/pivot" component={() => (
+            <Route path="/treegrid" component={() => (
               <TreegridPage 
                 handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
                 setActiveExapmle = {id => this.setActiveExapmle(id)}

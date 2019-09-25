@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TreeGrid as TreegridDHX, TreeGridCollection} from "dhx-suite";
-import "dhx-suite/codebase/suite.min.css";
+import { TreeGrid as TreegridDHX, TreeGridCollection} from "dhx-treegrid";
+import "dhx-treegrid/codebase/treegrid.min.css";
 
 
-class TreeEvents extends Component {
+class TreegridEvents extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -27,9 +27,11 @@ class TreeEvents extends Component {
     });
     this.treegrid.data.load('./static/treegrid.json')
 
-    this.treegrid.events.on('itemcontextmenu', id => this.setState({event: 'itemcontextmenu', id: id}))
-    this.treegrid.events.on('itemdblclick', id => this.setState({event: 'itemdblclick', id: id}))
-    this.treegrid.events.on('itemclick', id => this.setState({event: 'itemclick', id: id}))
+    this.treegrid.events.on('scroll', id => this.setState({event: 'scroll', id: id.x + " " + id.y}))
+    this.treegrid.events.on('sort', id => this.setState({event: 'sort', id: id}))
+    this.treegrid.events.on('expand', id => this.setState({event: 'expand', id: id}))
+    this.treegrid.events.on('cellClick', id => this.setState({event: 'cellClick', id: id.name}))
+    this.treegrid.events.on('cellDblClick', id => this.setState({event: 'cellDblClick', id: id.name}))
   }
 
   componentWillUnmount() {
@@ -49,7 +51,7 @@ class TreeEvents extends Component {
   }
 }
 
-TreeEvents.propTypes = {
+TreegridEvents.propTypes = {
   columns: PropTypes.array,
 	spans: PropTypes.array,
 	data: PropTypes.oneOfType([
@@ -84,4 +86,4 @@ TreeEvents.propTypes = {
 	$footer: PropTypes.bool,
 };
 
-export default TreeEvents;
+export default TreegridEvents;

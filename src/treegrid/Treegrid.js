@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TreeGrid as TreegridDHX, TreeGridCollection} from "dhx-suite";
-import "dhx-suite/codebase/suite.min.css";
+import { TreeGrid as TreegridDHX, TreeGridCollection} from "dhx-treegrid";
+import "dhx-treegrid/codebase/treegrid.min.css";
 
 class Treegrid extends Component {
   componentDidMount() {
@@ -24,7 +24,7 @@ class Treegrid extends Component {
   }
   render() {
     return (
-      <div ref={el => this.el = el}></div>
+      <div ref={el => this.el = el} style={{width: 1000, height: 600}}></div>
     );
   }
 }

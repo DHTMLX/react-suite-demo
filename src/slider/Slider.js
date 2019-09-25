@@ -6,8 +6,7 @@ import "dhx-suite/codebase/suite.min.css";
 
 class Slider extends Component {
   componentDidMount() {
-    this.slider = new SliderDHX(this.el, {
-    });
+    this.slider = new SliderDHX(this.el, {});
   }
   componentWillUnmount() {
     this.slider.destructor();

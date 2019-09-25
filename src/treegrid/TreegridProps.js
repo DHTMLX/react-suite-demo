@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TreeGrid as TreegridDHX, TreeGridCollection } from "dhx-suite";
-import "dhx-suite/codebase/suite.min.css";
+import { TreeGrid as TreegridDHX, TreeGridCollection} from "dhx-treegrid";
+import "dhx-treegrid/codebase/treegrid.min.css";
 
 class Treegrid extends Component {
   componentDidMount() {
@@ -30,8 +30,6 @@ class Treegrid extends Component {
 class TreegridProps extends Component {
   constructor() {
     super()
-    this.data = new TreeGridCollection()
-    this.data.load('./static/treegrid.json')
   }
   getData = () => {
     const data = new TreeGridCollection()
