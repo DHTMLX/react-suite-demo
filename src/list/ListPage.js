@@ -6,6 +6,7 @@ import ListCdn from './ListCdn';
 import ListConfigured from './ListConfigured';
 import ListProps from './ListProps';
 import ListData from './ListData';
+import ListEvents from './ListEvents';
 
 export default class ListPage extends Component {
 
@@ -88,6 +89,20 @@ export default class ListPage extends Component {
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<ListData />
+					</div>
+				</section>
+				<section className="hgroup" id="events">
+					<h3>
+						Component events
+						<a href="#events" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'events')}>
+							<img src="/static/link.svg" alt="" />
+						</a>
+					</h3>
+					<p>
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/list/ListEvents.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+					</p>
+					<div style={{display: 'flex', justifyContent: 'center'}}>
+						<ListEvents />
 					</div>
 				</section>
 			</main>

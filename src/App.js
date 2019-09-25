@@ -31,6 +31,7 @@ import WindowPage from './window/WindowPage';
 import MessagePage from './message/MessagePage';
 import PopupPage from './popup/PopupPage';
 import PivotPage from './pivot/PivotPage';
+import TreegridPage from './treegrid/TreegridPage';
 
 class App extends PureComponent {
   constructor(props) {
@@ -241,6 +242,13 @@ class App extends PureComponent {
             />
             <Route path="/pivot" component={() => (
               <PivotPage 
+                handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                setActiveExapmle = {id => this.setActiveExapmle(id)}
+                />
+              )}
+            />
+            <Route path="/pivot" component={() => (
+              <TreegridPage 
                 handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
                 setActiveExapmle = {id => this.setActiveExapmle(id)}
                 />

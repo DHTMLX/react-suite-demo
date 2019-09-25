@@ -19,7 +19,6 @@ class Dataview extends Component {
       css: "dhx_widget--bordered dhx_widget--bg_white",
       template: template,
       itemsInRow: 4,
-      data: this.data
     });
      
     this.dataview.data.load('./static/dataview.json')

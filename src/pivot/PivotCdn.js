@@ -45,7 +45,7 @@ class PivotCDN extends Component {
   }
   render() {
     return (
-      <div ref={el => this.el = el} style={{textAlign: 'left', minHeight: '800px'}}></div>
+      <div ref={el => this.el = el} style={{textAlign: 'left', minHeight: '800px',  width: 1000, marginLeft: 'auto', marginRight: 'auto'}}></div>
     );
   }
 }

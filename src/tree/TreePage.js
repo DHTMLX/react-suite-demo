@@ -6,6 +6,7 @@ import TreeCdn from './TreeCdn';
 import TreeConfigured from './TreeConfigured';
 import TreeProps from './TreeProps';
 import TreeData from './TreeData';
+import TreeEvents from './TreeEvents';
 
 export default class TreePage extends Component {
 
@@ -88,6 +89,20 @@ export default class TreePage extends Component {
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<TreeData />
+					</div>
+				</section>
+				<section className="hgroup" id="events">
+					<h3>
+						Component events
+						<a href="#events" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'events')}>
+							<img src="/static/link.svg" alt="" />
+						</a>
+					</h3>
+					<p>
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/tree/TreeEvents.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+					</p>
+					<div style={{display: 'flex', justifyContent: 'center'}}>
+						<TreeEvents />
 					</div>
 				</section>
 			</main>

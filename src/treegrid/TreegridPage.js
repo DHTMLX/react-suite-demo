@@ -6,6 +6,7 @@ import TreegridCdn from './TreegridCdn';
 import TreegridConfigured from './TreegridConfigured';
 import TreegridProps from './TreegridProps';
 import TreegridData from './TreegridData';
+import TreegridEvents from './TreegridEvents';
 
 export default class TreegridPage extends Component {
 
@@ -44,7 +45,7 @@ export default class TreegridPage extends Component {
 						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/treegrid/TreegridCdn.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
-						{/* <TreegridCdn />  */}
+						<TreegridCdn /> 
 					</div>
 					
 				</section>
@@ -88,6 +89,20 @@ export default class TreegridPage extends Component {
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<TreegridData />
+					</div>
+				</section>
+				<section className="hgroup" id="events">
+					<h3>
+						Component events
+						<a href="#events" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'events')}>
+							<img src="/static/link.svg" alt="" />
+						</a>
+					</h3>
+					<p>
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/treegrid/TreegridEvents.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+					</p>
+					<div style={{display: 'flex', justifyContent: 'center'}}>
+						<TreegridEvents/>
 					</div>
 				</section>
 			</main>

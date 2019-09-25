@@ -5,6 +5,7 @@ import TabbarCdn from './TabbarCdn';
 
 import TabbarConfigured from './TabbarConfigured';
 import TabbarProps from './TabbarProps';
+import TabbarEvents from './TabbarEvents';
 
 export default class TabbarPage extends Component {
 
@@ -73,6 +74,20 @@ export default class TabbarPage extends Component {
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<TabbarProps />
+					</div>
+				</section>
+				<section className="hgroup" id="events">
+					<h3>
+						Component events
+						<a href="#events" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'events')}>
+							<img src="/static/link.svg" alt="" />
+						</a>
+					</h3>
+					<p>
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/tabbar/TabbarEvents.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+					</p>
+					<div style={{display: 'flex', justifyContent: 'center'}}>
+						<TabbarEvents />
 					</div>
 				</section>
 			</main>

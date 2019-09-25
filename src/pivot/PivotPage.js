@@ -5,6 +5,7 @@ import PivotCdn from './PivotCdn';
 
 import PivotConfigured from './PivotConfigured';
 import PivotProps from './PivotProps';
+import PivotEvents from './PivotEvents';
 
 export default class PivotPage extends Component {
 
@@ -73,6 +74,20 @@ export default class PivotPage extends Component {
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<PivotProps />
+					</div>
+				</section>
+				<section className="hgroup" id="events">
+					<h3>
+						Component events
+						<a href="#events" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'events')}>
+							<img src="/static/link.svg" alt="" />
+						</a>
+					</h3>
+					<p>
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/pivot/PivotEvents.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+					</p>
+					<div >
+						<PivotEvents />
 					</div>
 				</section>
 			</main>

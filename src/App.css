@@ -48,7 +48,11 @@
 .trial-button button:focus, .button:focus{
 	outline: none;
 }
-
+.button.button--bordered {
+	background: #fff;
+	color: #027abc;
+	border: 2px solid #027abc;
+}
 .hgroup {
 	text-align: center;
 	padding: 48px 24px;

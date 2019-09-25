@@ -5,6 +5,7 @@ import SliderCdn from './SliderCdn';
 
 import SliderConfigured from './SliderConfigured';
 import SliderProps from './SliderProps';
+import SliderEvents from './SliderEvents';
 
 export default class SliderPage extends Component {
 
@@ -73,6 +74,20 @@ export default class SliderPage extends Component {
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<SliderProps />
+					</div>
+				</section>
+				<section className="hgroup" id="events">
+					<h3>
+						Component events
+						<a href="#events" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'events')}>
+							<img src="/static/link.svg" alt="" />
+						</a>
+					</h3>
+					<p>
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/slider/SliderEvents.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+					</p>
+					<div style={{display: 'flex', justifyContent: 'center'}}>
+						<SliderEvents />
 					</div>
 				</section>
 			</main>

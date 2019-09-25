@@ -1,38 +1,43 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Calendar as CalendarDHX, message } from "dhx-suite";
+import { Calendar as CalendarDHX } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class CalendarEvents extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      event: '',
+      id: ''
+    }
+  }
+
   componentDidMount() {
     this.calendar = new CalendarDHX(this.el, {
       css: "dhx_widget--bordered",
       value: new Date(),
     });
-    
-    let events = [
-      "change",
-      "dateHover",
-      "beforeChange"
-    ];
-    let counter = 1;
-
-    events.forEach((event) =>  {
-      this.calendar.events.on(event,() => {
-        message({position: "top-right", expire: 3000, text: getEvent(event), icon: "dxi dxi-close" });
-      });
-    });
-
-    function getEvent(event) {
-      return "Event " + counter++ + ": " + event
-    }
+    this.calendar.events.on('change', id => this.setState({event: 'change', id: id.toString()}))
+    this.calendar.events.on('dateHover', (event, date) => this.setState({event: 'dateHover', id: date.toString()}))
+    this.calendar.events.on('beforeChange', id => this.setState({event: 'change', id: id.toString() }))
   }
+
   componentWillUnmount() {
     this.calendar.destructor();
   }
+
   render() {
     return (
-      <div ref={el => this.el = el}></div>
+      <div style = {{width: '100%'}}>
+        <div 
+          style = {{width: '100%', display: 'flex', justifyContent: 'center'}}
+          ref = {el => this.el = el} > 
+        </div>
+        <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
+          <button className="button button--bordered">{this.state.event ? `Event: ${this.state.event}` : 'Click to widget'}</button>
+          <button className="button button--bordered">Item:  {this.state.id ? this.state.id : ''}</button>
+        </div>
+      </div>
     );
   }
 }

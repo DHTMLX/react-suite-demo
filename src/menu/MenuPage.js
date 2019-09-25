@@ -6,6 +6,7 @@ import MenuCdn from './MenuCdn';
 import MenuConfigured from './MenuConfigured';
 import MenuProps from './MenuProps';
 import MenuData from './MenuData';
+import MenuEvents from './MenuEvents';
 
 export default class MenuPage extends Component {
 
@@ -88,6 +89,20 @@ export default class MenuPage extends Component {
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<MenuData />
+					</div>
+				</section>
+				<section className="hgroup" id="events">
+					<h3>
+						Component events
+						<a href="#events" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'data')}>
+							<img src="/static/link.svg" alt="" />
+						</a>
+					</h3>
+					<p>
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/menu/MenuEvents.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+					</p>
+					<div style={{display: 'flex', justifyContent: 'center'}}>
+						<MenuEvents />
 					</div>
 				</section>
 			</main>

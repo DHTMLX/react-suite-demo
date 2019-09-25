@@ -5,6 +5,7 @@ import TimepickerCdn from './TimepickerCdn';
 
 import TimepickerConfigured from './TimepickerConfigured';
 import TimepickerProps from './TimepickerProps';
+import TimepickerEvents from './TimepickerEvents';
 
 export default class TimepickerPage extends Component {
 
@@ -73,6 +74,20 @@ export default class TimepickerPage extends Component {
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<TimepickerProps />
+					</div>
+				</section>
+				<section className="hgroup" id="events">
+					<h3>
+						Configured using events
+						<a href="#events" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'events')}>
+							<img src="/static/link.svg" alt="" />
+						</a>
+					</h3>
+					<p>
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/timepicker/TimepickerEvents.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+					</p>
+					<div style={{display: 'flex', justifyContent: 'center'}}>
+						<TimepickerEvents />
 					</div>
 				</section>
 			</main>

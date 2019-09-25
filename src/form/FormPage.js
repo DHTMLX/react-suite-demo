@@ -5,6 +5,7 @@ import FormCdn from './FormCdn';
 
 import FormConfigured from './FormConfigured';
 import FormProps from './FormProps';
+import FormEvents from './FormEvents';
 
 export default class FormPage extends Component {
 
@@ -73,6 +74,20 @@ export default class FormPage extends Component {
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<FormProps />
+					</div>
+				</section>
+				<section className="hgroup" id="events">
+					<h3>
+						Component Events
+						<a href="#events" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'events')}>
+							<img src="/static/link.svg" alt="" />
+						</a>
+					</h3>
+					<p>
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/form/FormEvents.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+					</p>
+					<div style={{display: 'flex', justifyContent: 'center'}}>
+						<FormEvents />
 					</div>
 				</section>
 			</main>

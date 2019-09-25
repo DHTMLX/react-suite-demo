@@ -6,6 +6,7 @@ import RibbonCdn from './RibbonCdn';
 import RibbonConfigured from './RibbonConfigured';
 import RibbonProps from './RibbonProps';
 import RibbonData from './RibbonData';
+import RibbonEvents from './RibbonEvents';
 
 export default class RibbonPage extends Component {
 
@@ -88,6 +89,20 @@ export default class RibbonPage extends Component {
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<RibbonData />
+					</div>
+				</section>
+				<section className="hgroup" id="events">
+					<h3>
+						Component events
+						<a href="#events" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'events')}>
+							<img src="/static/link.svg" alt="" />
+						</a>
+					</h3>
+					<p>
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/ribbon/RibbonEvents.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+					</p>
+					<div style={{display: 'flex', justifyContent: 'center'}}>
+						<RibbonEvents />
 					</div>
 				</section>
 			</main>

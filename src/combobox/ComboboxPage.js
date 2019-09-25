@@ -6,6 +6,7 @@ import ComboboxCdn from './ComboboxCdn';
 import ComboboxConfigured from './ComboboxConfigured';
 import ComboboxProps from './ComboboxProps';
 import ComboboxData from './ComboboxData';
+import ComboboxEvents from './ComboboxEvents';
 
 export default class ComboboxPage extends Component {
 
@@ -87,6 +88,20 @@ export default class ComboboxPage extends Component {
 					</p>
 					<div style={{display: 'flex', justifyContent: 'center'}}>
 						<ComboboxData />
+					</div>
+				</section>
+				<section className="hgroup" id="events">
+					<h3>
+						Component Events
+						<a href="#events" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'events')}>
+							<img src="/static/link.svg" alt="" />
+						</a>
+					</h3>
+					<p>
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/combobox/ComboboxEvents.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+					</p>
+					<div style={{display: 'flex', justifyContent: 'center'}}>
+						<ComboboxEvents/>
 					</div>
 				</section>
 			</main>
