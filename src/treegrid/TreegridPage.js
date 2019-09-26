@@ -34,7 +34,7 @@ export default class TreegridPage extends Component {
 						<Treegrid /> 
 					</div>
 				</section>
-				<section className="hgroup" id="cdn">
+				{/* <section className="hgroup" id="cdn">
 					<h3>
 						CDN basic initialization 
 						<a href="#cdn" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'cdn')}>
@@ -48,7 +48,7 @@ export default class TreegridPage extends Component {
 						<TreegridCdn /> 
 					</div>
 					
-				</section>
+				</section> */}
 				<section className="hgroup" id="pre">
 					<h3>
 						Pre-configured component
