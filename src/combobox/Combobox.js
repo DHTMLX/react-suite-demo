@@ -6,7 +6,9 @@ import "dhx-suite/codebase/suite.min.css";
 
 class Combobox extends PureComponent {
   componentDidMount() {
-    this.combobox = new ComboboxDHX(this.el)
+    this.combobox = new ComboboxDHX(this.el, {
+      placeholder: "Click to choose"
+    })
     this.combobox && this.combobox.data.load('./static/combobox.json')
   }
   componentWillUnmount() {

@@ -15,7 +15,9 @@ class ComboboxCDN extends Component {
   componentDidMount() {
     this.ready.then(() => {
       /* global dhx */
-			this.el && (this.combobox = new dhx.Combobox(this.el, {}));
+			this.el && (this.combobox = new dhx.Combobox(this.el, {
+        placeholder: "Click to choose"
+      }));
       this.combobox && this.combobox.data.load('./static/combobox.json')
       if (this.props.ready) {
         this.props.ready(this.combobox);

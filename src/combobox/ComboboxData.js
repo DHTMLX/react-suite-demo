@@ -45,20 +45,20 @@ class ComboboxData extends PureComponent {
   constructor(props){
     super(props)
     this.state = {
-      itemsCount: null,
+      itemForSelect: null,
     }
     this.data = new DataCollection()
 
     this.data.events.on('load', () => {
       this.setState({
-        itemsCount: this.data.getLength(),
+        itemForSelect: this.data.getItem(this.data.getId(0)).value
       })
     })
 
     this.data.load('./static/combobox.json').then(() => {
       this.data.events.on('change', () => {
         this.setState({
-          itemsCount: this.data.getLength(),
+          itemForSelect: this.data.getItem(this.data.getId(0)).value,
         })
       })
     })
@@ -67,22 +67,19 @@ class ComboboxData extends PureComponent {
   componentWillUnmount() {
     this.data.events.detach('load')
   }
-  handleRemoveItem() {
-    this.data.remove(this.data.getId(this.data.getLength() - 1))
-  }
+
   handleClick() {
-    console.log(this.data)
-    this.data.map(item =>console.log('item.id', item.id) || this.data.update(item.id, {$selected: true}))
+    this.data.map(() => this.data.update(this.data.getId(0), {$selected: true}))
   }
-  handleReset() {
-    this.data.load('./static/combobox.json')
-  }
+  // handleReset() {
+  //   this.data.map(() => this.data.update(this.data.getId(0), {$selected: false}))
+  // }
   render() {
     return ( 
       <div style={{ maxWidth: 400}}>
         <Combobox 
           data={this.data}
-          multiselection={true}
+          multiselection={false}
           label={"DHX-react combobox"}
           labelInline={false}
           labelWidth={150}
@@ -93,11 +90,11 @@ class ComboboxData extends PureComponent {
         />
         <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
           <button className="button" onClick={() => this.handleClick()}>
-            Select {this.state.itemsCount} items
+            Select {this.state.itemForSelect}
           </button>
-          <button className="button" onClick={() => this.handleReset()} disabled={this.state.itemsCount !== 0}>
+          {/* <button className="button" onClick={() => this.handleReset()}>
             Reset 
-          </button>
+          </button> */}
         </div>
       </div>
     );
