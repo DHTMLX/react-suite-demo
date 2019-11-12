@@ -107,7 +107,7 @@ class App extends PureComponent {
           <div className='app-content' 
             ref={(el) => this.el = el} 
             style={{height: 'calc(100vh - 57px)', overflow: 'auto', display: "flex"}}>
-            <Router basename={'/integrations/react'}>
+            <Router>
               <Route path={`${process.env.PUBLIC_URL}/calendar`} component={() => (
                 <CalendarPage 
                   handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
