@@ -160,7 +160,8 @@ import {
 				// },
 			]
 		});
-		const activeWidget = window.location.pathname.slice(1)
+		const activeWidget = window.location.pathname.split('/').pop()
+
 		if (activeWidget) {
 			this.props.handleActiveWidgetChange(activeWidget)
 			this.sidebar.data.update(activeWidget + "-link", {active: true})
