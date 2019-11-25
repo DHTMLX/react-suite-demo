@@ -17,7 +17,7 @@ class ComboboxConfigured extends Component {
       virtual: true,
       placeholder: "Click to choose"
     });
-    this.combobox.data.load('./static/combobox.json')
+    this.combobox.data.load(`${process.env.PUBLIC_URL}/static/combobox.json`)
   }
   componentWillUnmount() {
     // this.combobox.destructor();

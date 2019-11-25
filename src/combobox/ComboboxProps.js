@@ -44,7 +44,7 @@ class Combobox extends Component {
 class ComboboxProps extends Component {
   getData() {
     const data = new DataCollection()
-    data.load('./static/combobox.json')
+    data.load(`${process.env.PUBLIC_URL}/static/combobox.json`)
     return data
   }
   render() {

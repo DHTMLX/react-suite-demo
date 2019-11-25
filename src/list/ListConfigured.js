@@ -12,7 +12,7 @@ class ListConfigured extends Component {
       height: 300,
       itemHeight: 70,
     });
-    this.list.data.load('static/dataview.json')
+    this.list.data.load(`${process.env.PUBLIC_URL}/static/dataview.json`)
   }
   componentWillUnmount() {
     this.list.destructor();

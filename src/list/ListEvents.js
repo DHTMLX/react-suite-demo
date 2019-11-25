@@ -18,7 +18,7 @@ class ListEvents extends Component {
       template: item => `<span><strong>${item.title}</strong> ${item.short}</span>`, 
       height: 300
     });
-    this.list.data.load('static/dataview.json')
+    this.list.data.load(`${process.env.PUBLIC_URL}/static/dataview.json`)
 
     this.list.events.on('click', id => this.setState({event: 'click', id: id}))
     this.list.events.on('contextmenu', id => this.setState({event: 'contextmenu', id: id}))

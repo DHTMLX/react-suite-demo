@@ -55,7 +55,7 @@ class ComboboxData extends PureComponent {
       })
     })
 
-    this.data.load('./static/combobox.json').then(() => {
+    this.data.load(`${process.env.PUBLIC_URL}/static/combobox.json`).then(() => {
       this.data.events.on('change', () => {
         this.setState({
           itemForSelect: this.data.getItem(this.data.getId(0)).value,

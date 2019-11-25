@@ -31,7 +31,7 @@ class Chart extends Component {
 class ChartProps extends Component {
   getData() {
     const data = new DataCollection()
-    data.load('./static/chart.json')
+    data.load(`${process.env.PUBLIC_URL}/static/chart.json`)
     return data
   }
   render() {

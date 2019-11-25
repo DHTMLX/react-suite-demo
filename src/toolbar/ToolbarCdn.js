@@ -17,7 +17,7 @@ class ToolbarCdn extends Component {
       this.toolbar = new dhx.Toolbar(this.el, {
         css: "dhx_widget--bordered dhx_widget--bg_white",
       });
-      this.toolbar.data.load('./static/toolbar.json')
+      this.toolbar.data.load(`${process.env.PUBLIC_URL}/static/toolbar.json`)
 
       if (this.props.ready) {
         this.props.ready(this.toolbar)

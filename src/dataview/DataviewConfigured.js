@@ -22,7 +22,7 @@ class DataviewConfigured extends Component {
       gap: 20,
       keyNavigation: true
     });
-    this.dataview.data.load('./static/dataview.json')
+    this.dataview.data.load(`${process.env.PUBLIC_URL}/static/dataview.json`)
   }
   componentWillUnmount() {
     this.dataview.destructor();

@@ -20,7 +20,7 @@ export default class PopupPage extends Component {
 					<h3>
 						NPM basic initialization 
 						<a href="#basic" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'basic')}>
-							<img src="/static/link.svg" alt="" />
+							<img src={`${process.env.PUBLIC_URL}/static/link.svg`} alt="" />
 						</a>
 					</h3>
 					<p>
@@ -34,7 +34,7 @@ export default class PopupPage extends Component {
 					<h3>
 						CDN basic initialization 
 						<a href="#cdn" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'cdn')}>
-							<img src="/static/link.svg" alt="" />
+							<img src={`${process.env.PUBLIC_URL}/static/link.svg`} alt="" />
 						</a>
 					</h3>
 					<p>
@@ -49,7 +49,7 @@ export default class PopupPage extends Component {
 					<h3>
 						Component Events
 						<a href="#events" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'events')}>
-							<img src="/static/link.svg" alt="" />
+							<img src={`${process.env.PUBLIC_URL}/static/link.svg`} alt="" />
 						</a>
 					</h3>
 					<p>

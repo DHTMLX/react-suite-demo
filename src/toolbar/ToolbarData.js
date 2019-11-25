@@ -31,7 +31,7 @@ class ToolbarData extends PureComponent {
     }
     this.data = new TreeCollection();
 
-    this.data.load('./static/toolbar.json').then(() => {
+    this.data.load(`${process.env.PUBLIC_URL}/static/toolbar.json`).then(() => {
       this.data.events.on('change', () => {
         this.setState({
           count: this.data.getItem('add').count

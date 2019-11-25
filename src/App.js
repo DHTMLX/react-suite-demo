@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Route, Router } from "react-router-dom";
+import { Route, BrowserRouter, history } from "react-router-dom";
 import './App.css';
 import "dhx-suite/codebase/suite.min.css";
 
@@ -96,173 +96,173 @@ class App extends PureComponent {
   }
   render() {
     return (
-      <div className='app-screen' style={{minHeight: '100vh', maxHeight: '100vh', display: 'flex', overflow: "hidden"}}>
-        <Sidebar handleActiveWidgetChange={(activeWidget) => this.setActiveWidget(activeWidget)}/>
-        <div className="app-screen__inner"  style={{flexBasis: 'auto', flexGrow: 1}}>
-          <Toolbar 
-            ref={(el) => this.toolbar = el} 
-            activeWidget={this.state.activeWidget}  
-            scrollToExample={(id) => this.setActiveExapmle(id)} 
-            toolbarNav={this.state.toolbarNav}/>
-          <div className='app-content' 
-            ref={(el) => this.el = el} 
-            style={{height: 'calc(100vh - 57px)', overflow: 'auto', display: "flex"}}>
-            <Router>
-              <Route path={`${process.env.PUBLIC_URL}/calendar`} component={() => (
-                <CalendarPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/toolbar`} component={() => (
-                <ToolbarPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/timepicker`} component={() => (
-                <TimepickerPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/slider`} component={() => (
-                <SliderPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/colorpicker`} component={() => (
-                <ColorpickerPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/sidebar`} component={() => (
-                <SidebarPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/ribbon`} component={() => (
-                <RibbonPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/dataview`} component={() => (
-                <DataviewPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/list`} component={() => (
-                <ListPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/grid`} component={() => (
-                <GridPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/menu`} component={() => (
-                <MenuPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/form`} component={() => (
-                <FormPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/tabbar`} component={() => (
-                <TabbarPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/combobox`} component={() => (
-                <ComboboxPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/tree`} component={() => (
-                <TreePage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/chart`} component={() => (
-                <ChartPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/window`} component={() => (
-                <WindowPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/message`} component={() => (
-                <MessagePage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/popup`} component={() => (
-                <PopupPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/pivot`} component={() => (
-                <PivotPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route path={`${process.env.PUBLIC_URL}/treegrid`} component={() => (
-                <TreegridPage 
-                  handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                  setActiveExapmle = {id => this.setActiveExapmle(id)}
-                  />
-                )}
-              />
-              <Route exact path={`${process.env.PUBLIC_URL}/`} render={() => (
-                <Dataview handleActiveWidgetChange={(activeWidget) => this.setActiveWidget(activeWidget)}/>
-              )} 
-              />
-            </Router>
+      <BrowserRouter basename={'/react'}>
+        <div className='app-screen' style={{minHeight: '100vh', maxHeight: '100vh', display: 'flex', overflow: "hidden"}}>
+          <Sidebar handleActiveWidgetChange={(activeWidget) => this.setActiveWidget(activeWidget)}/>
+          <div className="app-screen__inner"  style={{flexBasis: 'auto', flexGrow: 1}}>
+            <Toolbar 
+              ref={(el) => this.toolbar = el} 
+              activeWidget={this.state.activeWidget}  
+              scrollToExample={(id) => this.setActiveExapmle(id)} 
+              toolbarNav={this.state.toolbarNav}/>
+            <div className='app-content' 
+              ref={(el) => this.el = el} 
+              style={{height: 'calc(100vh - 57px)', overflow: 'auto', display: "flex"}}>
+                <Route path={`${process.env.PUBLIC_URL}/calendar`} component={() => (
+                  <CalendarPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/toolbar`} component={() => (
+                  <ToolbarPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/timepicker`} component={() => (
+                  <TimepickerPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/slider`} component={() => (
+                  <SliderPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/colorpicker`} component={() => (
+                  <ColorpickerPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/sidebar`} component={() => (
+                  <SidebarPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/ribbon`} component={() => (
+                  <RibbonPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/dataview`} component={() => (
+                  <DataviewPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/list`} component={() => (
+                  <ListPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/grid`} component={() => (
+                  <GridPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/menu`} component={() => (
+                  <MenuPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/form`} component={() => (
+                  <FormPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/tabbar`} component={() => (
+                  <TabbarPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/combobox`} component={() => (
+                  <ComboboxPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/tree`} component={() => (
+                  <TreePage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/chart`} component={() => (
+                  <ChartPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/window`} component={() => (
+                  <WindowPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/message`} component={() => (
+                  <MessagePage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/popup`} component={() => (
+                  <PopupPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/pivot`} component={() => (
+                  <PivotPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route path={`${process.env.PUBLIC_URL}/treegrid`} component={() => (
+                  <TreegridPage 
+                    handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    />
+                  )}
+                />
+                <Route exact path={`${process.env.PUBLIC_URL}/`} render={() => (
+                  <Dataview handleActiveWidgetChange={(activeWidget) => this.setActiveWidget(activeWidget)}/>
+                )} 
+                />
+            </div>
           </div>
         </div>
-      </div>
+      </BrowserRouter>
     );
   }
 }

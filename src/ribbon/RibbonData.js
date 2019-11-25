@@ -41,7 +41,7 @@ class RibbonData extends PureComponent {
   }
 
   componentDidMount() {
-    this.data.load('./static/ribbon.json').then(() => {
+    this.data.load(`${process.env.PUBLIC_URL}/static/ribbon.json`).then(() => {
       this.data.events.on('change', () => {
         this.setState({
           isDisabled: this.data.getItem('print').disabled,

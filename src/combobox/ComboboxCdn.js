@@ -18,7 +18,7 @@ class ComboboxCDN extends Component {
 			this.el && (this.combobox = new dhx.Combobox(this.el, {
         placeholder: "Click to choose"
       }));
-      this.combobox && this.combobox.data.load('./static/combobox.json')
+      this.combobox && this.combobox.data.load(`${process.env.PUBLIC_URL}/static/combobox.json`)
       if (this.props.ready) {
         this.props.ready(this.combobox);
 			}

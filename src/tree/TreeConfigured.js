@@ -12,7 +12,7 @@ class TreeConfigured extends Component {
       autoload: true,
       checkbox: true,
     });
-    this.tree.data.load('./static/tree.json')
+    this.tree.data.load(`${process.env.PUBLIC_URL}/static/tree.json`)
   }
   componentWillUnmount() {
     this.tree.destructor();

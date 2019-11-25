@@ -42,7 +42,7 @@ class ChartData extends PureComponent {
       })
     })
 
-    this.data.load('./static/chart.json').then(() => {
+    this.data.load(`${process.env.PUBLIC_URL}/static/chart.json`).then(() => {
       this.data.events.on('change', () => {
         this.setState({
           firstItem: this.data.getItem(this.data.getId(0)) ? this.data.getItem(this.data.getId(0)).month : '',
@@ -57,7 +57,7 @@ class ChartData extends PureComponent {
   }
   handleClick() {
     this.state.itemsCount === 0 
-      ?  this.data.load('./static/chart.json')
+      ?  this.data.load(`${process.env.PUBLIC_URL}/static/chart.json`)
       : this.data.remove(this.data.getId(0))
   }
 

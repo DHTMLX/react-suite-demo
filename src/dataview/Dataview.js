@@ -21,7 +21,7 @@ class Dataview extends Component {
       itemsInRow: 4,
     });
      
-    this.dataview.data.load('./static/dataview.json')
+    this.dataview.data.load(`${process.env.PUBLIC_URL}/static/dataview.json`)
   }
   componentWillUnmount() {
     this.dataview.destructor();

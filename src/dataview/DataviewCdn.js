@@ -29,7 +29,7 @@ class DataviewCDN extends Component {
         template: template,
         itemsInRow: 4,
       });
-      this.dataview.data.load('./static/dataview.json')
+      this.dataview.data.load(`${process.env.PUBLIC_URL}/static/dataview.json`)
       if (this.props.ready) {
         this.props.ready(this.dataview);
       }

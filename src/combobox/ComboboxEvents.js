@@ -14,7 +14,7 @@ class ComboboxEvents extends Component {
 
   componentDidMount() {
     this.combobox = new ComboboxDHX(this.el, {placeholder: "Click to choose"})
-    this.combobox && this.combobox.data.load('./static/combobox.json')
+    this.combobox && this.combobox.data.load(`${process.env.PUBLIC_URL}/static/combobox.json`)
 
     this.combobox.events.on('change', id => this.setState({event: 'change', id: id}))
     this.combobox.events.on('open', id => this.setState({event: 'open', id: id}))

@@ -33,7 +33,7 @@ class SidebarData extends PureComponent {
     }
     this.data = new TreeCollection();
 
-    this.data.load('./static/sidebar.json').then(() => {
+    this.data.load(`${process.env.PUBLIC_URL}/static/sidebar.json`).then(() => {
       this.data.events.on('change', () => {
         this.setState({
           count: this.data.getItem('media').count

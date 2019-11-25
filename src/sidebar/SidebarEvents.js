@@ -17,7 +17,7 @@ class SidebarEvents extends Component {
     this.sidebar = new SidebarDHX(this.el, {
       css: "dhx_widget--bordered dhx_widget--bg_white",
     });
-    this.sidebar.data.load('./static/sidebar.json')
+    this.sidebar.data.load(`${process.env.PUBLIC_URL}/static/sidebar.json`)
 
     this.sidebar.events.on('toggle', id => this.setState({event: 'toggle', id: id}))
     this.sidebar.events.on('openmenu', id => this.setState({event: 'openmenu', id: id}))

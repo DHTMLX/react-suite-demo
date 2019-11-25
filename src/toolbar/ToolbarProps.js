@@ -27,7 +27,7 @@ class ToolbarProps extends Component {
   
   getData() {
     const data = new TreeCollection()
-    data.load('./static/toolbar.json')
+    data.load(`${process.env.PUBLIC_URL}/static/toolbar.json`)
     return data
   }
   

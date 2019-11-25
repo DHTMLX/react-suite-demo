@@ -13,7 +13,7 @@ import {
 					id: "logo",
 					type: 'customButton', 
 					css: 'logo-button',
-					html: '<img src="./static/logo_r.svg" alt="DHTMLX - React"/>',
+					html: `<img src="${process.env.PUBLIC_URL}/static/logo_r.svg" alt="DHTMLX - React"/>`,
 					group: "nav",
 					twoState: true
 				},

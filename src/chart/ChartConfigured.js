@@ -29,7 +29,7 @@ class ChartConfigured extends Component {
 				}
 			]
     });
-    this.chart.data.load('./static/chart.json')
+    this.chart.data.load(`${process.env.PUBLIC_URL}/static/chart.json`)
   }
   componentWillUnmount() {
     if (this.chart) {

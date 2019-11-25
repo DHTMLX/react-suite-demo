@@ -26,7 +26,7 @@ class Ribbon extends Component {
 class RibbonProps extends Component {
   getData() {
     const data = new TreeCollection()
-    data.load('./static/ribbon.json')
+    data.load(`${process.env.PUBLIC_URL}/static/ribbon.json`)
     return data
   }
 

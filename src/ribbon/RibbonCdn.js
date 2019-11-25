@@ -19,7 +19,7 @@ class RibbonCDN extends Component {
 			this.ribbon = new dhx.Ribbon(this.el, {
         css: "dhx_widget--bordered dhx_widget--bg_white",
       });
-      this.ribbon.data.load('./static/ribbon.json')
+      this.ribbon.data.load(`${process.env.PUBLIC_URL}/static/ribbon.json`)
 
       if (this.props.ready) {
         this.props.ready(this.ribbon);

@@ -25,7 +25,7 @@ class Menu extends Component {
 class MenuProps extends Component {
   getData() {
     const data = new TreeCollection()
-    data.load('./static/menu.json')
+    data.load(`${process.env.PUBLIC_URL}/static/menu.json`)
     return data
   }
   render() {

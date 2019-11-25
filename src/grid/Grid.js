@@ -20,7 +20,7 @@ class Grid extends Component {
         { width: 125, id: "urban", header: [{ text: "Urban Pop" }] }
       ],
     });
-    this.grid.data.load('./static/grid.json')
+    this.grid.data.load(`${process.env.PUBLIC_URL}/static/grid.json`)
   }
   componentWillUnmount() {
     this.grid.destructor();

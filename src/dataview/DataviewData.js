@@ -48,7 +48,7 @@ class DataviewData extends PureComponent {
       })
     })
 
-    this.data.load('./static/dataview.json').then(() => {
+    this.data.load(`${process.env.PUBLIC_URL}/static/dataview.json`).then(() => {
       this.data.events.on('change', () => {
         this.setState({
           itemsCount: this.data.getLength(),
@@ -62,7 +62,7 @@ class DataviewData extends PureComponent {
   }
   handleClick() {
     if (this.state.itemsCount === 0 ) {
-      this.data.load('./static/dataview.json')
+      this.data.load(`${process.env.PUBLIC_URL}/static/dataview.json`)
     } else {
       this.data.remove(this.data.getId(0))
     }

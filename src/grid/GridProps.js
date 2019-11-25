@@ -28,7 +28,7 @@ class Grid extends Component {
 class GridProps extends Component {
   getData() {
     const data = new TreeCollection()
-    data.load('./static/grid.json')
+    data.load(`${process.env.PUBLIC_URL}/static/grid.json`)
     return data
   }
   render() {

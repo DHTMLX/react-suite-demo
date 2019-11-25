@@ -20,7 +20,7 @@ class ListCDN extends Component {
         template: item => `<span><strong>${item.title}</strong> ${item.short}</span>`, 
         height: 300
       });
-      this.list.data.load('static/dataview.json')
+      this.list.data.load(`${process.env.PUBLIC_URL}/static/dataview.json`)
       if (this.props.ready) {
         this.props.ready(this.list);
       }

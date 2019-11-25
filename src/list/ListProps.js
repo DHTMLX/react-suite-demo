@@ -30,7 +30,7 @@ class List extends Component {
 class ListProps extends Component {
   getData() {
     const data = new DataCollection()
-    data.load('./static/dataview.json')
+    data.load(`${process.env.PUBLIC_URL}/static/dataview.json`)
     return data
   }
   render() {

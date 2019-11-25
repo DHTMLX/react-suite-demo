@@ -19,7 +19,7 @@ class MenuCDN extends Component {
 			this.menu = new dhx.Menu(this.el, {
         css: "dhx_widget--bordered",
       });
-      this.menu.data.load('./static/menu.json')
+      this.menu.data.load(`${process.env.PUBLIC_URL}/static/menu.json`)
       if (this.props.ready) {
         this.props.ready(this.menu);
 			}

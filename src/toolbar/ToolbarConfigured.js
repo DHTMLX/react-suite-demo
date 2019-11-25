@@ -8,7 +8,7 @@ class ToolbarConfigured extends Component {
     this.toolbar = new ToolbarDHX(this.el, {
       css: "dhx_widget--bordered dhx_widget--bg_white",
     })
-    this.toolbar.data.load('./static/toolbar.json')
+    this.toolbar.data.load(`${process.env.PUBLIC_URL}/static/toolbar.json`)
   }
   componentWillUnmount() {
     this.toolbar.destructor();

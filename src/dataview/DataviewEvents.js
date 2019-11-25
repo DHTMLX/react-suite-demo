@@ -27,7 +27,7 @@ class DataviewEvents extends Component {
       template: template,
       itemsInRow: 4,
     })
-    this.dataview && this.dataview.data.load('./static/dataview.json')
+    this.dataview && this.dataview.data.load(`${process.env.PUBLIC_URL}/static/dataview.json`)
 
     this.dataview.events.on('click', id => this.setState({event: 'click', id: id}))
     this.dataview.events.on('focuschange', id => this.setState({event: 'focuschange', id: id}))

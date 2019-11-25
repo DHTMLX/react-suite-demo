@@ -29,7 +29,7 @@ class SidebarProps extends Component {
   
   getData() {
     const data = new TreeCollection()
-    data.load('./static/sidebar.json')
+    data.load(`${process.env.PUBLIC_URL}/static/sidebar.json`)
     return data
   }
 

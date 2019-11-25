@@ -17,7 +17,7 @@ class MenuEvents extends Component {
     this.menu = new MenuDHX(this.el, {
       css: "dhx_widget--bordered",
     });
-    this.menu.data.load('./static/menu.json')
+    this.menu.data.load(`${process.env.PUBLIC_URL}/static/menu.json`)
 
     this.menu.events.on('click', id => this.handleClick(id, 'click'))
     this.menu.events.on('openmenu', id => this.handleClick(id, 'openmenu'))

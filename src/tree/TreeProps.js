@@ -14,7 +14,7 @@ class Tree extends Component {
       checkbox: checkbox,
       data: data
     })
-    // this.tree.data.load('./static/tree.json')
+    // this.tree.data.load(`${process.env.PUBLIC_URL}/static/tree.json`)
   }
   componentWillUnmount() {
     this.tree.destructor();
@@ -29,7 +29,7 @@ class Tree extends Component {
 class TreeProps extends Component {
   getData() {
     const data = new TreeCollection()
-    data.load('./static/tree.json')
+    data.load(`${process.env.PUBLIC_URL}/static/tree.json`)
     return data
   }
   render() {

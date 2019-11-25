@@ -18,7 +18,7 @@ class RibbonEvents extends Component {
     this.ribbon = new RibbonDHX(this.el, {
       css: "dhx_widget--bordered dhx_widget--bg_white",
     });
-    this.ribbon.data.load('./static/ribbon.json')
+    this.ribbon.data.load(`${process.env.PUBLIC_URL}/static/ribbon.json`)
 
     this.ribbon.events.on('inputcreated', id => this.setState({event: 'inputcreated', id: id}))
     this.ribbon.events.on('inputfocus', id => this.setState({event: 'inputfocus', id: id}))

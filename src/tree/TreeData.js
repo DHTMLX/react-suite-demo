@@ -39,7 +39,7 @@ class TreeData extends PureComponent {
           count: i
         })
     })
-    this.data.load('./static/tree.json').then(() => {
+    this.data.load(`${process.env.PUBLIC_URL}/static/tree.json`).then(() => {
       this.data.events.on('change', () => {
         let i = this.data.map(item => item.opened ? 1 : 0).reduce((a, b) => a + b, 0)
         this.setState({

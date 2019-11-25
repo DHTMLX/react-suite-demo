@@ -9,7 +9,7 @@ class Combobox extends PureComponent {
     this.combobox = new ComboboxDHX(this.el, {
       placeholder: "Click to choose"
     })
-    this.combobox && this.combobox.data.load('./static/combobox.json')
+    this.combobox && this.combobox.data.load(`${process.env.PUBLIC_URL}/static/combobox.json`)
   }
   componentWillUnmount() {
     this.combobox.destructor();

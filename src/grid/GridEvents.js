@@ -27,7 +27,7 @@ class GridEvents extends Component {
         { width: 125, id: "urban", header: [{ text: "Urban Pop" }] }
       ],
     });
-    this.grid.data.load('./static/grid.json')
+    this.grid.data.load(`${process.env.PUBLIC_URL}/static/grid.json`)
 
     this.grid.events.on('scroll', id => this.setState({event: 'scroll', id: id.x + ' ' + id.y}))
     this.grid.events.on('sort', id => this.setState({event: 'sort', id: id}))

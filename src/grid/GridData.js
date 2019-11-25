@@ -40,7 +40,7 @@ class GridData extends PureComponent {
       })
     })
 
-    this.data.load('./static/grid.json').then(() => {
+    this.data.load(`${process.env.PUBLIC_URL}/static/grid.json`).then(() => {
       this.data.events.on('change', () => {
         this.setState({
           firstItem: this.data.getId(0) ? this.data.getItem(this.data.getId(0)).country : '',
@@ -56,7 +56,7 @@ class GridData extends PureComponent {
     if (this.state.firstItem) {
       this.data.remove(this.data.getId(0))
     } else {
-      this.data.load('./static/grid.json')
+      this.data.load(`${process.env.PUBLIC_URL}/static/grid.json`)
     }
   }
   

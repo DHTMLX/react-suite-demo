@@ -38,7 +38,7 @@ class ChartCDN extends Component {
           }
         ]
       });
-      this.chart.data.load('./static/chart.json')
+      this.chart.data.load(`${process.env.PUBLIC_URL}/static/chart.json`)
       if (this.props.ready) {
         this.props.ready(this.chart);
 			}

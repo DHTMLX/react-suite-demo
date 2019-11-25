@@ -39,7 +39,7 @@ class MenuData extends PureComponent {
   }
 
   componentDidMount() {
-    this.data.load('./static/menu.json').then(() => {
+    this.data.load(`${process.env.PUBLIC_URL}/static/menu.json`).then(() => {
       this.data.events.on('change', () => {
         this.setState({
           isDisabled: this.data.getItem('edit').disabled,

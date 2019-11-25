@@ -11,7 +11,7 @@ class SidebarConfigured extends Component {
       minWidth: 120,
       collapsed: false
     });
-    this.sidebar.data.load('./static/sidebar.json')
+    this.sidebar.data.load(`${process.env.PUBLIC_URL}/static/sidebar.json`)
   }
   componentWillUnmount() {
     this.sidebar.destructor();

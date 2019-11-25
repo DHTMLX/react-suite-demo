@@ -17,7 +17,7 @@ class TreeEvents extends Component {
     this.tree = new TreeDHX(this.el, {
       css: "dhx_widget--bg_white",
     });
-    this.tree.data.load('./static/tree.json')
+    this.tree.data.load(`${process.env.PUBLIC_URL}/static/tree.json`)
 
     this.tree.events.on('itemcontextmenu', id => this.setState({event: 'itemcontextmenu', id: id}))
     this.tree.events.on('itemdblclick', id => this.setState({event: 'itemdblclick', id: id}))

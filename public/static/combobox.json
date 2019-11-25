@@ -1,1 +1,54 @@
-[{"value":"Austria","src":"./static/flags/at.png"},{"value":"Belgium","src":"./static/flags/be.png"},{"value":"Bulgaria","src":"./static/flags/bg.png"},{"value":"Cyprus","src":"./static/flags/cy.png"},{"value":"Czech Republic","src":"./static/flags/cz.png"},{"value":"Denmark","src":"./static/flags/dk.png"},{"value":"Estonia","src":"./static/flags/ee.png"},{"value":"Finland","src":"./static/flags/fi.png"},{"value":"France","src":"./static/flags/fr.png"},{"value":"Germany","src":"./static/flags/de.png"},{"value":"Greece","src":"./static/flags/gr.png"},{"value":"Hungary","src":"./static/flags/hu.png"},{"value":"Ireland","src":"./static/flags/ie.png"},{"value":"Italy","src":"./static/flags/it.png"},{"value":"Latvia","src":"./static/flags/lv.png"},{"value":"Lithuania","src":"./static/flags/lt.png"},{"value":"Luxembourg","src":"./static/flags/lu.png"},{"value":"Malta","src":"./static/flags/mt.png"},{"value":"Netherlands","src":"./static/flags/nl.png"},{"value":"Poland","src":"./static/flags/pl.png"},{"value":"Portugal","src":"./static/flags/pt.png"},{"value":"Romania","src":"./static/flags/ro.png"},{"value":"Slovakia","src":"./static/flags/sk.png"},{"value":"Slovenia","src":"./static/flags/si.png"},{"value":"Spain","src":"./static/flags/es.png"},{"value":"Sweden","src":"./static/flags/se.png"},{"value":"United Kingdom","src":"./static/flags/gb.png"}]
+[{
+	"value": "Austria"},
+	{
+	"value": "Belgium"},
+	{
+	"value": "Bulgaria"},
+	{
+	"value": "Cyprus"},
+	{
+	"value": "Czech Republic"},
+	{
+	"value": "Denmark"},
+	{
+	"value": "Estonia"},
+	{
+	"value": "Finland"},
+	{
+	"value": "France"},
+	{
+	"value": "Germany"},
+	{
+	"value": "Greece"},
+	{
+	"value": "Hungary"},
+	{
+	"value": "Ireland"},
+	{
+	"value": "Italy"},
+	{
+	"value": "Latvia"},
+	{
+	"value": "Lithuania"},
+	{
+	"value": "Luxembourg"},
+	{
+	"value": "Malta"},
+	{
+	"value": "Netherlands"},
+	{
+	"value": "Poland"},
+	{
+	"value": "Portugal"},
+	{
+	"value": "Romania"},
+	{
+	"value": "Slovakia"},
+	{
+	"value": "Slovenia"},
+	{
+	"value": "Spain"},
+	{
+	"value": "Sweden"},
+	{
+	"value": "United Kingdom"}]
