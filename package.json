@@ -2,7 +2,6 @@
   "name": "react-demo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://dhtmlx.github.io",
   "dependencies": {
     "@mdi/font": "^3.8.95",
     "dhx-pivot": "^1.4.0",
@@ -13,13 +12,13 @@
     "dhx-vault": "^3.0.0",
     "from-cdn": "^1.0.0",
     "loadash": "^1.0.0",
-    "react": "^16.5.0",
-    "react-dom": "^16.5.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5"
   },
   "scripts": {
-    "deploy": "yarn run build && gh-pages -d build",
+    "deploy": "yarn run build && yarn gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
