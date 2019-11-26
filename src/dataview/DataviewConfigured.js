@@ -6,7 +6,7 @@ import "dhx-suite/codebase/suite.min.css";
 
 const template = (item) => (
   `<div class='item_wrap item-wrap--grid'>
-    <img class='image' style="max-width: 150px" src="/static/${item.img}" />
+    <img class='image' style="max-width: 150px" src="${process.env.PUBLIC_URL + '/static/' + item.img}" />
     <h2 class='title'>${item.title}</h2>
     <div>${item.short}</div>
   </div>
