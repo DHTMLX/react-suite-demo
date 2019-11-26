@@ -14,7 +14,7 @@ class Dataview extends PureComponent {
 			template: (item) => `
 				<div class="app-card__inner" style="padding-top: 100%;"> 
 					<h3 class="app-card__header">${item.value}</h3>
-					<img class="app-card__image" src="./static/images/icons/${item.id.split('-')[0]}.svg" alt="${item.id.split('-')[0]}"/>
+					<img class="app-card__image" src=${process.env.PUBLIC_URL}/static/images/icons/${item.id.split('-')[0]}.svg alt="${item.id.split('-')[0]}"/>
 				</div>
 			`,
       gap: 20,
