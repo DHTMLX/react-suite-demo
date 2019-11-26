@@ -96,7 +96,7 @@ class App extends PureComponent {
   }
   render() {
     return (
-      <BrowserRouter basename={'/react-widget'}>
+      <BrowserRouter basename={'/react-widgets'}>
         <div className='app-screen' style={{minHeight: '100vh', maxHeight: '100vh', display: 'flex', overflow: "hidden"}}>
           <Sidebar handleActiveWidgetChange={(activeWidget) => this.setActiveWidget(activeWidget)}/>
           <div className="app-screen__inner"  style={{flexBasis: 'auto', flexGrow: 1}}>
