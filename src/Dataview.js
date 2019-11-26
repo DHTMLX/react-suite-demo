@@ -103,7 +103,7 @@ class Dataview extends PureComponent {
 		});
 		this.dataview.events.on('click', (id) => {
 			const widgetName = id.split('-')[0]
-			this.props.history.push('/' + widgetName, true)
+			this.props.history.push('/' + widgetName)
 			this.props.handleActiveWidgetChange(widgetName)
 		})
 	}
