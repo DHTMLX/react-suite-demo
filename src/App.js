@@ -44,7 +44,6 @@ class App extends PureComponent {
   componentDidUpdate() {
     let activeHrefPart = window.location.href.split('/').pop()
     let activeHrefPartCapitalize = activeHrefPart.charAt(0).toUpperCase() + activeHrefPart.slice(1)
-    console.log(this.state.activeWidget, activeHrefPartCapitalize)
     if(this.state.activeWidget !== activeHrefPartCapitalize) {
       this.setState({
         activeWidget: activeHrefPartCapitalize
@@ -103,7 +102,6 @@ class App extends PureComponent {
       }
       return null
     })
-    window.history.replaceState(undefined, undefined, elHash)
   }
   render() {
     return (
