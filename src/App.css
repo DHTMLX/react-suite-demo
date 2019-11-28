@@ -59,7 +59,10 @@
 	background-color: #fff;
 	color: rgba(0,0,0,.7);
 	transition: background-color 0.2s ease;
-	
+	min-height: 65vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 .hgroup a {
 	cursor: pointer;

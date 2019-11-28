@@ -39,6 +39,7 @@ class App extends PureComponent {
     this.state = {
       activeWidget: "",
       toolbarNav: [], 
+      activeExampleId: "" 
     }
   }
   componentDidUpdate() {
@@ -83,16 +84,23 @@ class App extends PureComponent {
       })
     }
   }
-  setActiveExapmle(id) {
-    let elHash = "#" + id
-    const el = this.el.querySelector(elHash);
-    const mainY = el.getBoundingClientRect().top + this.el.scrollTop;
+  setActiveExapmle(id, formObserver) {
     
-		this.el.scrollTo({
-				top: mainY - 57,
-        behavior: 'smooth',
-        inline: 'center',
-    });
+    if(!formObserver) {
+      let elHash = "#" + id
+      const el = this.el.querySelector(elHash);
+      const mainY = el.getBoundingClientRect().top + this.el.scrollTop;
+      
+      this.el.scrollTo({
+          top: mainY - 57,
+          behavior: 'smooth',
+          inline: 'center',
+      });
+    } else {
+      this.setState({
+        activeExampleId: id
+      }, console.log("this.state.activeExampleId", this.state.activeExampleId))
+    }
 
     let toolbarNavItems = [...this.el.querySelectorAll('section')]
 		toolbarNavItems.map(item => {
@@ -112,6 +120,7 @@ class App extends PureComponent {
             <Toolbar 
               ref={(el) => this.toolbar = el} 
               activeWidget={this.state.activeWidget}  
+              activeExampleId={this.state.activeExampleId}
               scrollToExample={(id) => this.setActiveExapmle(id)} 
               toolbarNav={this.state.toolbarNav}/>
             <div className='app-content' 
@@ -122,7 +131,7 @@ class App extends PureComponent {
                 <Route path={`/calendar`} component={() => (
                   <CalendarPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver)=> this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />

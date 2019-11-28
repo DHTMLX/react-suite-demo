@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react'
 import { Toolbar as ToolbarDHX } from 'dhx-suite'
 
 export default class Toolbar extends PureComponent {
+	
 	componentDidMount() {
 		this.toolbar = new ToolbarDHX(this.el, {
 			css: 'dhx_widget--border_bottom',
@@ -122,7 +123,12 @@ export default class Toolbar extends PureComponent {
 			})		
 		}
 		this.toolbar.data.update('basic_link', {active: true})
-		
+		this.toolbar.data.map(item => {
+			if (this.props.activeExampleId && item.id !== this.props.activeExampleId + "_link")  {
+				this.toolbar.data.update(item.id, {active: false})
+				this.toolbar.data.update(this.props.activeExampleId + "_link", {active: true})
+			}
+		})
 		if (this.props.toolbarNav.length > 0) {
 			const itemsToHide = ['separ', 'basic_link', 'cdn_link', 'pre_link', 'props_link', 'events_link', 'data_link', 'doc']
 			itemsToHide.map(item => {
