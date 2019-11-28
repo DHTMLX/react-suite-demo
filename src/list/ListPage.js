@@ -11,11 +11,22 @@ import ListEvents from './ListEvents';
 export default class ListPage extends Component {
 
 	componentDidMount() {
+		const setActiveExapmleInHead = (entries, observer) => {
+			entries.forEach(entry => {
+				entry.isIntersecting && this.props.setActiveExapmle(entry.target.id, true);
+			})
+		}
+		let observer = new IntersectionObserver(setActiveExapmleInHead, {
+			root: document.querySelector('.app-content'),
+			rootMargin: '0px',
+			threshold: 1
+		});
+		[...this.el.querySelectorAll('section')].map(item => observer.observe(item))
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll('section')].map(item => item.id))
 	}
 	handleAnchorClick(e, id) {
 		e.preventDefault()
-		this.props.setActiveExapmle(id)
+		this.props.setActiveExapmle(id, false)
 	}
 	render() {
 		return (

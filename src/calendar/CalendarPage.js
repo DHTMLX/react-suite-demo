@@ -16,7 +16,7 @@ export default class CalendarPage extends Component {
 		let observer = new IntersectionObserver(setActiveExapmleInHead, {
 			root: document.querySelector('.app-content'),
 			rootMargin: '0px',
-			threshold: 1
+			threshold: 0.7
 		});
 		[...this.el.querySelectorAll('section')].map(item => observer.observe(item))
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll('section')].map(item => item.id))

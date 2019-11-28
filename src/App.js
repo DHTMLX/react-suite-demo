@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Route, HashRouter, history, Switch } from "react-router-dom";
+import { Route, HashRouter, Switch } from "react-router-dom";
 import './App.css';
 import "dhx-suite/codebase/suite.min.css";
 
@@ -42,6 +42,10 @@ class App extends PureComponent {
       activeExampleId: "" 
     }
   }
+  // shouldComponentUpdate(prevState, currenttState) {
+  //   console.log(prevState, currenttState)
+  //   return true;
+  // }
   componentDidUpdate() {
     let activeHrefPart = window.location.href.split('/').pop()
     let activeHrefPartCapitalize = activeHrefPart.charAt(0).toUpperCase() + activeHrefPart.slice(1)
@@ -52,7 +56,6 @@ class App extends PureComponent {
     }
   }
   componentDidMount() {
-    
     let idFromUrlHash = window.location.hash.slice(1)
     setTimeout(() => {
       if (this.el && this.state.toolbarNav.includes(idFromUrlHash)) {
@@ -62,7 +65,7 @@ class App extends PureComponent {
 				  this.toolbar.toolbar.data.update(item, {active: false})
           return null
         })
-        this.toolbar.toolbar.data.update(idFromUrlHash + '_link', {active: true})
+        // this.toolbar.toolbar.data.update(idFromUrlHash + '_link', {active: true})
       } 
     }, 600);
   }
@@ -99,14 +102,17 @@ class App extends PureComponent {
     } else {
       this.setState({
         activeExampleId: id
-      }, console.log("this.state.activeExampleId", this.state.activeExampleId))
+      })
     }
 
     let toolbarNavItems = [...this.el.querySelectorAll('section')]
+    
 		toolbarNavItems.map(item => {
       item.classList.remove('active')
       if (id === item.id) {
-        item.classList.add('active')
+        setTimeout(() => {
+          item.classList.add('active')
+        }, 30);
       }
       return null
     })
@@ -138,140 +144,140 @@ class App extends PureComponent {
                 <Route path={`/toolbar`} component={() => (
                   <ToolbarPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/timepicker`} component={() => (
                   <TimepickerPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/slider`} component={() => (
                   <SliderPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/colorpicker`} component={() => (
                   <ColorpickerPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/sidebar`} component={() => (
                   <SidebarPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/ribbon`} component={() => (
                   <RibbonPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/dataview`} component={() => (
                   <DataviewPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/list`} component={() => (
                   <ListPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/grid`} component={() => (
                   <GridPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/menu`} component={() => (
                   <MenuPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/form`} component={() => (
                   <FormPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/tabbar`} component={() => (
                   <TabbarPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/combobox`} component={() => (
                   <ComboboxPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/tree`} component={() => (
                   <TreePage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/chart`} component={() => (
                   <ChartPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/window`} component={() => (
                   <WindowPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/message`} component={() => (
                   <MessagePage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/popup`} component={() => (
                   <PopupPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/pivot`} component={() => (
                   <PivotPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
                 <Route path={`/treegrid`} component={() => (
                   <TreegridPage 
                     handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-                    setActiveExapmle = {id => this.setActiveExapmle(id)}
+                    setActiveExapmle = {(id, formObserver) => this.setActiveExapmle(id, formObserver)}
                     />
                   )}
                 />
