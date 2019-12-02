@@ -1,20 +1,36 @@
 
 import React, { Component } from 'react'
-import Timepicker from './Timepicker';
-import TimepickerCdn from './TimepickerCdn';
+import { connect } from 'react-redux'
+import Timepicker from './Timepicker'
+import TimepickerCdn from './TimepickerCdn'
 
-import TimepickerConfigured from './TimepickerConfigured';
-import TimepickerProps from './TimepickerProps';
-import TimepickerEvents from './TimepickerEvents';
+import TimepickerConfigured from './TimepickerConfigured'
+import TimepickerProps from './TimepickerProps'
+import TimepickerEvents from './TimepickerEvents'
 
-export default class TimepickerPage extends Component {
-
+class TimepickerPage extends Component {
 	componentDidMount() {
+		const setActiveExapmleInHead = (entries, observer) => {
+			entries.forEach(entry => {
+				entry.isIntersecting && this.props.dispatch({
+					type: 'CHANGE_ACTIVE_EXAMPLE',
+					playload: entry.target.id
+				})
+				entry.isIntersecting && [...this.el.querySelectorAll('section')].map(item => {
+					item.classList.remove('active')
+					if (item.id === entry.target.id) {
+						item.classList.add('active')
+					}
+				})
+			})
+		}
+		let observer = new IntersectionObserver(setActiveExapmleInHead, {
+			root: document.querySelector('main'),
+			rootMargin: '57px',
+			threshold: 1
+		});
+		[...this.el.querySelectorAll('section')].map(item => observer.observe(item))
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll('section')].map(item => item.id))
-	}
-	handleAnchorClick(e, id) {
-		e.preventDefault()
-		this.props.setActiveExapmle(id)
 	}
 	render() {
 		return (
@@ -94,3 +110,4 @@ export default class TimepickerPage extends Component {
 		)
 	}
 }
+export default connect(state => state)(TimepickerPage)

@@ -6,6 +6,7 @@ import {
 
  class Sidebar extends PureComponent {
 	componentDidUpdate() {
+		this.sidebar.data.map(item => item.active = false)
 		this.sidebar.data.update(this.props.activeWidget.toLowerCase() + "-link", {active: true})
 	}
 	componentDidMount() {
