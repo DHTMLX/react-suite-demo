@@ -50,8 +50,6 @@ class App extends PureComponent {
       })
     }
   }
-  componentDidMount() {
-  }
   
   setActiveWidget(activeWidget) {
     this.setState({
