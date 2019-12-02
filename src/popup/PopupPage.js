@@ -1,28 +1,33 @@
 
 import React, { Component } from 'react'
-import Popup from './Popup';
-import PopupCdn from './PopupCdn';
-import PopupEvents from './PopupEvents';
+import { connect } from 'react-redux'
+import Popup from './Popup'
+import PopupCdn from './PopupCdn'
+import PopupEvents from './PopupEvents'
 
-export default class PopupPage extends Component {
-
+class PopupPage extends Component {
 	componentDidMount() {
 		const setActiveExapmleInHead = (entries, observer) => {
 			entries.forEach(entry => {
-				entry.isIntersecting && this.props.setActiveExapmle(entry.target.id, true);
+				entry.isIntersecting && this.props.dispatch({
+					type: 'CHANGE_ACTIVE_EXAMPLE',
+					playload: entry.target.id
+				})
+				entry.isIntersecting && [...this.el.querySelectorAll('section')].map(item => {
+					item.classList.remove('active')
+					if (item.id === entry.target.id) {
+						item.classList.add('active')
+					}
+				})
 			})
 		}
 		let observer = new IntersectionObserver(setActiveExapmleInHead, {
 			root: document.querySelector('.app-content'),
-			rootMargin: '0px',
+			rootMargin: '77px',
 			threshold: 1
 		});
 		[...this.el.querySelectorAll('section')].map(item => observer.observe(item))
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll('section')].map(item => item.id))
-	}
-	handleAnchorClick(e, id) {
-		e.preventDefault()
-		this.props.setActiveExapmle(id, false)
 	}
 	render() {
 		return (
@@ -74,3 +79,4 @@ export default class PopupPage extends Component {
 		)
 	}
 }
+export default connect(state => state)(PopupPage)

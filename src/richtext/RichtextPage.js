@@ -6,7 +6,7 @@ import RichtextCdn from './RichtextCdn';
 import RichtextConfigured from './RichtextConfigured';
 import RichtextProps from './RichtextProps';
 
-export default class RichtextPage extends Component {
+class RichtextPage extends Component {
 
 	componentDidMount() {
 		const setActiveExapmleInHead = (entries, observer) => {
@@ -89,3 +89,4 @@ export default class RichtextPage extends Component {
 		)
 	}
 }
+export default connect(state => state)(RichtextPage)

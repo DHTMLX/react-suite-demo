@@ -56,18 +56,6 @@ class App extends PureComponent {
     }
   }
   componentDidMount() {
-    let idFromUrlHash = window.location.hash.slice(1)
-    setTimeout(() => {
-      if (this.el && this.state.toolbarNav.includes(idFromUrlHash)) {
-        this.setActiveExapmle(idFromUrlHash)
-        const itemsToHide = ['basic_link', 'cdn_link', 'pre_link', 'props_link', 'events_link', 'data_link']
-		  	itemsToHide.map(item => {
-				  this.toolbar.toolbar.data.update(item, {active: false})
-          return null
-        })
-        // this.toolbar.toolbar.data.update(idFromUrlHash + '_link', {active: true})
-      } 
-    }, 600);
   }
   
   setActiveWidget(activeWidget) {
@@ -88,7 +76,6 @@ class App extends PureComponent {
     }
   }
   setActiveExapmle(id, formObserver) {
-    
     if(!formObserver) {
       let elHash = "#" + id
       const el = this.el.querySelector(elHash);
@@ -104,18 +91,6 @@ class App extends PureComponent {
         activeExampleId: id
       })
     }
-
-    let toolbarNavItems = [...this.el.querySelectorAll('section')]
-    
-		toolbarNavItems.map(item => {
-      item.classList.remove('active')
-      if (id === item.id) {
-        setTimeout(() => {
-          item.classList.add('active')
-        }, 30);
-      }
-      return null
-    })
   }
   render() {
     return (
@@ -124,7 +99,7 @@ class App extends PureComponent {
           <Sidebar activeWidget={this.state.activeWidget} handleActiveWidgetChange={(activeWidget) => this.setActiveWidget(activeWidget)}/>
           <div className="app-screen__inner"  style={{flexBasis: 'auto', flexGrow: 1}}>
             <Toolbar 
-              ref={(el) => this.toolbar = el} 
+              // ref={(el) => this.toolbar = el} 
               activeWidget={this.state.activeWidget}  
               activeExampleId={this.state.activeExampleId}
               scrollToExample={(id) => this.setActiveExapmle(id)} 

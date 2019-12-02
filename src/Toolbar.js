@@ -1,9 +1,14 @@
 
 import React, { PureComponent } from 'react'
 import { Toolbar as ToolbarDHX } from 'dhx-suite'
+import { connect } from 'react-redux';
 
-export default class Toolbar extends PureComponent {
-	
+const mapStateToProps = (state) => {
+	return {
+		...state.activeExample
+	}
+}
+class Toolbar extends PureComponent {
 	componentDidMount() {
 		this.toolbar = new ToolbarDHX(this.el, {
 			css: 'dhx_widget--border_bottom',
@@ -115,7 +120,6 @@ export default class Toolbar extends PureComponent {
 
 	componentDidUpdate() {
 		this.toolbar.data.update('title', {value: `Using DHTMLX ${this.props.activeWidget || 'widgets'} in a React app`})
-
 		if (!this.props.toolbarNav.includes(window.location.hash.slice(1))) {
 			this.toolbar.data.map(item => {
 				item.active = false
@@ -124,9 +128,9 @@ export default class Toolbar extends PureComponent {
 		}
 		this.toolbar.data.update('basic_link', {active: true})
 		this.toolbar.data.map(item => {
-			if (this.props.activeExampleId && item.id !== this.props.activeExampleId + "_link")  {
+			if (this.props.activeExample && item.id !== this.props.activeExample + "_link")  {
 				this.toolbar.data.update(item.id, {active: false})
-				this.toolbar.data.update(this.props.activeExampleId + "_link", {active: true})
+				this.toolbar.data.update(this.props.activeExample + "_link", {active: true})
 			}
 		})
 		if (this.props.toolbarNav.length > 0) {
@@ -147,7 +151,7 @@ export default class Toolbar extends PureComponent {
 				this.toolbar.data.update(item, {hidden: true})
 				return null
 			})
-		}
+		}    
 	}
 
 	componentWillUnmount() {
@@ -162,3 +166,4 @@ export default class Toolbar extends PureComponent {
 		)
 	}
 }
+export default connect(mapStateToProps)(Toolbar)
