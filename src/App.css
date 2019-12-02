@@ -55,11 +55,14 @@
 }
 .hgroup {
 	text-align: center;
-	padding: 48px 24px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 24px 24px;
 	background-color: #fff;
 	color: rgba(0,0,0,.7);
 	transition: background-color 0.2s ease;
-	min-height: 80vh;
+	min-height: 90vh;
 }
 .hgroup a {
 	cursor: pointer;

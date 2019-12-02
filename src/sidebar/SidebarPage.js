@@ -27,7 +27,7 @@ class SidebarPage extends Component {
 		}
 		let observer = new IntersectionObserver(setActiveExapmleInHead, {
 			root: document.querySelector('.app-content'),
-			rootMargin: '77px',
+			rootMargin: '57px',
 			threshold: 1
 		});
 		[...this.el.querySelectorAll('section')].map(item => observer.observe(item))
