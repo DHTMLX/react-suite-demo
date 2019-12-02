@@ -37,15 +37,10 @@ class App extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      activeWidget: "",
       toolbarNav: [], 
       activeExampleId: "" 
     }
   }
-  // shouldComponentUpdate(prevState, currenttState) {
-  //   console.log(prevState, currenttState)
-  //   return true;
-  // }
   componentDidUpdate() {
     let activeHrefPart = window.location.href.split('/').pop()
     let activeHrefPartCapitalize = activeHrefPart.charAt(0).toUpperCase() + activeHrefPart.slice(1)
@@ -75,22 +70,15 @@ class App extends PureComponent {
       })
     }
   }
-  setActiveExapmle(id, formObserver) {
-    if(!formObserver) {
-      let elHash = "#" + id
-      const el = this.el.querySelector(elHash);
-      const mainY = el.getBoundingClientRect().top + this.el.scrollTop;
-      
-      this.el.scrollTo({
-          top: mainY - 57,
-          behavior: 'smooth',
-          inline: 'center',
-      });
-    } else {
-      this.setState({
-        activeExampleId: id
-      })
-    }
+  setActiveExapmle(id) {
+    let elHash = "#" + id
+    const el = this.el.querySelector(elHash);
+    const mainY = el.getBoundingClientRect().top + this.el.querySelector('main').scrollTop;
+    this.el.querySelector('main').scrollTo({
+        top: mainY - 57,
+        behavior: 'smooth',
+        inline: 'center',
+    });
   }
   render() {
     return (
@@ -105,8 +93,7 @@ class App extends PureComponent {
               scrollToExample={(id) => this.setActiveExapmle(id)} 
               toolbarNav={this.state.toolbarNav}/>
             <div className='app-content' 
-              ref={(el) => this.el = el} 
-              style={{height: 'calc(100vh - 57px)', overflow: 'auto', display: "flex"}}>
+              ref={(el) => this.el = el} >
               
                 <Switch>
                 <Route path={`/calendar`} component={() => (

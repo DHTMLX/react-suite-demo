@@ -15,7 +15,7 @@ class RichtextPage extends Component {
 			})
 		}
 		let observer = new IntersectionObserver(setActiveExapmleInHead, {
-			root: document.querySelector('.app-content'),
+			root: document.querySelector('main'),
 			rootMargin: '0px',
 			threshold: 1
 		});

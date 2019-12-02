@@ -24,7 +24,7 @@ class WindowPage extends Component {
 			})
 		}
 		let observer = new IntersectionObserver(setActiveExapmleInHead, {
-			root: document.querySelector('.app-content'),
+			root: document.querySelector('main'),
 			rootMargin: '57px',
 			threshold: 1
 		});
@@ -51,9 +51,6 @@ class WindowPage extends Component {
 				<section className="hgroup" id="cdn">
 					<h3>
 						CDN basic initialization 
-						<a href="#cdn" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'cdn')}>
-							<img src={`${process.env.PUBLIC_URL}/static/link.svg`} alt="" />
-						</a>
 					</h3>
 					<p>
 						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/window/WindowCdn.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
@@ -66,9 +63,6 @@ class WindowPage extends Component {
 				<section className="hgroup" id="pre">
 					<h3>
 						Pre-configured component
-						<a href="#pre" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'pre')}>
-							<img src={`${process.env.PUBLIC_URL}/static/link.svg`} alt="" />
-						</a>
 					</h3>
 					<p>
 						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/window/WindowConfigured.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 

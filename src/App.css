@@ -122,4 +122,12 @@
 }
 main {
 	width: 100%;
+	height: calc(100vh - 57px);
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+	scroll-snap-type: y mandatory;
+}
+main > section {
+	scroll-snap-align: start;
 }

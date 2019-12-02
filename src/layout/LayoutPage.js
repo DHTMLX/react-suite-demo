@@ -25,7 +25,7 @@ class LayoutPage extends Component {
 			})
 		}
 		let observer = new IntersectionObserver(setActiveExapmleInHead, {
-			root: document.querySelector('.app-content'),
+			root: document.querySelector('main'),
 			rootMargin: '57px',
 			threshold: 1
 		});
