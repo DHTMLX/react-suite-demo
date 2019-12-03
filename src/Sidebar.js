@@ -7,7 +7,8 @@ import {
  class Sidebar extends PureComponent {
 	componentDidUpdate() {
 		this.sidebar.data.map(item => item.active = false)
-		this.sidebar.data.update(this.props.activeWidget.toLowerCase() + "-link", {active: true})
+		const activeWidget = window.location.href.split('/').pop()
+		this.sidebar.data.update(activeWidget + "-link", {active: true})
 	}
 	componentDidMount() {
 		this.sidebar = new SidebarDHX(this.el, {
@@ -167,7 +168,6 @@ import {
 		const activeWidget = window.location.href.split('/').pop()
 		if (activeWidget) {
 			this.props.handleActiveWidgetChange(activeWidget)
-			
 		}
 
 		this.sidebar.events.on('click', (id) => {
