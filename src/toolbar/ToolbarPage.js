@@ -92,20 +92,6 @@ class ToolbarPage extends Component {
 					</div>
 					
 				</section>
-				<section className="hgroup" id="events">
-					<h3>
-						Component Events
-						<a href="#events" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'events')}>
-							<img src={`${process.env.PUBLIC_URL}/static/link.svg`} alt="" />
-						</a>
-					</h3>
-					<p>
-						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/toolbar/ToolbarEvents.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
-					</p>
-					<div style={{display: 'flex', justifyContent: 'center'}}>
-						<ToolbarEvents />
-					</div>
-				</section>
 				<section className="hgroup" id="data">
 					<h3>
 						Work with data
@@ -120,6 +106,21 @@ class ToolbarPage extends Component {
 						<ToolbarData />
 					</div>
 				</section>
+				<section className="hgroup" id="events">
+					<h3>
+						Component Events
+						<a href="#events" className="anchor" onClick={(e) => this.handleAnchorClick(e, 'events')}>
+							<img src={`${process.env.PUBLIC_URL}/static/link.svg`} alt="" />
+						</a>
+					</h3>
+					<p>
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/toolbar/ToolbarEvents.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
+					</p>
+					<div style={{display: 'flex', justifyContent: 'center'}}>
+						<ToolbarEvents />
+					</div>
+				</section>
+			
 			</main>
 		)
 	}
