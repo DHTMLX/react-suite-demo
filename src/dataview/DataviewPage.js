@@ -118,7 +118,7 @@ class DataviewPage extends Component {
 					<p>
 						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/dataview/DataviewEvents.js" target="_blank"  rel="noopener noreferrer" >Code example </a> 
 					</p>
-					<div style={{display: 'flex', justifyContent: 'center'}}>
+					<div>
 						<DataviewEvents />
 					</div>
 				</section>

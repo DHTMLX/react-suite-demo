@@ -109,7 +109,8 @@
 	font-size: 14px;
 	text-decoration: underline;
 	font-family: Roboto;
-	color: #0288D1
+	color: #0288D1;
+	background-color: #fff; 
 }
 .dock-button button:focus {
 	outline: none;
