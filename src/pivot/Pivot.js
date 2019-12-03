@@ -36,7 +36,7 @@ class Pivot extends Component {
   }
   render() {
     return (
-      <div ref={el => this.el = el} style={{textAlign: 'left', minHeight: '800px',  width: 1000, marginLeft: 'auto', marginRight: 'auto'}}></div>
+      <div ref={el => this.el = el} style={{textAlign: 'left', minHeight: '500px',  width: 1000, marginLeft: 'auto', marginRight: 'auto'}}></div>
     );
   }
 }

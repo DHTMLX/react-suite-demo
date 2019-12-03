@@ -27,7 +27,7 @@ class DataviewCDN extends Component {
 			this.dataview = new dhx.DataView(this.el, {
         css: "dhx_widget--bordered dhx_widget--bg_white",
         template: template,
-        itemsInRow: 4,
+        itemsInRow: 6,
       });
       this.dataview.data.load(`${process.env.PUBLIC_URL}/static/dataview.json`)
       if (this.props.ready) {

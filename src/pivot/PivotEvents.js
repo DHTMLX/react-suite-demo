@@ -53,7 +53,7 @@ class PivotEvents extends Component {
   render() {
     return (
       <Fragment>
-        <div ref={el => this.el = el} style={{textAlign: 'left', minHeight: 800, height: 800, width: 1000, marginLeft: 'auto', marginRight: 'auto' }}></div>
+        <div ref={el => this.el = el} style={{textAlign: 'left', minHeight: '500px', height: 500, width: 1000, marginLeft: 'auto', marginRight: 'auto' }}></div>
         <div style={{display: 'flex', justifyContent: 'center', padding: 20}}>
           <button className="button button--bordered">{`Event: ${this.state.event}`}</button>
           <button className="button button--bordered">Item:  {this.state.id ? this.state.id : ''}</button>
