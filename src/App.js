@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Route, HashRouter, Switch } from "react-router-dom";
+import smoothscroll from 'smoothscroll-polyfill';
 import './App.css';
 import "dhx-suite/codebase/suite.min.css";
 
@@ -35,7 +36,8 @@ import TreegridPage from './treegrid/TreegridPage';
 
 class App extends PureComponent {
   constructor(props) {
-    super(props)
+    super(props);
+    smoothscroll.polyfill();
     this.state = {
       toolbarNav: [], 
       activeExampleId: "" 
@@ -55,7 +57,7 @@ class App extends PureComponent {
     this.setState({
       activeWidget: activeWidget.charAt(0).toUpperCase() + activeWidget.slice(1)
     })
-    this.el && this.el.scrollTo({
+    this.el && this.el.scroll({
       top: 0,
       behavior: 'smooth',
       inline: 'center',
@@ -72,7 +74,7 @@ class App extends PureComponent {
     let elHash = "#" + id
     const el = this.el.querySelector(elHash);
     const mainY = el.getBoundingClientRect().top + this.el.querySelector('main').scrollTop;
-    this.el.querySelector('main').scrollTo({
+    this.el.querySelector('main').scroll({
         top: mainY - 57,
         behavior: 'smooth',
         inline: 'center',

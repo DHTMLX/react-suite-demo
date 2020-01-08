@@ -21,6 +21,7 @@
     "react-scripts": "1.1.5",
     "react-thunk": "^1.0.0",
     "redux": "^4.0.4",
+    "smoothscroll-polyfill": "^0.4.4",
     "thunk": "^0.0.1"
   },
   "scripts": {
