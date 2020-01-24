@@ -132,21 +132,20 @@ class Toolbar extends PureComponent {
 				this.toolbar.data.update(this.props.activeExample + "_link", {active: true});
 			}
 		});
+		const itemsToHide = ["separ", "basic_link", "cdn_link", "pre_link", "props_link", "events_link", "data_link", "doc"];
 		if (this.props.toolbarNav.length > 0) {
-			const itemsToHide = ["separ", "basic_link", "cdn_link", "pre_link", "props_link", "events_link", "data_link", "doc"];
-			itemsToHide.map(item => {
+			itemsToHide.forEach(item => {
 				this.toolbar.data.update(item, {hidden: true});
 				return null;
 			});
-			this.props.toolbarNav.map(item => {
+			this.props.toolbarNav.forEach(item => {
 				this.toolbar.data.update(item + "_link", {hidden: false});
 				return null;
 			});
 			this.toolbar.data.update("separ", {hidden: false});
 			this.toolbar.data.update("doc", {html: "DHX " + this.props.activeWidget + " documentation", hidden: false});
 		} else {
-			const itemsToHide = ["separ", "basic_link", "cdn_link", "pre_link", "props_link", "events_link", "data_link", "doc"];
-			itemsToHide.map(item => {
+			itemsToHide.forEach(item => {
 				this.toolbar.data.update(item, {hidden: true});
 				return null;
 			});
