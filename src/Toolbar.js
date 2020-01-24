@@ -133,7 +133,7 @@ class Toolbar extends PureComponent {
 			}
 		});
 		const itemsToHide = ["separ", "basic_link", "cdn_link", "pre_link", "props_link", "events_link", "data_link", "doc"];
-		if (this.props.toolbarNav.length > 0) {
+		if (this.props.toolbarNav.length > 0 && this.props.activeWidget) {
 			itemsToHide.forEach(item => {
 				this.toolbar.data.update(item, {hidden: true});
 				return null;
