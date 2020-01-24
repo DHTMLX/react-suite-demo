@@ -1,117 +1,116 @@
-import React, { PureComponent } from 'react'
-import { Sidebar as SidebarDHX } from 'dhx-suite'
-import {
-  withRouter
-} from 'react-router-dom'
+import React, {PureComponent} from "react";
+import {Sidebar as SidebarDHX} from "dhx-suite";
+import {withRouter} from "react-router-dom";
 
- class Sidebar extends PureComponent {
+class Sidebar extends PureComponent {
 	componentDidUpdate() {
-		this.sidebar.data.map(item => item.active = false)
-		const activeWidget = window.location.href.split('/').pop()
-		this.sidebar.data.update(activeWidget + "-link", {active: true})
+		this.sidebar.data.map(item => item.active = false);
+		const activeWidget = window.location.href.split("/").pop();
+		this.sidebar.data.update(activeWidget + "-link", {active: true});
 	}
+
 	componentDidMount() {
 		this.sidebar = new SidebarDHX(this.el, {
-			css: 'dhx_widget--border_right',
-      data: [
+			css: "dhx_widget--border_right",
+			data: [
 				{
 					id: "logo",
-					type: 'customButton', 
-					css: 'logo-button',
+					type: "customButton",
+					css: "logo-button",
 					html: `<img src="${process.env.PUBLIC_URL}/static/logo_r.svg" alt="DHTMLX - React"/>`,
 					group: "nav",
 					twoState: true
 				},
 				{
-					type: 'separator',
+					type: "separator"
 				},
 				{
-					value: 'Calendar',
-					id: 'calendar-link',
+					value: "Calendar",
+					id: "calendar-link",
 					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'Toolbar',
-					id: 'toolbar-link',
+					value: "Toolbar",
+					id: "toolbar-link",
 					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'Timepicker',
-					id: 'timepicker-link',
+					value: "Timepicker",
+					id: "timepicker-link",
 					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'Slider',
-					id: 'slider-link',
+					value: "Slider",
+					id: "slider-link",
 					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'Colorpicker',
-					id: 'colorpicker-link',
+					value: "Colorpicker",
+					id: "colorpicker-link",
 					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'Sidebar',
-					id: 'sidebar-link',
+					value: "Sidebar",
+					id: "sidebar-link",
 					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'Ribbon',
-					id: 'ribbon-link',
+					value: "Ribbon",
+					id: "ribbon-link",
 					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'Dataview',
-					id: 'dataview-link',
+					value: "Dataview",
+					id: "dataview-link",
 					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'List',
-					id: 'list-link',
+					value: "List",
+					id: "list-link",
 					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'Grid',
-					id: 'grid-link',
+					value: "Grid",
+					id: "grid-link",
 					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'Menu',
-					id: 'menu-link',
+					value: "Menu",
+					id: "menu-link",
 					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'Form',
-					id: 'form-link',
+					value: "Form",
+					id: "form-link",
 					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'Tabbar',
-					id: 'tabbar-link',
+					value: "Tabbar",
+					id: "tabbar-link",
 					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'Combobox',
-					id: 'combobox-link',
+					value: "Combobox",
+					id: "combobox-link",
 					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'Tree',
-					id: 'tree-link',
+					value: "Tree",
+					id: "tree-link",
 					group: "nav",
 					twoState: true
 				},
@@ -122,8 +121,8 @@ import {
 				// 	twoState: true
 				// },
 				{
-					value: 'Chart',
-					id: 'chart-link',
+					value: "Chart",
+					id: "chart-link",
 					group: "nav",
 					twoState: true
 				},
@@ -134,29 +133,29 @@ import {
 				// 	twoState: true
 				// },
 				{
-					value: 'Window',
-					id: 'window-link',
+					value: "Window",
+					id: "window-link",
 					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'Message',
-					id: 'message-link',
+					value: "Message",
+					id: "message-link",
 					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'Popup',
-					id: 'popup-link',
+					value: "Popup",
+					id: "popup-link",
 					group: "nav",
 					twoState: true
 				},
 				{
-					value: 'Pivot',
-					id: 'pivot-link',
+					value: "Pivot",
+					id: "pivot-link",
 					group: "nav",
 					twoState: true
-				},
+				}
 				// {
 				// 	value: 'Treegrid',
 				// 	id: 'treegrid-link',
@@ -165,39 +164,41 @@ import {
 				// },
 			]
 		});
-		const activeWidget = window.location.href.split('/').pop()
+		const activeWidget = window.location.href.split("/").pop();
 		if (activeWidget) {
-			this.props.handleActiveWidgetChange(activeWidget)
+			this.props.handleActiveWidgetChange(activeWidget);
 		}
 
-		this.sidebar.events.on('click', (id) => {
-			
-			if (id !== 'logo') {
-				const widgetName = id.split('-')[0]
-				this.props.history.push('/' + widgetName)
-				this.props.handleActiveWidgetChange(widgetName)
+		this.sidebar.events.on("click", (id) => {
+			if (id !== "logo") {
+				const widgetName = id.split("-")[0];
+				this.props.history.push("/" + widgetName);
+				this.props.handleActiveWidgetChange(widgetName);
 				if (activeWidget) {
-					this.sidebar.data.update(activeWidget + "-link", {active: false})
+					this.sidebar.data.update(activeWidget + "-link", {active: false});
 				}
-				this.sidebar.data.update(widgetName + "-link", {active: true})
+				this.sidebar.data.update(widgetName + "-link", {active: true});
 			} else {
-				this.props.history.push('/')
-				this.props.handleActiveWidgetChange("")
+				this.props.history.push("/");
+				this.props.handleActiveWidgetChange("");
 				if (activeWidget) {
-					this.sidebar.data.update(activeWidget + "-link", {active: false})
+					this.sidebar.data.update(activeWidget + "-link", {active: false});
 				}
 			}
-		})
+		});
 	}
+
 	componentWillUnmount() {
-    this.sidebar.destructor();
-  }
+		this.sidebar.destructor();
+	}
+
 	render() {
 		return (
 			<div style={{maxHeight: "100vh"}} ref={el => this.el = el}>
-				
+
 			</div>
-		)
+		);
 	}
 }
-export default withRouter(Sidebar)
+
+export default withRouter(Sidebar);

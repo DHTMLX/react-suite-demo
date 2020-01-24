@@ -1,18 +1,18 @@
 const initialState = {
-	activeExample: ''
-}
+	activeExample: ""
+};
 
 const actions = {
-	'CHANGE_ACTIVE_EXAMPLE': changeEctiveExample,
-}
+	"CHANGE_ACTIVE_EXAMPLE": changeEctiveExample
+};
 
 function changeEctiveExample(state, action) {
 	return {
-		activeExample: action.playload,
-	}
-} 
+		activeExample: action.playload
+	};
+}
 
 export default {
 	initialState,
 	actions
-}
+};

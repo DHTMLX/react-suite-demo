@@ -2789,5 +2789,5 @@ const dataset = [
 		"oil": 1.927,
 		"balance": -2.464,
 		"when": "1/11/2015"
-	}]
-	export default dataset
+	}];
+export default dataset;
