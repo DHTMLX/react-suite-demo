@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Colorpicker as ColorpickerDHX} from "dhx-suite";
+import { Colorpicker as ColorpickerDHX } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class ColorpickerConfigured extends Component {
@@ -12,11 +12,9 @@ class ColorpickerConfigured extends Component {
 			pickerOnly: true
 		});
 	}
-
 	componentWillUnmount() {
 		this.colorpicker.destructor();
 	}
-
 	render() {
 		return (
 			<div ref={el => this.el = el}></div>

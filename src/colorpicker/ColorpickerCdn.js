@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -11,7 +11,6 @@ class ColorpickerCDN extends Component {
 			"https://cdn.dhtmlx.com/suite/edge/suite.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
@@ -23,12 +22,10 @@ class ColorpickerCDN extends Component {
 				this.props.ready(this.colorpicker);
 		});
 	}
-
 	componentWillUnmount() {
 		if (this.colorpicker)
 			this.colorpicker.destructor();
 	}
-
 	render() {
 		return (
 			<div ref={el => this.el = el}></div>
@@ -45,4 +42,5 @@ ColorpickerCDN.propTypes = {
 	palette: PropTypes.array,
 	width: PropTypes.string
 };
+
 export default ColorpickerCDN;
