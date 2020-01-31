@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Tabbar as TabbarDHX} from "dhx-suite";
+import { Tabbar as TabbarDHX } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class Tabbar extends Component {
@@ -28,14 +28,12 @@ class Tabbar extends Component {
 			]
 		});
 	}
-
 	componentWillUnmount() {
 		this.tabbar.destructor();
 	}
-
 	render() {
 		return (
-			<div style={{maxWidth: 850}} ref={el => this.el = el}></div>
+			<div style={{width: 802, height: 400}} ref={el => this.el = el}></div>
 		);
 	}
 }
@@ -48,7 +46,7 @@ Tabbar.propTypes = {
 		"right"
 	]),
 	view: PropTypes.arrayOf(PropTypes.object),
-	closeButtons: PropTypes.bool,
+	closable: PropTypes.bool,
 	noContent: PropTypes.bool,
 	tabWidth: PropTypes.number,
 	tabHeight: PropTypes.number,

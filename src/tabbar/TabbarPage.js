@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import Tabbar from "./Tabbar";
 import TabbarCdn from "./TabbarCdn";
 
@@ -31,7 +31,6 @@ class TabbarPage extends Component {
 		[...this.el.querySelectorAll("section")].map(item => observer.observe(item));
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll("section")].map(item => item.id));
 	}
-
 	render() {
 		return (
 			<main ref={(el) => this.el = el}>

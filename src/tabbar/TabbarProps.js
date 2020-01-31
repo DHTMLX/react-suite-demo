@@ -1,28 +1,26 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Tabbar as TabbarDHX} from "dhx-suite";
+import { Tabbar as TabbarDHX } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class Tabbar extends Component {
 	componentDidMount() {
-		let {css, mode, tabWidth, tabHeight, closeButtons, views} = this.props;
+		const { css, mode, tabWidth, tabHeight, closable, views } = this.props;
 		this.tabbar = new TabbarDHX(this.el, {
 			css: css,
 			mode: mode,
 			tabWidth: tabWidth,
 			tabHeight: tabHeight,
-			closeButtons: closeButtons,
+			closable: closable,
 			views: views
 		});
 	}
-
 	componentWillUnmount() {
 		this.tabbar.destructor();
 	}
-
 	render() {
 		return (
-			<div style={{maxWidth: 850}} ref={el => this.el = el}></div>
+			<div style={{width: 802, height: 400}} ref={el => this.el = el}></div>
 		);
 	}
 }
@@ -53,7 +51,7 @@ class TabbarProps extends Component {
 				css={"dhx_widget--bordered dhx_widget--bg_white"}
 				tabWidth={140}
 				tabHeight={60}
-				closeButtons={true}
+				closable={true}
 				views={views}
 			/>
 		);
@@ -67,7 +65,7 @@ TabbarProps.propTypes = {
 		"left",
 		"right"
 	]),
-	closeButtons: PropTypes.bool,
+	closable: PropTypes.bool,
 	noContent: PropTypes.bool,
 	tabWidth: PropTypes.number,
 	tabHeight: PropTypes.number,

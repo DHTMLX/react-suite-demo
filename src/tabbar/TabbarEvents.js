@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Tabbar as TabbarDHX} from "dhx-suite";
+import { Tabbar as TabbarDHX } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class TabbarEvents extends Component {
@@ -11,12 +11,11 @@ class TabbarEvents extends Component {
 			id: ""
 		};
 	}
-
 	componentDidMount() {
 		this.tabbar = new TabbarDHX(this.el, {
 			mode: "top",
 			css: "dhx_widget--bordered dhx_widget--bg_white",
-			closeButtons: true,
+			closable: true,
 			views: [
 				{
 					tab: "Vilnius",
@@ -39,15 +38,13 @@ class TabbarEvents extends Component {
 		this.tabbar.events.on("change", id => this.setState({event: "change", id: id}));
 		this.tabbar.events.on("close", id => this.setState({event: "close", id: id}));
 	}
-
 	componentWillUnmount() {
 		this.tabbar && this.tabbar.destructor();
 	}
-
 	render() {
 		return (
 			<div>
-				<div style={{maxWidth: 850}} ref={el => this.el = el}></div>
+				<div style={{width: 802, height: 400}} ref={el => this.el = el}></div>
 				<div style={{display: "flex", justifyContent: "center", padding: 20}}>
 					<button className="button button--bordered">{`Event: ${this.state.event}`}</button>
 					<button className="button button--bordered">Item: {this.state.id ? this.state.id : ""}</button>
@@ -65,7 +62,7 @@ TabbarEvents.propTypes = {
 		"right"
 	]),
 	view: PropTypes.arrayOf(PropTypes.object),
-	closeButtons: PropTypes.bool,
+	closable: PropTypes.bool,
 	noContent: PropTypes.bool,
 	tabWidth: PropTypes.number,
 	tabHeight: PropTypes.number,

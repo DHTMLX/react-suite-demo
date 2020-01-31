@@ -2325,10 +2325,10 @@ dhx-spreadsheet@^3.0.0:
   resolved "https://registry.yarnpkg.com/dhx-spreadsheet/-/dhx-spreadsheet-3.0.2.tgz#4d669a1da70ff1b5f4084ea9d3abc218e5c243b6"
   integrity sha512-V0S/qnMwabr2jFPcqiIhgE6Q29pNh1fJ6KtRd9cE25XovD0v7+m8qETvbaCc+3YJ3X2ADJozbyaMgEpCkV9ICA==
 
-dhx-suite@^6.1.6:
-  version "6.2.1"
-  resolved "https://registry.yarnpkg.com/dhx-suite/-/dhx-suite-6.2.1.tgz#7f40dd41a13f9f8013cdac8dad6d941d5fae3908"
-  integrity sha512-A72eoNLNuFf56WbD9eukqdyQ0WQkG10TfnT4x+2WRUX1FBERTNEs9VKj9WWACvpO4rcA38+g64TaVlnF+nzbTA==
+dhx-suite@^6.4.1:
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/dhx-suite/-/dhx-suite-6.4.1.tgz#2d45b59a2606eb4b17ead7c719481ed8ff47ee9d"
+  integrity sha512-baz+c3/aeYTGZJNfV5KPoKMOedQ8+axkgfqW/BU2hqj8qWi8DI9hH2/ZKsew6WnKYZlfQeX8oPpeVN8iNCFdfQ==
 
 dhx-treegrid@^6.1.5:
   version "6.1.5"
