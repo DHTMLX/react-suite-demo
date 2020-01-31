@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -11,7 +11,6 @@ class PopupCDN extends Component {
 			"https://cdn.dhtmlx.com/suite/edge/suite.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
@@ -24,22 +23,17 @@ class PopupCDN extends Component {
 			}
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.popup) {
-			this.popup.destructor();
-		}
+		this.popup && this.popup.destructor();
 	}
-
 	handlePopupShow(el) {
 		this.popup.show(el);
 	}
-
 	render() {
 		return (
 			<div>
-				<button className="button" ref={el => this.el = el} onClick={() => this.handlePopupShow(this.el)}>Show
-					popup
+				<button className="button" ref={el => this.el = el} onClick={() => this.handlePopupShow(this.el)}>
+					Show popup
 				</button>
 			</div>
 		);
@@ -49,4 +43,5 @@ class PopupCDN extends Component {
 PopupCDN.propTypes = {
 	css: PropTypes.string
 };
+
 export default PopupCDN;

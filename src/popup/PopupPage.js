@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import Popup from "./Popup";
 import PopupCdn from "./PopupCdn";
 import PopupEvents from "./PopupEvents";
@@ -28,7 +28,6 @@ class PopupPage extends Component {
 		[...this.el.querySelectorAll("section")].map(item => observer.observe(item));
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll("section")].map(item => item.id));
 	}
-
 	render() {
 		return (
 			<main ref={(el) => this.el = el}>
@@ -61,7 +60,6 @@ class PopupPage extends Component {
 					<div style={{display: "flex", justifyContent: "center"}}>
 						<PopupCdn/>
 					</div>
-
 				</section>
 				<section className="hgroup" id="events">
 					<h3>
@@ -71,7 +69,7 @@ class PopupPage extends Component {
 						</a>
 					</h3>
 					<p>
-						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/popup/PopupCdn.js"
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/popup/PopupEvents.js"
 						   target="_blank" rel="noopener noreferrer">Code example </a>
 					</p>
 					<div style={{display: "flex", justifyContent: "center"}}>
