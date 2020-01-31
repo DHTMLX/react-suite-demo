@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -11,7 +11,6 @@ class SliderCDN extends Component {
 			"https://cdn.dhtmlx.com/suite/edge/suite.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
@@ -22,13 +21,9 @@ class SliderCDN extends Component {
 			}
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.slider) {
-			this.slider.destructor();
-		}
+		this.slider && this.slider.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{width: "600px"}} ref={el => this.el = el}></div>
@@ -48,16 +43,17 @@ SliderCDN.propTypes = {
 		PropTypes.string
 	]),
 	inverse: PropTypes.bool,
-	thumbLabel: PropTypes.bool,
+	tooltip: PropTypes.bool,
 	css: PropTypes.string,
 	tick: PropTypes.number,
 	tickTemplate: PropTypes.func,
 	majorTick: PropTypes.number,
 	label: PropTypes.string,
 	required: PropTypes.bool,
-	help: PropTypes.string,
-	labelInline: PropTypes.bool,
+	helpMessage: PropTypes.string,
+	labelPosition: PropTypes.string,
 	labelWidth: PropTypes.string,
 	hiddenLabel: PropTypes.bool
 };
+
 export default SliderCDN;
