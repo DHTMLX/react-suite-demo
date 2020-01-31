@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Toolbar as ToolbarDHX, TreeCollection} from "dhx-suite";
+import { Toolbar as ToolbarDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class ToolbarEvents extends Component {
@@ -11,10 +11,10 @@ class ToolbarEvents extends Component {
 			id: ""
 		};
 	}
-
 	componentDidMount() {
 		this.toolbar = new ToolbarDHX(this.el, {
 			css: "dhx_widget--bordered dhx_widget--bg_white",
+			navigationType: "pointer",
 			data: [
 				{
 					id: "add",
@@ -89,18 +89,15 @@ class ToolbarEvents extends Component {
 		this.toolbar.events.on("inputfocus", id => this.handleClick(id, "inputfocus"));
 		this.toolbar.events.on("inputblur", id => this.handleClick(id, "inputblur"));
 	}
-
 	handleClick(id, event) {
 		this.setState({
 			event: event,
 			id: id
 		});
 	}
-
 	componentWillUnmount() {
 		this.toolbar.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{width: "100%"}}>
@@ -122,7 +119,8 @@ ToolbarEvents.propTypes = {
 	data: PropTypes.instanceOf([
 		PropTypes.array,
 		PropTypes.instanceOf(TreeCollection)
-	])
+	]),
+	navigationType: PropTypes.string
 };
 
 export default ToolbarEvents;

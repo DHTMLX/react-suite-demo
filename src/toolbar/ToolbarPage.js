@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import Toolbar from "./Toolbar";
 import ToolbarCdn from "./ToolbarCdn";
 import ToolbarConfigured from "./ToolbarConfigured";
@@ -31,7 +31,6 @@ class ToolbarPage extends Component {
 		[...this.el.querySelectorAll("section")].map(item => observer.observe(item));
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll("section")].map(item => item.id));
 	}
-
 	render() {
 		return (
 			<main ref={(el) => this.el = el}>
@@ -64,7 +63,6 @@ class ToolbarPage extends Component {
 					<div style={{display: "flex", justifyContent: "center"}}>
 						<ToolbarCdn/>
 					</div>
-
 				</section>
 				<section className="hgroup" id="pre">
 					<h3>
@@ -95,7 +93,6 @@ class ToolbarPage extends Component {
 					<div style={{display: "flex", justifyContent: "center"}}>
 						<ToolbarProps/>
 					</div>
-
 				</section>
 				<section className="hgroup" id="data">
 					<h3>

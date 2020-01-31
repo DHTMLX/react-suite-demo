@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -11,12 +11,12 @@ class ToolbarCdn extends Component {
 			"https://cdn.dhtmlx.com/suite/edge/suite.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
 			this.toolbar = new dhx.Toolbar(this.el, {
-				css: "dhx_widget--bordered dhx_widget--bg_white"
+				css: "dhx_widget--bordered dhx_widget--bg_white",
+				navigationType: "pointer"
 			});
 			this.toolbar.data.load(`${process.env.PUBLIC_URL}/static/toolbar.json`);
 
@@ -25,13 +25,9 @@ class ToolbarCdn extends Component {
 			}
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.toolbar) {
-			this.toolbar.destructor();
-		}
+		this.toolbar && this.toolbar.destructor();
 	}
-
 	render() {
 		return (
 			<div
@@ -44,8 +40,10 @@ class ToolbarCdn extends Component {
 
 ToolbarCdn.propTypes = {
 	css: PropTypes.string,
-	data: PropTypes.oneOfType([
+	data: PropTypes.instanceOf([
 		PropTypes.array
-	])
+	]),
+	navigationType: PropTypes.string
 };
+
 export default ToolbarCdn;
