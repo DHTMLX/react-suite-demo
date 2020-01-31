@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -11,7 +11,6 @@ class TabbarCDN extends Component {
 			"https://cdn.dhtmlx.com/suite/edge/suite.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
@@ -43,16 +42,14 @@ class TabbarCDN extends Component {
 			}
 		});
 	}
-
 	componentWillUnmount() {
 		if (this.tabbar) {
 			this.tabbar.destructor();
 		}
 	}
-
 	render() {
 		return (
-			<div style={{maxWidth: 850}} ref={el => this.el = el}></div>
+			<div style={{width: 802, height: 400}} ref={el => this.el = el}></div>
 		);
 	}
 }
@@ -71,4 +68,5 @@ TabbarCDN.propTypes = {
 	css: PropTypes.string,
 	view: PropTypes.arrayOf(PropTypes.object)
 };
+
 export default TabbarCDN;

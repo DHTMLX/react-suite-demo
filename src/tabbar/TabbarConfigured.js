@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Tabbar as TabbarDHX} from "dhx-suite";
+import { Tabbar as TabbarDHX } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class TabbarConfigured extends Component {
@@ -10,7 +10,7 @@ class TabbarConfigured extends Component {
 			css: "dhx_widget--bordered dhx_widget--bg_white",
 			tabWidth: 140,
 			tabHeight: 60,
-			closeButtons: true,
+			closable: true,
 			views: [
 				{
 					tab: "Vilnius",
@@ -31,14 +31,12 @@ class TabbarConfigured extends Component {
 			]
 		});
 	}
-
 	componentWillUnmount() {
 		this.tabbar.destructor();
 	}
-
 	render() {
 		return (
-			<div style={{maxWidth: 850}} ref={el => this.el = el}></div>
+			<div style={{width: 802, height: 400}} ref={el => this.el = el}></div>
 		);
 	}
 }
@@ -50,7 +48,7 @@ TabbarConfigured.propTypes = {
 		"left",
 		"right"
 	]),
-	closeButtons: PropTypes.bool,
+	closable: PropTypes.bool,
 	noContent: PropTypes.bool,
 	tabWidth: PropTypes.number,
 	tabHeight: PropTypes.number,
