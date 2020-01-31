@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -20,7 +20,6 @@ class DataviewCDN extends Component {
 			"https://cdn.dhtmlx.com/suite/edge/suite.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
@@ -35,16 +34,12 @@ class DataviewCDN extends Component {
 			}
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.dataview) {
-			this.dataview.destructor();
-		}
+		this.dataview && this.dataview.destructor();
 	}
-
 	render() {
 		return (
-			<div ref={el => this.el = el}></div>
+			<div style={{width: "100%"}} ref={el => this.el = el}></div>
 		);
 	}
 }
