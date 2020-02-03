@@ -12,7 +12,6 @@ class MenuEvents extends Component {
 			id: ""
 		};
 	}
-
 	componentDidMount() {
 		this.menu = new MenuDHX(this.el, {
 			css: "dhx_widget--bordered"
@@ -21,19 +20,21 @@ class MenuEvents extends Component {
 
 		this.menu.events.on("click", id => this.handleClick(id, "click"));
 		this.menu.events.on("openmenu", id => this.handleClick(id, "openmenu"));
+		this.menu.events.on("inputfocus", id => this.handleClick(id, "inputfocus"));
+		this.menu.events.on("inputcreated", id => this.handleClick(id, "inputcreated"));
+		this.menu.events.on("inputblur", id => this.handleClick(id, "inputblur"));
+		this.menu.events.on("afterhide", id => this.handleClick(id, "afterhide"));
+		this.menu.events.on("beforehide", id => this.handleClick(id, "beforehide"));
 	}
-
 	handleClick(id, event) {
 		this.setState({
 			event: event,
 			id: id
 		});
 	}
-
 	componentWillUnmount() {
-		this.menu.destructor();
+		this.menu && this.menu.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{
@@ -58,7 +59,8 @@ MenuEvents.propTypes = {
 	data: PropTypes.instanceOf([
 		PropTypes.array,
 		PropTypes.instanceOf(TreeCollection)
-	])
+	]),
+	navigationType: PropTypes.oneOf(["pointer", "click"])
 };
 
 export default MenuEvents;

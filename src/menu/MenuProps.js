@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Menu as MenuDHX, TreeCollection} from "dhx-suite";
+import { Menu as MenuDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class Menu extends Component {
@@ -11,11 +11,9 @@ class Menu extends Component {
 			data: data
 		});
 	}
-
 	componentWillUnmount() {
-		this.menu.destructor();
+		this.menu && this.menu.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{width: "100%", maxWidth: 1200}} ref={el => this.el = el}></div>
@@ -29,7 +27,6 @@ class MenuProps extends Component {
 		data.load(`${process.env.PUBLIC_URL}/static/menu.json`);
 		return data;
 	}
-
 	render() {
 		return (
 			<Menu
@@ -45,7 +42,8 @@ MenuProps.propTypes = {
 	data: PropTypes.instanceOf([
 		PropTypes.array,
 		PropTypes.instanceOf(TreeCollection)
-	])
+	]),
+	navigationType: PropTypes.oneOf(["pointer", "click"])
 };
 
 export default MenuProps;
