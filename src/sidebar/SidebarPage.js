@@ -32,7 +32,6 @@ class SidebarPage extends Component {
 		[...this.el.querySelectorAll("section")].map(item => observer.observe(item));
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll("section")].map(item => item.id));
 	}
-
 	render() {
 		return (
 			<main ref={(el) => this.el = el}>
@@ -65,7 +64,6 @@ class SidebarPage extends Component {
 					<div style={{display: "flex", justifyContent: "center"}}>
 						<SidebarCdn/>
 					</div>
-
 				</section>
 				<section className="hgroup" id="pre">
 					<h3>

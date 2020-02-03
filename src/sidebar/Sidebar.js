@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Sidebar as SidebarDHX, TreeCollection} from "dhx-suite";
+import { Sidebar as SidebarDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class Sidebar extends Component {
@@ -10,11 +10,9 @@ class Sidebar extends Component {
 		});
 		this.sidebar.data.load(`${process.env.PUBLIC_URL}/static/sidebar.json`);
 	}
-
 	componentWillUnmount() {
-		this.sidebar.destructor();
+		this.sidebar && this.sidebar.destructor();
 	}
-
 	render() {
 		return (
 			<div ref={el => this.el = el}></div>
