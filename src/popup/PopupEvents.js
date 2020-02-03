@@ -18,6 +18,8 @@ class PivotEvents extends Component {
 
 		this.popup.events.on("afterhide", () => this.setState({event: "afterhide"}));
 		this.popup.events.on("aftershow", () => this.setState({event: "aftershow"}));
+		this.popup.events.on("beforehide", () => this.setState({event: "beforerhide"}));
+		this.popup.events.on("beforeshow", () => this.setState({event: "beforeshow"}));
 		this.popup.events.on("click", () => this.setState({event: "click"}));
 	}
 	componentWillUnmount() {
@@ -34,7 +36,7 @@ class PivotEvents extends Component {
 					        style={{marginLeft: "auto", marginRight: "auto"}}
 					        ref={el => this.el = el}
 					        onClick={() => this.handlePopupShow(this.el)}>
-							Show popup
+						Show popup
 					</button>
 					<div style={{display: "flex", justifyContent: "center", padding: 20}}>
 						<button className="button button--bordered">
