@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 
 class MessageCDN extends Component {
@@ -10,7 +10,6 @@ class MessageCDN extends Component {
 			"https://cdn.dhtmlx.com/suite/edge/suite.css"
 		]);
 	}
-
 	showAlert = () => {
 		this.ready.then(() => {
 			window.dhx.alert({
@@ -38,16 +37,9 @@ class MessageCDN extends Component {
 			});
 		});
 	};
-
-	componentDidMount() {
-
-	}
-
 	render() {
 		return (
-			<div style={{
-				display: "flex"
-			}}>
+			<div style={{display: "flex"}}>
 				<button className="button" onClick={() => this.showAlert()}>Show alert</button>
 				<button className="button" onClick={() => this.showConfirm()}>Show confirm</button>
 				<button className="button" onClick={() => this.showMessage()}>Show message</button>

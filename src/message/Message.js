@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {alert as dhxAlert, confirm as dhxConfirm, message as dhxMessage} from "dhx-suite";
+import React, { Component } from "react";
+import { alert as dhxAlert, confirm as dhxConfirm, message as dhxMessage } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class Message extends Component {
@@ -24,7 +24,6 @@ class Message extends Component {
 			icon: "dxi-close"
 		});
 	};
-
 	render() {
 		return (
 			<div style={{
