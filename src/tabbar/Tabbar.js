@@ -46,11 +46,13 @@ Tabbar.propTypes = {
 		"right"
 	]),
 	view: PropTypes.arrayOf(PropTypes.object),
-	closable: PropTypes.bool,
+	closable: PropTypes.bool || PropTypes.arrayOf(PropTypes.string),
+	disabled: PropTypes.string || PropTypes.arrayOf(PropTypes.string),
 	noContent: PropTypes.bool,
 	tabWidth: PropTypes.number,
 	tabHeight: PropTypes.number,
-	css: PropTypes.string
+	css: PropTypes.string,
+	activeTab: PropTypes.string
 };
 
 export default Tabbar;
