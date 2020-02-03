@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {Vault as VaultBase} from "dhx-vault";
+import React, { Component } from "react";
+import { Vault as VaultBase } from "dhx-vault";
 import "dhx-vault/codebase/vault.css";
 
 class Vault extends Component {
@@ -18,11 +18,9 @@ class Vault extends Component {
 			value: "MyAction"
 		});
 	}
-
 	componentWillUnmount() {
-		this.vault.destructor();
+		this.vault && this.vault.destructor();
 	}
-
 	render() {
 		return (
 			<div ref={el => this.el = el} className="widget-box"></div>

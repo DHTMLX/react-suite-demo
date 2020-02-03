@@ -4,7 +4,6 @@ export default class About extends Component {
 	componentDidMount() {
 		this.props.handleToolbarNavItems([]);
 	}
-
 	render() {
 		return (
 			<div style={{textAlign: "center"}}>

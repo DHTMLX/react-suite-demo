@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {TreeGrid as TreegridDHX, TreeGridCollection} from "dhx-treegrid";
+import { TreeGrid as TreegridDHX, TreeGridCollection } from "dhx-treegrid";
 import "dhx-treegrid/codebase/treegrid.min.css";
 
 class TreegridEvents extends Component {
@@ -11,7 +11,6 @@ class TreegridEvents extends Component {
 			id: ""
 		};
 	}
-
 	componentDidMount() {
 		this.treegrid = new TreegridDHX(this.el, {
 			css: "dhx_widget--bordered",
@@ -32,11 +31,9 @@ class TreegridEvents extends Component {
 		this.treegrid.events.on("cellClick", id => this.setState({event: "cellClick", id: id.name}));
 		this.treegrid.events.on("cellDblClick", id => this.setState({event: "cellDblClick", id: id.name}));
 	}
-
 	componentWillUnmount() {
 		this.treegrid && this.treegrid.destructor();
 	}
-
 	render() {
 		return (
 			<div>

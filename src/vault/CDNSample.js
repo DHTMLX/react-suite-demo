@@ -1,13 +1,11 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Vault from "./VaultCdn";
 
 class CDNSample extends Component {
 	constructor(props) {
 		super(props);
-
 		this.files = React.createRef();
 	}
-
 	render() {
 		return (
 			<div className='app-box'>
@@ -20,7 +18,6 @@ class CDNSample extends Component {
 			</div>
 		);
 	}
-
 	componentDidMount() {
 		const sub = this.refs.files;
 		sub.ready.then(() => {
@@ -29,7 +26,6 @@ class CDNSample extends Component {
 			});
 		});
 	}
-
 	loadData(vault) {
 		vault.data.add({
 			name: "By-Event.md", size: 44800

@@ -6,11 +6,9 @@ html, body, #app {
     margin: 0px;
     font-family: Roboto;
 }
-
 .app-box {
     padding: 20px;
 }
-
 .widget-box {
     width: 440px;
     height: 320px;

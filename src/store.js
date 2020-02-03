@@ -1,4 +1,4 @@
-import {createStore, combineReducers} from "redux";
+import { createStore, combineReducers } from "redux";
 import activeExampleConfig from "./reducers/activeExample";
 
 const createReducer = (initialState, handlers) => {

@@ -1,6 +1,6 @@
-import React, {Component, PureComponent} from "react";
+import React, { Component, PureComponent } from "react";
 import PropTypes from "prop-types";
-import {TreeGrid as TreegridDHX, TreeGridCollection} from "dhx-treegrid";
+import { TreeGrid as TreegridDHX, TreeGridCollection } from "dhx-treegrid";
 import "dhx-treegrid/codebase/treegrid.min.css";
 
 class Grid extends Component {
@@ -14,11 +14,9 @@ class Grid extends Component {
 			data: data
 		});
 	}
-
 	componentWillUnmount() {
-		this.grid.destructor();
+		this.grid && this.grid.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{width: "100%", maxWidth: 1350, height: "500px"}} ref={el => this.el = el}></div>
@@ -41,7 +39,6 @@ class GridData extends PureComponent {
 				itemsCount: this.data.getLength()
 			});
 		});
-
 		this.data.load("./static/treegrid.json").then(() => {
 			this.data.events.on("change", () => {
 				this.setState({
@@ -51,19 +48,15 @@ class GridData extends PureComponent {
 			});
 		});
 	}
-
 	componentWillUnmount() {
 		this.data.events.detach("load");
 	}
-
 	handleRemoveItem() {
 		this.data.remove(this.data.getId(0));
 	}
-
 	handleReset() {
 		this.data.load("./static/treegrid.json");
 	}
-
 	render() {
 		const columns = [
 			{width: 260, id: "name", header: [{text: "Name"}]},
@@ -86,7 +79,7 @@ class GridData extends PureComponent {
 						Remove {this.state.firstItem} segment
 					</button>
 					<button className="button" onClick={() => this.handleReset()}
-					        disabled={this.state.itemsCount !== 0}>
+							disabled={this.state.itemsCount !== 0}>
 						Reset
 					</button>
 				</div>

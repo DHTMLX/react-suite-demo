@@ -1,6 +1,6 @@
-import React, {PureComponent} from "react";
-import {DataView as DataviewDHX} from "dhx-suite";
-import {withRouter} from "react-router-dom";
+import React, { PureComponent } from "react";
+import { DataView as DataviewDHX } from "dhx-suite";
+import { withRouter } from "react-router-dom";
 
 import "./dataview.css";
 
@@ -14,7 +14,7 @@ class Dataview extends PureComponent {
 					<h3 class="app-card__header">${item.value}</h3>
 					<img class="app-card__image" src=${process.env.PUBLIC_URL}/static/images/icons/${item.id.split("-")[0]}.svg alt="${item.id.split("-")[0]}"/>
 				</div>
-			`,
+			`,		
 			gap: 20,
 			data: [
 				{
@@ -105,16 +105,12 @@ class Dataview extends PureComponent {
 			this.props.handleActiveWidgetChange(widgetName);
 		});
 	}
-
 	componentWillUnmount() {
-		this.dataview.destructor();
+		this.dataview && this.dataview.destructor();
 	}
-
 	render() {
 		return (
-			<div style={{maxWidth: "800px", margin: "auto", flex: "1 0 auto"}} ref={el => this.el = el}>
-
-			</div>
+			<div style={{maxWidth: "800px", margin: "auto", flex: "1 0 auto"}} ref={el => this.el = el}></div>
 		);
 	}
 }

@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Window as WindowDHX} from "dhx-suite";
+import { Window as WindowDHX } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class Window extends Component {
@@ -14,11 +14,9 @@ class Window extends Component {
 			closable: true
 		});
 	}
-
 	componentWillUnmount() {
 		this.window && this.window.destructor();
 	}
-
 	render() {
 		return (
 			<button className="button" onClick={() => this.window.show()}>
@@ -48,7 +46,8 @@ Window.propTypes = {
 	resizable: PropTypes.bool,
 	movable: PropTypes.bool,
 	modal: PropTypes.bool,
-	closable: PropTypes.bool
+	closable: PropTypes.bool,
+	node: PropTypes.string
 };
 
 export default Window;

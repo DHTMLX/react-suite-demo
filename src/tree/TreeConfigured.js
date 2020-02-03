@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Tree as TreeDHX, TreeCollection} from "dhx-suite";
+import { Tree as TreeDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class TreeConfigured extends Component {
@@ -8,19 +8,16 @@ class TreeConfigured extends Component {
 		this.tree = new TreeDHX(this.el, {
 			css: "dhx_widget--bg_white",
 			keyNavigation: true,
-			autoload: true,
 			checkbox: true
 		});
 		this.tree.data.load(`${process.env.PUBLIC_URL}/static/tree.json`);
 	}
-
 	componentWillUnmount() {
-		this.tree.destructor();
+		this.tree && this.tree.destructor();
 	}
-
 	render() {
 		return (
-			<div style={{minWidth: 270, padding: 10, background: "#fff"}} ref={el => this.el = el}></div>
+			<div style={{width: 350, padding: 10, background: "#fff", height: 450, overflow: "auto"}} ref={el => this.el = el}></div>
 		);
 	}
 }
@@ -30,11 +27,19 @@ TreeConfigured.propTypes = {
 		PropTypes.array,
 		PropTypes.instanceOf(TreeCollection)
 	]),
+	icon: PropTypes.shape({
+		folder: PropTypes.string,
+        openFolder: PropTypes.string,
+        file: PropTypes.string
+	}),
 	css: PropTypes.string,
 	keyNavigation: PropTypes.bool,
-	autoload: PropTypes.string,
-	checkbox: PropTypes.bool,
-	isFolder: PropTypes.func
+	dragCopy: PropTypes.bool,
+	dragMode: PropTypes.string,
+	dropBehaviour: PropTypes.string,
+	editable: PropTypes.bool,
+	autoload: PropTypes.bool,
+	checkbox: PropTypes.bool
 };
 
 export default TreeConfigured;

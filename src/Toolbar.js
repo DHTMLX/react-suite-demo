@@ -1,6 +1,6 @@
-import React, {PureComponent} from "react";
-import {Toolbar as ToolbarDHX} from "dhx-suite";
-import {connect} from "react-redux";
+import React, { PureComponent } from "react";
+import { Toolbar as ToolbarDHX } from "dhx-suite";
+import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
 	return {
@@ -116,7 +116,6 @@ class Toolbar extends PureComponent {
 			}
 		});
 	}
-
 	componentDidUpdate() {
 		this.toolbar.data.update("title", {value: `Using DHTMLX ${this.props.activeWidget || "widgets"} in a React app`});
 		if (!this.props.toolbarNav.includes(window.location.hash.slice(1))) {
@@ -151,16 +150,12 @@ class Toolbar extends PureComponent {
 			});
 		}
 	}
-
 	componentWillUnmount() {
-		this.toolbar.destructor();
+		this.toolbar && this.toolbar.destructor();
 	}
-
 	render() {
 		return (
-			<div style={{width: "100%"}} ref={el => this.el = el}>
-
-			</div>
+			<div style={{width: "100%"}} ref={el => this.el = el}></div>
 		);
 	}
 }

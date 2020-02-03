@@ -1,5 +1,5 @@
-import React, {PureComponent} from "react";
-import {Route, HashRouter, Switch} from "react-router-dom";
+import React, { PureComponent } from "react";
+import { Route, HashRouter, Switch } from "react-router-dom";
 import smoothscroll from "smoothscroll-polyfill";
 import "./App.css";
 import "dhx-suite/codebase/suite.min.css";
@@ -25,9 +25,7 @@ import FormPage from "./form/FormPage";
 import TabbarPage from "./tabbar/TabbarPage";
 import ComboboxPage from "./combobox/ComboboxPage";
 import TreePage from "./tree/TreePage";
-// import TreegridPage from './treegrid/TreegridPage';
 import ChartPage from "./chart/ChartPage";
-// import LayoutPage from './layout/LayoutPage';
 import WindowPage from "./window/WindowPage";
 import MessagePage from "./message/MessagePage";
 import PopupPage from "./popup/PopupPage";
@@ -43,7 +41,6 @@ class App extends PureComponent {
 			activeExampleId: ""
 		};
 	}
-
 	componentDidUpdate() {
 		let activeHrefPart = window.location.href.split("/").pop();
 		let activeHrefPartCapitalize = activeHrefPart.charAt(0).toUpperCase() + activeHrefPart.slice(1);
@@ -53,7 +50,6 @@ class App extends PureComponent {
 			});
 		}
 	}
-
 	setActiveWidget(activeWidget) {
 		this.setState({
 			activeWidget: activeWidget.charAt(0).toUpperCase() + activeWidget.slice(1)
@@ -64,7 +60,6 @@ class App extends PureComponent {
 			inline: "center"
 		});
 	}
-
 	setToolBarNavItems(array) {
 		if (!isEqual(array, this.state.toolbarNav)) {
 			this.setState({
@@ -72,7 +67,6 @@ class App extends PureComponent {
 			});
 		}
 	}
-
 	setActiveExapmle(id) {
 		let elHash = "#" + id;
 		const el = this.el.querySelector(elHash);
@@ -83,7 +77,6 @@ class App extends PureComponent {
 			inline: "center"
 		});
 	}
-
 	render() {
 		return (
 			<HashRouter hashType={"slash"}>
@@ -100,7 +93,6 @@ class App extends PureComponent {
 							toolbarNav={this.state.toolbarNav}/>
 						<div className='app-content'
 						     ref={(el) => this.el = el}>
-
 							<Switch>
 								<Route path={`/calendar`} component={() => (
 									<CalendarPage
@@ -255,7 +247,6 @@ class App extends PureComponent {
 								)}
 								/>
 							</Switch>
-
 						</div>
 					</div>
 				</div>
@@ -265,4 +256,3 @@ class App extends PureComponent {
 }
 
 export default App;
-

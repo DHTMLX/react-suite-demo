@@ -6,7 +6,6 @@ import WindowCdn from "./WindowCdn";
 import WindowConfigured from "./WindowConfigured";
 
 class WindowPage extends Component {
-
 	componentDidMount() {
 		const setActiveExapmleInHead = (entries, observer) => {
 			entries.forEach(entry => {
@@ -30,7 +29,6 @@ class WindowPage extends Component {
 		[...this.el.querySelectorAll("section")].map(item => observer.observe(item));
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll("section")].map(item => item.id));
 	}
-
 	render() {
 		return (
 			<main ref={(el) => this.el = el}>
@@ -60,7 +58,6 @@ class WindowPage extends Component {
 					<div style={{display: "flex", justifyContent: "center"}}>
 						<WindowCdn/>
 					</div>
-
 				</section>
 				<section className="hgroup" id="pre">
 					<h3>
