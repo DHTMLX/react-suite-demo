@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -12,7 +12,6 @@ class RibbonCDN extends Component {
 			"https://cdn.materialdesignicons.com/3.8.95/css/materialdesignicons.min.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
@@ -20,19 +19,14 @@ class RibbonCDN extends Component {
 				css: "dhx_widget--bordered dhx_widget--bg_white"
 			});
 			this.ribbon.data.load(`${process.env.PUBLIC_URL}/static/ribbon.json`);
-
 			if (this.props.ready) {
 				this.props.ready(this.ribbon);
 			}
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.ribbon) {
-			this.ribbon.destructor();
-		}
+		this.ribbon && this.ribbon.destructor();
 	}
-
 	render() {
 		return (
 			<div ref={el => this.el = el}></div>
@@ -46,4 +40,5 @@ RibbonCDN.propTypes = {
 		PropTypes.array
 	])
 };
+
 export default RibbonCDN;
