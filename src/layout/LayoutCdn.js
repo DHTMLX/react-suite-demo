@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -11,7 +11,6 @@ class LayoutCDN extends Component {
 			"https://cdn.dhtmlx.com/suite/edge/suite.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
@@ -24,13 +23,9 @@ class LayoutCDN extends Component {
 			}
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.layout) {
-			this.layout.destructor();
-		}
+		this.layout && this.layout.destructor();
 	}
-
 	render() {
 		return (
 			<div ref={el => this.el = el}></div>

@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import Layout from "./Layout";
 import LayoutCdn from "./LayoutCdn";
 
@@ -7,7 +7,6 @@ import LayoutConfigured from "./LayoutConfigured";
 import LayoutProps from "./LayoutProps";
 
 class LayoutPage extends Component {
-
 	componentDidMount() {
 		const setActiveExapmleInHead = (entries, observer) => {
 			entries.forEach(entry => {
@@ -31,7 +30,6 @@ class LayoutPage extends Component {
 		[...this.el.querySelectorAll("section")].map(item => observer.observe(item));
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll("section")].map(item => item.id));
 	}
-
 	render() {
 		return (
 			<main ref={(el) => this.el = el}>
