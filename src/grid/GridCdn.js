@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -11,7 +11,6 @@ class GridCDN extends Component {
 			"https://cdn.dhtmlx.com/suite/edge/suite.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
@@ -30,19 +29,14 @@ class GridCDN extends Component {
 				]
 			});
 			this.grid.data.load(`${process.env.PUBLIC_URL}/static/grid.json`);
-
 			if (this.props.ready) {
 				this.props.ready(this.grid);
 			}
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.grid) {
-			this.grid.destructor();
-		}
+		this.grid && this.grid.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{width: "100%", maxWidth: 1350, height: "500px"}} ref={el => this.el = el}></div>
@@ -81,4 +75,5 @@ GridCDN.propTypes = {
 	$colspans: PropTypes.bool,
 	$footer: PropTypes.bool
 };
+
 export default GridCDN;

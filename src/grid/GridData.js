@@ -1,6 +1,6 @@
-import React, {Component, PureComponent} from "react";
+import React, { Component, PureComponent } from "react";
 import PropTypes from "prop-types";
-import {Grid as GridDHX, TreeCollection} from "dhx-suite";
+import { Grid as GridDHX, TreeCollection } from "dhx-suite";
 
 import "dhx-suite/codebase/suite.min.css";
 
@@ -17,9 +17,8 @@ class Grid extends Component {
 	}
 
 	componentWillUnmount() {
-		this.grid.destructor();
+		this.grid && this.grid.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{width: "100%", maxWidth: 1350, height: "500px"}} ref={el => this.el = el}></div>
@@ -40,7 +39,6 @@ class GridData extends PureComponent {
 				firstItem: this.data.getId(0) ? this.data.getItem(this.data.getId(0)).country : ""
 			});
 		});
-
 		this.data.load(`${process.env.PUBLIC_URL}/static/grid.json`).then(() => {
 			this.data.events.on("change", () => {
 				this.setState({
@@ -49,11 +47,9 @@ class GridData extends PureComponent {
 			});
 		});
 	}
-
 	componentWillUnmount() {
 		this.data.events.detach("load");
 	}
-
 	handleClick() {
 		if (this.state.firstItem) {
 			this.data.remove(this.data.getId(0));
@@ -61,7 +57,6 @@ class GridData extends PureComponent {
 			this.data.load(`${process.env.PUBLIC_URL}/static/grid.json`);
 		}
 	}
-
 	render() {
 		const columns = [
 			{width: 200, id: "country", header: [{text: "Country"}]},

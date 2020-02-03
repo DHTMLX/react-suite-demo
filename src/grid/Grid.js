@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Grid as GridDHX, TreeCollection} from "dhx-suite";
+import { Grid as GridDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class Grid extends Component {
@@ -21,11 +21,9 @@ class Grid extends Component {
 		});
 		this.grid.data.load(`${process.env.PUBLIC_URL}/static/grid.json`);
 	}
-
 	componentWillUnmount() {
-		this.grid.destructor();
+		this.grid && this.grid.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{width: "100%", maxWidth: 1350, height: "500px"}} ref={el => this.el = el}></div>

@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Grid as GridDHX, TreeCollection} from "dhx-suite";
+import { Grid as GridDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class GridEvents extends Component {
@@ -11,7 +11,6 @@ class GridEvents extends Component {
 			id: ""
 		};
 	}
-
 	componentDidMount() {
 		this.grid = new GridDHX(this.el, {
 			columns: [
@@ -33,11 +32,9 @@ class GridEvents extends Component {
 		this.grid.events.on("sort", id => this.setState({event: "sort", id: id}));
 		this.grid.events.on("cellClick", item => this.setState({event: "cellClick", id: item.country}));
 	}
-
 	componentWillUnmount() {
-		this.grid.destructor();
+		this.grid && this.grid.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{

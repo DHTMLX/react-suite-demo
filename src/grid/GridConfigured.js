@@ -24,11 +24,9 @@ class GridConfigured extends Component {
 		});
 		this.grid.data.load(`${process.env.PUBLIC_URL}/static/grid.json`);
 	}
-
 	componentWillUnmount() {
-		this.grid.destructor();
+		this.grid && this.grid.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{width: "100%", maxWidth: 1350, height: "500px"}} ref={el => this.el = el}></div>
