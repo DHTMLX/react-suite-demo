@@ -92,11 +92,17 @@ Dataview.propTypes = {
 		PropTypes.array,
 		PropTypes.instanceOf(DataCollection)
 	]),
-	itemsInRow: PropTypes.number,
-	gap: PropTypes.number,
 	template: PropTypes.func,
 	keyNavigation: PropTypes.bool,
-	css: PropTypes.string
+	css: PropTypes.string,
+	height: PropTypes.number,
+	itemHeight: PropTypes.number,
+	itemsInRow: PropTypes.number,
+	gap: PropTypes.number,
+	multiselection: PropTypes.bool || PropTypes.oneOf(["click", "ctrlClick"]),
+	editable: PropTypes.bool,
+	dragMode: PropTypes.oneOf(["target", "source", "both"]),
+	dragCopy: PropTypes.bool
 };
 
 export default DataviewData;
