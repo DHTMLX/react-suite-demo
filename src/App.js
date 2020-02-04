@@ -84,7 +84,7 @@ class App extends PureComponent {
 				     style={{minHeight: "100vh", maxHeight: "100vh", display: "flex", overflow: "hidden"}}>
 					<Sidebar activeWidget={this.state.activeWidget}
 					         handleActiveWidgetChange={(activeWidget) => this.setActiveWidget(activeWidget)}/>
-					<div className="app-screen__inner" style={{flexBasis: "auto", flexGrow: 1, width: "100%"}}>
+					<div className="app-screen__inner" style={{width: "calc(100% - 200px)"}}>
 						<Toolbar
 							// ref={(el) => this.toolbar = el}
 							activeWidget={this.state.activeWidget}

@@ -64,7 +64,6 @@ class GridPage extends Component {
 					<div style={{display: "flex", justifyContent: "center"}}>
 						<GridCdn/>
 					</div>
-
 				</section>
 				<section className="hgroup" id="pre">
 					<h3>
