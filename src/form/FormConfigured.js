@@ -1,39 +1,47 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Form as FormDHX} from "dhx-suite";
+import { Form as FormDHX } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class FormConfigured extends Component {
 	componentDidMount() {
 		this.form = new FormDHX(this.el, {
-			cellCss: "dhx_widget--bordered",
-			gravity: false,
-			padding: 20,
+			css: "dhx_widget--bordered",
 			title: "DHX Form",
+			gravity: false,
+			width: 400,
 			rows: [
 				{
 					type: "input",
 					label: "Name",
 					icon: "dxi-magnify",
-					placeholder: "John Doe"
+					placeholder: "John Doe",
+					required: true				
 				},
 				{
 					type: "input",
 					label: "Email",
-					placeholder: "jd@mail.name"
+					placeholder: "jd@mail.name",
+					preMessage: "Enter Email",
+					errorMessage: "Invalid email",
+					successMessage: "Valid Email",
+					validation: "email",
+					required: true
 				},
 				{
 					type: "input",
 					inputType: "password",
 					label: "Password",
-					placeholder: "********"
+					placeholder: "********",
+					required: true
 				},
 				{
 					type: "checkbox",
 					label: "I agree",
 					name: "agree",
 					labelInline: true,
-					value: "checkboxvalue"
+					value: "checkboxvalue",
+					required: true
 				},
 				{
 					type: "button",
@@ -46,28 +54,23 @@ class FormConfigured extends Component {
 			]
 		});
 	}
-
 	componentWillUnmount() {
 		this.form && this.form.destructor();
 	}
-
 	render() {
 		return (
-			<form style={{textAlign: "left"}} ref={el => this.el = el}></form>
+			<form style={{textAlign: "left", background: "#fff"}} ref={el => this.el = el}></form>
 		);
 	}
 }
 
 FormConfigured.propTypes = {
-	cellCss: PropTypes.string,
+	css: PropTypes.string,
 	width: PropTypes.string,
 	height: PropTypes.string,
 	rows: PropTypes.array,
 	cols: PropTypes.array,
-	groupName: PropTypes.string,
-	size: PropTypes.number,
 	title: PropTypes.string,
-	items: PropTypes.array,
 	align: PropTypes.oneOf([
 		"start",
 		"center",
@@ -77,7 +80,8 @@ FormConfigured.propTypes = {
 		"evenly"
 	]),
 	padding: PropTypes.string,
-	gravity: PropTypes.bool
+	gravity: PropTypes.bool,
+	disabled: PropTypes.bool
 };
 
 export default FormConfigured;
