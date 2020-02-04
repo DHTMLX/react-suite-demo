@@ -39,12 +39,13 @@ class ColorpickerProps extends Component {
 
 ColorpickerProps.propTypes = {
 	css: PropTypes.string,
-	paletteOnly: PropTypes.bool,
 	grayShades: PropTypes.bool,
 	pickerOnly: PropTypes.bool,
+	paletteOnly: PropTypes.bool,
 	customColors: PropTypes.string,
 	palette: PropTypes.array,
-	width: PropTypes.string
+	width: PropTypes.string,
+	mode: PropTypes.oneOf(["palette", "picker"])
 };
 
 export default ColorpickerProps;
