@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -11,7 +11,6 @@ class ComboboxCDN extends Component {
 			"https://cdn.dhtmlx.com/suite/edge/suite.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
@@ -24,13 +23,9 @@ class ComboboxCDN extends Component {
 			}
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.combobox) {
-			this.combobox.destructor();
-		}
+		this.combobox && this.combobox.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{minWidth: 400}} ref={el => this.el = el}></div>
@@ -64,4 +59,5 @@ ComboboxCDN.propTypes = {
 	hiddenLabel: PropTypes.bool,
 	css: PropTypes.string
 };
+
 export default ComboboxCDN;

@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import {connect} from "react-redux";
 import Combobox from "./Combobox";
 import ComboboxCdn from "./ComboboxCdn";
@@ -9,7 +9,6 @@ import ComboboxData from "./ComboboxData";
 import ComboboxEvents from "./ComboboxEvents";
 
 class ComboboxPage extends Component {
-
 	componentDidMount() {
 		const setActiveExapmleInHead = (entries, observer) => {
 			entries.forEach(entry => {
@@ -33,7 +32,6 @@ class ComboboxPage extends Component {
 		[...this.el.querySelectorAll("section")].map(item => observer.observe(item));
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll("section")].map(item => item.id));
 	}
-
 	render() {
 		return (
 			<main ref={(el) => this.el = el}>

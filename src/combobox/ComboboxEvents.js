@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import {Combobox as ComboboxDHX, DataCollection} from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
@@ -11,20 +11,19 @@ class ComboboxEvents extends Component {
 			id: ""
 		};
 	}
-
 	componentDidMount() {
-		this.combobox = new ComboboxDHX(this.el, {placeholder: "Click to choose"});
+		this.combobox = new ComboboxDHX(this.el, {
+			placeholder: "Click to choose"
+		});
 		this.combobox && this.combobox.data.load(`${process.env.PUBLIC_URL}/static/combobox.json`);
 
 		this.combobox.events.on("change", id => this.setState({event: "change", id: id}));
 		this.combobox.events.on("open", id => this.setState({event: "open", id: id}));
 		this.combobox.events.on("close", id => this.setState({event: "close", id: id}));
 	}
-
 	componentWillUnmount() {
-		this.combobox.destructor();
+		this.combobox && this.combobox.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{
@@ -34,14 +33,14 @@ class ComboboxEvents extends Component {
 				justifyContent: "center",
 				flexDirection: "column"
 			}}>
-				<div
-					style={{maxWidth: 400, minWidth: 400}}
-					ref={el => this.el = el}>
-				</div>
+				<div style={{maxWidth: 400, minWidth: 400}}	ref={el => this.el = el}></div>
 				<div style={{display: "flex", justifyContent: "center", padding: 20}}>
-					<button
-						className="button button--bordered">{this.state.event ? `Event: ${this.state.event}` : "Click to widget"}</button>
-					<button className="button button--bordered">Item: {this.state.id ? this.state.id : ""}</button>
+					<button	className="button button--bordered">
+						{this.state.event ? `Event: ${this.state.event}` : "Click to widget"}
+					</button>
+					<button className="button button--bordered">
+						Item: {this.state.id ? this.state.id : ""}
+					</button>
 				</div>
 			</div>
 		);

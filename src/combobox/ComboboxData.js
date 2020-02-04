@@ -1,23 +1,12 @@
-import React, {Component, PureComponent} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Combobox as ComboboxDHX, DataCollection} from "dhx-suite";
+import { Combobox as ComboboxDHX, DataCollection } from "dhx-suite";
 
 import "dhx-suite/codebase/suite.min.css";
 
 class Combobox extends Component {
 	componentDidMount() {
-		let {
-			multiselection,
-			label,
-			data,
-			labelInline,
-			labelWidth,
-			selectAllButton,
-			required,
-			showItemsCount,
-			virtual,
-			placeholder
-		} = this.props;
+		const {	multiselection,	label, data, labelInline, labelWidth, selectAllButton, required, showItemsCount, virtual, placeholder } = this.props;
 		this.combobox = new ComboboxDHX(this.el, {
 			data: data,
 			multiselection: multiselection,
@@ -31,11 +20,9 @@ class Combobox extends Component {
 			placeholder: placeholder
 		});
 	}
-
 	componentWillUnmount() {
-		// this.combobox.destructor();
+		this.combobox && this.combobox.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{minWidth: 400, textAlign: "left"}} ref={el => this.el = el}></div>
@@ -43,8 +30,7 @@ class Combobox extends Component {
 	}
 }
 
-class ComboboxData extends PureComponent {
-
+class ComboboxData extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -57,7 +43,6 @@ class ComboboxData extends PureComponent {
 				itemForSelect: this.data.getItem(this.data.getId(0)).value
 			});
 		});
-
 		this.data.load(`${process.env.PUBLIC_URL}/static/combobox.json`).then(() => {
 			this.data.events.on("change", () => {
 				this.setState({
@@ -66,18 +51,12 @@ class ComboboxData extends PureComponent {
 			});
 		});
 	}
-
 	componentWillUnmount() {
 		this.data.events.detach("load");
 	}
-
 	handleClick() {
 		this.data.map(() => this.data.update(this.data.getId(0), {$selected: true}));
 	}
-
-	// handleReset() {
-	//   this.data.map(() => this.data.update(this.data.getId(0), {$selected: false}))
-	// }
 	render() {
 		return (
 			<div style={{maxWidth: 400}}>
@@ -96,9 +75,6 @@ class ComboboxData extends PureComponent {
 					<button className="button" onClick={() => this.handleClick()}>
 						Select {this.state.itemForSelect}
 					</button>
-					{/* <button className="button" onClick={() => this.handleReset()}>
-            Reset 
-          </button> */}
 				</div>
 			</div>
 		);

@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Combobox as ComboboxDHX, DataCollection} from "dhx-suite";
+import { Combobox as ComboboxDHX, DataCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class ComboboxConfigured extends Component {
@@ -18,11 +18,9 @@ class ComboboxConfigured extends Component {
 		});
 		this.combobox.data.load(`${process.env.PUBLIC_URL}/static/combobox.json`);
 	}
-
 	componentWillUnmount() {
-		// this.combobox.destructor();
+		this.combobox && this.combobox.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{minWidth: 400, textAlign: "left"}} ref={el => this.el = el}></div>
