@@ -6,17 +6,16 @@ import "dhx-suite/codebase/suite.min.css";
 
 class Combobox extends Component {
 	componentDidMount() {
-		const {	multiselection,	label, data, labelInline, labelWidth, selectAllButton, required, showItemsCount, virtual, placeholder } = this.props;
+		const {	multiselection,	label, data, labelPosition, labelWidth, selectAllButton, required, showItemsCount, placeholder } = this.props;
 		this.combobox = new ComboboxDHX(this.el, {
 			data: data,
 			multiselection: multiselection,
 			label: label,
-			labelInline: labelInline,
+			labelPosition: labelPosition,
 			labelWidth: labelWidth,
 			selectAllButton: selectAllButton,
 			required: required,
 			showItemsCount: showItemsCount,
-			virtual: virtual,
 			placeholder: placeholder
 		});
 	}
@@ -59,16 +58,15 @@ class ComboboxData extends Component {
 	}
 	render() {
 		return (
-			<div style={{maxWidth: 400}}>
+			<div style={{width: 400}}>
 				<Combobox
 					data={this.data}
 					multiselection={false}
 					label={"DHX-react combobox"}
-					labelInline={false}
+					labelPosition={"top"}
 					labelWidth={150}
 					selectAllButton={true}
 					required={true}
-					virtual={true}
 					placeholder={"Click to choose"}
 				/>
 				<div style={{display: "flex", justifyContent: "center", padding: 20}}>
@@ -82,15 +80,36 @@ class ComboboxData extends Component {
 }
 
 Combobox.propTypes = {
-	data: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.instanceOf(DataCollection)
-	]),
-	itemsInRow: PropTypes.number,
-	gap: PropTypes.number,
+	readonly: PropTypes.bool,
+	disabled: PropTypes.bool,
 	template: PropTypes.func,
-	keyNavigation: PropTypes.bool,
-	css: PropTypes.string
+	filter: PropTypes.func,
+	multiselection: PropTypes.bool,
+	selectAllButton: PropTypes.bool,
+	itemsCount: PropTypes.oneOfType([
+		PropTypes.bool,
+		PropTypes.func
+	]),
+	listHeight: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	itemHeight: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	labelWidth: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	label: PropTypes.string,
+	labelPosition: PropTypes.oneOf(["left", "top"]),
+	hiddenLabel: PropTypes.bool,
+	helpMessage: PropTypes.string,
+	placeholder: PropTypes.string,
+	css: PropTypes.string,
+	required: PropTypes.bool,
+	virtual: PropTypes.bool
 };
 
 export default ComboboxData;

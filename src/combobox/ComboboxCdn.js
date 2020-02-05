@@ -28,7 +28,7 @@ class ComboboxCDN extends Component {
 	}
 	render() {
 		return (
-			<div style={{minWidth: 400}} ref={el => this.el = el}></div>
+			<div style={{width: 400}} ref={el => this.el = el}></div>
 		);
 	}
 }
@@ -42,22 +42,31 @@ ComboboxCDN.propTypes = {
 	template: PropTypes.func,
 	filter: PropTypes.func,
 	multiselection: PropTypes.bool,
-	label: PropTypes.string,
-	labelInline: PropTypes.bool,
-	labelWidth: PropTypes.string,
-	placeholder: PropTypes.string,
 	selectAllButton: PropTypes.bool,
-	showItemsCount: PropTypes.oneOfType([
+	itemsCount: PropTypes.oneOfType([
 		PropTypes.bool,
 		PropTypes.func
 	]),
-	cellHeight: PropTypes.number,
-	virtual: PropTypes.bool,
-	listHeight: PropTypes.number,
-	required: PropTypes.bool,
-	help: PropTypes.string,
+	listHeight: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	itemHeight: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	labelWidth: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	label: PropTypes.string,
+	labelPosition: PropTypes.oneOf(["left", "top"]),
 	hiddenLabel: PropTypes.bool,
-	css: PropTypes.string
+	helpMessage: PropTypes.string,
+	placeholder: PropTypes.string,
+	css: PropTypes.string,
+	required: PropTypes.bool,
+	virtual: PropTypes.bool
 };
 
 export default ComboboxCDN;

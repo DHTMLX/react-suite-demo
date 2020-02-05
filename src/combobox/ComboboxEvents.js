@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Combobox as ComboboxDHX, DataCollection} from "dhx-suite";
+import { Combobox as ComboboxDHX, DataCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class ComboboxEvents extends Component {
@@ -19,7 +19,9 @@ class ComboboxEvents extends Component {
 
 		this.combobox.events.on("change", id => this.setState({event: "change", id: id}));
 		this.combobox.events.on("open", id => this.setState({event: "open", id: id}));
-		this.combobox.events.on("close", id => this.setState({event: "close", id: id}));
+		this.combobox.events.on("input", value => this.setState({event: "input", id: value}));
+		this.combobox.events.on("afterClose", () => this.setState({event: "afterClose"}));
+		this.combobox.events.on("beforeClose", () => this.setState({event: "beforeClose"}));
 	}
 	componentWillUnmount() {
 		this.combobox && this.combobox.destructor();
@@ -33,7 +35,7 @@ class ComboboxEvents extends Component {
 				justifyContent: "center",
 				flexDirection: "column"
 			}}>
-				<div style={{maxWidth: 400, minWidth: 400}}	ref={el => this.el = el}></div>
+				<div style={{width: 400}}	ref={el => this.el = el}></div>
 				<div style={{display: "flex", justifyContent: "center", padding: 20}}>
 					<button	className="button button--bordered">
 						{this.state.event ? `Event: ${this.state.event}` : "Click to widget"}
@@ -57,22 +59,31 @@ ComboboxEvents.propTypes = {
 	template: PropTypes.func,
 	filter: PropTypes.func,
 	multiselection: PropTypes.bool,
-	label: PropTypes.string,
-	labelInline: PropTypes.bool,
-	labelWidth: PropTypes.string,
-	placeholder: PropTypes.string,
 	selectAllButton: PropTypes.bool,
-	showItemsCount: PropTypes.oneOfType([
+	itemsCount: PropTypes.oneOfType([
 		PropTypes.bool,
 		PropTypes.func
 	]),
-	cellHeight: PropTypes.number,
-	virtual: PropTypes.bool,
-	listHeight: PropTypes.number,
-	required: PropTypes.bool,
-	help: PropTypes.string,
+	listHeight: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	itemHeight: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	labelWidth: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	label: PropTypes.string,
+	labelPosition: PropTypes.oneOf(["left", "top"]),
 	hiddenLabel: PropTypes.bool,
-	css: PropTypes.string
+	helpMessage: PropTypes.string,
+	placeholder: PropTypes.string,
+	css: PropTypes.string,
+	required: PropTypes.bool,
+	virtual: PropTypes.bool
 };
 
 export default ComboboxEvents;
