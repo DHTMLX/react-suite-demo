@@ -6,7 +6,6 @@
 # DHTMLX Widgets + React
 
 [![dhtmlx.com](https://img.shields.io/badge/made%20by-DHTMLX-blue)](https://dhtmlx.com/)
-[![npm: v.6.3.1](https://img.shields.io/badge/npm-v.6.3.1-blue)](https://www.npmjs.com/package/dhx-suite)
 [![License: GPL v2](https://img.shields.io/badge/license-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 
 [dhtmlxSuite](https://dhtmlx.com/docs/products/dhtmlxSuite/) is a JavaScript UI library used for building data-intensive apps of any complexity. It consists of 20+ widgets that can be used in a React app.
