@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import {Layout as LayoutDHX} from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
@@ -9,11 +9,9 @@ class LayoutConfigured extends Component {
 			css: "dhx_widget--bordered"
 		});
 	}
-
 	componentWillUnmount() {
-		this.layout.destructor();
+		this.layout && this.layout.destructor();
 	}
-
 	render() {
 		return (
 			<div ref={el => this.el = el}></div>

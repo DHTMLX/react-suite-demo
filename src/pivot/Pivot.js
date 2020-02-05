@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Pivot as PivotDHX, css} from "dhx-pivot";
+import { Pivot as PivotDHX, css } from "dhx-pivot";
 import "dhx-pivot/codebase/pivot.min.css";
 import dataset from "./dataset";
 
@@ -10,7 +10,6 @@ class Pivot extends Component {
 			window.dhx = {};
 			window.dhx.css = css;
 		}
-
 		this.pivot = new PivotDHX(this.el, {
 			data: dataset,
 			fields: {
@@ -30,17 +29,15 @@ class Pivot extends Component {
 			]
 		});
 	}
-
 	componentWillUnmount() {
-		this.pivot.destructor();
+		this.pivot && this.pivot.destructor();
 	}
-
 	render() {
 		return (
 			<div ref={el => this.el = el} style={{
 				textAlign: "left",
-				minHeight: "500px",
-				width: 1000,
+				height: 600,
+				width: "100%",
 				marginLeft: "auto",
 				marginRight: "auto"
 			}}></div>

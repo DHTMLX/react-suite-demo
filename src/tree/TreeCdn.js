@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -11,7 +11,6 @@ class TreeCDN extends Component {
 			"https://cdn.dhtmlx.com/suite/edge/suite.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
@@ -24,28 +23,33 @@ class TreeCDN extends Component {
 			}
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.tree) {
-			this.tree.destructor();
-		}
+		this.tree && this.tree.destructor();
 	}
-
 	render() {
 		return (
-			<div style={{minWidth: 270, padding: 10, background: "#fff"}} ref={el => this.el = el}></div>
+			<div style={{width: 350, padding: 10, background: "#fff", height: 450, overflow: "auto"}} ref={el => this.el = el}></div>
 		);
 	}
 }
 
 TreeCDN.propTypes = {
 	data: PropTypes.instanceOf([
-		PropTypes.array
+		PropTypes.array,
 	]),
+	icon: PropTypes.shape({
+		folder: PropTypes.string,
+        openFolder: PropTypes.string,
+        file: PropTypes.string
+	}),
 	css: PropTypes.string,
 	keyNavigation: PropTypes.bool,
-	autoload: PropTypes.string,
-	checkbox: PropTypes.bool,
-	isFolder: PropTypes.func
+	dragCopy: PropTypes.bool,
+	dragMode: PropTypes.string,
+	dropBehaviour: PropTypes.string,
+	editable: PropTypes.bool,
+	autoload: PropTypes.bool,
+	checkbox: PropTypes.bool
 };
+
 export default TreeCDN;

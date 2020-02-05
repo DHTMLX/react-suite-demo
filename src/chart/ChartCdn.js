@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -46,11 +46,8 @@ class ChartCDN extends Component {
 	}
 
 	componentWillUnmount() {
-		if (this.chart) {
-			this.chart.destructor();
-		}
+		this.chart && this.chart.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{width: 500, height: 300}} ref={el => this.el = el}></div>
@@ -80,4 +77,5 @@ ChartCDN.propTypes = {
 		PropTypes.array
 	])
 };
+
 export default ChartCDN;

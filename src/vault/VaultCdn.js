@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -11,7 +11,6 @@ class Vault extends Component {
 			"https://cdn.dhtmlx.com/vault/3.0/vault.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
@@ -23,18 +22,14 @@ class Vault extends Component {
 				},
 				toolbar: this.props.toolbar
 			});
-
 			if (this.props.ready)
 				this.props.ready(this.vault);
 
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.vault)
-			this.vault.destructor();
+		this.vault && this.vault.destructor();
 	}
-
 	render() {
 		return (
 			<div ref={el => this.el = el} className="widget-box"></div>
@@ -50,4 +45,5 @@ Vault.propTypes = {
 	toolbar: PropTypes.bool,
 	ready: PropTypes.any
 };
+
 export default Vault;

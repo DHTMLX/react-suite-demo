@@ -36,7 +36,8 @@ class TabbarEvents extends Component {
 			]
 		});
 		this.tabbar.events.on("change", id => this.setState({event: "change", id: id}));
-		this.tabbar.events.on("close", id => this.setState({event: "close", id: id}));
+		this.tabbar.events.on("afterClose", id => this.setState({event: "afterClose", id: id}));
+		this.tabbar.events.on("beforeClose", id => this.setState({event: "beforeClose", id: id}));
 	}
 	componentWillUnmount() {
 		this.tabbar && this.tabbar.destructor();
@@ -47,7 +48,7 @@ class TabbarEvents extends Component {
 				<div style={{width: 802, height: 400}} ref={el => this.el = el}></div>
 				<div style={{display: "flex", justifyContent: "center", padding: 20}}>
 					<button className="button button--bordered">{`Event: ${this.state.event}`}</button>
-					<button className="button button--bordered">Item: {this.state.id ? this.state.id : ""}</button>
+					<button className="button button--bordered">Tab id: {this.state.id ? this.state.id : ""}</button>
 				</div>
 			</div>
 		);
@@ -62,11 +63,13 @@ TabbarEvents.propTypes = {
 		"right"
 	]),
 	view: PropTypes.arrayOf(PropTypes.object),
-	closable: PropTypes.bool,
+	closable: PropTypes.bool || PropTypes.arrayOf(PropTypes.string),
+	disabled: PropTypes.string || PropTypes.arrayOf(PropTypes.string),
 	noContent: PropTypes.bool,
 	tabWidth: PropTypes.number,
 	tabHeight: PropTypes.number,
-	css: PropTypes.string
+	css: PropTypes.string,
+	activeTab: PropTypes.string
 };
 
 export default TabbarEvents;

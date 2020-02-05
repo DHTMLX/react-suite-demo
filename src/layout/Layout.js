@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Layout as LayoutDHX} from "dhx-suite";
+import { Layout as LayoutDHX } from "dhx-suite";
 import ReactDOMServer from "react-dom/server";
 import "dhx-suite/codebase/suite.min.css";
 
@@ -8,7 +8,6 @@ class Test extends Component {
 	constructor() {
 		super();
 	}
-
 	render() {
 		return (
 			<div>
@@ -25,7 +24,6 @@ class Layout extends Component {
 			text: "ololo"
 		};
 	}
-
 	componentDidMount() {
 		this.layout = new LayoutDHX(this.el, {
 			css: "dhx_layout-cell--bordered dhx_widget--bg_white",
@@ -71,11 +69,9 @@ class Layout extends Component {
 		});
 		this.layout.cell("content").attachHTML(ReactDOMServer.renderToString(<Test text={this.state.text}/>));
 	}
-
 	componentWillUnmount() {
-		// this.layout.destructor();
+		this.layout && this.layout.destructor();
 	}
-
 	handleClick() {
 		this.setState({
 			text: "New text"
@@ -83,9 +79,7 @@ class Layout extends Component {
 			this.layout.cell("content").attachHTML(ReactDOMServer.renderToString(<Test text={this.state.text}/>));
 		});
 	}
-
 	render() {
-
 		return (
 			<div>
 				<div style={{width: "100%", height: 600}} ref={el => this.el = el}></div>

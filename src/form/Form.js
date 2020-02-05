@@ -1,20 +1,21 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Form as FormDHX} from "dhx-suite";
+import { Form as FormDHX } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 import "@mdi/font/css/materialdesignicons.min.css";
 
 class Form extends Component {
 	componentDidMount() {
 		this.form = new FormDHX(this.el, {
-			cellCss: "dhx_widget--bordered",
+			css: "dhx_widget--bordered",
 			gravity: false,
+			width: 400,
 			rows: [
 				{
 					type: "input",
 					label: "Name",
 					icon: "dxi-magnify",
-					placeholder: "John Doe"
+					placeholder: "John Doe"		
 				},
 				{
 					type: "input",
@@ -31,7 +32,7 @@ class Form extends Component {
 					type: "checkbox",
 					label: "I agree",
 					name: "agree",
-					labelInline: true,
+					labelPosition: "right",
 					value: "checkboxvalue"
 				},
 				{
@@ -45,28 +46,23 @@ class Form extends Component {
 			]
 		});
 	}
-
 	componentWillUnmount() {
 		this.form && this.form.destructor();
 	}
-
 	render() {
 		return (
-			<form style={{textAlign: "left"}} ref={el => this.el = el}></form>
+			<form style={{textAlign: "left", background: "#fff"}} ref={el => this.el = el}></form>
 		);
 	}
 }
 
 Form.propTypes = {
-	cellCss: PropTypes.string,
+	css: PropTypes.string,
 	width: PropTypes.string,
 	height: PropTypes.string,
 	rows: PropTypes.array,
 	cols: PropTypes.array,
-	groupName: PropTypes.string,
-	size: PropTypes.number,
 	title: PropTypes.string,
-	items: PropTypes.array,
 	align: PropTypes.oneOf([
 		"start",
 		"center",
@@ -76,7 +72,8 @@ Form.propTypes = {
 		"evenly"
 	]),
 	padding: PropTypes.string,
-	gravity: PropTypes.bool
+	gravity: PropTypes.bool,
+	disabled: PropTypes.bool
 };
 
 export default Form;

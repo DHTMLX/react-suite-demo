@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Chart as ChartDHX, DataCollection} from "dhx-suite";
+import { Chart as ChartDHX, DataCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class Chart extends Component {
@@ -15,13 +15,9 @@ class Chart extends Component {
 			data: data
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.chart) {
-			this.chart.destructor();
-		}
+		this.chart && this.chart.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{width: 500, height: 500}} ref={el => this.el = el}></div>
@@ -35,7 +31,6 @@ class ChartProps extends Component {
 		data.load(`${process.env.PUBLIC_URL}/static/chart.json`);
 		return data;
 	}
-
 	render() {
 		const scales = {
 			"bottom": {

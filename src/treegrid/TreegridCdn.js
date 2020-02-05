@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -11,7 +11,6 @@ class TreegridCDN extends Component {
 			"https://cdn.dhtmlx.com/treeGrid/edge/treegrid.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
@@ -32,13 +31,9 @@ class TreegridCDN extends Component {
 			}
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.treegrid) {
-			this.treegrid.destructor();
-		}
+		this.treegrid && this.treegrid.destructor();
 	}
-
 	render() {
 		return (
 			<div ref={el => this.el = el}></div>
@@ -77,4 +72,5 @@ TreegridCDN.propTypes = {
 	$colspans: PropTypes.bool,
 	$footer: PropTypes.bool
 };
+
 export default TreegridCDN;

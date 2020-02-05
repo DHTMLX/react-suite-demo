@@ -1,10 +1,9 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import Message from "./Message";
 import MessageCdn from "./MessageCdn";
 
 class MessagePage extends Component {
-
 	componentDidMount() {
 		const setActiveExapmleInHead = (entries, observer) => {
 			entries.forEach(entry => {
@@ -28,7 +27,6 @@ class MessagePage extends Component {
 		[...this.el.querySelectorAll("section")].map(item => observer.observe(item));
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll("section")].map(item => item.id));
 	}
-
 	render() {
 		return (
 			<main ref={(el) => this.el = el}>

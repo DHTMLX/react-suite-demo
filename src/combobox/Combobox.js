@@ -1,23 +1,21 @@
-import React, {PureComponent} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Combobox as ComboboxDHX, DataCollection} from "dhx-suite";
+import { Combobox as ComboboxDHX, DataCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
-class Combobox extends PureComponent {
+class Combobox extends Component {
 	componentDidMount() {
 		this.combobox = new ComboboxDHX(this.el, {
 			placeholder: "Click to choose"
 		});
 		this.combobox && this.combobox.data.load(`${process.env.PUBLIC_URL}/static/combobox.json`);
 	}
-
 	componentWillUnmount() {
-		this.combobox.destructor();
+		this.combobox && this.combobox.destructor();
 	}
-
 	render() {
 		return (
-			<div style={{minWidth: 400}} ref={el => this.el = el}></div>
+			<div style={{width: 400}} ref={el => this.el = el}></div>
 		);
 	}
 }
@@ -32,22 +30,31 @@ Combobox.propTypes = {
 	template: PropTypes.func,
 	filter: PropTypes.func,
 	multiselection: PropTypes.bool,
-	label: PropTypes.string,
-	labelInline: PropTypes.bool,
-	labelWidth: PropTypes.string,
-	placeholder: PropTypes.string,
 	selectAllButton: PropTypes.bool,
-	showItemsCount: PropTypes.oneOfType([
+	itemsCount: PropTypes.oneOfType([
 		PropTypes.bool,
 		PropTypes.func
 	]),
-	cellHeight: PropTypes.number,
-	virtual: PropTypes.bool,
-	listHeight: PropTypes.number,
-	required: PropTypes.bool,
-	help: PropTypes.string,
+	listHeight: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	itemHeight: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	labelWidth: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	label: PropTypes.string,
+	labelPosition: PropTypes.oneOf(["left", "top"]),
 	hiddenLabel: PropTypes.bool,
-	css: PropTypes.string
+	helpMessage: PropTypes.string,
+	placeholder: PropTypes.string,
+	css: PropTypes.string,
+	required: PropTypes.bool,
+	virtual: PropTypes.bool
 };
 
 export default Combobox;

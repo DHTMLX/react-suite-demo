@@ -1,41 +1,27 @@
-import React, {Component, PureComponent} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Combobox as ComboboxDHX, DataCollection} from "dhx-suite";
+import { Combobox as ComboboxDHX, DataCollection } from "dhx-suite";
 
 import "dhx-suite/codebase/suite.min.css";
 
 class Combobox extends Component {
 	componentDidMount() {
-		let {
-			multiselection,
-			label,
-			data,
-			labelInline,
-			labelWidth,
-			selectAllButton,
-			required,
-			showItemsCount,
-			virtual,
-			placeholder
-		} = this.props;
+		const {	multiselection,	label, data, labelPosition, labelWidth, selectAllButton, required, showItemsCount, placeholder } = this.props;
 		this.combobox = new ComboboxDHX(this.el, {
 			data: data,
 			multiselection: multiselection,
 			label: label,
-			labelInline: labelInline,
+			labelPosition: labelPosition,
 			labelWidth: labelWidth,
 			selectAllButton: selectAllButton,
 			required: required,
 			showItemsCount: showItemsCount,
-			virtual: virtual,
 			placeholder: placeholder
 		});
 	}
-
 	componentWillUnmount() {
-		// this.combobox.destructor();
+		this.combobox && this.combobox.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{minWidth: 400, textAlign: "left"}} ref={el => this.el = el}></div>
@@ -43,8 +29,7 @@ class Combobox extends Component {
 	}
 }
 
-class ComboboxData extends PureComponent {
-
+class ComboboxData extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -57,7 +42,6 @@ class ComboboxData extends PureComponent {
 				itemForSelect: this.data.getItem(this.data.getId(0)).value
 			});
 		});
-
 		this.data.load(`${process.env.PUBLIC_URL}/static/combobox.json`).then(() => {
 			this.data.events.on("change", () => {
 				this.setState({
@@ -66,39 +50,29 @@ class ComboboxData extends PureComponent {
 			});
 		});
 	}
-
 	componentWillUnmount() {
 		this.data.events.detach("load");
 	}
-
 	handleClick() {
 		this.data.map(() => this.data.update(this.data.getId(0), {$selected: true}));
 	}
-
-	// handleReset() {
-	//   this.data.map(() => this.data.update(this.data.getId(0), {$selected: false}))
-	// }
 	render() {
 		return (
-			<div style={{maxWidth: 400}}>
+			<div style={{width: 400}}>
 				<Combobox
 					data={this.data}
 					multiselection={false}
 					label={"DHX-react combobox"}
-					labelInline={false}
+					labelPosition={"top"}
 					labelWidth={150}
 					selectAllButton={true}
 					required={true}
-					virtual={true}
 					placeholder={"Click to choose"}
 				/>
 				<div style={{display: "flex", justifyContent: "center", padding: 20}}>
 					<button className="button" onClick={() => this.handleClick()}>
 						Select {this.state.itemForSelect}
 					</button>
-					{/* <button className="button" onClick={() => this.handleReset()}>
-            Reset 
-          </button> */}
 				</div>
 			</div>
 		);
@@ -106,15 +80,36 @@ class ComboboxData extends PureComponent {
 }
 
 Combobox.propTypes = {
-	data: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.instanceOf(DataCollection)
-	]),
-	itemsInRow: PropTypes.number,
-	gap: PropTypes.number,
+	readonly: PropTypes.bool,
+	disabled: PropTypes.bool,
 	template: PropTypes.func,
-	keyNavigation: PropTypes.bool,
-	css: PropTypes.string
+	filter: PropTypes.func,
+	multiselection: PropTypes.bool,
+	selectAllButton: PropTypes.bool,
+	itemsCount: PropTypes.oneOfType([
+		PropTypes.bool,
+		PropTypes.func
+	]),
+	listHeight: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	itemHeight: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	labelWidth: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	label: PropTypes.string,
+	labelPosition: PropTypes.oneOf(["left", "top"]),
+	hiddenLabel: PropTypes.bool,
+	helpMessage: PropTypes.string,
+	placeholder: PropTypes.string,
+	css: PropTypes.string,
+	required: PropTypes.bool,
+	virtual: PropTypes.bool
 };
 
 export default ComboboxData;

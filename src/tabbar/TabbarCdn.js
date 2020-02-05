@@ -61,12 +61,14 @@ TabbarCDN.propTypes = {
 		"left",
 		"right"
 	]),
-	closeButtons: PropTypes.bool,
+	view: PropTypes.arrayOf(PropTypes.object),
+	closable: PropTypes.bool || PropTypes.arrayOf(PropTypes.string),
+	disabled: PropTypes.string || PropTypes.arrayOf(PropTypes.string),
 	noContent: PropTypes.bool,
 	tabWidth: PropTypes.number,
 	tabHeight: PropTypes.number,
 	css: PropTypes.string,
-	view: PropTypes.arrayOf(PropTypes.object)
+	activeTab: PropTypes.string
 };
 
 export default TabbarCDN;

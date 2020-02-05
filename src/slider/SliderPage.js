@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import Slider from "./Slider";
 import SliderCdn from "./SliderCdn";
 
@@ -31,7 +31,6 @@ class SliderPage extends Component {
 		[...this.el.querySelectorAll("section")].map(item => observer.observe(item));
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll("section")].map(item => item.id));
 	}
-
 	render() {
 		return (
 			<main ref={(el) => this.el = el}>
@@ -64,7 +63,6 @@ class SliderPage extends Component {
 					<div style={{display: "flex", justifyContent: "center"}}>
 						<SliderCdn/>
 					</div>
-
 				</section>
 				<section className="hgroup" id="pre">
 					<h3>

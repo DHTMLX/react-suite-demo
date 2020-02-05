@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import Timepicker from "./Timepicker";
 import TimepickerCdn from "./TimepickerCdn";
 
@@ -31,7 +31,6 @@ class TimepickerPage extends Component {
 		[...this.el.querySelectorAll("section")].map(item => observer.observe(item));
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll("section")].map(item => item.id));
 	}
-
 	render() {
 		return (
 			<main ref={(el) => this.el = el}>
@@ -64,7 +63,6 @@ class TimepickerPage extends Component {
 					<div style={{display: "flex", justifyContent: "center"}}>
 						<TimepickerCdn/>
 					</div>
-
 				</section>
 				<section className="hgroup" id="pre">
 					<h3>

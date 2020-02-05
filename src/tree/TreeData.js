@@ -1,28 +1,25 @@
-import React, {Component, PureComponent} from "react";
+import React, { Component, PureComponent } from "react";
 import PropTypes from "prop-types";
-import {Tree as TreeDHX, TreeCollection} from "dhx-suite";
+import { Tree as TreeDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class Tree extends Component {
 	componentDidMount() {
-		let {css, data, keyNavigation, autoload, checkbox} = this.props;
+		const { css, data, keyNavigation, checkbox } = this.props;
 		this.tree = new TreeDHX(this.el, {
 			css: css,
 			keyNavigation: keyNavigation,
-			autoload: autoload,
 			checkbox: checkbox,
 			data: data
 		});
 	}
-
 	componentWillUnmount() {
-		this.tree.destructor();
+		this.tree && this.tree.destructor();
 	}
-
 	render() {
 		return (
 			<div
-				style={{minWidth: 270, padding: 10, background: "#fff"}}
+				style={{width: 350, padding: 10, background: "#fff", height: 450, overflow: "auto"}}
 				ref={el => this.el = el}>
 			</div>
 		);
@@ -51,27 +48,26 @@ class TreeData extends PureComponent {
 			});
 		});
 	}
-
 	handleClick() {
 		this.data.map(item => this.data.update(item.id, {opened: false}));
 		this.setState({
 			count: 0
 		});
 	}
-
 	render() {
 		return (
 			<div>
 				<Tree
 					css={"dhx_widget--bg_white"}
 					keyNavigation={true}
-					autoload={true}
 					checkbox={true}
 					data={this.data}
 				/>
 				<div style={{display: "flex", justifyContent: "center", padding: 20}}>
-					<button className="button" onClick={() => this.handleClick()}
-					        disabled={!this.state.count}>{this.state.count ? `Collapse ${this.state.count} item(s)` : "Nothing to collapse"} </button>
+					<button className="button" onClick={() => this.handleClick()} 
+							disabled={!this.state.count}>
+						{this.state.count ? `Collapse ${this.state.count} item(s)` : "Nothing to collapse"}
+					</button>
 				</div>
 			</div>
 		);
@@ -79,11 +75,23 @@ class TreeData extends PureComponent {
 }
 
 TreeData.propTypes = {
-	css: PropTypes.string,
 	data: PropTypes.instanceOf([
 		PropTypes.array,
 		PropTypes.instanceOf(TreeCollection)
-	])
+	]),
+	icon: PropTypes.shape({
+		folder: PropTypes.string,
+        openFolder: PropTypes.string,
+        file: PropTypes.string
+	}),
+	css: PropTypes.string,
+	keyNavigation: PropTypes.bool,
+	dragCopy: PropTypes.bool,
+	dragMode: PropTypes.string,
+	dropBehaviour: PropTypes.string,
+	editable: PropTypes.bool,
+	autoload: PropTypes.bool,
+	checkbox: PropTypes.bool
 };
 
 export default TreeData;

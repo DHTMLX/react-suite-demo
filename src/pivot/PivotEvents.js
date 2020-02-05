@@ -12,13 +12,11 @@ class PivotEvents extends Component {
 			id: ""
 		};
 	}
-
 	componentDidMount() {
 		if (!window.dhx || !window.dhx.css) {
 			window.dhx = {};
 			window.dhx.css = css;
 		}
-
 		this.pivot = new PivotDHX(this.el, {
 			data: dataset,
 			fields: {
@@ -44,19 +42,16 @@ class PivotEvents extends Component {
 		this.pivot.events.on("update", id => this.setState({event: "update", id: id}));
 		this.pivot.events.on("filterApply", id => this.setState({event: "filterApply", id: id}));
 	}
-
 	componentWillUnmount() {
 		this.pivot && this.pivot.destructor();
 	}
-
 	render() {
 		return (
 			<Fragment>
 				<div ref={el => this.el = el} style={{
 					textAlign: "left",
-					minHeight: "500px",
-					height: 500,
-					width: 1000,
+					height: 600,
+					width: "100%",
 					marginLeft: "auto",
 					marginRight: "auto"
 				}}></div>

@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import Tree from "./Tree";
 import TreeCdn from "./TreeCdn";
 
@@ -9,7 +9,6 @@ import TreeData from "./TreeData";
 import TreeEvents from "./TreeEvents";
 
 class TreePage extends Component {
-
 	componentDidMount() {
 		const setActiveExapmleInHead = (entries, observer) => {
 			entries.forEach(entry => {
@@ -33,7 +32,6 @@ class TreePage extends Component {
 		[...this.el.querySelectorAll("section")].map(item => observer.observe(item));
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll("section")].map(item => item.id));
 	}
-
 	render() {
 		return (
 			<main ref={(el) => this.el = el}>
@@ -66,7 +64,6 @@ class TreePage extends Component {
 					<div style={{display: "flex", justifyContent: "center"}}>
 						<TreeCdn/>
 					</div>
-
 				</section>
 				<section className="hgroup" id="pre">
 					<h3>

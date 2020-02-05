@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Timepicker as TimepickerDHX} from "dhx-suite";
+import { Timepicker as TimepickerDHX } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class Timepicker extends Component {
@@ -9,11 +9,9 @@ class Timepicker extends Component {
 			css: "dhx_widget--bordered"
 		});
 	}
-
 	componentWillUnmount() {
-		this.timepicker.destructor();
+		this.timepicker && this.timepicker.destructor();
 	}
-
 	render() {
 		return (
 			<div ref={el => this.el = el}></div>
@@ -24,7 +22,7 @@ class Timepicker extends Component {
 Timepicker.propTypes = {
 	css: PropTypes.string,
 	timeFormat: PropTypes.oneOf([12, 24]),
-	actions: PropTypes.bool
+	controls: PropTypes.bool
 };
 
 export default Timepicker;

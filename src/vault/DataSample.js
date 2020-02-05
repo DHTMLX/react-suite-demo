@@ -1,14 +1,12 @@
-import React, {Component} from "react";
-import {DataCollection} from "dhx-vault";
+import React, { Component } from "react";
+import { DataCollection } from "dhx-vault";
 
 import Vault from "./Vault";
 
 class VaultData extends Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {count: 0};
-
 		this.files = new DataCollection();
 		this.files.events.on("change", () => {
 			this.setState({
@@ -16,7 +14,6 @@ class VaultData extends Component {
 			});
 		});
 	}
-
 	render() {
 		return (
 			<div className='app-box'>
@@ -33,7 +30,6 @@ class VaultData extends Component {
 			</div>
 		);
 	}
-
 	add = () => {
 		this.files.add({name: "myfile.png", size: 24560});
 	};

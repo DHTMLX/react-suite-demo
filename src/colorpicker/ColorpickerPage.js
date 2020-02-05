@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Colorpicker from "./Colorpicker";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
 import ColorpickerCdn from "./ColorpickerCdn";
 import ColorpickerConfigured from "./ColorpickerConfigured";
@@ -8,7 +8,6 @@ import ColorpickerProps from "./ColorpickerProps";
 import ColorpickerEvents from "./ColorpickerEvents";
 
 class ColorpickerPage extends Component {
-
 	componentDidMount() {
 		const setActiveExapmleInHead = (entries, observer) => {
 			entries.forEach(entry => {
@@ -32,7 +31,6 @@ class ColorpickerPage extends Component {
 		[...this.el.querySelectorAll("section")].map(item => observer.observe(item));
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll("section")].map(item => item.id));
 	}
-
 	render() {
 		return (
 			<main ref={(el) => this.el = el}>
@@ -59,13 +57,12 @@ class ColorpickerPage extends Component {
 						</a>
 					</h3>
 					<p>
-						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/colorpicker/ColorpickerCDN.js"
+						<a href="https://github.com/DHTMLX/react-widgets/blob/master/src/colorpicker/ColorpickerCdn.js"
 						   target="_blank" rel="noopener noreferrer">Code example </a>
 					</p>
 					<div style={{display: "flex", justifyContent: "center"}}>
 						<ColorpickerCdn/>
 					</div>
-
 				</section>
 				<section className="hgroup" id="pre">
 					<h3>

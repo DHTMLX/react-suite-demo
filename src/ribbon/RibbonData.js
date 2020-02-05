@@ -1,6 +1,6 @@
-import React, {Component, PureComponent} from "react";
+import React, { Component, PureComponent } from "react";
 import PropTypes from "prop-types";
-import {Ribbon as RibbonDHX, TreeCollection} from "dhx-suite";
+import { Ribbon as RibbonDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 import "@mdi/font/css/materialdesignicons.min.css";
 
@@ -12,19 +12,12 @@ class Ribbon extends Component {
 			data: data
 		});
 	}
-
 	componentWillUnmount() {
-		this.ribbon.destructor();
+		this.ribbon && this.ribbon.destructor();
 	}
-
 	render() {
 		return (
-			<div
-				style={{
-					display: "inline-flex"
-				}}
-				ref={el => this.el = el}>
-			</div>
+			<div style={{display: "inline-flex"}} ref={el => this.el = el}></div>
 		);
 	}
 }
@@ -42,7 +35,6 @@ class RibbonData extends PureComponent {
 			});
 		});
 	}
-
 	componentDidMount() {
 		this.data.load(`${process.env.PUBLIC_URL}/static/ribbon.json`).then(() => {
 			this.data.events.on("change", () => {
@@ -52,15 +44,12 @@ class RibbonData extends PureComponent {
 			});
 		});
 	}
-
 	componentWillUnmount() {
 		this.data.events.detach("load");
 	}
-
 	handlePrintEnable() {
 		this.data.update("print", {disabled: !this.data.getItem("print").disabled});
 	}
-
 	render() {
 		return (
 			<div>

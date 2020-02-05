@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {TreeGrid as TreegridDHX, TreeGridCollection} from "dhx-treegrid";
+import { TreeGrid as TreegridDHX, TreeGridCollection } from "dhx-treegrid";
 import "dhx-treegrid/codebase/treegrid.min.css";
 
 class TreegridConfigured extends Component {
@@ -18,11 +18,9 @@ class TreegridConfigured extends Component {
 		});
 		this.treegrid.data.load("./static/treegrid.json");
 	}
-
 	componentWillUnmount() {
-		this.treegrid.destructor();
+		this.treegrid && this.treegrid.destructor();
 	}
-
 	render() {
 		return (
 			<div ref={el => this.el = el}></div>

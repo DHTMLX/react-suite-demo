@@ -1,6 +1,6 @@
-import React, {Component, PureComponent} from "react";
+import React, { Component, PureComponent } from "react";
 import PropTypes from "prop-types";
-import {Toolbar as ToolbarDHX, TreeCollection} from "dhx-suite";
+import { Toolbar as ToolbarDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class Toolbar extends Component {
@@ -8,14 +8,13 @@ class Toolbar extends Component {
 		let {css, data} = this.props;
 		this.toolbar = new ToolbarDHX(this.el, {
 			css: css,
-			data: data
+			data: data,
+			navigationType: "pointer"
 		});
 	}
-
 	componentWillUnmount() {
 		this.toolbar.destructor();
 	}
-
 	render() {
 		return (
 			<div
@@ -42,15 +41,12 @@ class ToolbarData extends PureComponent {
 			});
 		});
 	}
-
 	handleClickAdd() {
 		this.data.update("add", {count: this.data.getItem("add").count + 1});
 	}
-
 	handleClickReset() {
 		this.data.update("add", {count: 0});
 	}
-
 	render() {
 		return (
 			<div style={{width: "100%"}}>
@@ -74,7 +70,8 @@ ToolbarData.propTypes = {
 	data: PropTypes.instanceOf([
 		PropTypes.array,
 		PropTypes.instanceOf(TreeCollection)
-	])
+	]),
+	navigationType: PropTypes.string
 };
 
 export default ToolbarData;

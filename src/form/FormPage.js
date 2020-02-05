@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import {connect} from "react-redux";
 import Form from "./Form";
 import FormCdn from "./FormCdn";
@@ -8,7 +8,6 @@ import FormProps from "./FormProps";
 import FormEvents from "./FormEvents";
 
 class FormPage extends Component {
-
 	componentDidMount() {
 		const setActiveExapmleInHead = (entries, observer) => {
 			entries.forEach(entry => {
@@ -32,7 +31,6 @@ class FormPage extends Component {
 		[...this.el.querySelectorAll("section")].map(item => observer.observe(item));
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll("section")].map(item => item.id));
 	}
-
 	render() {
 		return (
 			<main ref={(el) => this.el = el}>
@@ -65,7 +63,6 @@ class FormPage extends Component {
 					<div style={{display: "flex", justifyContent: "center"}}>
 						<FormCdn/>
 					</div>
-
 				</section>
 				<section className="hgroup" id="pre">
 					<h3>

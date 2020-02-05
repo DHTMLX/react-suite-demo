@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -11,7 +11,6 @@ class ComboboxCDN extends Component {
 			"https://cdn.dhtmlx.com/suite/edge/suite.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
@@ -24,16 +23,12 @@ class ComboboxCDN extends Component {
 			}
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.combobox) {
-			this.combobox.destructor();
-		}
+		this.combobox && this.combobox.destructor();
 	}
-
 	render() {
 		return (
-			<div style={{minWidth: 400}} ref={el => this.el = el}></div>
+			<div style={{width: 400}} ref={el => this.el = el}></div>
 		);
 	}
 }
@@ -47,21 +42,31 @@ ComboboxCDN.propTypes = {
 	template: PropTypes.func,
 	filter: PropTypes.func,
 	multiselection: PropTypes.bool,
-	label: PropTypes.string,
-	labelInline: PropTypes.bool,
-	labelWidth: PropTypes.string,
-	placeholder: PropTypes.string,
 	selectAllButton: PropTypes.bool,
-	showItemsCount: PropTypes.oneOfType([
+	itemsCount: PropTypes.oneOfType([
 		PropTypes.bool,
 		PropTypes.func
 	]),
-	cellHeight: PropTypes.number,
-	virtual: PropTypes.bool,
-	listHeight: PropTypes.number,
-	required: PropTypes.bool,
-	help: PropTypes.string,
+	listHeight: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	itemHeight: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	labelWidth: PropTypes.oneOfType([
+		PropTypes.number,
+		PropTypes.string
+	]),
+	label: PropTypes.string,
+	labelPosition: PropTypes.oneOf(["left", "top"]),
 	hiddenLabel: PropTypes.bool,
-	css: PropTypes.string
+	helpMessage: PropTypes.string,
+	placeholder: PropTypes.string,
+	css: PropTypes.string,
+	required: PropTypes.bool,
+	virtual: PropTypes.bool
 };
+
 export default ComboboxCDN;

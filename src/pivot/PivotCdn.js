@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 import dataset from "./dataset";
@@ -12,7 +12,6 @@ class PivotCDN extends Component {
 			"https://cdn.dhtmlx.com/pivot/edge/pivot.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
@@ -38,19 +37,15 @@ class PivotCDN extends Component {
 			}
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.pivot) {
-			this.pivot.destructor();
-		}
+		this.pivot && this.pivot.destructor();
 	}
-
 	render() {
 		return (
 			<div ref={el => this.el = el} style={{
 				textAlign: "left",
-				minHeight: "500px",
-				width: 1000,
+				height: 600,
+				width: "100%",
 				marginLeft: "auto",
 				marginRight: "auto"
 			}}></div>
@@ -63,4 +58,5 @@ PivotCDN.propTypes = {
 	fields: PropTypes.array,
 	fieldList: PropTypes.array
 };
+
 export default PivotCDN;

@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Calendar as CalendarDHX} from "dhx-suite";
+import { Calendar as CalendarDHX } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class CalendarConfigured extends Component {
@@ -14,11 +14,9 @@ class CalendarConfigured extends Component {
 			thisMonthOnly: false
 		});
 	}
-
 	componentWillUnmount() {
-		this.calendar.destructor();
+		this.calendar && this.calendar.destructor();
 	}
-
 	render() {
 		return (
 			<div ref={el => this.el = el}></div>
@@ -37,15 +35,16 @@ CalendarConfigured.propTypes = {
 	]),
 	css: PropTypes.string,
 	mark: PropTypes.func,
-	block: PropTypes.func,
+	disabledDates: PropTypes.func,
 	weekStart: PropTypes.oneOf(["monday", "sunday"]),
 	weekNumbers: PropTypes.bool,
-	view: PropTypes.oneOf(["calendar", "year", "month", "timepicker"]),
+	mode: PropTypes.oneOf(["calendar", "year", "month", "timepicker"]),
 	timePicker: PropTypes.bool,
 	dateFormat: PropTypes.string,
 	timeFormat: PropTypes.oneOf([24, 12]),
 	thisMonthOnly: PropTypes.bool,
-	width: PropTypes.string
+	width: PropTypes.string,
+	range: PropTypes.bool
 };
 
 export default CalendarConfigured;

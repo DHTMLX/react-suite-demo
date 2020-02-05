@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Slider as SliderDHX} from "dhx-suite";
+import { Slider as SliderDHX } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class SliderEvents extends Component {
@@ -11,7 +11,6 @@ class SliderEvents extends Component {
 			id: ""
 		};
 	}
-
 	componentDidMount() {
 		this.slider = new SliderDHX(this.el, {
 			min: 0,
@@ -27,15 +26,13 @@ class SliderEvents extends Component {
 		this.slider.events.on("mousedown", id => this.setState({event: "mousedown"}));
 		this.slider.events.on("mouseup", id => this.setState({event: "mouseup"}));
 	}
-
 	componentWillUnmount() {
 		this.slider && this.slider.destructor();
 	}
-
 	render() {
 		return (
 			<div>
-				<div ref={el => this.el = el} style={{width: "600px"}}></div>
+				<div ref={el => this.el = el} style={{width: "600px", height: "50px"}}></div>
 				<div style={{display: "flex", justifyContent: "center", padding: 20}}>
 					<button className="button button--bordered">{`Event: ${this.state.event}`}</button>
 					<button className="button button--bordered">Item: {this.state.id ? this.state.id : ""}</button>
@@ -57,15 +54,15 @@ SliderEvents.propTypes = {
 		PropTypes.string
 	]),
 	inverse: PropTypes.bool,
-	thumbLabel: PropTypes.bool,
+	tooltip: PropTypes.bool,
 	css: PropTypes.string,
 	tick: PropTypes.number,
 	tickTemplate: PropTypes.func,
 	majorTick: PropTypes.number,
 	label: PropTypes.string,
 	required: PropTypes.bool,
-	help: PropTypes.string,
-	labelInline: PropTypes.bool,
+	helpMessage: PropTypes.string,
+	labelPosition: PropTypes.string,
 	labelWidth: PropTypes.string,
 	hiddenLabel: PropTypes.bool
 };

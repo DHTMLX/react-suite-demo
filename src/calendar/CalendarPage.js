@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Calendar from "./Calendar";
 import CalendarCdn from "./CalendarCdn";
 import CalendarConfigured from "./CalendarConfigured";
@@ -30,7 +30,6 @@ class CalendarPage extends Component {
 		[...this.el.querySelectorAll("section")].map(item => observer.observe(item));
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll("section")].map(item => item.id));
 	}
-
 	render() {
 		return (
 			<main ref={(el) => this.el = el}>
@@ -63,7 +62,6 @@ class CalendarPage extends Component {
 					<div style={{display: "flex", justifyContent: "center"}}>
 						<CalendarCdn/>
 					</div>
-
 				</section>
 				<section className="hgroup" id="pre">
 					<h3>
@@ -94,7 +92,6 @@ class CalendarPage extends Component {
 					<div style={{display: "flex", justifyContent: "center"}}>
 						<CalendarProps/>
 					</div>
-
 				</section>
 				<section className="hgroup" id="events">
 					<h3>

@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -12,7 +12,6 @@ class MenuCDN extends Component {
 			"https://cdn.materialdesignicons.com/3.8.95/css/materialdesignicons.min.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
@@ -25,13 +24,9 @@ class MenuCDN extends Component {
 			}
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.menu) {
-			this.menu.destructor();
-		}
+		this.menu && this.menu.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{width: "100%", maxWidth: 1200}} ref={el => this.el = el}></div>
@@ -43,6 +38,8 @@ MenuCDN.propTypes = {
 	css: PropTypes.string,
 	data: PropTypes.instanceOf([
 		PropTypes.array
-	])
+	]),
+	navigationType: PropTypes.oneOf(["pointer", "click"])
 };
+
 export default MenuCDN;

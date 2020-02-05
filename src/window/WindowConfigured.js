@@ -1,6 +1,6 @@
-import React, {Component, Fragment} from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
-import {Window as WindowDHX} from "dhx-suite";
+import { Window as WindowDHX } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class WindowConfigured extends Component {
@@ -11,14 +11,13 @@ class WindowConfigured extends Component {
 			height: 520,
 			title: "Window",
 			html: windowHtml,
-			closable: true
+			closable: true,
+			modal: true
 		});
 	}
-
 	componentWillUnmount() {
-		this.window.destructor();
+		this.window && this.window.destructor();
 	}
-
 	render() {
 		return (
 			<Fragment>
@@ -51,7 +50,8 @@ WindowConfigured.propTypes = {
 	resizable: PropTypes.bool,
 	movable: PropTypes.bool,
 	modal: PropTypes.bool,
-	closable: PropTypes.bool
+	closable: PropTypes.bool,
+	node: PropTypes.string
 };
 
 export default WindowConfigured;

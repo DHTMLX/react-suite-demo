@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Form as FormDHX} from "dhx-suite";
+import { Form as FormDHX } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class FormEvents extends Component {
@@ -11,35 +11,50 @@ class FormEvents extends Component {
 			id: ""
 		};
 	}
-
 	componentDidMount() {
 		this.form = new FormDHX(this.el, {
-			cellCss: "dhx_widget--bordered",
+			css: "dhx_widget--bordered",
+			title: "DHX Form",
 			gravity: false,
+			width: 400,
 			rows: [
 				{
 					type: "input",
 					label: "Name",
 					icon: "dxi-magnify",
-					placeholder: "John Doe"
+					placeholder: "John Doe",
+					required: true,
+					id: "name",
+					name: "name"		
 				},
 				{
-					type: "input",
-					label: "Email",
-					placeholder: "jd@mail.name"
+					type: "datepicker",
+					label: "Date",
+					required: true,
+					id: "date",
+					name: "date"
 				},
 				{
-					type: "input",
-					inputType: "password",
-					label: "Password",
-					placeholder: "********"
+					type: "timepicker",
+					controls: "true",
+					label: "Time",
+					required: true,
+					id: "time",
+					name: "time"
 				},
 				{
-					type: "checkbox",
-					label: "I agree",
-					name: "agree",
-					labelInline: true,
-					value: "checkboxvalue"
+					type: "colorpicker",
+					label: "Color",
+					required: true,
+					id: "color",
+					name: "color"
+				},
+				{
+					type: "simpleVault",
+					required: true,
+					label: "Files",
+					id: "simplevault",
+					name: "simplevault"
 				},
 				{
 					type: "button",
@@ -51,16 +66,15 @@ class FormEvents extends Component {
 				}
 			]
 		});
-
 		this.form.events.on("change", id => this.setState({event: "change", id: id}));
 		this.form.events.on("buttonclick", id => this.setState({event: "buttonclick", id: id}));
 		this.form.events.on("validationfail", id => this.setState({event: "validationfail", id: id}));
+		this.form.events.on("afterSend", () => this.setState({event: "afterSend"}));
+		this.form.events.on("beforeSend", () => this.setState({event: "beforeSend"}));
 	}
-
 	componentWillUnmount() {
-		this.form.destructor();
+		this.form && this.form.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{
@@ -70,11 +84,14 @@ class FormEvents extends Component {
 				justifyContent: "center",
 				flexDirection: "column"
 			}}>
-				<form style={{textAlign: "left"}} ref={el => this.el = el}></form>
+				<form style={{textAlign: "left", background: "#fff"}} ref={el => this.el = el}></form>
 				<div style={{display: "flex", justifyContent: "center", padding: 20}}>
-					<button
-						className="button button--bordered">{this.state.event ? `Event: ${this.state.event}` : "Click to widget"}</button>
-					<button className="button button--bordered">Item: {this.state.id ? this.state.id : ""}</button>
+					<button	className="button button--bordered">
+						{this.state.event ? `Event: ${this.state.event}` : "Click to widget"}
+					</button>
+					<button className="button button--bordered">
+						Item: {this.state.id ? this.state.id : ""}
+					</button>
 				</div>
 			</div>
 		);
@@ -82,15 +99,12 @@ class FormEvents extends Component {
 }
 
 FormEvents.propTypes = {
-	cellCss: PropTypes.string,
+	css: PropTypes.string,
 	width: PropTypes.string,
 	height: PropTypes.string,
 	rows: PropTypes.array,
 	cols: PropTypes.array,
-	groupName: PropTypes.string,
-	size: PropTypes.number,
 	title: PropTypes.string,
-	items: PropTypes.array,
 	align: PropTypes.oneOf([
 		"start",
 		"center",
@@ -100,7 +114,8 @@ FormEvents.propTypes = {
 		"evenly"
 	]),
 	padding: PropTypes.string,
-	gravity: PropTypes.bool
+	gravity: PropTypes.bool,
+	disabled: PropTypes.bool
 };
 
 export default FormEvents;

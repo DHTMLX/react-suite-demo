@@ -1,6 +1,6 @@
-import React, {Component, PureComponent} from "react";
+import React, { Component, PureComponent } from "react";
 import PropTypes from "prop-types";
-import {Sidebar as SidebarDHX, TreeCollection} from "dhx-suite";
+import { Sidebar as SidebarDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class Sidebar extends Component {
@@ -11,11 +11,9 @@ class Sidebar extends Component {
 			data: data
 		});
 	}
-
 	componentWillUnmount() {
-		this.sidebar.destructor();
+		this.sidebar && this.sidebar.destructor();
 	}
-
 	render() {
 		return (
 			<div
@@ -35,7 +33,6 @@ class SidebarData extends PureComponent {
 			count: 0
 		};
 		this.data = new TreeCollection();
-
 		this.data.load(`${process.env.PUBLIC_URL}/static/sidebar.json`).then(() => {
 			this.data.events.on("change", () => {
 				this.setState({
@@ -44,15 +41,12 @@ class SidebarData extends PureComponent {
 			});
 		});
 	}
-
 	handleClickAdd() {
 		this.data.update("media", {count: this.data.getItem("media").count + 1});
 	}
-
 	handleClickReset() {
 		this.data.update("media", {count: 0});
 	}
-
 	render() {
 		return (
 			<div>
@@ -63,7 +57,8 @@ class SidebarData extends PureComponent {
 				<div style={{display: "flex", justifyContent: "center", padding: 20}}>
 					<button className="button" onClick={() => this.handleClickAdd()}>Add notification</button>
 					<button className="button" onClick={() => this.handleClickReset()}
-					        disabled={(!this.state.count)}>Reset {this.state.count} notification(s)
+					        disabled={(!this.state.count)}>
+						Reset {this.state.count} notification(s)
 					</button>
 				</div>
 			</div>

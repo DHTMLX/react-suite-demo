@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from "react";
+import React, { Component, Fragment } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -11,7 +11,6 @@ class WindowCDN extends Component {
 			"https://cdn.dhtmlx.com/suite/edge/suite.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
@@ -22,19 +21,14 @@ class WindowCDN extends Component {
 				closable: true,
 				html: `<p>Here is a neat and flexible JavaScript window system with a fast and simple initialization.</p><p>Inspect all the DHTMLX window samples to discover each and every feature.</p><img style='display: block; width: 200px; height: 200px; margin-top: 20px; margin-left: auto; margin-right: auto' src='${process.env.PUBLIC_URL}/static/developer.svg'>`
 			});
-
 			if (this.props.ready) {
 				this.props.ready(this.window);
 			}
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.window) {
-			this.window.destructor();
-		}
+		this.window && this.window.destructor();
 	}
-
 	render() {
 		return (
 			<Fragment>
@@ -67,6 +61,8 @@ WindowCDN.propTypes = {
 	resizable: PropTypes.bool,
 	movable: PropTypes.bool,
 	modal: PropTypes.bool,
-	closable: PropTypes.bool
+	closable: PropTypes.bool,
+	node: PropTypes.string
 };
+
 export default WindowCDN;

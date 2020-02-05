@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Ribbon as RibbonDHX, TreeCollection} from "dhx-suite";
+import { Ribbon as RibbonDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 import "@mdi/font/css/materialdesignicons.min.css";
 
@@ -12,11 +12,9 @@ class Ribbon extends Component {
 			data: data
 		});
 	}
-
 	componentWillUnmount() {
-		this.ribbon.destructor();
+		this.ribbon && this.ribbon.destructor();
 	}
-
 	render() {
 		return (
 			<div ref={el => this.el = el}></div>
@@ -30,7 +28,6 @@ class RibbonProps extends Component {
 		data.load(`${process.env.PUBLIC_URL}/static/ribbon.json`);
 		return data;
 	}
-
 	render() {
 		return (
 			<Ribbon

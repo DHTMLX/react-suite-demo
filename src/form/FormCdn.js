@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
@@ -11,19 +11,19 @@ class FormCDN extends Component {
 			"https://cdn.dhtmlx.com/suite/edge/suite.css"
 		]);
 	}
-
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
 			this.form = new dhx.Form(this.el, {
-				cellCss: "dhx_widget--bordered",
+				css: "dhx_widget--bordered",
 				gravity: false,
+				width: 400,
 				rows: [
 					{
 						type: "input",
 						label: "Name",
 						icon: "dxi-magnify",
-						placeholder: "John Doe"
+						placeholder: "John Doe"		
 					},
 					{
 						type: "input",
@@ -40,7 +40,7 @@ class FormCDN extends Component {
 						type: "checkbox",
 						label: "I agree",
 						name: "agree",
-						labelInline: true,
+						labelPosition: "right",
 						value: "checkboxvalue"
 					},
 					{
@@ -53,36 +53,28 @@ class FormCDN extends Component {
 					}
 				]
 			});
-
 			if (this.props.ready) {
 				this.props.ready(this.form);
 			}
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.form) {
-			this.form.destructor();
-		}
+		this.form && this.form.destructor();
 	}
-
 	render() {
 		return (
-			<form style={{textAlign: "left"}} ref={el => this.el = el}></form>
+			<form style={{textAlign: "left", background: "#fff"}} ref={el => this.el = el}></form>
 		);
 	}
 }
 
 FormCDN.propTypes = {
-	cellCss: PropTypes.string,
+	css: PropTypes.string,
 	width: PropTypes.string,
 	height: PropTypes.string,
 	rows: PropTypes.array,
 	cols: PropTypes.array,
-	groupName: PropTypes.string,
-	size: PropTypes.number,
 	title: PropTypes.string,
-	items: PropTypes.array,
 	align: PropTypes.oneOf([
 		"start",
 		"center",
@@ -92,6 +84,8 @@ FormCDN.propTypes = {
 		"evenly"
 	]),
 	padding: PropTypes.string,
-	gravity: PropTypes.bool
+	gravity: PropTypes.bool,
+	disabled: PropTypes.bool
 };
+
 export default FormCDN;

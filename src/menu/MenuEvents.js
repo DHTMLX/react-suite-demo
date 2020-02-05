@@ -12,28 +12,23 @@ class MenuEvents extends Component {
 			id: ""
 		};
 	}
-
 	componentDidMount() {
 		this.menu = new MenuDHX(this.el, {
 			css: "dhx_widget--bordered"
 		});
 		this.menu.data.load(`${process.env.PUBLIC_URL}/static/menu.json`);
 
-		this.menu.events.on("click", id => this.handleClick(id, "click"));
-		this.menu.events.on("openmenu", id => this.handleClick(id, "openmenu"));
+		this.menu.events.on("click", id => this.setState({event: "click", id: id}));
+		this.menu.events.on("openmenu", id => this.setState({event: "openmenu", id: id}));
+		this.menu.events.on("inputfocus", () => this.setState({event: "inputfocus"}));
+		this.menu.events.on("inputcreated", () => this.setState({event: "inputcreated"}));
+		this.menu.events.on("inputblur", () => this.setState({event: "inputblur"}));;
+		this.menu.events.on("afterhide", () => this.setState({event: "afterhide"}));
+		this.menu.events.on("beforehide", () => this.setState({event: "beforehid"}));
 	}
-
-	handleClick(id, event) {
-		this.setState({
-			event: event,
-			id: id
-		});
-	}
-
 	componentWillUnmount() {
-		this.menu.destructor();
+		this.menu && this.menu.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{
@@ -58,7 +53,8 @@ MenuEvents.propTypes = {
 	data: PropTypes.instanceOf([
 		PropTypes.array,
 		PropTypes.instanceOf(TreeCollection)
-	])
+	]),
+	navigationType: PropTypes.oneOf(["pointer", "click"])
 };
 
 export default MenuEvents;

@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Chart as ChartDHX, DataCollection} from "dhx-suite";
+import { Chart as ChartDHX, DataCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class ChartConfigured extends Component {
@@ -30,13 +30,9 @@ class ChartConfigured extends Component {
 		});
 		this.chart.data.load(`${process.env.PUBLIC_URL}/static/chart.json`);
 	}
-
 	componentWillUnmount() {
-		if (this.chart) {
-			this.chart.destructor();
-		}
+		this.chart && this.chart.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{width: 500, height: 400}} ref={el => this.el = el}></div>

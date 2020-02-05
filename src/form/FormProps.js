@@ -1,27 +1,26 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Form as FormDHX} from "dhx-suite";
+import { Form as FormDHX } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class Form extends Component {
 	componentDidMount() {
-		let {cellCss, rows, gravity, padding, title} = this.props;
+		const { css, rows, gravity, padding, title, width } = this.props;
 		this.form = new FormDHX(this.el, {
-			cellCss: cellCss,
+			css: css,
 			gravity: gravity,
 			padding: padding,
 			rows: rows,
-			title: title
+			title: title,
+			width: width
 		});
 	}
-
 	componentWillUnmount() {
 		this.form && this.form.destructor();
 	}
-
 	render() {
 		return (
-			<form style={{textAlign: "left"}} ref={el => this.el = el}></form>
+			<form style={{textAlign: "left", background: "#fff"}} ref={el => this.el = el}></form>
 		);
 	}
 }
@@ -33,25 +32,33 @@ class FormProps extends Component {
 				type: "input",
 				label: "Name",
 				icon: "dxi-magnify",
-				placeholder: "John Doe"
+				placeholder: "John Doe",
+				required: true				
 			},
 			{
 				type: "input",
 				label: "Email",
-				placeholder: "jd@mail.name"
+				placeholder: "jd@mail.name",
+				preMessage: "Enter Email",
+				errorMessage: "Invalid email",
+				successMessage: "Valid Email",
+				validation: "email",
+				required: true
 			},
 			{
 				type: "input",
 				inputType: "password",
 				label: "Password",
-				placeholder: "********"
+				placeholder: "********",
+				required: true
 			},
 			{
 				type: "checkbox",
 				label: "I agree",
 				name: "agree",
 				labelInline: true,
-				value: "checkboxvalue"
+				value: "checkboxvalue",
+				required: true
 			},
 			{
 				type: "button",
@@ -64,26 +71,24 @@ class FormProps extends Component {
 		];
 		return (
 			<Form
-				cellCss={"dhx_widget--bordered"}
-				rows={rows}
-				gravity={false}
-				padding={20}
-				title={"DHX form"}
+				css = {"dhx_widget--bordered"}
+				width = {400}
+				rows = {rows}
+				gravity = {false}
+				padding = {20}
+				title = {"DHX Form"}
 			/>
 		);
 	}
 }
 
 FormProps.propTypes = {
-	cellCss: PropTypes.string,
+	css: PropTypes.string,
 	width: PropTypes.string,
 	height: PropTypes.string,
 	rows: PropTypes.array,
 	cols: PropTypes.array,
-	groupName: PropTypes.string,
-	size: PropTypes.number,
 	title: PropTypes.string,
-	items: PropTypes.array,
 	align: PropTypes.oneOf([
 		"start",
 		"center",
@@ -93,7 +98,8 @@ FormProps.propTypes = {
 		"evenly"
 	]),
 	padding: PropTypes.string,
-	gravity: PropTypes.bool
+	gravity: PropTypes.bool,
+	disabled: PropTypes.bool
 };
 
 export default FormProps;

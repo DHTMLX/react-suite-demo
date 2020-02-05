@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {TreeGrid as TreegridDHX, TreeGridCollection} from "dhx-treegrid";
+import { TreeGrid as TreegridDHX, TreeGridCollection } from "dhx-treegrid";
 import "dhx-treegrid/codebase/treegrid.min.css";
 
 class Treegrid extends Component {
@@ -14,13 +14,9 @@ class Treegrid extends Component {
 			data: data
 		});
 	}
-
 	componentWillUnmount() {
-		if (this.treegrid) {
-			this.treegrid.destructor();
-		}
+		this.treegrid && this.treegrid.destructor();
 	}
-
 	render() {
 		return (
 			<div style={{width: 900, height: 500}} ref={el => this.el = el}></div>
@@ -32,13 +28,11 @@ class TreegridProps extends Component {
 	constructor() {
 		super();
 	}
-
 	getData = () => {
 		const data = new TreeGridCollection();
 		data.load("./static/treegrid.json");
 		return data;
 	};
-
 	render() {
 		const columns = [
 			{width: 260, id: "name", header: [{text: "Name"}]},

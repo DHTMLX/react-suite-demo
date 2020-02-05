@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import Grid from "./Grid";
 import GridCdn from "./GridCdn";
 
@@ -9,7 +9,6 @@ import GridData from "./GridData";
 import GridEvents from "./GridEvents";
 
 class GridPage extends Component {
-
 	componentDidMount() {
 		const setActiveExapmleInHead = (entries, observer) => {
 			entries.forEach(entry => {
@@ -33,7 +32,6 @@ class GridPage extends Component {
 		[...this.el.querySelectorAll("section")].map(item => observer.observe(item));
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll("section")].map(item => item.id));
 	}
-
 	render() {
 		return (
 			<main ref={(el) => this.el = el}>
@@ -66,7 +64,6 @@ class GridPage extends Component {
 					<div style={{display: "flex", justifyContent: "center"}}>
 						<GridCdn/>
 					</div>
-
 				</section>
 				<section className="hgroup" id="pre">
 					<h3>

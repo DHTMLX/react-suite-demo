@@ -1,6 +1,6 @@
-import React, {PureComponent} from "react";
-import {Sidebar as SidebarDHX} from "dhx-suite";
-import {withRouter} from "react-router-dom";
+import React, { PureComponent } from "react";
+import { Sidebar as SidebarDHX } from "dhx-suite";
+import { withRouter } from "react-router-dom";
 
 class Sidebar extends PureComponent {
 	componentDidUpdate() {
@@ -8,7 +8,6 @@ class Sidebar extends PureComponent {
 		const activeWidget = window.location.href.split("/").pop();
 		this.sidebar.data.update(activeWidget + "-link", {active: true});
 	}
-
 	componentDidMount() {
 		this.sidebar = new SidebarDHX(this.el, {
 			css: "dhx_widget--border_right",
@@ -20,9 +19,6 @@ class Sidebar extends PureComponent {
 					html: `<img src="${process.env.PUBLIC_URL}/static/logo_r.svg" alt="DHTMLX - React"/>`,
 					group: "nav",
 					twoState: true
-				},
-				{
-					type: "separator"
 				},
 				{
 					value: "Calendar",
@@ -114,24 +110,12 @@ class Sidebar extends PureComponent {
 					group: "nav",
 					twoState: true
 				},
-				// {
-				// 	value: 'Treegrid',
-				// 	id: 'treegrid-link',
-				// 	group: "nav",
-				// 	twoState: true
-				// },
 				{
 					value: "Chart",
 					id: "chart-link",
 					group: "nav",
 					twoState: true
 				},
-				// {
-				// 	value: 'Layout',
-				// 	id: 'layout-link',
-				// 	group: "nav",
-				// 	twoState: true
-				// },
 				{
 					value: "Window",
 					id: "window-link",
@@ -149,26 +133,13 @@ class Sidebar extends PureComponent {
 					id: "popup-link",
 					group: "nav",
 					twoState: true
-				},
-				{
-					value: "Pivot",
-					id: "pivot-link",
-					group: "nav",
-					twoState: true
 				}
-				// {
-				// 	value: 'Treegrid',
-				// 	id: 'treegrid-link',
-				// 	group: "nav",
-				// 	twoState: true
-				// },
 			]
 		});
 		const activeWidget = window.location.href.split("/").pop();
 		if (activeWidget) {
 			this.props.handleActiveWidgetChange(activeWidget);
 		}
-
 		this.sidebar.events.on("click", (id) => {
 			if (id !== "logo") {
 				const widgetName = id.split("-")[0];
@@ -187,16 +158,12 @@ class Sidebar extends PureComponent {
 			}
 		});
 	}
-
 	componentWillUnmount() {
-		this.sidebar.destructor();
+		this.sidebar && this.sidebar.destructor();
 	}
-
 	render() {
 		return (
-			<div style={{maxHeight: "100vh"}} ref={el => this.el = el}>
-
-			</div>
+			<div style={{maxHeight: "100vh"}} ref={el => this.el = el}></div>
 		);
 	}
 }

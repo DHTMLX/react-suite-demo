@@ -1,6 +1,6 @@
-import React, {Component, PureComponent} from "react";
+import React, { Component, PureComponent } from "react";
 import PropTypes from "prop-types";
-import {Menu as MenuDHX, TreeCollection} from "dhx-suite";
+import { Menu as MenuDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 import "@mdi/font/css/materialdesignicons.min.css";
 
@@ -12,11 +12,9 @@ class Menu extends Component {
 			data: data
 		});
 	}
-
 	componentWillUnmount() {
-		this.menu.destructor();
+		this.menu && this.menu.destructor();
 	}
-
 	render() {
 		return (
 			<div
@@ -40,7 +38,6 @@ class MenuData extends PureComponent {
 			});
 		});
 	}
-
 	componentDidMount() {
 		this.data.load(`${process.env.PUBLIC_URL}/static/menu.json`).then(() => {
 			this.data.events.on("change", () => {
@@ -50,15 +47,12 @@ class MenuData extends PureComponent {
 			});
 		});
 	}
-
 	componentWillUnmount() {
 		this.data.events.detach("load");
 	}
-
 	handlePrintEnable() {
 		this.data.update("edit", {disabled: !this.data.getItem("edit").disabled});
 	}
-
 	render() {
 		return (
 			<div style={{width: "100%", maxWidth: 1200}}>
@@ -81,7 +75,8 @@ MenuData.propTypes = {
 	data: PropTypes.instanceOf([
 		PropTypes.array,
 		PropTypes.instanceOf(TreeCollection)
-	])
+	]),
+	navigationType: PropTypes.oneOf(["pointer", "click"])
 };
 
 export default MenuData;

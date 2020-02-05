@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Chart from "./Chart";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
 import ChartCdn from "./ChartCdn";
 import ChartConfigured from "./ChartConfigured";
@@ -31,7 +31,6 @@ class ChartPage extends Component {
 		[...this.el.querySelectorAll("section")].map(item => observer.observe(item));
 		this.props.handleToolbarNavItems([...this.el.querySelectorAll("section")].map(item => item.id));
 	}
-
 	render() {
 		return (
 			<main ref={(el) => this.el = el}>
@@ -64,7 +63,6 @@ class ChartPage extends Component {
 					<div style={{display: "flex", justifyContent: "center"}}>
 						<ChartCdn/>
 					</div>
-
 				</section>
 				<section className="hgroup" id="pre">
 					<h3>

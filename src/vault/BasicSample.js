@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Vault from "./Vault";
 
 class BasicSample extends Component {

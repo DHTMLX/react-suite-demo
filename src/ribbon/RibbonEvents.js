@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Ribbon as RibbonDHX} from "dhx-suite";
+import { Ribbon as RibbonDHX } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 import "@mdi/font/css/materialdesignicons.min.css";
 
@@ -12,7 +12,6 @@ class RibbonEvents extends Component {
 			id: ""
 		};
 	}
-
 	componentDidMount() {
 		this.ribbon = new RibbonDHX(this.el, {
 			css: "dhx_widget--bordered dhx_widget--bg_white"
@@ -23,12 +22,11 @@ class RibbonEvents extends Component {
 		this.ribbon.events.on("inputfocus", id => this.setState({event: "inputfocus", id: id}));
 		this.ribbon.events.on("inputblur", id => this.setState({event: "inputblur", id: id}));
 		this.ribbon.events.on("click", id => this.setState({event: "click", id: id}));
+		this.ribbon.events.on("openMenu", id => this.setState({event: "openMenu", id: id}));
 	}
-
 	componentWillUnmount() {
 		this.ribbon && this.ribbon.destructor();
 	}
-
 	render() {
 		return (
 			<div>

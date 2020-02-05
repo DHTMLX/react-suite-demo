@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {DataView as DataviewDHX, DataCollection} from "dhx-suite";
+import { DataView as DataviewDHX, DataCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 const template = (item) => (
@@ -22,16 +22,12 @@ class Dataview extends Component {
 
 		this.dataview.data.load(`${process.env.PUBLIC_URL}/static/dataview.json`);
 	}
-
 	componentWillUnmount() {
-		this.dataview.destructor();
+		this.dataview && this.dataview.destructor();
 	}
-
 	render() {
 		return (
-			<div style={{
-				maxWidth: "100%"
-			}} ref={el => this.el = el}></div>
+			<div style={{width: "100%"}} ref={el => this.el = el}></div>
 		);
 	}
 }
@@ -41,11 +37,17 @@ Dataview.propTypes = {
 		PropTypes.array,
 		PropTypes.instanceOf(DataCollection)
 	]),
-	itemsInRow: PropTypes.number,
-	gap: PropTypes.number,
 	template: PropTypes.func,
 	keyNavigation: PropTypes.bool,
-	css: PropTypes.string
+	css: PropTypes.string,
+	height: PropTypes.number,
+	itemHeight: PropTypes.number,
+	itemsInRow: PropTypes.number,
+	gap: PropTypes.number,
+	multiselection: PropTypes.bool || PropTypes.oneOf(["click", "ctrlClick"]),
+	editable: PropTypes.bool,
+	dragMode: PropTypes.oneOf(["target", "source", "both"]),
+	dragCopy: PropTypes.bool
 };
 
 export default Dataview;
