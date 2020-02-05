@@ -21,9 +21,6 @@ class Sidebar extends PureComponent {
 					twoState: true
 				},
 				{
-					type: "separator"
-				},
-				{
 					value: "Calendar",
 					id: "calendar-link",
 					group: "nav",

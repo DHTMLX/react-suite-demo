@@ -18,19 +18,13 @@ class MenuEvents extends Component {
 		});
 		this.menu.data.load(`${process.env.PUBLIC_URL}/static/menu.json`);
 
-		this.menu.events.on("click", id => this.handleClick(id, "click"));
-		this.menu.events.on("openmenu", id => this.handleClick(id, "openmenu"));
-		this.menu.events.on("inputfocus", id => this.handleClick(id, "inputfocus"));
-		this.menu.events.on("inputcreated", id => this.handleClick(id, "inputcreated"));
-		this.menu.events.on("inputblur", id => this.handleClick(id, "inputblur"));
-		this.menu.events.on("afterhide", id => this.handleClick(id, "afterhide"));
-		this.menu.events.on("beforehide", id => this.handleClick(id, "beforehide"));
-	}
-	handleClick(id, event) {
-		this.setState({
-			event: event,
-			id: id
-		});
+		this.menu.events.on("click", id => this.setState({event: "click", id: id}));
+		this.menu.events.on("openmenu", id => this.setState({event: "openmenu", id: id}));
+		this.menu.events.on("inputfocus", () => this.setState({event: "inputfocus"}));
+		this.menu.events.on("inputcreated", () => this.setState({event: "inputcreated"}));
+		this.menu.events.on("inputblur", () => this.setState({event: "inputblur"}));;
+		this.menu.events.on("afterhide", () => this.setState({event: "afterhide"}));
+		this.menu.events.on("beforehide", () => this.setState({event: "beforehid"}));
 	}
 	componentWillUnmount() {
 		this.menu && this.menu.destructor();
