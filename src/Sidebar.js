@@ -133,12 +133,6 @@ class Sidebar extends PureComponent {
 					id: "popup-link",
 					group: "nav",
 					twoState: true
-				},
-				{
-					value: "Pivot",
-					id: "pivot-link",
-					group: "nav",
-					twoState: true
 				}
 			]
 		});
