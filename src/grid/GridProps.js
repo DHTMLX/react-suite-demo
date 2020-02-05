@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Grid as GridDHX, TreeCollection } from "dhx-suite";
+import { Grid as GridDHX, DataCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class Grid extends Component {
@@ -29,7 +29,7 @@ class Grid extends Component {
 
 class GridProps extends Component {
 	getData() {
-		const data = new TreeCollection();
+		const data = new DataCollection();
 		data.load(`${process.env.PUBLIC_URL}/static/grid.json`);
 		return data;
 	}
@@ -66,7 +66,7 @@ GridProps.propTypes = {
 	spans: PropTypes.array,
 	data: PropTypes.oneOfType([
 		PropTypes.array,
-		PropTypes.instanceOf(TreeCollection)
+		PropTypes.instanceOf(DataCollection)
 	]),
 	headerRowHeight: PropTypes.number,
 	footerRowHeight: PropTypes.number,

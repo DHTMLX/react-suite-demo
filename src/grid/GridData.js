@@ -1,6 +1,6 @@
 import React, { Component, PureComponent } from "react";
 import PropTypes from "prop-types";
-import { Grid as GridDHX, TreeCollection } from "dhx-suite";
+import { Grid as GridDHX, DataCollection } from "dhx-suite";
 
 import "dhx-suite/codebase/suite.min.css";
 
@@ -33,7 +33,7 @@ class GridData extends PureComponent {
 		this.state = {
 			firstItem: null
 		};
-		this.data = new TreeCollection();
+		this.data = new DataCollection();
 
 		this.data.events.on("load", () => {
 			this.setState({
@@ -98,7 +98,7 @@ Grid.propTypes = {
 	spans: PropTypes.array,
 	data: PropTypes.oneOfType([
 		PropTypes.array,
-		PropTypes.instanceOf(TreeCollection)
+		PropTypes.instanceOf(DataCollection)
 	]),
 	headerRowHeight: PropTypes.number,
 	footerRowHeight: PropTypes.number,
