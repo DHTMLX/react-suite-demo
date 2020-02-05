@@ -16,7 +16,7 @@ class Toolbar extends PureComponent {
 				{
 					id: "title",
 					type: "title",
-					value: `Using DHTMLX ${this.props.activeWidget || "widgets"} in a React app`
+					value: `Using DHTMLX ${this.props.activeWidget || "widgets"}`
 				},
 				{
 					id: "separ",
@@ -117,7 +117,7 @@ class Toolbar extends PureComponent {
 		});
 	}
 	componentDidUpdate() {
-		this.toolbar.data.update("title", {value: `Using DHTMLX ${this.props.activeWidget || "widgets"} in a React app`});
+		this.toolbar.data.update("title", {value: `Using DHTMLX ${this.props.activeWidget || "widgets"}`});
 		if (!this.props.toolbarNav.includes(window.location.hash.slice(1))) {
 			this.toolbar.data.map(item => {
 				item.active = false;
