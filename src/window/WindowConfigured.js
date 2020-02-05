@@ -11,7 +11,8 @@ class WindowConfigured extends Component {
 			height: 520,
 			title: "Window",
 			html: windowHtml,
-			closable: true
+			closable: true,
+			modal: true
 		});
 	}
 	componentWillUnmount() {
