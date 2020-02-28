@@ -68,7 +68,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 - [Window](https://dhtmlx.github.io/react-widgets/#/window)
 
 
-## Support
+## Support Us
 
 Star our GitHub repo :star:
 
