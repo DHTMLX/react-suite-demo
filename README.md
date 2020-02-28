@@ -8,11 +8,6 @@
 [![dhtmlx.com](https://img.shields.io/badge/made%20by-DHTMLX-blue)](https://dhtmlx.com/)
 [![License: GPL v2](https://img.shields.io/badge/license-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 
-[dhtmlxSuite](https://dhtmlx.com/docs/products/dhtmlxSuite/) is a JavaScript UI library used for building data-intensive apps of any complexity. It consists of 20+ widgets that can be used in a React app.
-
-[![suite-demo](https://dhtmlx.com/docs/products/dhtmlxSuite/images/Demo_2@2.png)](https://dhtmlx.com/docs/products/demoApps/dhtmlxFileExplorerDemo/)
-
-[View more demo >](https://dhtmlx.com/docs/products/demoApps/dhtmlxDashboard/)
 
 ## Getting Started
 
@@ -68,6 +63,17 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 - [Window](https://dhtmlx.github.io/react-widgets/#/window)
 
 
+## License
+
+[![License: GPL v2](https://img.shields.io/badge/license-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
+
+
+## Useful links
+
+- [Online  documentation](https://docs.dhtmlx.com/)
+- [Support forum](https://forum.dhtmlx.com/c/suite6)
+
+
 ## Support Us
 
 Star our GitHub repo :star:
@@ -79,14 +85,3 @@ Read us on [Medium](https://medium.com/@dhtmlx) :newspaper:
 Follow us on [Twitter](https://twitter.com/dhtmlx) :feet:
 
 Like our page on [Facebook](https://www.facebook.com/dhtmlx/) :thumbsup:
-
-
-## License
-
-[![License: GPL v2](https://img.shields.io/badge/license-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
-
-
-## Useful links
-
-- [Online  documentation](https://docs.dhtmlx.com/)
-- [Support forum](https://forum.dhtmlx.com/c/suite6)
