@@ -8,7 +8,7 @@
 [![dhtmlx.com](https://img.shields.io/badge/made%20by-DHTMLX-blue)](https://dhtmlx.com/)
 [![License: GPL v2](https://img.shields.io/badge/license-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 
-[![react-widgets](https://drive.google.com/drive/u/1/folders/1dk1FtVlYF7KmvpJjRf_HvqM7VfgMiNuG)](https://dhtmlx.github.io/react-widgets/#/)
+[![react-widgets](https://raw.githubusercontent.com/plazarev/media/master/Suite%402x.png)](https://dhtmlx.github.io/react-widgets/#/)
 
 ## Getting Started
 
