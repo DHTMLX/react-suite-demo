@@ -1,5 +1,5 @@
  <p align="center">      
-<a href="https://dhtmlx.github.io/react-widgets/#/"><img src="https://dhtmlx.github.io/react-widgets/static/logo_r.svg" width="200" heigh="75"></a>
+<a href="https://dhtmlx.github.io/react-widgets/#/"><img src="https://dhtmlx.github.io/react-widgets/static/logo_r.svg" width="150" heigh="55"></a>
           </p>
 
 
