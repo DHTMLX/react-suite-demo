@@ -8,6 +8,7 @@
 [![dhtmlx.com](https://img.shields.io/badge/made%20by-DHTMLX-blue)](https://dhtmlx.com/)
 [![License: GPL v2](https://img.shields.io/badge/license-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 
+[![react-widgets](https://files.dhtmlx.com/30d/48ac0c790f897110f1629b7ed3d88dd4/Suite@2x.png)](https://dhtmlx.github.io/react-widgets/#/)
 
 ## Getting Started
 
