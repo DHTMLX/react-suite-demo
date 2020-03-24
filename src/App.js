@@ -30,7 +30,7 @@ import WindowPage from "./window/WindowPage";
 import MessagePage from "./message/MessagePage";
 import PopupPage from "./popup/PopupPage";
 import PivotPage from "./pivot/PivotPage";
-import TreegridPage from "./treegrid/TreegridPage";
+// import TreegridPage from "./treegrid/TreegridPage";
 
 class App extends PureComponent {
 	constructor(props) {
@@ -81,9 +81,9 @@ class App extends PureComponent {
 		return (
 			<HashRouter hashType={"slash"}>
 				<div className='app-screen'
-				     style={{minHeight: "100vh", maxHeight: "100vh", display: "flex", overflow: "hidden"}}>
+					 style={{minHeight: "100vh", maxHeight: "100vh", display: "flex", overflow: "hidden"}}>
 					<Sidebar activeWidget={this.state.activeWidget}
-					         handleActiveWidgetChange={(activeWidget) => this.setActiveWidget(activeWidget)}/>
+							 handleActiveWidgetChange={(activeWidget) => this.setActiveWidget(activeWidget)}/>
 					<div className="app-screen__inner" style={{width: "calc(100% - 200px)"}}>
 						<Toolbar
 							// ref={(el) => this.toolbar = el}
@@ -92,7 +92,7 @@ class App extends PureComponent {
 							scrollToExample={(id) => this.setActiveExapmle(id)}
 							toolbarNav={this.state.toolbarNav}/>
 						<div className='app-content'
-						     ref={(el) => this.el = el}>
+							 ref={(el) => this.el = el}>
 							<Switch>
 								<Route path={`/calendar`} component={() => (
 									<CalendarPage
@@ -234,12 +234,12 @@ class App extends PureComponent {
 									/>
 								)}
 								/>
-								<Route path={`/treegrid`} component={() => (
+								{/* <Route path={`/treegrid`} component={() => (
 									<TreegridPage
 										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
 										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
 									/>
-								)}
+								)} */}
 								/>
 								<Route exact path={`/`} render={() => (
 									<Dataview
