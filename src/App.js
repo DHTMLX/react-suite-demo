@@ -86,7 +86,6 @@ class App extends PureComponent {
 							 handleActiveWidgetChange={(activeWidget) => this.setActiveWidget(activeWidget)}/>
 					<div className="app-screen__inner" style={{width: "calc(100% - 200px)"}}>
 						<Toolbar
-							// ref={(el) => this.toolbar = el}
 							activeWidget={this.state.activeWidget}
 							activeExampleId={this.state.activeExampleId}
 							scrollToExample={(id) => this.setActiveExapmle(id)}
@@ -101,22 +100,8 @@ class App extends PureComponent {
 									/>
 								)}
 								/>
-								<Route path={`/toolbar`} component={() => (
-									<ToolbarPage
-										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
-									/>
-								)}
-								/>
-								<Route path={`/timepicker`} component={() => (
-									<TimepickerPage
-										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
-									/>
-								)}
-								/>
-								<Route path={`/slider`} component={() => (
-									<SliderPage
+								<Route path={`/chart`} component={() => (
+									<ChartPage
 										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
 										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
 									/>
@@ -129,15 +114,8 @@ class App extends PureComponent {
 									/>
 								)}
 								/>
-								<Route path={`/sidebar`} component={() => (
-									<SidebarPage
-										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
-									/>
-								)}
-								/>
-								<Route path={`/ribbon`} component={() => (
-									<RibbonPage
+								<Route path={`/combobox`} component={() => (
+									<ComboboxPage
 										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
 										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
 									/>
@@ -150,8 +128,8 @@ class App extends PureComponent {
 									/>
 								)}
 								/>
-								<Route path={`/list`} component={() => (
-									<ListPage
+								<Route path={`/form`} component={() => (
+									<FormPage
 										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
 										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
 									/>
@@ -164,50 +142,15 @@ class App extends PureComponent {
 									/>
 								)}
 								/>
+								<Route path={`/list`} component={() => (
+									<ListPage
+										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
+									/>
+								)}
+								/>
 								<Route path={`/menu`} component={() => (
 									<MenuPage
-										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
-									/>
-								)}
-								/>
-								<Route path={`/form`} component={() => (
-									<FormPage
-										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
-									/>
-								)}
-								/>
-								<Route path={`/tabbar`} component={() => (
-									<TabbarPage
-										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
-									/>
-								)}
-								/>
-								<Route path={`/combobox`} component={() => (
-									<ComboboxPage
-										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
-									/>
-								)}
-								/>
-								<Route path={`/tree`} component={() => (
-									<TreePage
-										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
-									/>
-								)}
-								/>
-								<Route path={`/chart`} component={() => (
-									<ChartPage
-										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
-										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
-									/>
-								)}
-								/>
-								<Route path={`/window`} component={() => (
-									<WindowPage
 										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
 										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
 									/>
@@ -227,13 +170,69 @@ class App extends PureComponent {
 									/>
 								)}
 								/>
-								<Route path={`/pivot`} component={() => (
-									<PivotPage
+								<Route path={`/ribbon`} component={() => (
+									<RibbonPage
 										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
 										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
 									/>
 								)}
 								/>
+								<Route path={`/sidebar`} component={() => (
+									<SidebarPage
+										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
+									/>
+								)}
+								/>
+								<Route path={`/slider`} component={() => (
+									<SliderPage
+										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
+									/>
+								)}
+								/>
+								<Route path={`/tabbar`} component={() => (
+									<TabbarPage
+										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
+									/>
+								)}
+								/>
+								<Route path={`/timepicker`} component={() => (
+									<TimepickerPage
+										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
+									/>
+								)}
+								/>
+								<Route path={`/toolbar`} component={() => (
+									<ToolbarPage
+										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
+									/>
+								)}
+								/>
+-								<Route path={`/tree`} component={() => (
+									<TreePage
+										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
+									/>
+								)}
+								/>
+								<Route path={`/window`} component={() => (
+									<WindowPage
+										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
+									/>
+								)}
+								/>
+								{/* <Route path={`/pivot`} component={() => (
+									<PivotPage
+										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}
+										setActiveExapmle={(id, formObserver) => this.setActiveExapmle(id, formObserver)}
+									/>
+								)}
+								/> */}
 								{/* <Route path={`/treegrid`} component={() => (
 									<TreegridPage
 										handleToolbarNavItems={(array) => this.setToolBarNavItems(array)}

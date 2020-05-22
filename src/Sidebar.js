@@ -27,20 +27,8 @@ class Sidebar extends PureComponent {
 					twoState: true
 				},
 				{
-					value: "Toolbar",
-					id: "toolbar-link",
-					group: "nav",
-					twoState: true
-				},
-				{
-					value: "Timepicker",
-					id: "timepicker-link",
-					group: "nav",
-					twoState: true
-				},
-				{
-					value: "Slider",
-					id: "slider-link",
+					value: "Chart",
+					id: "chart-link",
 					group: "nav",
 					twoState: true
 				},
@@ -51,14 +39,8 @@ class Sidebar extends PureComponent {
 					twoState: true
 				},
 				{
-					value: "Sidebar",
-					id: "sidebar-link",
-					group: "nav",
-					twoState: true
-				},
-				{
-					value: "Ribbon",
-					id: "ribbon-link",
+					value: "Combobox",
+					id: "combobox-link",
 					group: "nav",
 					twoState: true
 				},
@@ -69,8 +51,8 @@ class Sidebar extends PureComponent {
 					twoState: true
 				},
 				{
-					value: "List",
-					id: "list-link",
+					value: "Form",
+					id: "form-link",
 					group: "nav",
 					twoState: true
 				},
@@ -81,44 +63,14 @@ class Sidebar extends PureComponent {
 					twoState: true
 				},
 				{
+					value: "List",
+					id: "list-link",
+					group: "nav",
+					twoState: true
+				},
+				{
 					value: "Menu",
 					id: "menu-link",
-					group: "nav",
-					twoState: true
-				},
-				{
-					value: "Form",
-					id: "form-link",
-					group: "nav",
-					twoState: true
-				},
-				{
-					value: "Tabbar",
-					id: "tabbar-link",
-					group: "nav",
-					twoState: true
-				},
-				{
-					value: "Combobox",
-					id: "combobox-link",
-					group: "nav",
-					twoState: true
-				},
-				{
-					value: "Tree",
-					id: "tree-link",
-					group: "nav",
-					twoState: true
-				},
-				{
-					value: "Chart",
-					id: "chart-link",
-					group: "nav",
-					twoState: true
-				},
-				{
-					value: "Window",
-					id: "window-link",
 					group: "nav",
 					twoState: true
 				},
@@ -133,7 +85,55 @@ class Sidebar extends PureComponent {
 					id: "popup-link",
 					group: "nav",
 					twoState: true
-				}
+				},
+				{
+					value: "Ribbon",
+					id: "ribbon-link",
+					group: "nav",
+					twoState: true
+				},
+				{
+					value: "Sidebar",
+					id: "sidebar-link",
+					group: "nav",
+					twoState: true
+				},
+				{
+					value: "Slider",
+					id: "slider-link",
+					group: "nav",
+					twoState: true
+				},
+				{
+					value: "Tabbar",
+					id: "tabbar-link",
+					group: "nav",
+					twoState: true
+				},
+				{
+					value: "Timepicker",
+					id: "timepicker-link",
+					group: "nav",
+					twoState: true
+				},
+				{
+					value: "Toolbar",
+					id: "toolbar-link",
+					group: "nav",
+					twoState: true
+				},
+				{
+					value: "Tree",
+					id: "tree-link",
+					group: "nav",
+					twoState: true
+				},
+				{
+					value: "Window",
+					id: "window-link",
+					group: "nav",
+					twoState: true
+				},
 			]
 		});
 		const activeWidget = window.location.href.split("/").pop();

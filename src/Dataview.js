@@ -22,68 +22,36 @@ class Dataview extends PureComponent {
 					id: "calendar-link"
 				},
 				{
-					value: "Toolbar",
-					id: "toolbar-link"
-				},
-				{
-					value: "Timepicker",
-					id: "timepicker-link"
-				},
-				{
-					value: "Slider",
-					id: "slider-link"
+					value: "Chart",
+					id: "chart-link"
 				},
 				{
 					value: "Colorpicker",
 					id: "colorpicker-link"
 				},
 				{
-					value: "Sidebar",
-					id: "sidebar-link"
-				},
-				{
-					value: "Ribbon",
-					id: "ribbon-link"
+					value: "Combobox",
+					id: "combobox-link"
 				},
 				{
 					value: "Dataview",
 					id: "dataview-link"
 				},
 				{
-					value: "List",
-					id: "list-link"
+					value: "Form",
+					id: "form-link"
 				},
 				{
 					value: "Grid",
 					id: "grid-link"
 				},
 				{
+					value: "List",
+					id: "list-link"
+				},
+				{
 					value: "Menu",
 					id: "menu-link"
-				},
-				{
-					value: "Form",
-					id: "form-link"
-				},
-				{
-					value: "Tabbar",
-					id: "tabbar-link"
-				},
-				{
-					value: "Combobox",
-					id: "combobox-link"
-				},
-				{
-					value: "Tree",
-					id: "tree-link"
-				},
-				{
-					value: "Chart",
-					id: "chart-link"
-				},
-				{
-					value: "Window",
-					id: "window-link"
 				},
 				{
 					value: "Message",
@@ -92,7 +60,39 @@ class Dataview extends PureComponent {
 				{
 					value: "Popup",
 					id: "popup-link"
-				}
+				},
+				{
+					value: "Ribbon",
+					id: "ribbon-link"
+				},
+				{
+					value: "Sidebar",
+					id: "sidebar-link"
+				},
+				{
+					value: "Slider",
+					id: "slider-link"
+				},
+				{
+					value: "Tabbar",
+					id: "tabbar-link"
+				},
+				{
+					value: "Timepicker",
+					id: "timepicker-link"
+				},
+				{
+					value: "Toolbar",
+					id: "toolbar-link"
+				},
+				{
+					value: "Tree",
+					id: "tree-link"
+				},
+				{
+					value: "Window",
+					id: "window-link"
+				},
 			]
 		});
 		this.dataview.events.on("click", (id) => {
