@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { DataView as DataviewDHX, DataCollection } from "dhx-suite";
-import "dhx-suite/codebase/suite.min.css";
 
 class Dataview extends Component {
 	componentDidMount() {
@@ -16,7 +15,7 @@ class Dataview extends Component {
 		});
 	}
 	componentWillUnmount() {
-		this.dataview.destructor();
+		this.dataview && this.dataview.destructor();
 	}
 	render() {
 		return (
@@ -32,19 +31,19 @@ class DataviewProps extends Component {
 		return data;
 	}
 	render() {
-		const tempalte = (item) => (
-			`<div class='item_wrap item-wrap--grid'>
-				<img class='image' style="max-width: 150px" src="${process.env.PUBLIC_URL + "/static/" + item.img}" />
-				<h2 class='title'>${item.title}</h2>
-				<div>${item.short}</div>
-			</div>`
-		);
+		const template = item => (`
+			<div class="template template__container">
+				<img class="template__image" src="${process.env.PUBLIC_URL + "/static/" + item.img}" />
+				<h2 class="template__title">${item.title}</h2>
+				<p class="template__description">${item.short}</p>
+			</div>
+		`);
 		return (
 			<Dataview
 				css="dhx_widget--bordered dhx_widget--bg_white"
-				itemsInRow={6}
-				template={tempalte}
-				gap={20}
+				itemsInRow={4}
+				template={template}
+				gap={10}
 				keyNavigation={true}
 				data={this.getData()}
 			/>

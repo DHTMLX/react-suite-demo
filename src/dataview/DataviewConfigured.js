@@ -1,25 +1,25 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { DataView as DataviewDHX, DataCollection } from "dhx-suite";
-import "dhx-suite/codebase/suite.min.css";
 
-const template = (item) => (
-	`<div class='item_wrap item-wrap--grid'>
-    <img class='image' style="max-width: 150px" src="${process.env.PUBLIC_URL + "/static/" + item.img}" />
-    <h2 class='title'>${item.title}</h2>
-    <div>${item.short}</div>
-  </div>
-  `
-);
+const template = item => (`
+	<div class="template template__container">
+		<img class="template__image" src="${process.env.PUBLIC_URL + "/static/" + item.img}" />
+		<h2 class="template__title">${item.title}</h2>
+		<p class="template__description">${item.short}</p>
+	</div>
+`);
 
 class DataviewConfigured extends Component {
 	componentDidMount() {
 		this.dataview = new DataviewDHX(this.el, {
 			css: "dhx_widget--bordered dhx_widget--bg_white",
-			itemsInRow: 6,
 			template: template,
-			gap: 20,
-			keyNavigation: true
+			itemsInRow: 4,
+			gap: 10,
+			keyNavigation: true,
+			multiselection: true,
+			dragMode: "both",
 		});
 		this.dataview.data.load(`${process.env.PUBLIC_URL}/static/dataview.json`);
 	}

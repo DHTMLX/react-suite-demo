@@ -8,6 +8,9 @@ import DataviewProps from "./DataviewProps";
 import DataviewData from "./DataviewData";
 import DataviewEvents from "./DataviewEvents";
 
+import "dhx-suite/codebase/suite.min.css";
+import "./dataview.css";
+
 class DataviewPage extends Component {
 	componentDidMount() {
 		const setActiveExapmleInHead = (entries, observer) => {

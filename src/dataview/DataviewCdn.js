@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import fromCDN from "from-cdn";
 import PropTypes from "prop-types";
 
-const template = (item) => (
-	`<div class='item_wrap item-wrap--grid'>
-    <img class='image' style="max-width: 150px" src="${process.env.PUBLIC_URL + "/static/" + item.img}" />
-    <h2 class='title'>${item.title}</h2>
-    <div>${item.short}</div>
-  </div>
-  `
-);
+const template = item => (`
+	<div class="template template__container">
+		<img class="template__image" src="${process.env.PUBLIC_URL + "/static/" + item.img}" />
+		<h2 class="template__title">${item.title}</h2>
+		<p class="template__description">${item.short}</p>
+	</div>
+`);
 
 class DataviewCDN extends Component {
 	constructor(props) {
@@ -26,7 +25,8 @@ class DataviewCDN extends Component {
 			this.dataview = new dhx.DataView(this.el, {
 				css: "dhx_widget--bordered dhx_widget--bg_white",
 				template: template,
-				itemsInRow: 6
+				itemsInRow: 4,
+				gap: 10
 			});
 			this.dataview.data.load(`${process.env.PUBLIC_URL}/static/dataview.json`);
 			if (this.props.ready) {
