@@ -8,6 +8,8 @@ import GridProps from "./GridProps";
 import GridData from "./GridData";
 import GridEvents from "./GridEvents";
 
+import "dhx-suite/codebase/suite.min.css";
+
 class GridPage extends Component {
 	componentDidMount() {
 		const setActiveExapmleInHead = (entries, observer) => {

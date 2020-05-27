@@ -2,8 +2,6 @@ import React, { Component, PureComponent } from "react";
 import PropTypes from "prop-types";
 import { Grid as GridDHX, DataCollection } from "dhx-suite";
 
-import "dhx-suite/codebase/suite.min.css";
-
 class Grid extends Component {
 	componentDidMount() {
 		const { rowHeight, adjust, autoWidth, columns, data, editable, multiselection, selection } = this.props;
@@ -23,7 +21,7 @@ class Grid extends Component {
 	}
 	render() {
 		return (
-			<div style={{width: "100%", height: "500px"}} ref={el => this.el = el}></div>
+			<div style={{width: "100%", height: "450px"}} ref={el => this.el = el}></div>
 		);
 	}
 }
@@ -72,7 +70,7 @@ class GridData extends PureComponent {
 			{minWidth: 125, id: "urban", header: [{text: "Urban Pop"}]}
 		];
 		return (
-			<div style={{width: "100%", height: "550px"}}>
+			<div style={{width: "100%", height: "450px"}}>
 				<Grid
 					rowHeight={60}
 					adjust={true}

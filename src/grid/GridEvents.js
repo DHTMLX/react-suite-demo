@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Grid as GridDHX, DataCollection } from "dhx-suite";
-import "dhx-suite/codebase/suite.min.css";
 
 class GridEvents extends Component {
 	constructor(props) {
@@ -26,10 +25,9 @@ class GridEvents extends Component {
 				{minWidth: 125, id: "urban", header: [{text: "Urban Pop"}]}
 			],
 			adjust: true,
-			autoWidth: true,
+			selection: true,
 			editable: true,
-			multiselection: true,
-			selection: "complex"
+			resizable: true,
 		});
 		this.grid.data.load(`${process.env.PUBLIC_URL}/static/grid.json`);
 
@@ -72,7 +70,7 @@ class GridEvents extends Component {
 				justifyContent: "center",
 				flexDirection: "column"
 			}}>
-				<div style={{width: "100%", height: "500px"}} ref={el => this.el = el}></div>
+				<div style={{width: "100%", height: "450px"}} ref={el => this.el = el}></div>
 				<div style={{display: "flex", justifyContent: "center", padding: 20}}>
 					<button	className="button button--bordered">
 						{this.state.event ? `Event: ${this.state.event}` : "Click to widget"}

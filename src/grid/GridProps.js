@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Grid as GridDHX, DataCollection } from "dhx-suite";
-import "dhx-suite/codebase/suite.min.css";
 
 class Grid extends Component {
 	componentDidMount() {
@@ -22,7 +21,7 @@ class Grid extends Component {
 	}
 	render() {
 		return (
-			<div style={{width: "100%", height: "500px"}} ref={el => this.el = el}></div>
+			<div style={{width: "100%", height: "450px"}} ref={el => this.el = el}></div>
 		);
 	}
 }
