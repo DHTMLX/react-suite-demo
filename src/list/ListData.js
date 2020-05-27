@@ -2,8 +2,6 @@ import React, { Component, PureComponent } from "react";
 import PropTypes from "prop-types";
 import { List as ListDHX, DataCollection } from "dhx-suite";
 
-import "dhx-suite/codebase/suite.min.css";
-
 class List extends Component {
 	componentDidMount() {
 		let {css, height, template, itemHeight, virtual, keyNavigation, data} = this.props;

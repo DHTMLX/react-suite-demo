@@ -9,7 +9,9 @@ class ListConfigured extends Component {
 			css: "dhx_widget--bordered dhx_widget--bg_white",
 			template: item => `<div style="height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column;"><strong>${item.title}</strong> <span>${item.short}</span></div>`,
 			height: 400,
-			itemHeight: 70
+			itemHeight: 70,
+			keyNavigation: true,
+			dragMode: "both"
 		});
 		this.list.data.load(`${process.env.PUBLIC_URL}/static/dataview.json`);
 	}

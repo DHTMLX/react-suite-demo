@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { List as ListDHX, DataCollection } from "dhx-suite";
-import "dhx-suite/codebase/suite.min.css";
 
 class ListEvents extends Component {
 	constructor(props) {

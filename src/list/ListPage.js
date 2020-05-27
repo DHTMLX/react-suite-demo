@@ -8,6 +8,8 @@ import ListProps from "./ListProps";
 import ListData from "./ListData";
 import ListEvents from "./ListEvents";
 
+import "dhx-suite/codebase/suite.min.css";
+
 class ListPage extends Component {
 
 	componentDidMount() {
