@@ -7,6 +7,8 @@ import TabbarConfigured from "./TabbarConfigured";
 import TabbarProps from "./TabbarProps";
 import TabbarEvents from "./TabbarEvents";
 
+import "dhx-suite/codebase/suite.min.css";
+
 class TabbarPage extends Component {
 	componentDidMount() {
 		const setActiveExapmleInHead = (entries, observer) => {

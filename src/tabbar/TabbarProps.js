@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Tabbar as TabbarDHX } from "dhx-suite";
-import "dhx-suite/codebase/suite.min.css";
 
 class Tabbar extends Component {
 	componentDidMount() {
