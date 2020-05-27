@@ -1,8 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {Menu as MenuDHX, TreeCollection} from "dhx-suite";
-import "dhx-suite/codebase/suite.min.css";
-import "@mdi/font/css/materialdesignicons.min.css";
 
 class MenuEvents extends Component {
 	constructor(props) {
@@ -14,7 +12,7 @@ class MenuEvents extends Component {
 	}
 	componentDidMount() {
 		this.menu = new MenuDHX(this.el, {
-			css: "dhx_widget--bordered"
+			css: "dhx_widget--bordered dhx_widget--bg_white"
 		});
 		this.menu.data.load(`${process.env.PUBLIC_URL}/static/menu.json`);
 

@@ -9,6 +9,9 @@ import MenuProps from "./MenuProps";
 import MenuData from "./MenuData";
 import MenuEvents from "./MenuEvents";
 
+import "dhx-suite/codebase/suite.min.css";
+import "@mdi/font/css/materialdesignicons.min.css";
+
 class MenuPage extends Component {
 	componentDidMount() {
 		const setActiveExapmleInHead = (entries, observer) => {

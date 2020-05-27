@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Menu as MenuDHX, TreeCollection } from "dhx-suite";
-import "dhx-suite/codebase/suite.min.css";
 
 class Menu extends Component {
 	componentDidMount() {
@@ -30,7 +29,7 @@ class MenuProps extends Component {
 	render() {
 		return (
 			<Menu
-				css="dhx_widget--bordered"
+				css="dhx_widget--bordered dhx_widget--bg_white"
 				data={this.getData()}
 			/>
 		);
