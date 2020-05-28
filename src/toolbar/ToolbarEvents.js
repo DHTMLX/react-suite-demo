@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Toolbar as ToolbarDHX, TreeCollection } from "dhx-suite";
-import "dhx-suite/codebase/suite.min.css";
 
 class ToolbarEvents extends Component {
 	constructor(props) {
@@ -81,7 +80,8 @@ class ToolbarEvents extends Component {
 				},
 				{
 					type: "spacer"
-				}]
+				}
+			]
 		});
 		this.toolbar.events.on("click", id => this.handleClick(id, "click"));
 		this.toolbar.events.on("inputCreated", id => this.handleClick(id, "inputCreated"));

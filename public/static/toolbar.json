@@ -60,12 +60,12 @@
         "value": "Edit"
     },
     {
+        "type": "spacer"
+    },
+    {
         "id": "search",
         "type": "input",
         "placeholder": "Search",
         "icon": "dxi dxi-magnify"
-    },
-    {
-        "type": "spacer"
     }
 ]

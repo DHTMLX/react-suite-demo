@@ -7,6 +7,8 @@ import ToolbarProps from "./ToolbarProps";
 import ToolbarData from "./ToolbarData";
 import ToolbarEvents from "./ToolbarEvents";
 
+import "dhx-suite/codebase/suite.min.css";
+
 class ToolbarPage extends Component {
 	componentDidMount() {
 		const setActiveExapmleInHead = (entries, observer) => {

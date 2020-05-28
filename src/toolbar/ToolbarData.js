@@ -1,7 +1,6 @@
 import React, { Component, PureComponent } from "react";
 import PropTypes from "prop-types";
 import { Toolbar as ToolbarDHX, TreeCollection } from "dhx-suite";
-import "dhx-suite/codebase/suite.min.css";
 
 class Toolbar extends Component {
 	componentDidMount() {
