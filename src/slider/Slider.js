@@ -11,9 +11,7 @@ class Slider extends Component {
 		this.slider.destructor();
 	}
 	render() {
-		return (
-			<div style={{width: "600px"}} ref={el => this.el = el}></div>
-		);
+		return <div style={{ width: "600px" }} ref={el => (this.el = el)}></div>;
 	}
 }
 
@@ -23,11 +21,7 @@ Slider.propTypes = {
 	step: PropTypes.number,
 	mode: PropTypes.oneOf(["vertical", "horizontal"]),
 	range: PropTypes.bool,
-	value: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.number,
-		PropTypes.string
-	]),
+	value: PropTypes.oneOfType([PropTypes.array, PropTypes.number, PropTypes.string]),
 	inverse: PropTypes.bool,
 	tooltip: PropTypes.bool,
 	css: PropTypes.string,
@@ -39,7 +33,7 @@ Slider.propTypes = {
 	helpMessage: PropTypes.string,
 	labelPosition: PropTypes.string,
 	labelWidth: PropTypes.string,
-	hiddenLabel: PropTypes.bool
+	hiddenLabel: PropTypes.bool,
 };
 
 export default Slider;

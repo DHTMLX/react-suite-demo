@@ -4,23 +4,21 @@ import { DataView as DataviewDHX, DataCollection } from "dhx-suite";
 
 class Dataview extends Component {
 	componentDidMount() {
-		let {css, itemsInRow, data, template, gap, keyNavigation} = this.props;
+		let { css, itemsInRow, data, template, gap, keyNavigation } = this.props;
 		this.dataview = new DataviewDHX(this.el, {
 			css: css,
 			itemsInRow: itemsInRow,
 			template: template,
 			gap: gap,
 			keyNavigation: keyNavigation,
-			data: data
+			data: data,
 		});
 	}
 	componentWillUnmount() {
 		this.dataview && this.dataview.destructor();
 	}
 	render() {
-		return (
-			<div style={{width: "100%"}} ref={el => this.el = el}></div>
-		);
+		return <div style={{ width: "100%" }} ref={el => (this.el = el)}></div>;
 	}
 }
 
@@ -31,13 +29,13 @@ class DataviewProps extends Component {
 		return data;
 	}
 	render() {
-		const template = item => (`
+		const template = item => `
 			<div class="template template__container">
 				<img class="template__image" src="${process.env.PUBLIC_URL + "/static/" + item.img}" />
 				<h2 class="template__title">${item.title}</h2>
 				<p class="template__description">${item.short}</p>
 			</div>
-		`);
+		`;
 		return (
 			<Dataview
 				css="dhx_widget--bordered dhx_widget--bg_white"
@@ -52,10 +50,7 @@ class DataviewProps extends Component {
 }
 
 DataviewProps.propTypes = {
-	data: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.instanceOf(DataCollection)
-	]),
+	data: PropTypes.oneOfType([PropTypes.array, PropTypes.instanceOf(DataCollection)]),
 	template: PropTypes.func,
 	keyNavigation: PropTypes.bool,
 	css: PropTypes.string,
@@ -66,7 +61,7 @@ DataviewProps.propTypes = {
 	multiselection: PropTypes.bool || PropTypes.oneOf(["click", "ctrlClick"]),
 	editable: PropTypes.bool,
 	dragMode: PropTypes.oneOf(["target", "source", "both"]),
-	dragCopy: PropTypes.bool
+	dragCopy: PropTypes.bool,
 };
 
 export default DataviewProps;

@@ -10,7 +10,7 @@ class Tree extends Component {
 			css: css,
 			keyNavigation: keyNavigation,
 			checkbox: checkbox,
-			data: data
+			data: data,
 		});
 	}
 	componentWillUnmount() {
@@ -19,9 +19,9 @@ class Tree extends Component {
 	render() {
 		return (
 			<div
-				style={{width: 350, padding: 10, background: "#fff", height: 450, overflow: "auto"}}
-				ref={el => this.el = el}>
-			</div>
+				style={{ width: 350, padding: 10, background: "#fff", height: 450, overflow: "auto" }}
+				ref={el => (this.el = el)}
+			></div>
 		);
 	}
 }
@@ -30,42 +30,40 @@ class TreeData extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
-			count: 0
+			count: 0,
 		};
 		this.data = new TreeCollection();
 		this.data.events.on("load", () => {
-			let i = this.data.map(item => item.opened ? 1 : 0).reduce((a, b) => a + b, 0);
+			let i = this.data.map(item => (item.opened ? 1 : 0)).reduce((a, b) => a + b, 0);
 			this.setState({
-				count: i
+				count: i,
 			});
 		});
 		this.data.load(`${process.env.PUBLIC_URL}/static/tree.json`).then(() => {
 			this.data.events.on("change", () => {
-				let i = this.data.map(item => item.opened ? 1 : 0).reduce((a, b) => a + b, 0);
+				let i = this.data.map(item => (item.opened ? 1 : 0)).reduce((a, b) => a + b, 0);
 				this.setState({
-					count: i
+					count: i,
 				});
 			});
 		});
 	}
 	handleClick() {
-		this.data.map(item => this.data.update(item.id, {opened: false}));
+		this.data.map(item => this.data.update(item.id, { opened: false }));
 		this.setState({
-			count: 0
+			count: 0,
 		});
 	}
 	render() {
 		return (
 			<div>
-				<Tree
-					css={"dhx_widget--bg_white"}
-					keyNavigation={true}
-					checkbox={true}
-					data={this.data}
-				/>
-				<div style={{display: "flex", justifyContent: "center", padding: 20}}>
-					<button className="button" onClick={() => this.handleClick()} 
-							disabled={!this.state.count}>
+				<Tree css={"dhx_widget--bg_white"} keyNavigation={true} checkbox={true} data={this.data} />
+				<div style={{ display: "flex", justifyContent: "center", padding: 20 }}>
+					<button
+						className="button"
+						onClick={() => this.handleClick()}
+						disabled={!this.state.count}
+					>
 						{this.state.count ? `Collapse ${this.state.count} item(s)` : "Nothing to collapse"}
 					</button>
 				</div>
@@ -75,14 +73,11 @@ class TreeData extends PureComponent {
 }
 
 TreeData.propTypes = {
-	data: PropTypes.instanceOf([
-		PropTypes.array,
-		PropTypes.instanceOf(TreeCollection)
-	]),
+	data: PropTypes.instanceOf([PropTypes.array, PropTypes.instanceOf(TreeCollection)]),
 	icon: PropTypes.shape({
 		folder: PropTypes.string,
-        openFolder: PropTypes.string,
-        file: PropTypes.string
+		openFolder: PropTypes.string,
+		file: PropTypes.string,
 	}),
 	css: PropTypes.string,
 	keyNavigation: PropTypes.bool,
@@ -91,7 +86,7 @@ TreeData.propTypes = {
 	dropBehaviour: PropTypes.string,
 	editable: PropTypes.bool,
 	autoload: PropTypes.bool,
-	checkbox: PropTypes.bool
+	checkbox: PropTypes.bool,
 };
 
 export default TreeData;

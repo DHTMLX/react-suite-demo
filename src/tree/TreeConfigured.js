@@ -8,7 +8,7 @@ class TreeConfigured extends Component {
 		this.tree = new TreeDHX(this.el, {
 			css: "dhx_widget--bg_white",
 			keyNavigation: true,
-			checkbox: true
+			checkbox: true,
 		});
 		this.tree.data.load(`${process.env.PUBLIC_URL}/static/tree.json`);
 	}
@@ -17,20 +17,20 @@ class TreeConfigured extends Component {
 	}
 	render() {
 		return (
-			<div style={{width: 350, padding: 10, background: "#fff", height: 450, overflow: "auto"}} ref={el => this.el = el}></div>
+			<div
+				style={{ width: 350, padding: 10, background: "#fff", height: 450, overflow: "auto" }}
+				ref={el => (this.el = el)}
+			></div>
 		);
 	}
 }
 
 TreeConfigured.propTypes = {
-	data: PropTypes.instanceOf([
-		PropTypes.array,
-		PropTypes.instanceOf(TreeCollection)
-	]),
+	data: PropTypes.instanceOf([PropTypes.array, PropTypes.instanceOf(TreeCollection)]),
 	icon: PropTypes.shape({
 		folder: PropTypes.string,
-        openFolder: PropTypes.string,
-        file: PropTypes.string
+		openFolder: PropTypes.string,
+		file: PropTypes.string,
 	}),
 	css: PropTypes.string,
 	keyNavigation: PropTypes.bool,
@@ -39,7 +39,7 @@ TreeConfigured.propTypes = {
 	dropBehaviour: PropTypes.string,
 	editable: PropTypes.bool,
 	autoload: PropTypes.bool,
-	checkbox: PropTypes.bool
+	checkbox: PropTypes.bool,
 };
 
 export default TreeConfigured;

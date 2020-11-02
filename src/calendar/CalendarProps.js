@@ -5,22 +5,20 @@ import "dhx-suite/codebase/suite.min.css";
 
 class Calendar extends Component {
 	componentDidMount() {
-		let {css, value, weekNumbers, timePicker, timeFormat} = this.props;
+		let { css, value, weekNumbers, timePicker, timeFormat } = this.props;
 		this.calendar = new CalendarDHX(this.el, {
 			css: css,
 			value: value,
 			weekNumbers: weekNumbers,
 			timePicker: timePicker,
-			timeFormat: timeFormat
+			timeFormat: timeFormat,
 		});
 	}
 	componentWillUnmount() {
 		this.calendar && this.calendar.destructor();
 	}
 	render() {
-		return (
-			<div ref={el => this.el = el}></div>
-		);
+		return <div ref={el => (this.el = el)}></div>;
 	}
 }
 
@@ -40,14 +38,8 @@ class CalendarProps extends Component {
 }
 
 CalendarProps.propTypes = {
-	value: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.instanceOf(Date)
-	]),
-	date: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.instanceOf(Date)
-	]),
+	value: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
+	date: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
 	css: PropTypes.string,
 	mark: PropTypes.func,
 	disabledDates: PropTypes.func,
@@ -59,7 +51,7 @@ CalendarProps.propTypes = {
 	timeFormat: PropTypes.oneOf([24, 12]),
 	thisMonthOnly: PropTypes.bool,
 	width: PropTypes.string,
-	range: PropTypes.bool
+	range: PropTypes.bool,
 };
 
 export default CalendarProps;

@@ -12,7 +12,7 @@ class WindowConfigured extends Component {
 			title: "Window",
 			html: windowHtml,
 			closable: true,
-			modal: true
+			modal: true,
 		});
 	}
 	componentWillUnmount() {
@@ -21,7 +21,7 @@ class WindowConfigured extends Component {
 	render() {
 		return (
 			<Fragment>
-				<div ref={el => this.el = el}></div>
+				<div ref={el => (this.el = el)}></div>
 				<button className="button" onClick={() => this.window.show()}>
 					Show Window
 				</button>
@@ -51,7 +51,7 @@ WindowConfigured.propTypes = {
 	movable: PropTypes.bool,
 	modal: PropTypes.bool,
 	closable: PropTypes.bool,
-	node: PropTypes.string
+	node: PropTypes.string,
 };
 
 export default WindowConfigured;

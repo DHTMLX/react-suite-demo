@@ -8,14 +8,14 @@ class Chart extends Component {
 		this.chart = new ChartDHX(this.el, {
 			type: "bar",
 			scales: {
-				"bottom": {
-					text: "month"
+				bottom: {
+					text: "month",
 				},
-				"left": {
+				left: {
 					maxTicks: 10,
 					max: 100,
-					min: 0
-				}
+					min: 0,
+				},
 			},
 			series: [
 				{
@@ -24,9 +24,9 @@ class Chart extends Component {
 					color: "#5E83BA",
 					pointType: "circle",
 					fill: "#5E83BA",
-					barWidth: 35
-				}
-			]
+					barWidth: 35,
+				},
+			],
 		});
 		this.chart.data.load(`${process.env.PUBLIC_URL}/static/chart.json`);
 	}
@@ -34,9 +34,7 @@ class Chart extends Component {
 		this.chart && this.chart.destructor();
 	}
 	render() {
-		return (
-			<div style={{width: 500, height: 500}} ref={el => this.el = el}></div>
-		);
+		return <div style={{ width: 500, height: 500 }} ref={el => (this.el = el)}></div>;
 	}
 }
 
@@ -52,16 +50,13 @@ Chart.propTypes = {
 		"pie3D",
 		"radar",
 		"xbar",
-		"splineArea"
+		"splineArea",
 	]),
 	barWidth: PropTypes.number,
 	series: PropTypes.array,
 	maxPoints: PropTypes.number,
 	scales: PropTypes.object,
-	data: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.instanceOf(DataCollection)
-	])
+	data: PropTypes.oneOfType([PropTypes.array, PropTypes.instanceOf(DataCollection)]),
 };
 
 export default Chart;

@@ -8,7 +8,7 @@ class WindowCDN extends Component {
 
 		this.ready = fromCDN([
 			"https://cdn.dhtmlx.com/suite/edge/suite.js",
-			"https://cdn.dhtmlx.com/suite/edge/suite.css"
+			"https://cdn.dhtmlx.com/suite/edge/suite.css",
 		]);
 	}
 	componentDidMount() {
@@ -19,7 +19,7 @@ class WindowCDN extends Component {
 				height: 520,
 				title: "Window",
 				closable: true,
-				html: `<p>Here is a neat and flexible JavaScript window system with a fast and simple initialization.</p><p>Inspect all the DHTMLX window samples to discover each and every feature.</p><img style='display: block; width: 200px; height: 200px; margin-top: 20px; margin-left: auto; margin-right: auto' src='${process.env.PUBLIC_URL}/static/developer.svg'>`
+				html: `<p>Here is a neat and flexible JavaScript window system with a fast and simple initialization.</p><p>Inspect all the DHTMLX window samples to discover each and every feature.</p><img style='display: block; width: 200px; height: 200px; margin-top: 20px; margin-left: auto; margin-right: auto' src='${process.env.PUBLIC_URL}/static/developer.svg'>`,
 			});
 			if (this.props.ready) {
 				this.props.ready(this.window);
@@ -32,7 +32,7 @@ class WindowCDN extends Component {
 	render() {
 		return (
 			<Fragment>
-				<div ref={el => this.el = el}></div>
+				<div ref={el => (this.el = el)}></div>
 				<button className="button" onClick={() => this.window.show()}>
 					Show Window
 				</button>
@@ -62,7 +62,7 @@ WindowCDN.propTypes = {
 	movable: PropTypes.bool,
 	modal: PropTypes.bool,
 	closable: PropTypes.bool,
-	node: PropTypes.string
+	node: PropTypes.string,
 };
 
 export default WindowCDN;

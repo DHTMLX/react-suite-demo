@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { DataView as DataviewDHX, DataCollection } from "dhx-suite";
 
-const template = item => (`
+const template = item => `
 	<div class="template template__container">
 		<img class="template__image" src="${process.env.PUBLIC_URL + "/static/" + item.img}" />
 		<h2 class="template__title">${item.title}</h2>
 		<p class="template__description">${item.short}</p>
 	</div>
-`);
+`;
 
 class DataviewConfigured extends Component {
 	componentDidMount() {
@@ -27,17 +27,12 @@ class DataviewConfigured extends Component {
 		this.dataview && this.dataview.destructor();
 	}
 	render() {
-		return (
-			<div style={{width: "100%"}} ref={el => this.el = el}></div>
-		);
+		return <div style={{ width: "100%" }} ref={el => (this.el = el)}></div>;
 	}
 }
 
 DataviewConfigured.propTypes = {
-	data: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.instanceOf(DataCollection)
-	]),
+	data: PropTypes.oneOfType([PropTypes.array, PropTypes.instanceOf(DataCollection)]),
 	template: PropTypes.func,
 	keyNavigation: PropTypes.bool,
 	css: PropTypes.string,
@@ -48,7 +43,7 @@ DataviewConfigured.propTypes = {
 	multiselection: PropTypes.bool || PropTypes.oneOf(["click", "ctrlClick"]),
 	editable: PropTypes.bool,
 	dragMode: PropTypes.oneOf(["target", "source", "both"]),
-	dragCopy: PropTypes.bool
+	dragCopy: PropTypes.bool,
 };
 
 export default DataviewConfigured;

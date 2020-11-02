@@ -6,9 +6,11 @@ import "dhx-suite/codebase/suite.min.css";
 class Popup extends Component {
 	componentDidMount() {
 		this.popup = new PopupDHX({
-			css: "dhx_widget--bordered"
+			css: "dhx_widget--bordered",
 		});
-		this.popup.attachHTML("<div style='padding: 16px; text-align: center'>Hi there, <br/> welcome to DHTMLX-react popup sample</div>");
+		this.popup.attachHTML(
+			"<div style='padding: 16px; text-align: center'>Hi there, <br/> welcome to DHTMLX-react popup sample</div>"
+		);
 	}
 	handlePopupShow(el) {
 		this.popup.show(el);
@@ -19,7 +21,11 @@ class Popup extends Component {
 	render() {
 		return (
 			<div>
-				<button className="button" ref={el => this.el = el} onClick={() => this.handlePopupShow(this.el)}>
+				<button
+					className="button"
+					ref={el => (this.el = el)}
+					onClick={() => this.handlePopupShow(this.el)}
+				>
 					Show popup
 				</button>
 			</div>
@@ -28,7 +34,7 @@ class Popup extends Component {
 }
 
 Popup.propTypes = {
-	css: PropTypes.string
+	css: PropTypes.string,
 };
 
 export default Popup;

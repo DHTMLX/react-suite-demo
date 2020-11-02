@@ -6,23 +6,21 @@ import "dhx-suite/codebase/suite.min.css";
 class Timepicker extends Component {
 	componentDidMount() {
 		this.timepicker = new TimepickerDHX(this.el, {
-			css: "dhx_widget--bordered"
+			css: "dhx_widget--bordered",
 		});
 	}
 	componentWillUnmount() {
 		this.timepicker && this.timepicker.destructor();
 	}
 	render() {
-		return (
-			<div ref={el => this.el = el}></div>
-		);
+		return <div ref={el => (this.el = el)}></div>;
 	}
 }
 
 Timepicker.propTypes = {
 	css: PropTypes.string,
 	timeFormat: PropTypes.oneOf([12, 24]),
-	controls: PropTypes.bool
+	controls: PropTypes.bool,
 };
 
 export default Timepicker;

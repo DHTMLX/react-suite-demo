@@ -6,7 +6,7 @@ import "dhx-suite/codebase/suite.min.css";
 class Tree extends Component {
 	componentDidMount() {
 		this.tree = new TreeDHX(this.el, {
-			css: "dhx_widget--bg_white"
+			css: "dhx_widget--bg_white",
 		});
 		this.tree.data.load(`${process.env.PUBLIC_URL}/static/tree.json`);
 	}
@@ -15,20 +15,20 @@ class Tree extends Component {
 	}
 	render() {
 		return (
-			<div style={{width: 350, padding: 10, background: "#fff", height: 450, overflow: "auto"}} ref={el => this.el = el}></div>
+			<div
+				style={{ width: 350, padding: 10, background: "#fff", height: 450, overflow: "auto" }}
+				ref={el => (this.el = el)}
+			></div>
 		);
 	}
 }
 
 Tree.propTypes = {
-	data: PropTypes.instanceOf([
-		PropTypes.array,
-		PropTypes.instanceOf(TreeCollection)
-	]),
+	data: PropTypes.instanceOf([PropTypes.array, PropTypes.instanceOf(TreeCollection)]),
 	icon: PropTypes.shape({
 		folder: PropTypes.string,
-        openFolder: PropTypes.string,
-        file: PropTypes.string
+		openFolder: PropTypes.string,
+		file: PropTypes.string,
 	}),
 	css: PropTypes.string,
 	keyNavigation: PropTypes.bool,
@@ -37,7 +37,7 @@ Tree.propTypes = {
 	dropBehaviour: PropTypes.string,
 	editable: PropTypes.bool,
 	autoload: PropTypes.bool,
-	checkbox: PropTypes.bool
+	checkbox: PropTypes.bool,
 };
 
 export default Tree;

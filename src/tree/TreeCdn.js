@@ -8,14 +8,14 @@ class TreeCDN extends Component {
 
 		this.ready = fromCDN([
 			"https://cdn.dhtmlx.com/suite/edge/suite.js",
-			"https://cdn.dhtmlx.com/suite/edge/suite.css"
+			"https://cdn.dhtmlx.com/suite/edge/suite.css",
 		]);
 	}
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
 			this.tree = new dhx.Tree(this.el, {
-				css: "dhx_widget--bg_white"
+				css: "dhx_widget--bg_white",
 			});
 			this.tree.data.load(`${process.env.PUBLIC_URL}/static/tree.json`);
 			if (this.props.ready) {
@@ -28,19 +28,20 @@ class TreeCDN extends Component {
 	}
 	render() {
 		return (
-			<div style={{width: 350, padding: 10, background: "#fff", height: 450, overflow: "auto"}} ref={el => this.el = el}></div>
+			<div
+				style={{ width: 350, padding: 10, background: "#fff", height: 450, overflow: "auto" }}
+				ref={el => (this.el = el)}
+			></div>
 		);
 	}
 }
 
 TreeCDN.propTypes = {
-	data: PropTypes.instanceOf([
-		PropTypes.array,
-	]),
+	data: PropTypes.instanceOf([PropTypes.array]),
 	icon: PropTypes.shape({
 		folder: PropTypes.string,
-        openFolder: PropTypes.string,
-        file: PropTypes.string
+		openFolder: PropTypes.string,
+		file: PropTypes.string,
 	}),
 	css: PropTypes.string,
 	keyNavigation: PropTypes.bool,
@@ -49,7 +50,7 @@ TreeCDN.propTypes = {
 	dropBehaviour: PropTypes.string,
 	editable: PropTypes.bool,
 	autoload: PropTypes.bool,
-	checkbox: PropTypes.bool
+	checkbox: PropTypes.bool,
 };
 
 export default TreeCDN;

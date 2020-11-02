@@ -8,7 +8,7 @@ class SliderEvents extends Component {
 		super(props);
 		this.state = {
 			event: "",
-			id: ""
+			id: "",
 		};
 	}
 	componentDidMount() {
@@ -19,12 +19,12 @@ class SliderEvents extends Component {
 			thumbLabel: true,
 			tick: 1,
 			majorTick: 10,
-			tickTemplate: (v) => v
+			tickTemplate: v => v,
 		});
 
-		this.slider.events.on("change", id => this.setState({event: "change", id: id}));
-		this.slider.events.on("mousedown", id => this.setState({event: "mousedown"}));
-		this.slider.events.on("mouseup", id => this.setState({event: "mouseup"}));
+		this.slider.events.on("change", id => this.setState({ event: "change", id: id }));
+		this.slider.events.on("mousedown", id => this.setState({ event: "mousedown" }));
+		this.slider.events.on("mouseup", id => this.setState({ event: "mouseup" }));
 	}
 	componentWillUnmount() {
 		this.slider && this.slider.destructor();
@@ -32,10 +32,12 @@ class SliderEvents extends Component {
 	render() {
 		return (
 			<div>
-				<div ref={el => this.el = el} style={{width: "600px", height: "50px"}}></div>
-				<div style={{display: "flex", justifyContent: "center", padding: 20}}>
+				<div ref={el => (this.el = el)} style={{ width: "600px", height: "50px" }}></div>
+				<div style={{ display: "flex", justifyContent: "center", padding: 20 }}>
 					<button className="button button--bordered">{`Event: ${this.state.event}`}</button>
-					<button className="button button--bordered">Item: {this.state.id ? this.state.id : ""}</button>
+					<button className="button button--bordered">
+						Item: {this.state.id ? this.state.id : ""}
+					</button>
 				</div>
 			</div>
 		);
@@ -48,11 +50,7 @@ SliderEvents.propTypes = {
 	step: PropTypes.number,
 	mode: PropTypes.oneOf(["vertical", "horizontal"]),
 	range: PropTypes.bool,
-	value: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.number,
-		PropTypes.string
-	]),
+	value: PropTypes.oneOfType([PropTypes.array, PropTypes.number, PropTypes.string]),
 	inverse: PropTypes.bool,
 	tooltip: PropTypes.bool,
 	css: PropTypes.string,
@@ -64,7 +62,7 @@ SliderEvents.propTypes = {
 	helpMessage: PropTypes.string,
 	labelPosition: PropTypes.string,
 	labelWidth: PropTypes.string,
-	hiddenLabel: PropTypes.bool
+	hiddenLabel: PropTypes.bool,
 };
 
 export default SliderEvents;

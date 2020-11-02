@@ -10,29 +10,21 @@ class Colorpicker extends Component {
 			css: css,
 			paletteOnly: paletteOnly,
 			grayShades: grayShades,
-			pickerOnly: pickerOnly
+			pickerOnly: pickerOnly,
 		});
 	}
 	componentWillUnmount() {
-		if (this.colorpicker)
-			this.colorpicker.destructor();
+		if (this.colorpicker) this.colorpicker.destructor();
 	}
 	render() {
-		return (
-			<div ref={el => this.el = el}></div>
-		);
+		return <div ref={el => (this.el = el)}></div>;
 	}
 }
 
 class ColorpickerProps extends Component {
 	render() {
 		return (
-			<Colorpicker
-				css="dhx_widget--bordered"
-				paletteOnly={true}
-				grayShades={true}
-				pickerOnly={true}
-			/>
+			<Colorpicker css="dhx_widget--bordered" paletteOnly={true} grayShades={true} pickerOnly={true} />
 		);
 	}
 }
@@ -45,7 +37,7 @@ ColorpickerProps.propTypes = {
 	customColors: PropTypes.string,
 	palette: PropTypes.array,
 	width: PropTypes.string,
-	mode: PropTypes.oneOf(["palette", "picker"])
+	mode: PropTypes.oneOf(["palette", "picker"]),
 };
 
 export default ColorpickerProps;

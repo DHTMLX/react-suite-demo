@@ -8,32 +8,32 @@ class ColorpickerEvents extends Component {
 		super(props);
 		this.state = {
 			event: "",
-			id: ""
+			id: "",
 		};
 	}
 	componentDidMount() {
 		this.colorpicker = new ColorpickerDHX(this.el, {
 			css: "dhx_widget--bordered",
-			value: new Date()
+			value: new Date(),
 		});
 
-		this.colorpicker.events.on("change", id => this.setState({event: "change", id: id}));
-		this.colorpicker.events.on("apply", id => this.setState({event: "apply", id: id}));
-		this.colorpicker.events.on("cancelClick", id => this.setState({event: "cancelClick", id: id}));
-		this.colorpicker.events.on("modeChange", id => this.setState({event: "modeChange", id: id}));
+		this.colorpicker.events.on("change", id => this.setState({ event: "change", id: id }));
+		this.colorpicker.events.on("apply", id => this.setState({ event: "apply", id: id }));
+		this.colorpicker.events.on("cancelClick", id => this.setState({ event: "cancelClick", id: id }));
+		this.colorpicker.events.on("modeChange", id => this.setState({ event: "modeChange", id: id }));
 	}
 	componentWillUnmount() {
 		this.colorpicker.destructor();
 	}
 	render() {
 		return (
-			<div style={{width: "100%"}}>
+			<div style={{ width: "100%" }}>
 				<div
-					style={{width: "100%", display: "flex", justifyContent: "center"}}
-					ref={el => this.el = el}>
-				</div>
-				<div style={{display: "flex", justifyContent: "center", padding: 20}}>
-					<button	className="button button--bordered">
+					style={{ width: "100%", display: "flex", justifyContent: "center" }}
+					ref={el => (this.el = el)}
+				></div>
+				<div style={{ display: "flex", justifyContent: "center", padding: 20 }}>
+					<button className="button button--bordered">
 						{this.state.event ? `Event: ${this.state.event}` : "Click to widget"}
 					</button>
 					<button className="button button--bordered">
@@ -53,7 +53,7 @@ ColorpickerEvents.propTypes = {
 	customColors: PropTypes.string,
 	palette: PropTypes.array,
 	width: PropTypes.string,
-	mode: PropTypes.oneOf(["palette", "picker"])
+	mode: PropTypes.oneOf(["palette", "picker"]),
 };
 
 export default ColorpickerEvents;

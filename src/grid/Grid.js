@@ -6,16 +6,16 @@ class Grid extends Component {
 	componentDidMount() {
 		this.grid = new GridDHX(this.el, {
 			columns: [
-				{minWidth: 200, id: "country", header: [{text: "Country"}]},
-				{minWidth: 125, id: "population", header: [{text: "Population"}]},
-				{minWidth: 125, id: "yearlyChange", header: [{text: "Yearly Change"}]},
-				{minWidth: 125, id: "netChange", header: [{text: "Net Change"}]},
-				{minWidth: 125, id: "destiny", header: [{text: "Density (P/Km²)"}]},
-				{minWidth: 125, id: "area", header: [{text: "Land Area (Km²)"}]},
-				{minWidth: 125, id: "migrants", header: [{text: "Migrants (net)"}]},
-				{minWidth: 125, id: "fert", header: [{text: "Fert. Rate"}]},
-				{minWidth: 125, id: "age", header: [{text: "Med. Age"}]},
-				{minWidth: 125, id: "urban", header: [{text: "Urban Pop"}]}
+				{ minWidth: 200, id: "country", header: [{ text: "Country" }] },
+				{ minWidth: 125, id: "population", header: [{ text: "Population" }] },
+				{ minWidth: 125, id: "yearlyChange", header: [{ text: "Yearly Change" }] },
+				{ minWidth: 125, id: "netChange", header: [{ text: "Net Change" }] },
+				{ minWidth: 125, id: "destiny", header: [{ text: "Density (P/Km²)" }] },
+				{ minWidth: 125, id: "area", header: [{ text: "Land Area (Km²)" }] },
+				{ minWidth: 125, id: "migrants", header: [{ text: "Migrants (net)" }] },
+				{ minWidth: 125, id: "fert", header: [{ text: "Fert. Rate" }] },
+				{ minWidth: 125, id: "age", header: [{ text: "Med. Age" }] },
+				{ minWidth: 125, id: "urban", header: [{ text: "Urban Pop" }] },
 			],
 			adjust: true,
 			autoWidth: true,
@@ -26,19 +26,14 @@ class Grid extends Component {
 		this.grid && this.grid.destructor();
 	}
 	render() {
-		return (
-			<div style={{width: "100%", height: "450px"}} ref={el => this.el = el}></div>
-		);
+		return <div style={{ width: "100%", height: "450px" }} ref={el => (this.el = el)}></div>;
 	}
 }
 
 Grid.propTypes = {
 	columns: PropTypes.array,
 	spans: PropTypes.array,
-	data: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.instanceOf(DataCollection)
-	]),
+	data: PropTypes.oneOfType([PropTypes.array, PropTypes.instanceOf(DataCollection)]),
 	headerRowHeight: PropTypes.number,
 	footerRowHeight: PropTypes.number,
 	rowHeight: PropTypes.number,
@@ -60,7 +55,7 @@ Grid.propTypes = {
 	dragMode: PropTypes.oneOf(["target", "source", "both"]),
 	dragCopy: PropTypes.bool,
 	adjust: PropTypes.bool,
-	autoEmptyRow: PropTypes.bool
+	autoEmptyRow: PropTypes.bool,
 };
 
 export default Grid;

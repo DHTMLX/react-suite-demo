@@ -16,7 +16,7 @@ class FormConfigured extends Component {
 					label: "Name",
 					icon: "dxi-magnify",
 					placeholder: "John Doe",
-					required: true				
+					required: true,
 				},
 				{
 					type: "input",
@@ -26,14 +26,14 @@ class FormConfigured extends Component {
 					errorMessage: "Invalid email",
 					successMessage: "Valid Email",
 					validation: "email",
-					required: true
+					required: true,
 				},
 				{
 					type: "input",
 					inputType: "password",
 					label: "Password",
 					placeholder: "********",
-					required: true
+					required: true,
 				},
 				{
 					type: "checkbox",
@@ -41,7 +41,7 @@ class FormConfigured extends Component {
 					name: "agree",
 					labelInline: true,
 					value: "checkboxvalue",
-					required: true
+					required: true,
 				},
 				{
 					type: "button",
@@ -49,18 +49,16 @@ class FormConfigured extends Component {
 					size: "medium",
 					view: "flat",
 					submit: true,
-					color: "primary"
-				}
-			]
+					color: "primary",
+				},
+			],
 		});
 	}
 	componentWillUnmount() {
 		this.form && this.form.destructor();
 	}
 	render() {
-		return (
-			<form style={{textAlign: "left", background: "#fff"}} ref={el => this.el = el}></form>
-		);
+		return <form style={{ textAlign: "left", background: "#fff" }} ref={el => (this.el = el)}></form>;
 	}
 }
 
@@ -71,17 +69,10 @@ FormConfigured.propTypes = {
 	rows: PropTypes.array,
 	cols: PropTypes.array,
 	title: PropTypes.string,
-	align: PropTypes.oneOf([
-		"start",
-		"center",
-		"end",
-		"between",
-		"around",
-		"evenly"
-	]),
+	align: PropTypes.oneOf(["start", "center", "end", "between", "around", "evenly"]),
 	padding: PropTypes.string,
 	gravity: PropTypes.bool,
-	disabled: PropTypes.bool
+	disabled: PropTypes.bool,
 };
 
 export default FormConfigured;

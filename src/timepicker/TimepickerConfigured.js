@@ -8,23 +8,21 @@ class TimepickerConfigured extends Component {
 		this.timepicker = new TimepickerDHX(this.el, {
 			css: "dhx_widget--bordered",
 			controls: true,
-			timeFormat: 12
+			timeFormat: 12,
 		});
 	}
 	componentWillUnmount() {
 		this.timepicker && this.timepicker.destructor();
 	}
 	render() {
-		return (
-			<div ref={el => this.el = el}></div>
-		);
+		return <div ref={el => (this.el = el)}></div>;
 	}
 }
 
 TimepickerConfigured.propTypes = {
 	css: PropTypes.string,
 	timeFormat: PropTypes.oneOf([12, 24]),
-	controls: PropTypes.bool
+	controls: PropTypes.bool,
 };
 
 export default TimepickerConfigured;

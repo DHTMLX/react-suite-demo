@@ -13,7 +13,7 @@ class Chart extends PureComponent {
 			series: series,
 			maxPoints: maxPoints,
 			barWidth: barWidth,
-			data: data
+			data: data,
 		});
 	}
 	componentWillUnmount() {
@@ -21,7 +21,7 @@ class Chart extends PureComponent {
 	}
 	render() {
 		return (
-			<div style={{width: "100%", maxWidth: 1350, height: "500px"}} ref={el => this.el = el}></div>
+			<div style={{ width: "100%", maxWidth: 1350, height: "500px" }} ref={el => (this.el = el)}></div>
 		);
 	}
 }
@@ -30,21 +30,23 @@ class ChartData extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
-			firstItem: null
+			firstItem: null,
 		};
 		this.data = new DataCollection();
 
 		this.data.events.on("load", () => {
 			this.setState({
 				firstItem: this.data.getItem(this.data.getId(0)).month,
-				itemsCount: this.data.getLength()
+				itemsCount: this.data.getLength(),
 			});
 		});
 		this.data.load(`${process.env.PUBLIC_URL}/static/chart.json`).then(() => {
 			this.data.events.on("change", () => {
 				this.setState({
-					firstItem: this.data.getItem(this.data.getId(0)) ? this.data.getItem(this.data.getId(0)).month : "",
-					itemsCount: this.data.getLength()
+					firstItem: this.data.getItem(this.data.getId(0))
+						? this.data.getItem(this.data.getId(0)).month
+						: "",
+					itemsCount: this.data.getLength(),
 				});
 			});
 		});
@@ -59,14 +61,14 @@ class ChartData extends PureComponent {
 	}
 	render() {
 		const scales = {
-			"bottom": {
-				text: "month"
+			bottom: {
+				text: "month",
 			},
-			"left": {
+			left: {
 				maxTicks: 10,
 				max: 100,
-				min: 0
-			}
+				min: 0,
+			},
 		};
 		const series = [
 			{
@@ -75,18 +77,13 @@ class ChartData extends PureComponent {
 				color: "#5E83BA",
 				pointType: "circle",
 				fill: "#5E83BA",
-				barWidth: 35
-			}
+				barWidth: 35,
+			},
 		];
 		return (
-			<div style={{width: "100%", maxWidth: 650, height: "550px"}}>
-				<Chart
-					type="bar"
-					scales={scales}
-					series={series}
-					data={this.data}
-				/>
-				<div style={{display: "flex", justifyContent: "center", padding: 20}}>
+			<div style={{ width: "100%", maxWidth: 650, height: "550px" }}>
+				<Chart type="bar" scales={scales} series={series} data={this.data} />
+				<div style={{ display: "flex", justifyContent: "center", padding: 20 }}>
 					<button className="button" onClick={() => this.handleClick()}>
 						{this.state.itemsCount === 0 ? "Reset" : `Remove ${this.state.firstItem} month data`}
 					</button>
@@ -108,16 +105,13 @@ Chart.propTypes = {
 		"pie3D",
 		"radar",
 		"xbar",
-		"splineArea"
+		"splineArea",
 	]),
 	barWidth: PropTypes.number,
 	series: PropTypes.array,
 	scales: PropTypes.object,
 	maxPoints: PropTypes.number,
-	data: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.instanceOf(DataCollection)
-	])
+	data: PropTypes.oneOfType([PropTypes.array, PropTypes.instanceOf(DataCollection)]),
 };
 
 export default ChartData;

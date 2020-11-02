@@ -8,15 +8,16 @@ class ComboboxCDN extends Component {
 
 		this.ready = fromCDN([
 			"https://cdn.dhtmlx.com/suite/edge/suite.js",
-			"https://cdn.dhtmlx.com/suite/edge/suite.css"
+			"https://cdn.dhtmlx.com/suite/edge/suite.css",
 		]);
 	}
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
-			this.el && (this.combobox = new dhx.Combobox(this.el, {
-				placeholder: "Click to choose"
-			}));
+			this.el &&
+				(this.combobox = new dhx.Combobox(this.el, {
+					placeholder: "Click to choose",
+				}));
 			this.combobox && this.combobox.data.load(`${process.env.PUBLIC_URL}/static/combobox.json`);
 			if (this.props.ready) {
 				this.props.ready(this.combobox);
@@ -27,38 +28,22 @@ class ComboboxCDN extends Component {
 		this.combobox && this.combobox.destructor();
 	}
 	render() {
-		return (
-			<div style={{width: 400}} ref={el => this.el = el}></div>
-		);
+		return <div style={{ width: 400 }} ref={el => (this.el = el)}></div>;
 	}
 }
 
 ComboboxCDN.propTypes = {
-	data: PropTypes.instanceOf([
-		PropTypes.array
-	]),
+	data: PropTypes.instanceOf([PropTypes.array]),
 	readonly: PropTypes.bool,
 	disabled: PropTypes.bool,
 	template: PropTypes.func,
 	filter: PropTypes.func,
 	multiselection: PropTypes.bool,
 	selectAllButton: PropTypes.bool,
-	itemsCount: PropTypes.oneOfType([
-		PropTypes.bool,
-		PropTypes.func
-	]),
-	listHeight: PropTypes.oneOfType([
-		PropTypes.number,
-		PropTypes.string
-	]),
-	itemHeight: PropTypes.oneOfType([
-		PropTypes.number,
-		PropTypes.string
-	]),
-	labelWidth: PropTypes.oneOfType([
-		PropTypes.number,
-		PropTypes.string
-	]),
+	itemsCount: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
+	listHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+	itemHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+	labelWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	label: PropTypes.string,
 	labelPosition: PropTypes.oneOf(["left", "top"]),
 	hiddenLabel: PropTypes.bool,
@@ -66,7 +51,7 @@ ComboboxCDN.propTypes = {
 	placeholder: PropTypes.string,
 	css: PropTypes.string,
 	required: PropTypes.bool,
-	virtual: PropTypes.bool
+	virtual: PropTypes.bool,
 };
 
 export default ComboboxCDN;

@@ -1,16 +1,16 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {Tree as TreeDHX, TreeCollection} from "dhx-suite";
+import { Tree as TreeDHX, TreeCollection } from "dhx-suite";
 import "dhx-suite/codebase/suite.min.css";
 
 class Tree extends Component {
 	componentDidMount() {
-		let {css, data, keyNavigation, checkbox} = this.props;
+		let { css, data, keyNavigation, checkbox } = this.props;
 		this.tree = new TreeDHX(this.el, {
 			css: css,
 			keyNavigation: keyNavigation,
 			checkbox: checkbox,
-			data: data
+			data: data,
 		});
 	}
 	componentWillUnmount() {
@@ -18,7 +18,10 @@ class Tree extends Component {
 	}
 	render() {
 		return (
-			<div style={{width: 350, padding: 10, background: "#fff", height: 450, overflow: "auto"}} ref={el => this.el = el}></div>
+			<div
+				style={{ width: 350, padding: 10, background: "#fff", height: 450, overflow: "auto" }}
+				ref={el => (this.el = el)}
+			></div>
 		);
 	}
 }
@@ -31,25 +34,17 @@ class TreeProps extends Component {
 	}
 	render() {
 		return (
-			<Tree
-				css={"dhx_widget--bg_white"}
-				keyNavigation={true}
-				checkbox={true}
-				data={this.getData()}
-			/>
+			<Tree css={"dhx_widget--bg_white"} keyNavigation={true} checkbox={true} data={this.getData()} />
 		);
 	}
 }
 
 TreeProps.propTypes = {
-	data: PropTypes.instanceOf([
-		PropTypes.array,
-		PropTypes.instanceOf(TreeCollection)
-	]),
+	data: PropTypes.instanceOf([PropTypes.array, PropTypes.instanceOf(TreeCollection)]),
 	icon: PropTypes.shape({
 		folder: PropTypes.string,
-        openFolder: PropTypes.string,
-        file: PropTypes.string
+		openFolder: PropTypes.string,
+		file: PropTypes.string,
 	}),
 	css: PropTypes.string,
 	keyNavigation: PropTypes.bool,
@@ -58,7 +53,7 @@ TreeProps.propTypes = {
 	dropBehaviour: PropTypes.string,
 	editable: PropTypes.bool,
 	autoload: PropTypes.bool,
-	checkbox: PropTypes.bool
+	checkbox: PropTypes.bool,
 };
 
 export default TreeProps;

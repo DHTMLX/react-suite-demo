@@ -1,16 +1,11 @@
 {
   "name": "react-demo",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "homepage": " https://dhtmlx.github.io/react-widgets/",
   "dependencies": {
     "@mdi/font": "^3.8.95",
-    "dhx-pivot": "^1.4.0",
-    "dhx-richtext": "^1.1.1",
-    "dhx-spreadsheet": "^3.0.0",
-    "dhx-suite": "^6.4.1",
-    "dhx-treegrid": "^6.1.5",
-    "dhx-vault": "^3.0.0",
+    "dhx-suite": "^6.5.8",
     "from-cdn": "^1.0.0",
     "loadash": "^1.0.0",
     "react": "^16.8.0",
@@ -22,14 +17,16 @@
     "react-thunk": "^1.0.0",
     "redux": "^4.0.4",
     "smoothscroll-polyfill": "^0.4.4",
-    "thunk": "^0.0.1"
+    "thunk": "^0.0.1",
+    "prettier": "^2.0.5"
   },
   "scripts": {
     "deploy": "yarn run build && yarn gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier --write src/**/*.{js,ts,html,css,scss}"
   },
   "devDependencies": {
     "gh-pages": "^2.1.1"

@@ -8,7 +8,7 @@ class CalendarCdn extends Component {
 
 		this.ready = fromCDN([
 			"https://cdn.dhtmlx.com/suite/edge/suite.js",
-			"https://cdn.dhtmlx.com/suite/edge/suite.css"
+			"https://cdn.dhtmlx.com/suite/edge/suite.css",
 		]);
 	}
 	componentDidMount() {
@@ -16,32 +16,23 @@ class CalendarCdn extends Component {
 			/* global dhx */
 			this.calendar = new dhx.Calendar(this.el, {
 				css: "dhx_widget--bordered",
-				value: new Date()
+				value: new Date(),
 			});
 
-			if (this.props.ready)
-				this.props.ready(this.calendar);
+			if (this.props.ready) this.props.ready(this.calendar);
 		});
 	}
 	componentWillUnmount() {
 		this.calendar && this.calendar.destructor();
 	}
 	render() {
-		return (
-			<div ref={el => this.el = el}></div>
-		);
+		return <div ref={el => (this.el = el)}></div>;
 	}
 }
 
 CalendarCdn.propTypes = {
-	value: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.instanceOf(Date)
-	]),
-	date: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.instanceOf(Date)
-	]),
+	value: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
+	date: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
 	css: PropTypes.string,
 	mark: PropTypes.func,
 	disabledDates: PropTypes.func,
@@ -53,7 +44,7 @@ CalendarCdn.propTypes = {
 	timeFormat: PropTypes.oneOf([24, 12]),
 	thisMonthOnly: PropTypes.bool,
 	width: PropTypes.string,
-	range: PropTypes.bool
+	range: PropTypes.bool,
 };
 
 export default CalendarCdn;

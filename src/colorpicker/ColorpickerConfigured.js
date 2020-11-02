@@ -9,16 +9,14 @@ class ColorpickerConfigured extends Component {
 			css: "dhx_widget--bordered",
 			paletteOnly: true,
 			grayShades: true,
-			pickerOnly: true
+			pickerOnly: true,
 		});
 	}
 	componentWillUnmount() {
 		this.colorpicker.destructor();
 	}
 	render() {
-		return (
-			<div ref={el => this.el = el}></div>
-		);
+		return <div ref={el => (this.el = el)}></div>;
 	}
 }
 
@@ -30,7 +28,7 @@ ColorpickerConfigured.propTypes = {
 	customColors: PropTypes.string,
 	palette: PropTypes.array,
 	width: PropTypes.string,
-	mode: PropTypes.oneOf(["palette", "picker"])
+	mode: PropTypes.oneOf(["palette", "picker"]),
 };
 
 export default ColorpickerConfigured;

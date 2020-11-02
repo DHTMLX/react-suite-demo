@@ -9,93 +9,95 @@ class Dataview extends PureComponent {
 		this.dataview = new DataviewDHX(this.el, {
 			itemsInRow: 5,
 			css: "app-card",
-			template: (item) => `
+			template: item => `
 				<div class="app-card__inner" style="padding-top: 100%;"> 
 					<h3 class="app-card__header">${item.value}</h3>
-					<img class="app-card__image" src=${process.env.PUBLIC_URL}/static/images/icons/${item.id.split("-")[0]}.svg alt="${item.id.split("-")[0]}"/>
+					<img class="app-card__image" src=${process.env.PUBLIC_URL}/static/images/icons/${
+				item.id.split("-")[0]
+			}.svg alt="${item.id.split("-")[0]}"/>
 				</div>
-			`,		
+			`,
 			gap: 20,
 			data: [
 				{
 					value: "Calendar",
-					id: "calendar-link"
+					id: "calendar-link",
 				},
 				{
 					value: "Chart",
-					id: "chart-link"
+					id: "chart-link",
 				},
 				{
 					value: "Colorpicker",
-					id: "colorpicker-link"
+					id: "colorpicker-link",
 				},
 				{
 					value: "Combobox",
-					id: "combobox-link"
+					id: "combobox-link",
 				},
 				{
 					value: "Dataview",
-					id: "dataview-link"
+					id: "dataview-link",
 				},
 				{
 					value: "Form",
-					id: "form-link"
+					id: "form-link",
 				},
 				{
 					value: "Grid",
-					id: "grid-link"
+					id: "grid-link",
 				},
 				{
 					value: "List",
-					id: "list-link"
+					id: "list-link",
 				},
 				{
 					value: "Menu",
-					id: "menu-link"
+					id: "menu-link",
 				},
 				{
 					value: "Message",
-					id: "message-link"
+					id: "message-link",
 				},
 				{
 					value: "Popup",
-					id: "popup-link"
+					id: "popup-link",
 				},
 				{
 					value: "Ribbon",
-					id: "ribbon-link"
+					id: "ribbon-link",
 				},
 				{
 					value: "Sidebar",
-					id: "sidebar-link"
+					id: "sidebar-link",
 				},
 				{
 					value: "Slider",
-					id: "slider-link"
+					id: "slider-link",
 				},
 				{
 					value: "Tabbar",
-					id: "tabbar-link"
+					id: "tabbar-link",
 				},
 				{
 					value: "Timepicker",
-					id: "timepicker-link"
+					id: "timepicker-link",
 				},
 				{
 					value: "Toolbar",
-					id: "toolbar-link"
+					id: "toolbar-link",
 				},
 				{
 					value: "Tree",
-					id: "tree-link"
+					id: "tree-link",
 				},
 				{
 					value: "Window",
-					id: "window-link"
+					id: "window-link",
 				},
-			]
+			],
 		});
-		this.dataview.events.on("click", (id) => {
+		this.dataview.events.on("click", id => {
 			const widgetName = id.split("-")[0];
 			this.props.history.push("/" + widgetName);
 			this.props.handleActiveWidgetChange(widgetName);
@@ -106,7 +108,10 @@ class Dataview extends PureComponent {
 	}
 	render() {
 		return (
-			<div style={{maxWidth: "800px", margin: "auto", flex: "1 0 auto"}} ref={el => this.el = el}></div>
+			<div
+				style={{ maxWidth: "800px", margin: "auto", flex: "1 0 auto" }}
+				ref={el => (this.el = el)}
+			></div>
 		);
 	}
 }

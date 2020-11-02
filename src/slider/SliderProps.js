@@ -5,7 +5,7 @@ import "dhx-suite/codebase/suite.min.css";
 
 class Slider extends Component {
 	componentDidMount() {
-		let {min, max, step, tooltip, tick, majorTick, tickTemplate} = this.props;
+		let { min, max, step, tooltip, tick, majorTick, tickTemplate } = this.props;
 		this.slider = new SliderDHX(this.el, {
 			min: min,
 			max: max,
@@ -13,31 +13,21 @@ class Slider extends Component {
 			tooltip: tooltip,
 			tick: tick,
 			majorTick: majorTick,
-			tickTemplate: tickTemplate
+			tickTemplate: tickTemplate,
 		});
 	}
 	componentWillUnmount() {
 		this.slider.destructor();
 	}
 	render() {
-		return (
-			<div style={{width: "600px"}} ref={el => this.el = el}></div>
-		);
+		return <div style={{ width: "600px" }} ref={el => (this.el = el)}></div>;
 	}
 }
 
 class SliderProps extends Component {
 	render() {
 		return (
-			<Slider
-				min={0}
-				max={100}
-				step={1}
-				tooltip={true}
-				tick={1}
-				majorTick={10}
-				tickTemplate={(v) => v}
-			/>
+			<Slider min={0} max={100} step={1} tooltip={true} tick={1} majorTick={10} tickTemplate={v => v} />
 		);
 	}
 }
@@ -48,11 +38,7 @@ SliderProps.propTypes = {
 	step: PropTypes.number,
 	mode: PropTypes.oneOf(["vertical", "horizontal"]),
 	range: PropTypes.bool,
-	value: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.number,
-		PropTypes.string
-	]),
+	value: PropTypes.oneOfType([PropTypes.array, PropTypes.number, PropTypes.string]),
 	inverse: PropTypes.bool,
 	tooltip: PropTypes.bool,
 	css: PropTypes.string,
@@ -64,7 +50,7 @@ SliderProps.propTypes = {
 	helpMessage: PropTypes.string,
 	labelPosition: PropTypes.string,
 	labelWidth: PropTypes.string,
-	hiddenLabel: PropTypes.bool
+	hiddenLabel: PropTypes.bool,
 };
 
 export default SliderProps;

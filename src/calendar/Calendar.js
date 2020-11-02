@@ -7,28 +7,20 @@ class Calendar extends Component {
 	componentDidMount() {
 		this.calendar = new CalendarDHX(this.el, {
 			css: "dhx_widget--bordered",
-			value: new Date()
+			value: new Date(),
 		});
 	}
 	componentWillUnmount() {
 		this.calendar && this.calendar.destructor();
 	}
 	render() {
-		return (
-			<div ref={el => this.el = el}></div>
-		);
+		return <div ref={el => (this.el = el)}></div>;
 	}
 }
 
 Calendar.propTypes = {
-	value: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.instanceOf(Date)
-	]),
-	date: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.instanceOf(Date)
-	]),
+	value: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
+	date: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
 	css: PropTypes.string,
 	mark: PropTypes.func,
 	disabledDates: PropTypes.func,
@@ -40,7 +32,7 @@ Calendar.propTypes = {
 	timeFormat: PropTypes.oneOf([24, 12]),
 	thisMonthOnly: PropTypes.bool,
 	width: PropTypes.string,
-	range: PropTypes.bool
+	range: PropTypes.bool,
 };
 
 export default Calendar;

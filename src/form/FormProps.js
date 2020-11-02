@@ -12,16 +12,14 @@ class Form extends Component {
 			padding: padding,
 			rows: rows,
 			title: title,
-			width: width
+			width: width,
 		});
 	}
 	componentWillUnmount() {
 		this.form && this.form.destructor();
 	}
 	render() {
-		return (
-			<form style={{textAlign: "left", background: "#fff"}} ref={el => this.el = el}></form>
-		);
+		return <form style={{ textAlign: "left", background: "#fff" }} ref={el => (this.el = el)}></form>;
 	}
 }
 
@@ -33,7 +31,7 @@ class FormProps extends Component {
 				label: "Name",
 				icon: "dxi-magnify",
 				placeholder: "John Doe",
-				required: true				
+				required: true,
 			},
 			{
 				type: "input",
@@ -43,14 +41,14 @@ class FormProps extends Component {
 				errorMessage: "Invalid email",
 				successMessage: "Valid Email",
 				validation: "email",
-				required: true
+				required: true,
 			},
 			{
 				type: "input",
 				inputType: "password",
 				label: "Password",
 				placeholder: "********",
-				required: true
+				required: true,
 			},
 			{
 				type: "checkbox",
@@ -58,7 +56,7 @@ class FormProps extends Component {
 				name: "agree",
 				labelInline: true,
 				value: "checkboxvalue",
-				required: true
+				required: true,
 			},
 			{
 				type: "button",
@@ -66,17 +64,17 @@ class FormProps extends Component {
 				size: "medium",
 				view: "flat",
 				submit: true,
-				color: "primary"
-			}
+				color: "primary",
+			},
 		];
 		return (
 			<Form
-				css = {"dhx_widget--bordered"}
-				width = {400}
-				rows = {rows}
-				gravity = {false}
-				padding = {20}
-				title = {"DHX Form"}
+				css={"dhx_widget--bordered"}
+				width={400}
+				rows={rows}
+				gravity={false}
+				padding={20}
+				title={"DHX Form"}
 			/>
 		);
 	}
@@ -89,17 +87,10 @@ FormProps.propTypes = {
 	rows: PropTypes.array,
 	cols: PropTypes.array,
 	title: PropTypes.string,
-	align: PropTypes.oneOf([
-		"start",
-		"center",
-		"end",
-		"between",
-		"around",
-		"evenly"
-	]),
+	align: PropTypes.oneOf(["start", "center", "end", "between", "around", "evenly"]),
 	padding: PropTypes.string,
 	gravity: PropTypes.bool,
-	disabled: PropTypes.bool
+	disabled: PropTypes.bool,
 };
 
 export default FormProps;

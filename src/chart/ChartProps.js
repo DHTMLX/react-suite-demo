@@ -5,23 +5,21 @@ import "dhx-suite/codebase/suite.min.css";
 
 class Chart extends Component {
 	componentDidMount() {
-		let {type, scales, series, data, barWidth, maxPoints} = this.props;
+		let { type, scales, series, data, barWidth, maxPoints } = this.props;
 		this.chart = new ChartDHX(this.el, {
 			type: type,
 			scales: scales,
 			series: series,
 			maxPoints: maxPoints,
 			barWidth: barWidth,
-			data: data
+			data: data,
 		});
 	}
 	componentWillUnmount() {
 		this.chart && this.chart.destructor();
 	}
 	render() {
-		return (
-			<div style={{width: 500, height: 500}} ref={el => this.el = el}></div>
-		);
+		return <div style={{ width: 500, height: 500 }} ref={el => (this.el = el)}></div>;
 	}
 }
 
@@ -33,14 +31,14 @@ class ChartProps extends Component {
 	}
 	render() {
 		const scales = {
-			"bottom": {
-				text: "month"
+			bottom: {
+				text: "month",
 			},
-			"left": {
+			left: {
 				maxTicks: 10,
 				max: 100,
-				min: 0
-			}
+				min: 0,
+			},
 		};
 		const series = [
 			{
@@ -49,8 +47,8 @@ class ChartProps extends Component {
 				color: "#5E83BA",
 				pointType: "circle",
 				fill: "#5E83BA",
-				barWidth: 35
-			}
+				barWidth: 35,
+			},
 		];
 		return (
 			<Chart
@@ -77,16 +75,13 @@ ChartProps.propTypes = {
 		"pie3D",
 		"radar",
 		"xbar",
-		"splineArea"
+		"splineArea",
 	]),
 	barWidth: PropTypes.number,
 	series: PropTypes.array,
 	scales: PropTypes.object,
 	maxPoints: PropTypes.number,
-	data: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.instanceOf(DataCollection)
-	])
+	data: PropTypes.oneOfType([PropTypes.array, PropTypes.instanceOf(DataCollection)]),
 };
 
 export default ChartProps;

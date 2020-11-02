@@ -8,14 +8,14 @@ class SidebarCDN extends Component {
 
 		this.ready = fromCDN([
 			"https://cdn.dhtmlx.com/suite/edge/suite.js",
-			"https://cdn.dhtmlx.com/suite/edge/suite.css"
+			"https://cdn.dhtmlx.com/suite/edge/suite.css",
 		]);
 	}
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
 			this.sidebar = new dhx.Sidebar(this.el, {
-				css: "dhx_widget--bordered dhx_widget--bg_white"
+				css: "dhx_widget--bordered dhx_widget--bg_white",
 			});
 			this.sidebar.data.load(`${process.env.PUBLIC_URL}/static/sidebar.json`);
 			if (this.props.ready) {
@@ -27,26 +27,16 @@ class SidebarCDN extends Component {
 		this.sidebar && this.sidebar.destructor();
 	}
 	render() {
-		return (
-			<div ref={el => this.el = el}></div>
-		);
+		return <div ref={el => (this.el = el)}></div>;
 	}
 }
 
 SidebarCDN.propTypes = {
 	css: PropTypes.string,
-	width: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.number
-	]),
-	minWidth: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.number
-	]),
+	width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	collapsed: PropTypes.bool,
-	data: PropTypes.oneOfType([
-		PropTypes.array
-	])
+	data: PropTypes.oneOfType([PropTypes.array]),
 };
 
 export default SidebarCDN;

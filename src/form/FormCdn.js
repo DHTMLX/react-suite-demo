@@ -8,7 +8,7 @@ class FormCDN extends Component {
 
 		this.ready = fromCDN([
 			"https://cdn.dhtmlx.com/suite/edge/suite.js",
-			"https://cdn.dhtmlx.com/suite/edge/suite.css"
+			"https://cdn.dhtmlx.com/suite/edge/suite.css",
 		]);
 	}
 	componentDidMount() {
@@ -23,25 +23,25 @@ class FormCDN extends Component {
 						type: "input",
 						label: "Name",
 						icon: "dxi-magnify",
-						placeholder: "John Doe"		
+						placeholder: "John Doe",
 					},
 					{
 						type: "input",
 						label: "Email",
-						placeholder: "jd@mail.name"
+						placeholder: "jd@mail.name",
 					},
 					{
 						type: "input",
 						inputType: "password",
 						label: "Password",
-						placeholder: "********"
+						placeholder: "********",
 					},
 					{
 						type: "checkbox",
 						label: "I agree",
 						name: "agree",
 						labelPosition: "right",
-						value: "checkboxvalue"
+						value: "checkboxvalue",
 					},
 					{
 						type: "button",
@@ -49,9 +49,9 @@ class FormCDN extends Component {
 						size: "medium",
 						view: "flat",
 						submit: true,
-						color: "primary"
-					}
-				]
+						color: "primary",
+					},
+				],
 			});
 			if (this.props.ready) {
 				this.props.ready(this.form);
@@ -62,9 +62,7 @@ class FormCDN extends Component {
 		this.form && this.form.destructor();
 	}
 	render() {
-		return (
-			<form style={{textAlign: "left", background: "#fff"}} ref={el => this.el = el}></form>
-		);
+		return <form style={{ textAlign: "left", background: "#fff" }} ref={el => (this.el = el)}></form>;
 	}
 }
 
@@ -75,17 +73,10 @@ FormCDN.propTypes = {
 	rows: PropTypes.array,
 	cols: PropTypes.array,
 	title: PropTypes.string,
-	align: PropTypes.oneOf([
-		"start",
-		"center",
-		"end",
-		"between",
-		"around",
-		"evenly"
-	]),
+	align: PropTypes.oneOf(["start", "center", "end", "between", "around", "evenly"]),
 	padding: PropTypes.string,
 	gravity: PropTypes.bool,
-	disabled: PropTypes.bool
+	disabled: PropTypes.bool,
 };
 
 export default FormCDN;

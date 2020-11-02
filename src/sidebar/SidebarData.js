@@ -5,10 +5,10 @@ import "dhx-suite/codebase/suite.min.css";
 
 class Sidebar extends Component {
 	componentDidMount() {
-		let {css, data} = this.props;
+		let { css, data } = this.props;
 		this.sidebar = new SidebarDHX(this.el, {
 			css: css,
-			data: data
+			data: data,
 		});
 	}
 	componentWillUnmount() {
@@ -18,10 +18,10 @@ class Sidebar extends Component {
 		return (
 			<div
 				style={{
-					display: "inline-flex"
+					display: "inline-flex",
 				}}
-				ref={el => this.el = el}>
-			</div>
+				ref={el => (this.el = el)}
+			></div>
 		);
 	}
 }
@@ -30,34 +30,36 @@ class SidebarData extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
-			count: 0
+			count: 0,
 		};
 		this.data = new TreeCollection();
 		this.data.load(`${process.env.PUBLIC_URL}/static/sidebar.json`).then(() => {
 			this.data.events.on("change", () => {
 				this.setState({
-					count: this.data.getItem("media").count
+					count: this.data.getItem("media").count,
 				});
 			});
 		});
 	}
 	handleClickAdd() {
-		this.data.update("media", {count: this.data.getItem("media").count + 1});
+		this.data.update("media", { count: this.data.getItem("media").count + 1 });
 	}
 	handleClickReset() {
-		this.data.update("media", {count: 0});
+		this.data.update("media", { count: 0 });
 	}
 	render() {
 		return (
 			<div>
-				<Sidebar
-					css="dhx_widget--bordered dhx_widget--bg_white"
-					data={this.data}
-				/>
-				<div style={{display: "flex", justifyContent: "center", padding: 20}}>
-					<button className="button" onClick={() => this.handleClickAdd()}>Add notification</button>
-					<button className="button" onClick={() => this.handleClickReset()}
-					        disabled={(!this.state.count)}>
+				<Sidebar css="dhx_widget--bordered dhx_widget--bg_white" data={this.data} />
+				<div style={{ display: "flex", justifyContent: "center", padding: 20 }}>
+					<button className="button" onClick={() => this.handleClickAdd()}>
+						Add notification
+					</button>
+					<button
+						className="button"
+						onClick={() => this.handleClickReset()}
+						disabled={!this.state.count}
+					>
 						Reset {this.state.count} notification(s)
 					</button>
 				</div>
@@ -68,19 +70,10 @@ class SidebarData extends PureComponent {
 
 SidebarData.propTypes = {
 	css: PropTypes.string,
-	width: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.number
-	]),
-	minWidth: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.number
-	]),
+	width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	collapsed: PropTypes.bool,
-	data: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.instanceOf(TreeCollection)
-	])
+	data: PropTypes.oneOfType([PropTypes.array, PropTypes.instanceOf(TreeCollection)]),
 };
 
 export default SidebarData;

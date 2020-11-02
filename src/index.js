@@ -11,7 +11,8 @@ import { BrowserRouter } from "react-router-dom";
 ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
-			<App/>
+			<App />
 		</BrowserRouter>
 	</Provider>,
-	document.querySelector("#app"));
+	document.querySelector("#app")
+);

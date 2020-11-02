@@ -8,16 +8,18 @@ class PopupCDN extends Component {
 
 		this.ready = fromCDN([
 			"https://cdn.dhtmlx.com/suite/edge/suite.js",
-			"https://cdn.dhtmlx.com/suite/edge/suite.css"
+			"https://cdn.dhtmlx.com/suite/edge/suite.css",
 		]);
 	}
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
 			this.popup = new dhx.Popup({
-				css: "dhx_widget--bordered"
+				css: "dhx_widget--bordered",
 			});
-			this.popup.attachHTML("<div style='padding: 16px; text-align: center'>Hi there, <br/> welcome to DHTMLX-react popup sample</div>");
+			this.popup.attachHTML(
+				"<div style='padding: 16px; text-align: center'>Hi there, <br/> welcome to DHTMLX-react popup sample</div>"
+			);
 			if (this.props.ready) {
 				this.props.ready(this.popup);
 			}
@@ -32,7 +34,11 @@ class PopupCDN extends Component {
 	render() {
 		return (
 			<div>
-				<button className="button" ref={el => this.el = el} onClick={() => this.handlePopupShow(this.el)}>
+				<button
+					className="button"
+					ref={el => (this.el = el)}
+					onClick={() => this.handlePopupShow(this.el)}
+				>
 					Show popup
 				</button>
 			</div>
@@ -41,7 +47,7 @@ class PopupCDN extends Component {
 }
 
 PopupCDN.propTypes = {
-	css: PropTypes.string
+	css: PropTypes.string,
 };
 
 export default PopupCDN;

@@ -8,7 +8,7 @@ class ToolbarCdn extends Component {
 
 		this.ready = fromCDN([
 			"https://cdn.dhtmlx.com/suite/edge/suite.js",
-			"https://cdn.dhtmlx.com/suite/edge/suite.css"
+			"https://cdn.dhtmlx.com/suite/edge/suite.css",
 		]);
 	}
 	componentDidMount() {
@@ -16,7 +16,7 @@ class ToolbarCdn extends Component {
 			/* global dhx */
 			this.toolbar = new dhx.Toolbar(this.el, {
 				css: "dhx_widget--bordered dhx_widget--bg_white",
-				navigationType: "pointer"
+				navigationType: "pointer",
 			});
 			this.toolbar.data.load(`${process.env.PUBLIC_URL}/static/toolbar.json`);
 
@@ -29,21 +29,14 @@ class ToolbarCdn extends Component {
 		this.toolbar && this.toolbar.destructor();
 	}
 	render() {
-		return (
-			<div
-				style={{width: "100%"}}
-				ref={el => this.el = el}>
-			</div>
-		);
+		return <div style={{ width: "100%" }} ref={el => (this.el = el)}></div>;
 	}
 }
 
 ToolbarCdn.propTypes = {
 	css: PropTypes.string,
-	data: PropTypes.instanceOf([
-		PropTypes.array
-	]),
-	navigationType: PropTypes.string
+	data: PropTypes.instanceOf([PropTypes.array]),
+	navigationType: PropTypes.string,
 };
 
 export default ToolbarCdn;

@@ -8,14 +8,14 @@ class TimepickerCDN extends Component {
 
 		this.ready = fromCDN([
 			"https://cdn.dhtmlx.com/suite/edge/suite.js",
-			"https://cdn.dhtmlx.com/suite/edge/suite.css"
+			"https://cdn.dhtmlx.com/suite/edge/suite.css",
 		]);
 	}
 	componentDidMount() {
 		this.ready.then(() => {
 			/* global dhx */
 			this.timepicker = new dhx.Timepicker(this.el, {
-				css: "dhx_widget--bordered"
+				css: "dhx_widget--bordered",
 			});
 			if (this.props.ready) {
 				this.props.ready(this.timepicker);
@@ -26,16 +26,14 @@ class TimepickerCDN extends Component {
 		this.timepicker && this.timepicker.destructor();
 	}
 	render() {
-		return (
-			<div ref={el => this.el = el}></div>
-		);
+		return <div ref={el => (this.el = el)}></div>;
 	}
 }
 
 TimepickerCDN.propTypes = {
 	css: PropTypes.string,
 	timeFormat: PropTypes.oneOf([12, 24]),
-	controls: PropTypes.bool
+	controls: PropTypes.bool,
 };
 
 export default TimepickerCDN;

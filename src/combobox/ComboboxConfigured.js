@@ -13,7 +13,7 @@ class ComboboxConfigured extends Component {
 			selectAllButton: true,
 			required: true,
 			itemsCount: true,
-			placeholder: "Click to choose"
+			placeholder: "Click to choose",
 		});
 		this.combobox.data.load(`${process.env.PUBLIC_URL}/static/combobox.json`);
 	}
@@ -21,39 +21,22 @@ class ComboboxConfigured extends Component {
 		this.combobox && this.combobox.destructor();
 	}
 	render() {
-		return (
-			<div style={{width: 400, textAlign: "left"}} ref={el => this.el = el}></div>
-		);
+		return <div style={{ width: 400, textAlign: "left" }} ref={el => (this.el = el)}></div>;
 	}
 }
 
 ComboboxConfigured.propTypes = {
-	data: PropTypes.instanceOf([
-		PropTypes.array,
-		PropTypes.instanceOf(DataCollection)
-	]),
+	data: PropTypes.instanceOf([PropTypes.array, PropTypes.instanceOf(DataCollection)]),
 	readonly: PropTypes.bool,
 	disabled: PropTypes.bool,
 	template: PropTypes.func,
 	filter: PropTypes.func,
 	multiselection: PropTypes.bool,
 	selectAllButton: PropTypes.bool,
-	itemsCount: PropTypes.oneOfType([
-		PropTypes.bool,
-		PropTypes.func
-	]),
-	listHeight: PropTypes.oneOfType([
-		PropTypes.number,
-		PropTypes.string
-	]),
-	itemHeight: PropTypes.oneOfType([
-		PropTypes.number,
-		PropTypes.string
-	]),
-	labelWidth: PropTypes.oneOfType([
-		PropTypes.number,
-		PropTypes.string
-	]),
+	itemsCount: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
+	listHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+	itemHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+	labelWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	label: PropTypes.string,
 	labelPosition: PropTypes.oneOf(["left", "top"]),
 	hiddenLabel: PropTypes.bool,
@@ -61,7 +44,7 @@ ComboboxConfigured.propTypes = {
 	placeholder: PropTypes.string,
 	css: PropTypes.string,
 	required: PropTypes.bool,
-	virtual: PropTypes.bool
+	virtual: PropTypes.bool,
 };
 
 export default ComboboxConfigured;

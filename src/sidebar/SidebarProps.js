@@ -5,22 +5,20 @@ import "dhx-suite/codebase/suite.min.css";
 
 class Sidebar extends Component {
 	componentDidMount() {
-		let {css, width, data, minWidth, collapsed} = this.props;
+		let { css, width, data, minWidth, collapsed } = this.props;
 		this.sidebar = new SidebarDHX(this.el, {
 			css: css,
 			width: width,
 			minWidth: minWidth,
 			collapsed: collapsed,
-			data: data
+			data: data,
 		});
 	}
 	componentWillUnmount() {
 		this.sidebar && this.sidebar.destructor();
 	}
 	render() {
-		return (
-			<div ref={el => this.el = el}></div>
-		);
+		return <div ref={el => (this.el = el)}></div>;
 	}
 }
 
@@ -45,19 +43,10 @@ class SidebarProps extends Component {
 
 SidebarProps.propTypes = {
 	css: PropTypes.string,
-	width: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.number
-	]),
-	minWidth: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.number
-	]),
+	width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	minWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	collapsed: PropTypes.bool,
-	data: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.instanceOf(TreeCollection)
-	])
+	data: PropTypes.oneOfType([PropTypes.array, PropTypes.instanceOf(TreeCollection)]),
 };
 
 export default SidebarProps;

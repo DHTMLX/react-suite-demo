@@ -7,7 +7,7 @@ import "@mdi/font/css/materialdesignicons.min.css";
 class RibbonConfigured extends Component {
 	componentDidMount() {
 		this.ribbon = new RibbonDHX(this.el, {
-			css: "dhx_widget--bordered dhx_widget--bg_white"
+			css: "dhx_widget--bordered dhx_widget--bg_white",
 		});
 		this.ribbon.data.load(`${process.env.PUBLIC_URL}/static/ribbon.json`);
 	}
@@ -15,18 +15,13 @@ class RibbonConfigured extends Component {
 		this.ribbon && this.ribbon.destructor();
 	}
 	render() {
-		return (
-			<div ref={el => this.el = el}></div>
-		);
+		return <div ref={el => (this.el = el)}></div>;
 	}
 }
 
 RibbonConfigured.propTypes = {
 	css: PropTypes.string,
-	data: PropTypes.instanceOf([
-		PropTypes.array,
-		PropTypes.instanceOf(TreeCollection)
-	])
+	data: PropTypes.instanceOf([PropTypes.array, PropTypes.instanceOf(TreeCollection)]),
 };
 
 export default RibbonConfigured;

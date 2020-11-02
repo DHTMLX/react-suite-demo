@@ -4,7 +4,7 @@ import { List as ListDHX, DataCollection } from "dhx-suite";
 
 class List extends Component {
 	componentDidMount() {
-		let {css, height, template, itemHeight, virtual, keyNavigation, data} = this.props;
+		let { css, height, template, itemHeight, virtual, keyNavigation, data } = this.props;
 		this.list = new ListDHX(this.el, {
 			css: css,
 			template: template,
@@ -12,16 +12,14 @@ class List extends Component {
 			itemHeight: itemHeight,
 			virtual: virtual,
 			data: data,
-			keyNavigation: keyNavigation
+			keyNavigation: keyNavigation,
 		});
 	}
 	componentWillUnmount() {
 		this.list && this.list.destructor();
 	}
 	render() {
-		return (
-			<div style={{height: 400, width: 400}} ref={el => this.el = el}></div>
-		);
+		return <div style={{ height: 400, width: 400 }} ref={el => (this.el = el)}></div>;
 	}
 }
 
@@ -35,7 +33,9 @@ class ListProps extends Component {
 		return (
 			<List
 				css={"dhx_widget--bordered dhx_widget--bg_white"}
-				template={item => `<div style="height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column;"><strong>${item.title}</strong> <span>${item.short}</span></div>`}
+				template={item =>
+					`<div style="height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column;"><strong>${item.title}</strong> <span>${item.short}</span></div>`
+				}
 				height={400}
 				itemHeight={70}
 				data={this.getData()}
@@ -47,10 +47,7 @@ class ListProps extends Component {
 }
 
 ListProps.propTypes = {
-	data: PropTypes.oneOfType([
-		PropTypes.array,
-		PropTypes.instanceOf(DataCollection)
-	]),
+	data: PropTypes.oneOfType([PropTypes.array, PropTypes.instanceOf(DataCollection)]),
 	template: PropTypes.func,
 	keyNavigation: PropTypes.bool,
 	css: PropTypes.string,
@@ -60,7 +57,7 @@ ListProps.propTypes = {
 	multiselection: PropTypes.bool || PropTypes.oneOf(["click", "ctrlClick"]),
 	editable: PropTypes.bool,
 	dragMode: PropTypes.oneOf(["target", "source", "both"]),
-	dragCopy: PropTypes.bool
+	dragCopy: PropTypes.bool,
 };
 
 export default ListProps;

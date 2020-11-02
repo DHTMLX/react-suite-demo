@@ -8,7 +8,7 @@ class ChartCDN extends Component {
 
 		this.ready = fromCDN([
 			"https://cdn.dhtmlx.com/suite/edge/suite.js",
-			"https://cdn.dhtmlx.com/suite/edge/suite.css"
+			"https://cdn.dhtmlx.com/suite/edge/suite.css",
 		]);
 	}
 
@@ -18,14 +18,14 @@ class ChartCDN extends Component {
 			this.chart = new dhx.Chart(this.el, {
 				type: "line",
 				scales: {
-					"bottom": {
-						text: "month"
+					bottom: {
+						text: "month",
 					},
-					"left": {
+					left: {
 						maxTicks: 10,
 						max: 100,
-						min: 0
-					}
+						min: 0,
+					},
 				},
 				series: [
 					{
@@ -34,9 +34,9 @@ class ChartCDN extends Component {
 						color: "#5E83BA",
 						pointType: "circle",
 						fill: "#5E83BA",
-						barWidth: 35
-					}
-				]
+						barWidth: 35,
+					},
+				],
 			});
 			this.chart.data.load(`${process.env.PUBLIC_URL}/static/chart.json`);
 			if (this.props.ready) {
@@ -49,9 +49,7 @@ class ChartCDN extends Component {
 		this.chart && this.chart.destructor();
 	}
 	render() {
-		return (
-			<div style={{width: 500, height: 300}} ref={el => this.el = el}></div>
-		);
+		return <div style={{ width: 500, height: 300 }} ref={el => (this.el = el)}></div>;
 	}
 }
 
@@ -67,15 +65,13 @@ ChartCDN.propTypes = {
 		"pie3D",
 		"radar",
 		"xbar",
-		"splineArea"
+		"splineArea",
 	]),
 	barWidth: PropTypes.number,
 	series: PropTypes.array,
 	maxPoints: PropTypes.number,
 	scales: PropTypes.object,
-	data: PropTypes.oneOfType([
-		PropTypes.array
-	])
+	data: PropTypes.oneOfType([PropTypes.array]),
 };
 
 export default ChartCDN;

@@ -7,7 +7,7 @@ class ToolbarEvents extends Component {
 		super(props);
 		this.state = {
 			event: "",
-			id: ""
+			id: "",
 		};
 	}
 	componentDidMount() {
@@ -18,70 +18,72 @@ class ToolbarEvents extends Component {
 				{
 					id: "add",
 					icon: "dxi dxi-plus",
-					value: "Add"
+					value: "Add",
 				},
 				{
-					type: "separator"
+					type: "separator",
 				},
 				{
 					id: "language",
 					value: "Language",
-					items: [{
-						id: "eng",
-						value: "English"
-					},
+					items: [
+						{
+							id: "eng",
+							value: "English",
+						},
 						{
 							id: "spa",
-							value: "Spanish"
+							value: "Spanish",
 						},
 						{
 							id: "rus",
-							value: "Russian"
+							value: "Russian",
 						},
 						{
 							id: "de",
-							value: "Deutsch"
-						}
-					]
+							value: "Deutsch",
+						},
+					],
 				},
 				{
 					id: "skin",
 					value: "Skin",
-					items: [{
-						id: "material",
-						value: "Material"
-					},
+					items: [
+						{
+							id: "material",
+							value: "Material",
+						},
 						{
 							id: "skyblue",
-							value: "Skyblue"
+							value: "Skyblue",
 						},
 						{
 							id: "web",
-							value: "Web"
+							value: "Web",
 						},
 						{
 							id: "terrace",
-							value: "Terrace"
-						}
-					]
+							value: "Terrace",
+						},
+					],
 				},
 				{
-					type: "separator"
+					type: "separator",
 				},
 				{
 					id: "edit",
-					value: "Edit"
+					value: "Edit",
 				},
 				{
 					id: "search",
 					type: "input",
 					placeholder: "Search",
-					icon: "dxi dxi-magnify"
+					icon: "dxi dxi-magnify",
 				},
 				{
-					type: "spacer"
-				}
-			]
+					type: "spacer",
+				},
+			],
 		});
 		this.toolbar.events.on("click", id => this.handleClick(id, "click"));
 		this.toolbar.events.on("inputCreated", id => this.handleClick(id, "inputCreated"));
@@ -90,12 +92,11 @@ class ToolbarEvents extends Component {
 		this.toolbar.events.on("inputBlur", id => this.handleClick(id, "inputBlur"));
 		this.toolbar.events.on("afterHide", id => this.handleClick(id, "afterHide"));
 		this.toolbar.events.on("beforeHide", id => this.handleClick(id, "beforeHide"));
-
 	}
 	handleClick(id, event) {
 		this.setState({
 			event: event,
-			id: id
+			id: id,
 		});
 	}
 	componentWillUnmount() {
@@ -103,14 +104,13 @@ class ToolbarEvents extends Component {
 	}
 	render() {
 		return (
-			<div style={{width: "100%"}}>
-				<div
-					style={{width: "100%"}}
-					ref={el => this.el = el}>
-				</div>
-				<div style={{display: "flex", justifyContent: "center", padding: 20}}>
+			<div style={{ width: "100%" }}>
+				<div style={{ width: "100%" }} ref={el => (this.el = el)}></div>
+				<div style={{ display: "flex", justifyContent: "center", padding: 20 }}>
 					<button className="button button--bordered">{`Event: ${this.state.event}`}</button>
-					<button className="button button--bordered">Item: {this.state.id ? this.state.id : ""}</button>
+					<button className="button button--bordered">
+						Item: {this.state.id ? this.state.id : ""}
+					</button>
 				</div>
 			</div>
 		);
@@ -119,11 +119,8 @@ class ToolbarEvents extends Component {
 
 ToolbarEvents.propTypes = {
 	css: PropTypes.string,
-	data: PropTypes.instanceOf([
-		PropTypes.array,
-		PropTypes.instanceOf(TreeCollection)
-	]),
-	navigationType: PropTypes.string
+	data: PropTypes.instanceOf([PropTypes.array, PropTypes.instanceOf(TreeCollection)]),
+	navigationType: PropTypes.string,
 };
 
 export default ToolbarEvents;

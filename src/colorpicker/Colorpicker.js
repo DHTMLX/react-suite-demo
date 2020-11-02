@@ -6,16 +6,14 @@ import "dhx-suite/codebase/suite.min.css";
 class Colorpicker extends Component {
 	componentDidMount() {
 		this.colorpicker = new ColorpickerDHX(this.el, {
-			css: "dhx_widget--bordered"
+			css: "dhx_widget--bordered",
 		});
 	}
 	componentWillUnmount() {
 		this.colorpicker.destructor();
 	}
 	render() {
-		return (
-			<div ref={el => this.el = el}></div>
-		);
+		return <div ref={el => (this.el = el)}></div>;
 	}
 }
 
@@ -27,7 +25,7 @@ Colorpicker.propTypes = {
 	customColors: PropTypes.string,
 	palette: PropTypes.array,
 	width: PropTypes.string,
-	mode: PropTypes.oneOf(["palette", "picker"])
+	mode: PropTypes.oneOf(["palette", "picker"]),
 };
 
 export default Colorpicker;

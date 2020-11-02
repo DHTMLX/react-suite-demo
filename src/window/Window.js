@@ -11,7 +11,7 @@ class Window extends Component {
 			height: 520,
 			title: "Window",
 			html: windowHtml,
-			closable: true
+			closable: true,
 		});
 	}
 	componentWillUnmount() {
@@ -47,7 +47,7 @@ Window.propTypes = {
 	movable: PropTypes.bool,
 	modal: PropTypes.bool,
 	closable: PropTypes.bool,
-	node: PropTypes.string
+	node: PropTypes.string,
 };
 
 export default Window;
