@@ -16,7 +16,6 @@ class FormCDN extends Component {
 			/* global dhx */
 			this.form = new dhx.Form(this.el, {
 				css: "dhx_widget--bordered",
-				gravity: false,
 				width: 400,
 				rows: [
 					{
@@ -38,14 +37,13 @@ class FormCDN extends Component {
 					},
 					{
 						type: "checkbox",
-						label: "I agree",
+						text: "I agree",
 						name: "agree",
-						labelPosition: "right",
 						value: "checkboxvalue",
 					},
 					{
 						type: "button",
-						value: "Send",
+						text: "Send",
 						size: "medium",
 						view: "flat",
 						submit: true,
@@ -68,14 +66,13 @@ class FormCDN extends Component {
 
 FormCDN.propTypes = {
 	css: PropTypes.string,
-	width: PropTypes.string,
-	height: PropTypes.string,
+	width: PropTypes.string || PropTypes.number,
+	height: PropTypes.string || PropTypes.number,
 	rows: PropTypes.array,
 	cols: PropTypes.array,
 	title: PropTypes.string,
 	align: PropTypes.oneOf(["start", "center", "end", "between", "around", "evenly"]),
-	padding: PropTypes.string,
-	gravity: PropTypes.bool,
+	padding: PropTypes.string || PropTypes.number,
 	disabled: PropTypes.bool,
 };
 

@@ -8,7 +8,6 @@ class FormConfigured extends Component {
 		this.form = new FormDHX(this.el, {
 			css: "dhx_widget--bordered",
 			title: "DHX Form",
-			gravity: false,
 			width: 400,
 			rows: [
 				{
@@ -37,15 +36,14 @@ class FormConfigured extends Component {
 				},
 				{
 					type: "checkbox",
-					label: "I agree",
+					text: "I agree",
 					name: "agree",
-					labelInline: true,
 					value: "checkboxvalue",
 					required: true,
 				},
 				{
 					type: "button",
-					value: "Send",
+					text: "Send",
 					size: "medium",
 					view: "flat",
 					submit: true,
@@ -64,14 +62,13 @@ class FormConfigured extends Component {
 
 FormConfigured.propTypes = {
 	css: PropTypes.string,
-	width: PropTypes.string,
-	height: PropTypes.string,
+	width: PropTypes.string || PropTypes.number,
+	height: PropTypes.string || PropTypes.number,
 	rows: PropTypes.array,
 	cols: PropTypes.array,
 	title: PropTypes.string,
 	align: PropTypes.oneOf(["start", "center", "end", "between", "around", "evenly"]),
-	padding: PropTypes.string,
-	gravity: PropTypes.bool,
+	padding: PropTypes.string || PropTypes.number,
 	disabled: PropTypes.bool,
 };
 

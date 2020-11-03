@@ -17,17 +17,30 @@ class ListEvents extends Component {
 			height: 400,
 			editable: true,
 		});
-		this.list.data.load(`${process.env.PUBLIC_URL}/static/dataview.json`);
+		this.list.data.load(`${process.env.PUBLIC_URL}/static/list.json`);
 
-		this.list.events.on("click", id => this.setState({ event: "click", id: id }));
-		this.list.events.on("itemRightClick", id => this.setState({ event: "itemRightClick", id: id }));
-		this.list.events.on("itemMouseOver", id => this.setState({ event: "itemMouseOver", id: id }));
-		this.list.events.on("focusChange", id => this.setState({ event: "focusChange", id: id }));
-		this.list.events.on("doubleClick", id => this.setState({ event: "doubleClick", id: id }));
-		this.list.events.on("beforeEditStart", id => this.setState({ event: "beforeEditStart", id: id }));
-		this.list.events.on("afterEditStart", id => this.setState({ event: "afterEditStart", id: id }));
+		this.list.events.on("click", id => this.setState({ event: "click", id }));
+		this.list.events.on("doubleclick", id => this.setState({ event: "doubleclick", id }));
+		this.list.events.on("focuschange", id => this.setState({ event: "focuschange", id }));
+		this.list.events.on("beforeDrag", () => this.setState({ event: "beforeDrag" }));
+		this.list.events.on("beforeDrop", () => this.setState({ event: "beforeDrop" }));
+		this.list.events.on("dragStart", () => this.setState({ event: "dragStart" }));
+		this.list.events.on("afterDrag", () => this.setState({ event: "afterDrag" }));
+		this.list.events.on("canDrop", () => this.setState({ event: "canDrop" }));
+		this.list.events.on("cancelDrop", () => this.setState({ event: "cancelDrop" }));
+		this.list.events.on("afterDrop", () => this.setState({ event: "afterDrop" }));
+		this.list.events.on("dragOut", () => this.setState({ event: "dragOut" }));
+		this.list.events.on("dragIn", () => this.setState({ event: "dragIn" }));
+		this.list.events.on("beforeSelect", () => this.setState({ event: "beforeSelect" }));
+		this.list.events.on("afterSelect", () => this.setState({ event: "afterSelect" }));
+		this.list.events.on("beforeUnSelect", () => this.setState({ event: "beforeUnSelect" }));
+		this.list.events.on("afterUnSelect", () => this.setState({ event: "afterUnSelect" }));
+		this.list.events.on("beforeEditStart", () => this.setState({ event: "beforeEditStart" }));
+		this.list.events.on("afterEditStart", () => this.setState({ event: "afterEditStart" }));
 		this.list.events.on("beforeEditEnd", () => this.setState({ event: "beforeEditEnd" }));
 		this.list.events.on("afterEditEnd", () => this.setState({ event: "afterEditEnd" }));
+		this.list.events.on("itemRightClick", () => this.setState({ event: "itemRightClick" }));
+		this.list.events.on("itemMouseOver", () => this.setState({ event: "itemMouseOver" }));
 	}
 	componentWillUnmount() {
 		this.list && this.list.destructor();

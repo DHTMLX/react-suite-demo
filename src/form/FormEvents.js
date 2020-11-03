@@ -8,14 +8,13 @@ class FormEvents extends Component {
 		super(props);
 		this.state = {
 			event: "",
-			id: "",
+			name: "",
 		};
 	}
 	componentDidMount() {
 		this.form = new FormDHX(this.el, {
 			css: "dhx_widget--bordered",
 			title: "DHX Form",
-			gravity: false,
 			width: 400,
 			rows: [
 				{
@@ -24,14 +23,12 @@ class FormEvents extends Component {
 					icon: "dxi-magnify",
 					placeholder: "John Doe",
 					required: true,
-					id: "name",
 					name: "name",
 				},
 				{
 					type: "datepicker",
 					label: "Date",
 					required: true,
-					id: "date",
 					name: "date",
 				},
 				{
@@ -39,26 +36,23 @@ class FormEvents extends Component {
 					controls: "true",
 					label: "Time",
 					required: true,
-					id: "time",
 					name: "time",
 				},
 				{
 					type: "colorpicker",
 					label: "Color",
 					required: true,
-					id: "color",
 					name: "color",
 				},
 				{
 					type: "simpleVault",
 					required: true,
 					label: "Files",
-					id: "simplevault",
 					name: "simplevault",
 				},
 				{
 					type: "button",
-					value: "Send",
+					text: "Send",
 					size: "medium",
 					view: "flat",
 					submit: true,
@@ -66,9 +60,16 @@ class FormEvents extends Component {
 				},
 			],
 		});
-		this.form.events.on("change", id => this.setState({ event: "change", id: id }));
-		this.form.events.on("buttonclick", id => this.setState({ event: "buttonclick", id: id }));
-		this.form.events.on("validationfail", id => this.setState({ event: "validationfail", id: id }));
+		this.form.events.on("change", name => this.setState({ event: "change", name }));
+		this.form.events.on("click", name => this.setState({ event: "click", name }));
+		this.form.events.on("beforeHide", name => this.setState({ event: "beforeHide", name }));
+		this.form.events.on("afterHide", name => this.setState({ event: "afterHide", name }));
+		this.form.events.on("beforeShow", name => this.setState({ event: "beforeShow", name }));
+		this.form.events.on("afterShow", name => this.setState({ event: "afterShow", name }));
+		this.form.events.on("beforeValidate", name => this.setState({ event: "beforeValidate", name }));
+		this.form.events.on("afterValidate", name => this.setState({ event: "afterValidate", name }));
+		this.form.events.on("beforeChangeProperties", name => this.setState({ event: "beforeChangeProperties", name }));
+		this.form.events.on("afterChangeProperties", name => this.setState({ event: "afterChangeProperties", name }));
 		this.form.events.on("afterSend", () => this.setState({ event: "afterSend" }));
 		this.form.events.on("beforeSend", () => this.setState({ event: "beforeSend" }));
 	}
@@ -92,7 +93,7 @@ class FormEvents extends Component {
 						{this.state.event ? `Event: ${this.state.event}` : "Click to widget"}
 					</button>
 					<button className="button button--bordered">
-						Item: {this.state.id ? this.state.id : ""}
+						Item: {this.state.name ? this.state.name : ""}
 					</button>
 				</div>
 			</div>
@@ -102,14 +103,13 @@ class FormEvents extends Component {
 
 FormEvents.propTypes = {
 	css: PropTypes.string,
-	width: PropTypes.string,
-	height: PropTypes.string,
+	width: PropTypes.string || PropTypes.number,
+	height: PropTypes.string || PropTypes.number,
 	rows: PropTypes.array,
 	cols: PropTypes.array,
 	title: PropTypes.string,
 	align: PropTypes.oneOf(["start", "center", "end", "between", "around", "evenly"]),
-	padding: PropTypes.string,
-	gravity: PropTypes.bool,
+	padding: PropTypes.string || PropTypes.number,
 	disabled: PropTypes.bool,
 };
 

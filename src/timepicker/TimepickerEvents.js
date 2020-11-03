@@ -19,7 +19,8 @@ class TimepickerEvents extends Component {
 		this.timepicker.events.on("change", time => this.setState({ event: "change", id: time }));
 		this.timepicker.events.on("afterClose", () => this.setState({ event: "afterClose" }));
 		this.timepicker.events.on("beforeClose", () => this.setState({ event: "beforeClose" }));
-		this.timepicker.events.on("apply", () => this.setState({ event: "apply" }));
+		this.timepicker.events.on("beforeApply", () => this.setState({ event: "beforeApply" }));
+		this.timepicker.events.on("afterApply", () => this.setState({ event: "afterApply" }));
 	}
 	componentWillUnmount() {
 		this.timepicker && this.timepicker.destructor();
@@ -46,6 +47,7 @@ TimepickerEvents.propTypes = {
 	css: PropTypes.string,
 	timeFormat: PropTypes.oneOf([12, 24]),
 	controls: PropTypes.bool,
+	value: PropTypes.object || PropTypes.number || PropTypes.string
 };
 
 export default TimepickerEvents;

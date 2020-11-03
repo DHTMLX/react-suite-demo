@@ -45,10 +45,13 @@ Tabbar.propTypes = {
 	closable: PropTypes.bool || PropTypes.arrayOf(PropTypes.string),
 	disabled: PropTypes.string || PropTypes.arrayOf(PropTypes.string),
 	noContent: PropTypes.bool,
-	tabWidth: PropTypes.number,
-	tabHeight: PropTypes.number,
+	tabWidth: PropTypes.number || PropTypes.string,
+	tabHeight: PropTypes.number || PropTypes.string,
 	css: PropTypes.string,
 	activeTab: PropTypes.string,
+	tabAutoWidth: PropTypes.bool,
+	tabAutoHeight: PropTypes.bool,
+	tabAlign: PropTypes.oneOf(["left", "start", "center", "middle", "right", "end"]),
 };
 
 export default Tabbar;

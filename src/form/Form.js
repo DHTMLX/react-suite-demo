@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Form as FormDHX } from "dhx-suite";
-import "dhx-suite/codebase/suite.min.css";
+
 import "@mdi/font/css/materialdesignicons.min.css";
 
 class Form extends Component {
 	componentDidMount() {
 		this.form = new FormDHX(this.el, {
 			css: "dhx_widget--bordered",
-			gravity: false,
 			width: 400,
 			rows: [
 				{
@@ -30,14 +29,13 @@ class Form extends Component {
 				},
 				{
 					type: "checkbox",
-					label: "I agree",
+					text: "I agree",
 					name: "agree",
-					labelPosition: "right",
 					value: "checkboxvalue",
 				},
 				{
 					type: "button",
-					value: "Send",
+					text: "Send",
 					size: "medium",
 					view: "flat",
 					submit: true,
@@ -56,14 +54,13 @@ class Form extends Component {
 
 Form.propTypes = {
 	css: PropTypes.string,
-	width: PropTypes.string,
-	height: PropTypes.string,
+	width: PropTypes.string || PropTypes.number,
+	height: PropTypes.string || PropTypes.number,
 	rows: PropTypes.array,
 	cols: PropTypes.array,
 	title: PropTypes.string,
 	align: PropTypes.oneOf(["start", "center", "end", "between", "around", "evenly"]),
-	padding: PropTypes.string,
-	gravity: PropTypes.bool,
+	padding: PropTypes.string || PropTypes.number,
 	disabled: PropTypes.bool,
 };
 

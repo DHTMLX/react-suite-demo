@@ -23,6 +23,7 @@ TimepickerConfigured.propTypes = {
 	css: PropTypes.string,
 	timeFormat: PropTypes.oneOf([12, 24]),
 	controls: PropTypes.bool,
+	value: PropTypes.object || PropTypes.number || PropTypes.string
 };
 
 export default TimepickerConfigured;

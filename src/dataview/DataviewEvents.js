@@ -24,12 +24,33 @@ class DataviewEvents extends Component {
 			template: template,
 			itemsInRow: 4,
 			gap: 10,
+			multiselection: true,
+			dragMode: "both",
 		});
 		this.dataview && this.dataview.data.load(`${process.env.PUBLIC_URL}/static/dataview.json`);
 
-		this.dataview.events.on("click", id => this.setState({ event: "click", id: id }));
-		this.dataview.events.on("focuschange", id => this.setState({ event: "focuschange", id: id }));
-		this.dataview.events.on("doubleclick", id => this.setState({ event: "doubleclick", id: id }));
+		this.dataview.events.on("click", id => this.setState({ event: "click", id }));
+		this.dataview.events.on("doubleclick", id => this.setState({ event: "doubleclick", id }));
+		this.dataview.events.on("focuschange", id => this.setState({ event: "focuschange", id }));
+		this.dataview.events.on("beforeDrag", () => this.setState({ event: "beforeDrag" }));
+		this.dataview.events.on("beforeDrop", () => this.setState({ event: "beforeDrop" }));
+		this.dataview.events.on("dragStart", () => this.setState({ event: "dragStart" }));
+		this.dataview.events.on("afterDrag", () => this.setState({ event: "afterDrag" }));
+		this.dataview.events.on("canDrop", () => this.setState({ event: "canDrop" }));
+		this.dataview.events.on("cancelDrop", () => this.setState({ event: "cancelDrop" }));
+		this.dataview.events.on("afterDrop", () => this.setState({ event: "afterDrop" }));
+		this.dataview.events.on("dragOut", () => this.setState({ event: "dragOut" }));
+		this.dataview.events.on("dragIn", () => this.setState({ event: "dragIn" }));
+		this.dataview.events.on("beforeSelect", () => this.setState({ event: "beforeSelect" }));
+		this.dataview.events.on("afterSelect", () => this.setState({ event: "afterSelect" }));
+		this.dataview.events.on("beforeUnSelect", () => this.setState({ event: "beforeUnSelect" }));
+		this.dataview.events.on("afterUnSelect", () => this.setState({ event: "afterUnSelect" }));
+		this.dataview.events.on("beforeEditStart", () => this.setState({ event: "beforeEditStart" }));
+		this.dataview.events.on("afterEditStart", () => this.setState({ event: "afterEditStart" }));
+		this.dataview.events.on("beforeEditEnd", () => this.setState({ event: "beforeEditEnd" }));
+		this.dataview.events.on("afterEditEnd", () => this.setState({ event: "afterEditEnd" }));
+		this.dataview.events.on("itemRightClick", () => this.setState({ event: "itemRightClick" }));
+		this.dataview.events.on("itemMouseOver", () => this.setState({ event: "itemMouseOver" }));
 	}
 	componentWillUnmount() {
 		this.dataview && this.dataview.destructor();

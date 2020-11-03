@@ -15,6 +15,7 @@ class TabbarEvents extends Component {
 			mode: "top",
 			css: "dhx_widget--bordered dhx_widget--bg_white",
 			closable: true,
+			tabAlign: "center",
 			views: [
 				{
 					tab: "Vilnius",
@@ -48,7 +49,7 @@ class TabbarEvents extends Component {
 	render() {
 		return (
 			<div>
-				<div style={{ width: 802, height: 400 }} ref={el => (this.el = el)}></div>
+				<div style={{ width: 800, height: 400 }} ref={el => (this.el = el)}></div>
 				<div style={{ display: "flex", justifyContent: "center", padding: 20 }}>
 					<button className="button button--bordered">{`Event: ${this.state.event}`}</button>
 					<button className="button button--bordered">
@@ -66,10 +67,13 @@ TabbarEvents.propTypes = {
 	closable: PropTypes.bool || PropTypes.arrayOf(PropTypes.string),
 	disabled: PropTypes.string || PropTypes.arrayOf(PropTypes.string),
 	noContent: PropTypes.bool,
-	tabWidth: PropTypes.number,
-	tabHeight: PropTypes.number,
+	tabWidth: PropTypes.number || PropTypes.string,
+	tabHeight: PropTypes.number || PropTypes.string,
 	css: PropTypes.string,
 	activeTab: PropTypes.string,
+	tabAutoWidth: PropTypes.bool,
+	tabAutoHeight: PropTypes.bool,
+	tabAlign: PropTypes.oneOf(["left", "start", "center", "middle", "right", "end"]),
 };
 
 export default TabbarEvents;

@@ -87,6 +87,36 @@ class GridEvents extends Component {
 		this.grid.events.on("headerCellRightClick", item =>
 			this.setState({ event: "headerCellRightClick", id: item.country })
 		);
+		this.grid.events.on("beforeRowDrag", () => this.setState({ event: "beforeRowDrag" }));
+		this.grid.events.on("dragRowStart", () => this.setState({ event: "dragRowStart" }));
+		this.grid.events.on("dragRowOut", () => this.setState({ event: "dragRowOut" }));
+		this.grid.events.on("dragRowIn", () => this.setState({ event: "dragRowIn" }));
+		this.grid.events.on("canRowDrop", () => this.setState({ event: "canRowDrop" }));
+		this.grid.events.on("cancelRowDrop", () => this.setState({ event: "cancelRowDrop" }));
+		this.grid.events.on("beforeRowDrop", () => this.setState({ event: "beforeRowDrop" }));
+		this.grid.events.on("afterRowDrop", () => this.setState({ event: "afterRowDrop" }));
+		this.grid.events.on("afterRowDrag", () => this.setState({ event: "afterRowDrag" }));
+		this.grid.events.on("beforeColumnDrag", () => this.setState({ event: "beforeColumnDrag" }));
+		this.grid.events.on("dragColumnStart", () => this.setState({ event: "dragColumnStart" }));
+		this.grid.events.on("dragColumnOut", () => this.setState({ event: "dragColumnOut" }));
+		this.grid.events.on("dragColumnIn", () => this.setState({ event: "dragColumnIn" }));
+		this.grid.events.on("canColumnDrop", () => this.setState({ event: "canColumnDrop" }));
+		this.grid.events.on("cancelColumnDrop", () => this.setState({ event: "cancelColumnDrop" }));
+		this.grid.events.on("beforeColumnDrop", () => this.setState({ event: "beforeColumnDrop" }));
+		this.grid.events.on("afterColumnDrop", () => this.setState({ event: "afterColumnDrop" }));
+		this.grid.events.on("afterColumnDrag", () => this.setState({ event: "afterColumnDrag" }));
+		this.grid.events.on("beforeColumnHide", () => this.setState({ event: "beforeColumnHide" }));
+		this.grid.events.on("afterColumnHide", () => this.setState({ event: "afterColumnHide" }));
+		this.grid.events.on("beforeColumnShow", () => this.setState({ event: "beforeColumnShow" }));
+		this.grid.events.on("afterColumnShow", () => this.setState({ event: "afterColumnShow" }));
+		this.grid.events.on("beforeRowHide", () => this.setState({ event: "beforeRowHide" }));
+		this.grid.events.on("afterRowHide", () => this.setState({ event: "afterRowHide" }));
+		this.grid.events.on("beforeRowShow", () => this.setState({ event: "beforeRowShow" }));
+		this.grid.events.on("afterRowShow", () => this.setState({ event: "afterRowShow" }));
+		this.grid.events.on("beforeUnSelect", () => this.setState({ event: "beforeUnSelect" }));
+		this.grid.events.on("afterUnSelect", () => this.setState({ event: "afterUnSelect" }));
+		this.grid.events.on("beforeSelect", () => this.setState({ event: "beforeSelect" }));
+		this.grid.events.on("afterSelect", () => this.setState({ event: "afterSelect" }));
 	}
 	componentWillUnmount() {
 		this.grid && this.grid.destructor();
@@ -122,17 +152,17 @@ GridEvents.propTypes = {
 	data: PropTypes.oneOfType([PropTypes.array, PropTypes.instanceOf(DataCollection)]),
 	headerRowHeight: PropTypes.number,
 	footerRowHeight: PropTypes.number,
-	columnsAutoWidth: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
+	adjust: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
 	rowHeight: PropTypes.number,
 	type: PropTypes.oneOf(["tree"]),
 	width: PropTypes.number,
 	height: PropTypes.number,
-	headerSort: PropTypes.bool,
+	sortable: PropTypes.bool,
 	rowCss: PropTypes.func,
 	splitAt: PropTypes.number,
 	selection: PropTypes.bool,
 
-	fitToContainer: PropTypes.bool,
+	autoWidth: PropTypes.bool,
 	css: PropTypes.string,
 
 	$headerLevel: PropTypes.number,

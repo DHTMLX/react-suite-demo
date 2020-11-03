@@ -5,14 +5,13 @@ import "dhx-suite/codebase/suite.min.css";
 
 class Form extends Component {
 	componentDidMount() {
-		const { css, rows, gravity, padding, title, width } = this.props;
+		const { css, rows, padding, title, width } = this.props;
 		this.form = new FormDHX(this.el, {
-			css: css,
-			gravity: gravity,
-			padding: padding,
-			rows: rows,
-			title: title,
-			width: width,
+			css,
+			padding,
+			rows,
+			title,
+			width,
 		});
 	}
 	componentWillUnmount() {
@@ -52,15 +51,14 @@ class FormProps extends Component {
 			},
 			{
 				type: "checkbox",
-				label: "I agree",
+				text: "I agree",
 				name: "agree",
-				labelInline: true,
 				value: "checkboxvalue",
 				required: true,
 			},
 			{
 				type: "button",
-				value: "Send",
+				text: "Send",
 				size: "medium",
 				view: "flat",
 				submit: true,
@@ -72,7 +70,6 @@ class FormProps extends Component {
 				css={"dhx_widget--bordered"}
 				width={400}
 				rows={rows}
-				gravity={false}
 				padding={20}
 				title={"DHX Form"}
 			/>
@@ -82,14 +79,13 @@ class FormProps extends Component {
 
 FormProps.propTypes = {
 	css: PropTypes.string,
-	width: PropTypes.string,
-	height: PropTypes.string,
+	width: PropTypes.string || PropTypes.number,
+	height: PropTypes.string || PropTypes.number,
 	rows: PropTypes.array,
 	cols: PropTypes.array,
 	title: PropTypes.string,
 	align: PropTypes.oneOf(["start", "center", "end", "between", "around", "evenly"]),
-	padding: PropTypes.string,
-	gravity: PropTypes.bool,
+	padding: PropTypes.string || PropTypes.number,
 	disabled: PropTypes.bool,
 };
 

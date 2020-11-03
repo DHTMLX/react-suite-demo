@@ -14,15 +14,16 @@ class Grid extends Component {
 			multiselection,
 			selection,
 		} = this.props;
+
 		this.grid = new GridDHX(this.el, {
-			rowHeight: rowHeight,
-			adjust: adjust,
-			autoWidth: autoWidth,
-			columns: columns,
-			data: data,
-			editable: editable,
-			multiselection: multiselection,
-			selection: selection,
+			rowHeight,
+			adjust,
+			autoWidth,
+			columns,
+			data,
+			editable,
+			multiselection,
+			selection,
 		});
 	}
 	componentWillUnmount() {
