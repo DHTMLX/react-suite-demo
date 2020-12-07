@@ -17,6 +17,7 @@ class TabbarCDN extends Component {
 			this.tabbar = new dhx.Tabbar(this.el, {
 				mode: "top",
 				css: "dhx_widget--bordered dhx_widget--bg_white",
+				tabAutoWidth: true,
 				views: [
 					{
 						tab: "Vilnius",

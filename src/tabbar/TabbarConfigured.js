@@ -8,6 +8,7 @@ class TabbarConfigured extends Component {
 			mode: "top",
 			css: "dhx_widget--bordered dhx_widget--bg_white",
 			closeButtons: true,
+			tabAutoWidth: true,
 			disabled: ["Vilnius", "London"],
 			activeTab: "Paris",
 			views: [
