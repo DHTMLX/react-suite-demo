@@ -72,7 +72,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ## Useful links
 
 - [Online  documentation](https://docs.dhtmlx.com/)
-- [Support forum](https://forum.dhtmlx.com/c/suite6)
+- [Support forum](https://forum.dhtmlx.com/c/suite7)
 
 
 ## Follow us
