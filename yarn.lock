@@ -2310,35 +2310,10 @@ detect-port-alt@1.1.6:
     address "^1.0.1"
     debug "^2.6.0"
 
-dhx-pivot@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/dhx-pivot/-/dhx-pivot-1.4.0.tgz#6075316b45f7c52c7dcd08d16dda7bc0806a1b2c"
-  integrity sha512-/ZRZg4i/RbMs/BeoexSvIeoRAN5GHdp1i7QxSCfRxpRzcecErorGFg1wO8fOfd4M419Ymof/Et6yiYb3v88tJg==
-
-dhx-richtext@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/dhx-richtext/-/dhx-richtext-1.1.1.tgz#6d0afbfe82ddcd2c744da20b40a087bfc37b070a"
-  integrity sha512-MEOVRxwkBVXn3IYMZP58HJno4YtVQsZmzpf+MX52Ev71zlmjt9bVkeSo3PKRrcijRRTzsMWZR57R1afEsAudOw==
-
-dhx-spreadsheet@^3.0.0:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/dhx-spreadsheet/-/dhx-spreadsheet-3.0.2.tgz#4d669a1da70ff1b5f4084ea9d3abc218e5c243b6"
-  integrity sha512-V0S/qnMwabr2jFPcqiIhgE6Q29pNh1fJ6KtRd9cE25XovD0v7+m8qETvbaCc+3YJ3X2ADJozbyaMgEpCkV9ICA==
-
-dhx-suite@^6.4.1:
-  version "6.4.1"
-  resolved "https://registry.yarnpkg.com/dhx-suite/-/dhx-suite-6.4.1.tgz#2d45b59a2606eb4b17ead7c719481ed8ff47ee9d"
-  integrity sha512-baz+c3/aeYTGZJNfV5KPoKMOedQ8+axkgfqW/BU2hqj8qWi8DI9hH2/ZKsew6WnKYZlfQeX8oPpeVN8iNCFdfQ==
-
-dhx-treegrid@^6.1.5:
-  version "6.1.5"
-  resolved "https://registry.yarnpkg.com/dhx-treegrid/-/dhx-treegrid-6.1.5.tgz#7263098a3303be3709793658037de8e5bb0c9b40"
-  integrity sha512-GV+/4Zv7njnG9sQxRVk/uzq8NJ5/7/l1JxsEftycvdoaDFmjOwFRXHGpryTKzNeKnB46F4B5o4B+ruqjNiUsrw==
-
-dhx-vault@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/dhx-vault/-/dhx-vault-3.0.0.tgz#5f5abd592521fa7122876ac4383e5bcb78668300"
-  integrity sha512-6izpDAkf43G3+O+ErJwpCwDBw+kVY4IhiOcsOztY6LUa/Q9dTr+ag1/3A1o7ta2RuS3eHaSXjYxQQgbwLP0H3A==
+dhx-suite@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/dhx-suite/-/dhx-suite-8.0.0.tgz#5cb9b682ea4249e7fa6e0672f686ca5c092fd25a"
+  integrity sha512-Qg3cstXI4nrINkDw4RhcVqW4Hcmqv/l+0GM5rAk64dmhLt2LHCK/0bhBfqi4iTb5fcbA+DjwOwXTxYapcEqH4g==
 
 diff@^3.2.0:
   version "3.5.0"
@@ -6279,6 +6254,11 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
   integrity sha1-gV7R9uvGWSb4ZbMQwHE7yzMVzks=
+
+prettier@^2.0.5:
+  version "2.8.4"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.4.tgz#34dd2595629bfbb79d344ac4a91ff948694463c3"
+  integrity sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==
 
 pretty-bytes@^4.0.2:
   version "4.0.2"
