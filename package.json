@@ -5,7 +5,7 @@
   "homepage": " https://dhtmlx.github.io/react-widgets/",
   "dependencies": {
     "@mdi/font": "^3.8.95",
-    "dhx-suite": "^8.0.0",
+    "dhx-suite": "^8.1.0",
     "from-cdn": "^1.0.0",
     "loadash": "^1.0.0",
     "react": "^16.8.0",
