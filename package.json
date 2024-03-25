@@ -1,34 +1,27 @@
 {
-  "name": "react-demo",
-  "version": "8.0.0",
+  "name": "react-suite-demo",
   "private": true,
-  "homepage": " https://dhtmlx.github.io/react-widgets/",
-  "dependencies": {
-    "@mdi/font": "^3.8.95",
-    "dhx-suite": "^8.3.0",
-    "from-cdn": "^1.0.0",
-    "loadash": "^1.0.0",
-    "react": "^16.8.0",
-    "react-app-polyfill": "^1.0.5",
-    "react-dom": "^16.8.0",
-    "react-redux": "^7.1.3",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5",
-    "react-thunk": "^1.0.0",
-    "redux": "^4.0.4",
-    "smoothscroll-polyfill": "^0.4.4",
-    "thunk": "^0.0.1",
-    "prettier": "^2.0.5"
-  },
+  "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "deploy": "yarn run build && yarn gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "prettier": "prettier --write src/**/*.{js,ts,html,css,scss}"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@dhx/trial-suite": "^8.3.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "gh-pages": "^2.1.1"
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@vitejs/plugin-react": "^4.2.0",
+    "eslint": "^8.53.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.4",
+    "vite": "^5.0.0"
   }
 }

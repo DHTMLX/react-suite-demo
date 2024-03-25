@@ -1,0 +1,19 @@
+.wrapper-main {
+    flex-grow: 1;
+    overflow: auto !important;
+    padding: 12px;
+    gap: 12px;
+}
+.bordered {
+    border: var(--dhx-border);
+}
+
+.grid_container {
+    min-height: 848px;
+    min-width: 800px;
+}
+
+.col-wrap {
+    height: fit-content;
+    gap: 12px;
+}
