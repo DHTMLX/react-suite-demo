@@ -2,7 +2,7 @@
 
 [![dhtmlx.com](https://img.shields.io/badge/made%20by-DHTMLX-blue)](https://dhtmlx.com/)
 
-![DHTMLX Suite with Angular Demo](https://raw.githubusercontent.com/DHTMLX/react-widgets/master/suite.png)
+![DHTMLX Suite with React Demo](https://raw.githubusercontent.com/DHTMLX/react-widgets/master/suite.png)
 
 ## How to start
 
