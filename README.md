@@ -17,6 +17,7 @@ You can also use [GitHub Codespaces](https://docs.github.com/en/codespaces/devel
 ## Useful links
 
 - **[Online demo](https://replit.com/@dhtmlx/dhtmlx-suite-with-react)**
+- [More demos about the DHTMLX Suite functionality](https://snippet.dhtmlx.com/1eh4ks4f)
 - [Technical support ](https://forum.dhtmlx.com/c/suite)
 - [Documentation](https://docs.dhtmlx.com/suite/)
 
