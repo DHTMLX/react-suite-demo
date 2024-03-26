@@ -10,8 +10,16 @@ Clone the repository or download files.
 
 ```
 yarn
-yarn dev
+yarn start
 ```
+
+or
+
+```
+npm install
+npm run start
+```
+
 You can also use [GitHub Codespaces](https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository) to run online.
 
 ## Useful links
