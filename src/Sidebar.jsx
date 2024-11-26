@@ -7,9 +7,11 @@ const SidebarComponent = () => {
   const nodeRef = useRef(null);
 
   useEffect(() => {
-    const sidebar = new Sidebar(nodeRef.current, {})
+    const sidebar = new Sidebar(nodeRef.current, {});
     setSidebar(sidebar);
-    return () => {sidebar.destructor()};
+    return () => {
+      sidebar.destructor();
+    };
   }, []);
 
   useEffect(() => {
@@ -24,9 +26,7 @@ const SidebarComponent = () => {
       }
     });
     sidebar.data.parse(store.sidebarData);
-
-  }, [sidebar])
-
+  }, [sidebar]);
 
   return <div ref={nodeRef} className="dhx_widget--border_right"></div>;
 };

@@ -16,7 +16,7 @@ export default function GridComponent() {
           id: "time",
           header: [{ text: "Time", align: "center" }],
           type: "date",
-          format: "%M %d, %H:%i",
+          dateFormat: "%M %d, %H:%i",
         },
         { id: "nights", header: [{ text: "Nights" }] },
         {
@@ -24,8 +24,9 @@ export default function GridComponent() {
           gravity: 1,
           header: [{ text: "Price" }],
           type: "number",
-          format: "# #",
-          template: (i) => `$ ${i}`,
+          numberMask: {
+            prefix: "$",
+          },
         },
         {
           gravity: 3,
@@ -46,8 +47,9 @@ export default function GridComponent() {
           id: "totalCost",
           header: [{ text: "Total Cost" }],
           type: "number",
-          format: "# #",
-          template: (i) => `$${i}`,
+          numberMask: {
+            prefix: "$",
+          },
         },
       ],
       css: "grid",

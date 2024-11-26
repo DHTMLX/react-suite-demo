@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 import { DataView } from "@dhx/trial-suite";
 import "@dhx/trial-suite/codebase/suite.min.css";
 import store from "../../store";
@@ -41,12 +41,10 @@ export default function TicketsDataview() {
     return () => dataview.destructor();
   }, []);
 
-  useEffect(() => { 
+  useEffect(() => {
     if (!dataview) return;
     dataview.data.parse(store.ticketsDataviewData);
   }, [dataview]);
 
-  return (
-    <div ref={node}/>
-  );
+  return <div ref={node} />;
 }

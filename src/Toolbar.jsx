@@ -1,4 +1,4 @@
-import  { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Toolbar, setTheme } from "@dhx/trial-suite";
 import store from "./store";
 
@@ -22,7 +22,9 @@ const ToolbarComponent = () => {
           const checked = !toolbar.data.getItem("theme").checked;
           toolbar.data.update("theme", {
             checked,
-            icon: `mdi mdi-${!checked ? "weather-night" : "white-balance-sunny"}`,
+            icon: `mdi mdi-${
+              !checked ? "weather-night" : "white-balance-sunny"
+            }`,
           });
           setThemeState(checked ? "dark" : "light");
           break;
@@ -34,12 +36,11 @@ const ToolbarComponent = () => {
       }
     });
     toolbar.data.parse(store.toolbarData);
-  }, [toolbar])
+  }, [toolbar]);
 
   useEffect(() => {
     setTheme(`${contrast ? "contrast-" : ""}${theme}`);
   }, [contrast, theme]);
-
 
   return <div ref={node}></div>;
 };

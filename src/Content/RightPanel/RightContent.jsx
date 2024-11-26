@@ -6,8 +6,11 @@ import MessageDataview from "./MessageDataview";
 
 export default function RightContent() {
   return (
-    <div className="flex-cols grow col-wrap" style={{width: 600, flexShrink: 0}}>
-      <Chart/>
+    <div
+      className="flex-cols grow col-wrap"
+      style={{ width: 600, flexShrink: 0 }}
+    >
+      <Chart />
       <FormComponent />
       <ButtonsForm />
       <Colorpicker />

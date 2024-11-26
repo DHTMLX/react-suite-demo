@@ -4,6 +4,7 @@
     padding: 12px;
     gap: 12px;
 }
+
 .bordered {
     border: var(--dhx-border);
 }

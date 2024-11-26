@@ -101,7 +101,6 @@ export default function SlidersLayout() {
     layout.getCell("slider4").attach(slider4);
     layout.getCell("slider5").attach(slider5);
     return () => layout.destructor();
-
   }, []);
 
   return <div className="grow bordered" ref={node}></div>;

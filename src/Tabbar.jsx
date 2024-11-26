@@ -17,7 +17,6 @@ const TabbarComponent = () => {
       ],
     });
 
-
     return () => {
       newTabbar.destructor();
     };

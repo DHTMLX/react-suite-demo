@@ -1,4 +1,4 @@
-import  { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 import { Tree } from "@dhx/trial-suite";
 import store from "../../store";
 
@@ -16,7 +16,6 @@ export default function TreeComponent() {
 
     setTree(tree);
 
-
     // Cleanup
     return () => tree.destructor();
   }, []);
@@ -26,7 +25,5 @@ export default function TreeComponent() {
     tree.data.parse(store.treeData);
   }, [tree]);
 
-  return (
-    <div ref={node} className="bordered" />
-  );
+  return <div ref={node} className="bordered" />;
 }
