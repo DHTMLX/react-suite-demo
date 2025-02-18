@@ -213,10 +213,10 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@dhx/trial-suite@^9.0.0":
-  version "9.0.0"
-  resolved "https://npm.dhtmlx.com/@dhx%2ftrial-suite/-/trial-suite-9.0.0.tgz#5c2ffe6d960dbc2b8778073dcd4855b9ece846d0"
-  integrity sha512-xoaYfWYDEheVhKm1RoOOcdK8toV6PiE68IWE/eCnh6OFOBbLl9iPlOve8fI86KtMini9mi7pdYBziu4zf6GCog==
+"@dhx/trial-suite@^9.1.0":
+  version "9.1.0"
+  resolved "https://npm.dhtmlx.com/@dhx%2ftrial-suite/-/trial-suite-9.1.0.tgz#64924705ca6bc147e341b4dc0bcba6c9e4112436"
+  integrity sha512-lRiT0S5mgPYpkeh037uoDj29D9Wdc1Hllg4d2BCVKFoxqDnEUYRypjGWgtquDYdAdQB8W7My9gNK4M6Kf1wZLg==
 
 "@esbuild/android-arm64@0.19.8":
   version "0.19.8"
