@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { DataView } from "@dhx/trial-suite";
 import "@dhx/trial-suite/codebase/suite.min.css";
-import store from "../../store";
+import store from "../../data";
 
 export default function TicketsDataview() {
   const node = useRef(null);

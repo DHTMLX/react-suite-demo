@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Tree } from "@dhx/trial-suite";
-import store from "../../store";
+import store from "../../data";
 
 export default function TreeComponent() {
   const node = useRef(null);

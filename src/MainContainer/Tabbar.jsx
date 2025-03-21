@@ -5,7 +5,7 @@ const TabbarComponent = () => {
   const node = useRef(null);
 
   useEffect(() => {
-    const newTabbar = new Tabbar(node.current, {
+    const tabbar = new Tabbar(node.current, {
       tabAlign: "center",
       disabled: ["reports", "tickets", "users", "applications"],
       views: [
@@ -13,12 +13,12 @@ const TabbarComponent = () => {
         { id: "reports", tab: "Reports" },
         { id: "tickets", tab: "Tickets" },
         { id: "users", tab: "Users" },
-        { id: "applications", tab: "Applications" },
-      ],
+        { id: "applications", tab: "Applications" }
+      ]
     });
 
     return () => {
-      newTabbar.destructor();
+      tabbar.destructor();
     };
   }, []);
 

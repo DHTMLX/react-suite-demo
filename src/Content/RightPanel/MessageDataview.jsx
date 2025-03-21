@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { DataView } from "@dhx/trial-suite";
-import store from "../../store";
+import store from "../../data";
 
 export default function MessageDataview() {
   const node = useRef(null);
@@ -34,5 +34,5 @@ export default function MessageDataview() {
     return () => dataview.destructor();
   }, []);
 
-  return <div ref={node} className="" />;
+  return <div ref={node} />;
 }

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Chart, Layout } from "@dhx/trial-suite";
-import store from "../../store";
+import store from "../../data";
 
 export default function AccordionComponent() {
   const node = useRef(null);

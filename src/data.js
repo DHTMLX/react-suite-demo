@@ -1411,7 +1411,7 @@ const country = [
   },
 ];
 
-const store = {
+const data = {
   gridDataset,
   chartData,
   hotelsData,
@@ -1424,4 +1424,4 @@ const store = {
   toolbarData,
 };
 
-export default store;
+export default data;

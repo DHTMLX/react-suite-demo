@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Grid, Pagination } from "@dhx/trial-suite";
-import store from "../../store";
+import store from "../../data";
 
 export default function GridComponent() {
   let [grid, setGrid] = useState(null);

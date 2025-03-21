@@ -1,7 +1,6 @@
-import MainContainer from "./MainContainer";
-import Sidebar from "./Sidebar";
+import MainContainer from "./MainContainer/MainContainer";
+import Sidebar from "./Sidebar/Sidebar";
 import "@dhx/trial-suite/codebase/suite.min.css";
-import "./App.css";
 
 const App = () => {
   return (

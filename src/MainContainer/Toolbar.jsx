@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { Toolbar, setTheme } from "@dhx/trial-suite";
-import store from "./store";
+import store from "../data";
 
 const ToolbarComponent = () => {
   let [theme, setThemeState] = useState("light");

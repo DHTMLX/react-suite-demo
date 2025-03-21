@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Sidebar } from "@dhx/trial-suite";
-import store from "./store";
+import store from "../data";
 
 const SidebarComponent = () => {
   let [sidebar, setSidebar] = useState(null);
-  const nodeRef = useRef(null);
+  const node = useRef(null);
 
   useEffect(() => {
-    const sidebar = new Sidebar(nodeRef.current, {});
+    const sidebar = new Sidebar(node.current, {});
     setSidebar(sidebar);
     return () => {
       sidebar.destructor();
@@ -28,7 +28,7 @@ const SidebarComponent = () => {
     sidebar.data.parse(store.sidebarData);
   }, [sidebar]);
 
-  return <div ref={nodeRef} className="dhx_widget--border_right"></div>;
+  return <div ref={node} className="dhx_widget--border_right"></div>;
 };
 
 export default SidebarComponent;

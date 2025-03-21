@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Ribbon } from "@dhx/trial-suite";
-import store from "../../store";
+import store from "../../data";
 
 export default function RibbonComponent() {
   const node = useRef(null);
