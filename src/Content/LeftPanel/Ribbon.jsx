@@ -22,11 +22,5 @@ export default function RibbonComponent() {
     ribbon.data.parse(store.ribbonData);
   }, [ribbon]);
 
-  return (
-    <div
-      ref={node}
-      className="bordered"
-      style={{ padding: 50, background: "var(--dhx-background-primary)" }}
-    />
-  );
+  return <div ref={node} className="dhx_widget--bordered ribbon_container" />;
 }

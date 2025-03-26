@@ -44,5 +44,5 @@ export default function ChartComponent() {
     chart.data.parse(store.chartData);
   }, [chart]);
 
-  return <div ref={node} className="bordered" />;
+  return <div ref={node} className="dhx_widget--bordered" />;
 }

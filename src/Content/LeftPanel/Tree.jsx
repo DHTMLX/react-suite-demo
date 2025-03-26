@@ -25,5 +25,5 @@ export default function TreeComponent() {
     tree.data.parse(store.treeData);
   }, [tree]);
 
-  return <div ref={node} className="bordered" />;
+  return <div ref={node} className="dhx_widget--bordered" />;
 }

@@ -157,5 +157,5 @@ export default function ButtonsForm() {
     return () => form.destructor();
   }, []);
 
-  return <div ref={node} className="container bordered" />;
+  return <div ref={node} className="container dhx_widget--bordered" />;
 }

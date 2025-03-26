@@ -1,6 +1,5 @@
 import LeftContent from "./LeftPanel/LeftContent";
 import RightContent from "./RightPanel/RightContent";
-import "./Content.css";
 
 const Content = () => {
   return (
