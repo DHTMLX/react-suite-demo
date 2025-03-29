@@ -71,8 +71,7 @@ export default function ColorpickerComponent() {
   return (
     <div
       ref={node}
-      className="container bordered dhx_layout_colorpicker_cell"
-      style={{ justifyContent: "center" }}
+      className="container dhx_widget--bordered dhx_layout_colorpicker_cell"
     />
   );
 }

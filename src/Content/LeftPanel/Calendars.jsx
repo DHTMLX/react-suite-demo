@@ -31,13 +31,10 @@ export default function Calendars() {
   }, []);
 
   return (
-    <div
-      className="container"
-      style={{ gap: 12, justifyContent: "space-between" }}
-    >
-      <div className="bordered" ref={weekNode}></div>
-      <div className="bordered" ref={timepickerNode}></div>
-      <div className="bordered" ref={yearNode}></div>
+    <div className="container row-wrap">
+      <div className="dhx_widget--bordered" ref={weekNode}></div>
+      <div className="dhx_widget--bordered" ref={timepickerNode}></div>
+      <div className="dhx_widget--bordered" ref={yearNode}></div>
     </div>
   );
 }

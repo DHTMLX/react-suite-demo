@@ -79,5 +79,5 @@ export default function AccordionComponent() {
     chart?.data.parse(store.hotelsData);
   }, [chart]);
 
-  return <div className="bordered" ref={node}></div>;
+  return <div className="dhx_widget--bordered" ref={node}></div>;
 }

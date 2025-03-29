@@ -8,14 +8,11 @@ import Tree from "./Tree";
 
 export default function LeftContent() {
   return (
-    <div className="flex-cols grow col-wrap" style={{ maxWidth: 800 }}>
+    <div className="flex-cols grow col-wrap content_left">
       <Grid />
       <Calendars />
       <Accardion />
-      <div
-        className="container"
-        style={{ gap: 12, justifyContent: "space-between" }}
-      >
+      <div className="container row-wrap">
         <SlidersLayout />
         <Tree />
       </div>

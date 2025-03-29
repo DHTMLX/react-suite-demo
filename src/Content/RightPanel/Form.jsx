@@ -169,5 +169,5 @@ export default function FormComponent() {
     return () => form.destructor();
   }, []);
 
-  return <div ref={node} className="bordered" />;
+  return <div ref={node} className="dhx_widget--bordered" />;
 }

@@ -103,5 +103,5 @@ export default function SlidersLayout() {
     return () => layout.destructor();
   }, []);
 
-  return <div className="grow bordered" ref={node}></div>;
+  return <div className="grow dhx_widget--bordered" ref={node}></div>;
 }

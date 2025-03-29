@@ -387,4 +387,40 @@
   .dhx-container__widget {
     height: 100%;
   }
+
+  .wrapper-main {
+    flex-grow: 1;
+    overflow: auto !important;
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .grid_container {
+    min-height: 848px;
+    min-width: 800px;
+  }
+
+  .col-wrap {
+    height: fit-content;
+    gap: 12px;
+  }
+
+  .row-wrap {
+    gap: 12px;
+    justify-content: space-between;
+  }
+  
+  .content_left {
+    max-width: 800px;
+  }
+
+  .ribbon_container {
+    padding: 50px;
+    background: var(--dhx-background-primary);
+  }
+
+  .content_right {
+    width: 600px;
+    flex-shrink: 0;
+  }
   

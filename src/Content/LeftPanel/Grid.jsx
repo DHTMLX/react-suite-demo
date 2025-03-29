@@ -78,7 +78,7 @@ export default function GridComponent() {
   }, [grid]);
 
   return (
-    <div className="flex-cols bordered">
+    <div className="flex-cols dhx_widget--bordered">
       <div ref={gNode} className="grid_container"></div>
       <div ref={pNode}></div>
     </div>
