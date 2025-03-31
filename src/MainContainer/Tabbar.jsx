@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 import { Tabbar } from "@dhx/trial-suite";
 
-const TabbarComponent = () => {
-  const node = useRef(null);
+export default function TabbarComponent () {
+  const tabbar_container = useRef(null);
 
   useEffect(() => {
-    const tabbar = new Tabbar(node.current, {
+    const tabbar = new Tabbar(tabbar_container.current, {
       tabAlign: "center",
       disabled: ["reports", "tickets", "users", "applications"],
       views: [
@@ -18,11 +18,9 @@ const TabbarComponent = () => {
     });
 
     return () => {
-      tabbar.destructor();
+      tabbar?.destructor();
     };
   }, []);
 
-  return <div ref={node}></div>;
+  return <div ref={tabbar_container}></div>;
 };
-
-export default TabbarComponent;

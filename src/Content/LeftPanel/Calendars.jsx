@@ -1,40 +1,42 @@
 import { useEffect, useRef } from "react";
 import { Calendar, Timepicker } from "@dhx/trial-suite";
 
-export default function Calendars() {
-  const weekNode = useRef(null);
-  const timepickerNode = useRef(null);
-  const yearNode = useRef(null);
+export default function CalendarsComponent() {
+  const week_container = useRef(null);
+  const timepicker_container = useRef(null);
+  const year_container = useRef(null);
 
   useEffect(() => {
-    const week = new Calendar(weekNode.current, {
+    const week_calendar = new Calendar(week_container.current, {
       weekStart: "monday",
       timePicker: true,
       range: true,
-      value: [new Date(), new Date(Date.now() + 200000000)],
+      value: [new Date(), new Date(Date.now() + 200000000)]
     });
-    const timePicker = new Timepicker(timepickerNode.current, {
+
+    const timepicker = new Timepicker(timepicker_container.current, {
       controls: true,
-      value: new Date(),
+      value: new Date()
     });
-    const year = new Calendar(yearNode.current, {
+
+    const year_calendar = new Calendar(year_container.current, {
       timePicker: true,
       mode: "year",
-      value: new Date(),
+      value: new Date()
     });
 
     return () => {
-      week.destructor();
-      timePicker.destructor();
-      year.destructor();
+      week_calendar?.destructor();
+      timepicker?.destructor();
+      year_calendar?.destructor();
     };
   }, []);
 
   return (
     <div className="container row-wrap">
-      <div className="dhx_widget--bordered" ref={weekNode}></div>
-      <div className="dhx_widget--bordered" ref={timepickerNode}></div>
-      <div className="dhx_widget--bordered" ref={yearNode}></div>
+      <div className="dhx_widget--bordered" ref={week_container}></div>
+      <div className="dhx_widget--bordered" ref={timepicker_container}></div>
+      <div className="dhx_widget--bordered" ref={year_container}></div>
     </div>
   );
 }

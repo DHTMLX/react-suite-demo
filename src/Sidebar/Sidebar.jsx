@@ -1,16 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import { Sidebar } from "@dhx/trial-suite";
-import store from "../data";
+import { getData } from "../data";
 
-const SidebarComponent = () => {
+export default function SidebarComponent () {
+  const { sidebarData } = getData();
   let [sidebar, setSidebar] = useState(null);
-  const node = useRef(null);
+  const sidebar_container = useRef(null);
 
   useEffect(() => {
-    const sidebar = new Sidebar(node.current, {});
+    const sidebar = new Sidebar(sidebar_container.current, {});
     setSidebar(sidebar);
     return () => {
-      sidebar.destructor();
+      sidebar?.destructor();
     };
   }, []);
 
@@ -25,10 +26,8 @@ const SidebarComponent = () => {
           : "mdi mdi-backburger";
       }
     });
-    sidebar.data.parse(store.sidebarData);
+    sidebar.data.parse(sidebarData);
   }, [sidebar]);
 
-  return <div ref={node} className="dhx_widget--border_right"></div>;
+  return <div ref={sidebar_container} className="dhx_widget--border_right"></div>;
 };
-
-export default SidebarComponent;

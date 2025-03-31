@@ -1,15 +1,13 @@
-import Content from "../Content/Content"; 
-import Tabbar from "./Tabbar";
-import Toolbar from "./Toolbar";
+import ContentComponent from "../Content/Content"; 
+import TabbarComponent from "./Tabbar";
+import ToolbarComponent from "./Toolbar";
 
-const MainContainer = () => {
+export default function MainContainerComponent () {
   return (
     <div className="container flex-cols">
-      <Toolbar />
-      <Tabbar />
-      <Content />
+      <ToolbarComponent />
+      <TabbarComponent />
+      <ContentComponent />
     </div>
   );
 };
-
-export default MainContainer;

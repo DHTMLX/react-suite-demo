@@ -1,14 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Grid, Pagination } from "@dhx/trial-suite";
-import store from "../../data";
+import { getData } from "../../data";
 
 export default function GridComponent() {
-  let [grid, setGrid] = useState(null);
-  const gNode = useRef(null);
-  const pNode = useRef(null);
+  const { gridData } = getData();
+  const grid_container = useRef(null);
+  const pagination_container = useRef(null);
 
   useEffect(() => {
     const gridConfig = {
+      data: gridData,
       autoWidth: true,
       columns: [
         {
@@ -58,29 +59,22 @@ export default function GridComponent() {
       editable: true,
     };
 
-    const grid = new Grid(gNode.current, gridConfig);
-    const paginator = new Pagination(pNode.current, {
+    const grid = new Grid(grid_container.current, gridConfig);
+    const pagination = new Pagination(pagination_container.current, {
       pageSize: 20,
       data: grid.data,
     });
-    // Initialize grid and paginator here
-    setGrid(grid);
 
-    // Cleanup
     return () => {
       grid?.destructor();
-      paginator?.destructor();
+      pagination?.destructor();
     };
   }, []);
 
-  useEffect(() => {
-    grid?.data.parse(store.gridDataset);
-  }, [grid]);
-
   return (
     <div className="flex-cols dhx_widget--bordered">
-      <div ref={gNode} className="grid_container"></div>
-      <div ref={pNode}></div>
+      <div ref={grid_container} className="grid_container"></div>
+      <div ref={pagination_container}></div>
     </div>
   );
 }

@@ -1,23 +1,23 @@
-import Accardion from "./Accardion";
-import Calendars from "./Calendars";
-import Grid from "./Grid";
-import Ribbon from "./Ribbon";
-import SlidersLayout from "./SlidersLayout";
-import TicketsDataview from "./TicketsDataview";
-import Tree from "./Tree";
+import ChartComponent from "./Chart";
+import CalendarsComponent from "./Calendars";
+import GridComponent from "./Grid";
+import RibbonComponent from "./Ribbon";
+import SlidersLayoutComponent from "./SlidersLayout";
+import TicketsDataviewComponent from "./TicketsDataview";
+import TreeComponent from "./Tree";
 
-export default function LeftContent() {
+export default function LeftContentComponent() {
   return (
     <div className="flex-cols grow col-wrap content_left">
-      <Grid />
-      <Calendars />
-      <Accardion />
+      <GridComponent />
+      <CalendarsComponent />
+      <ChartComponent />
       <div className="container row-wrap">
-        <SlidersLayout />
-        <Tree />
+        <SlidersLayoutComponent />
+        <TreeComponent />
       </div>
-      <Ribbon />
-      <TicketsDataview />
+      <RibbonComponent />
+      <TicketsDataviewComponent />
     </div>
   );
 }

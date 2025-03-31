@@ -1,17 +1,17 @@
-import ButtonsForm from "./ButtonsForm";
-import Chart from "./Chart";
-import Colorpicker from "./Colorpicker";
+import ButtonsFormComponent from "./ButtonsForm";
+import ChartComponent from "./Chart";
+import ColorpickerComponent from "./Colorpicker";
 import FormComponent from "./Form";
-import MessageDataview from "./MessageDataview";
+import MessageDataviewComponent from "./MessageDataview";
 
-export default function RightContent() {
+export default function RightContentComponent() {
   return (
     <div className="flex-cols grow col-wrap content_right">
-      <Chart />
+      <ChartComponent />
       <FormComponent />
-      <ButtonsForm />
-      <Colorpicker />
-      <MessageDataview />
+      <ButtonsFormComponent />
+      <ColorpickerComponent />
+      <MessageDataviewComponent />
     </div>
   );
 }

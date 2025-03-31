@@ -1,26 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import { Ribbon } from "@dhx/trial-suite";
-import store from "../../data";
+import { getData } from "../../data";
 
 export default function RibbonComponent() {
-  const node = useRef(null);
-  let [ribbon, setRibbon] = useState(null);
+  const { ribbonData } = getData();
+  const ribbon_container = useRef(null);
 
   useEffect(() => {
-    const ribbon = new Ribbon(node.current, {
-      css: "dhx_widget--bordered",
+    const ribbon = new Ribbon(ribbon_container.current, {
+      data: ribbonData,
+      css: "dhx_widget--bordered"
     });
 
-    setRibbon(ribbon);
-
-    // Cleanup
     return () => ribbon.destructor();
   }, []);
 
-  useEffect(() => {
-    if (!ribbon) return;
-    ribbon.data.parse(store.ribbonData);
-  }, [ribbon]);
-
-  return <div ref={node} className="dhx_widget--bordered ribbon_container" />;
+  return <div ref={ribbon_container} className="dhx_widget--bordered ribbon_container" />;
 }

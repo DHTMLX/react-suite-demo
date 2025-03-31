@@ -1,36 +1,13 @@
 import { useEffect, useRef } from "react";
 import { Form } from "@dhx/trial-suite";
+import { getData } from "../../data";
 
 export default function FormComponent() {
-  const node = useRef(null);
-
-  const country = [
-    {
-      id: "austria",
-      value: "Austria",
-      src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/at.png",
-    },
-    {
-      value: "Belarus",
-      src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/by.png",
-    },
-    {
-      value: "Belgium",
-      src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/be.png",
-    },
-    {
-      value: "Bulgaria",
-      src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/bg.png",
-    },
-    {
-      value: "Cyprus",
-      src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/cy.png",
-    },
-    // ... add more countries here
-  ];
+  const { country } = getData();
+  const form_container = useRef(null);
 
   useEffect(() => {
-    const form = new Form(node.current, {
+    const form = new Form(form_container.current, {
       padding: 40,
       width: "auto",
       rows: [
@@ -54,8 +31,8 @@ export default function FormComponent() {
               label: "Surname",
               placeholder: "Type text",
               required: true,
-            },
-          ],
+            }
+          ]
         },
         {
           name: "country",
@@ -107,9 +84,9 @@ export default function FormComponent() {
                 type: "radioButton",
                 text: "Advanced",
                 value: "2",
-              },
-            ],
-          },
+              }
+            ]
+          }
         },
         {
           name: "backgroundColor",
@@ -156,18 +133,15 @@ export default function FormComponent() {
                 id: "4",
                 type: "checkbox",
                 text: "Your option",
-              },
-            ],
-          },
-        },
-      ],
+              }
+            ]
+          }
+        }
+      ]
     });
 
-    // Parse the data into the form
-
-    // Cleanup
-    return () => form.destructor();
+    return () => form?.destructor();
   }, []);
 
-  return <div ref={node} className="dhx_widget--bordered" />;
+  return <div ref={form_container} className="dhx_widget--bordered" />;
 }

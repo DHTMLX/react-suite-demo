@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { Colorpicker, awaitRedraw } from "@dhx/trial-suite";
 
-export default function ColorpickerComponent() {
-  const node = useRef(null);
+export default function ColorpickerComponent () {
+  const colorpicker_container = useRef(null);
 
   const hexToHSLChema = (HEX) => {
     let r = 0,
@@ -50,7 +50,7 @@ export default function ColorpickerComponent() {
   };
 
   useEffect(() => {
-    const colorpicker = new Colorpicker(node.current, {
+    const colorpicker = new Colorpicker(colorpicker_container.current, {
       mode: "picker",
     });
 
@@ -65,12 +65,12 @@ export default function ColorpickerComponent() {
     });
 
     // return () => colorpicker.destructor();
-    return () => awaitRedraw().then(() => colorpicker.destructor());
+    return () => awaitRedraw().then(() => colorpicker?.destructor());
   }, []);
 
   return (
     <div
-      ref={node}
+      ref={colorpicker_container}
       className="container dhx_widget--bordered dhx_layout_colorpicker_cell"
     />
   );

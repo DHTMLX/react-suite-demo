@@ -1,17 +1,20 @@
 import { useRef, useEffect, useState } from "react";
 import { Toolbar, setTheme } from "@dhx/trial-suite";
-import store from "../data";
+import { getData } from "../data";
 
-const ToolbarComponent = () => {
+export default function ToolbarComponent () {
+  const { toolbarData } = getData();
   let [theme, setThemeState] = useState("light");
   let [contrast, setContrast] = useState(false);
   let [toolbar, setToolbar] = useState(null);
-  const node = useRef(null);
+  const toolbar_container = useRef(null);
 
   useEffect(() => {
-    const toolbar = new Toolbar(node.current, {});
+    const toolbar = new Toolbar(toolbar_container.current, {
+      data: toolbarData
+    });
     setToolbar(toolbar);
-    return () => toolbar.destructor();
+    return () => toolbar?.destructor();
   }, []);
 
   useEffect(() => {
@@ -35,14 +38,12 @@ const ToolbarComponent = () => {
         }
       }
     });
-    toolbar.data.parse(store.toolbarData);
+    toolbar.data.parse(toolbarData);
   }, [toolbar]);
 
   useEffect(() => {
     setTheme(`${contrast ? "contrast-" : ""}${theme}`);
   }, [contrast, theme]);
 
-  return <div ref={node}></div>;
+  return <div ref={toolbar_container}></div>;
 };
-
-export default ToolbarComponent;

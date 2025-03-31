@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 import { Form } from "@dhx/trial-suite";
 
-export default function ButtonsForm() {
-  const node = useRef(null);
+export default function ButtonsFormComponent() {
+  const buttons_form_container = useRef(null);
 
   useEffect(() => {
-    const form = new Form(node.current, {
+    const form = new Form(buttons_form_container.current, {
       height: "content",
       padding: 40,
       align: "between",
@@ -42,8 +42,8 @@ export default function ButtonsForm() {
               full: true,
               disabled: true,
               size: "small",
-            },
-          ],
+            }
+          ]
         },
         {
           align: "between",
@@ -77,8 +77,8 @@ export default function ButtonsForm() {
               full: true,
               size: "small",
               disabled: true,
-            },
-          ],
+            }
+          ]
         },
         {
           align: "between",
@@ -112,8 +112,8 @@ export default function ButtonsForm() {
               full: true,
               size: "small",
               disabled: true,
-            },
-          ],
+            }
+          ]
         },
         {
           align: "between",
@@ -147,15 +147,14 @@ export default function ButtonsForm() {
               full: true,
               size: "small",
               disabled: true,
-            },
-          ],
-        },
-      ],
+            }
+          ]
+        }
+      ]
     });
 
-    // Cleanup
-    return () => form.destructor();
+    return () => form?.destructor();
   }, []);
 
-  return <div ref={node} className="container dhx_widget--bordered" />;
+  return <div ref={buttons_form_container} className="container dhx_widget--bordered" />;
 }
