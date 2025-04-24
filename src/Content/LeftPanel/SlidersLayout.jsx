@@ -18,22 +18,22 @@ export default function SlidersLayoutComponent() {
             {
               padding: 10,
               height: "content",
-              id: "slider1",
+              id: "slider1"
             },
             {
               padding: 10,
               height: "content",
-              id: "slider2",
+              id: "slider2"
             },
             {
               padding: 10,
               height: "content",
-              id: "slider3",
+              id: "slider3"
             },
             {
               padding: 10,
               height: "content",
-              id: "slider4",
+              id: "slider4"
             }
           ]
         },
@@ -41,7 +41,7 @@ export default function SlidersLayoutComponent() {
           padding: "10px 20px",
           height: "260px",
           width: "20%",
-          id: "slider5",
+          id: "slider5"
         }
       ]
     });
@@ -49,7 +49,7 @@ export default function SlidersLayoutComponent() {
     const slider1 = new Slider(null, {
       min: 0,
       max: 40,
-      step: 1,
+      step: 1
     });
 
     const slider2 = new Slider(null, {
@@ -57,7 +57,7 @@ export default function SlidersLayoutComponent() {
       max: 40,
       range: true,
       value: [10, 20],
-      step: 1,
+      step: 1
     });
 
     const slider3 = new Slider(null, {
@@ -68,7 +68,7 @@ export default function SlidersLayoutComponent() {
       value: [0, 20],
       tick: 1,
       majorTick: 5,
-      tickTemplate,
+      tickTemplate
     });
 
     const slider4 = new Slider(null, {
@@ -76,7 +76,7 @@ export default function SlidersLayoutComponent() {
       max: 40,
       step: 10,
       range: true,
-      value: [0, 20],
+      value: [0, 20]
     });
 
     const slider5 = new Slider(null, {

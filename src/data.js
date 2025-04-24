@@ -160,7 +160,6 @@ export function getData() {
     },
   ];
 
-  // Data for grid
   const gridData = [
     {
       time: new Date("Jan 28, 2021"),
@@ -866,7 +865,6 @@ export function getData() {
 
   gridData.forEach((item) => (item.totalCost = item.nights * item.price));
 
-  // Data for chart
   const chartData = [
     {
       id: "Jan",
@@ -898,7 +896,6 @@ export function getData() {
     },
   ];
 
-  // Hotels chart data
   const hotelsData = [
     { month: "Jan.", "Won deals": 35, "Lost deals": 14, "All deals": 40 },
     { month: "Feb.", "Won deals": 80, "Lost deals": 59, "All deals": 94 },
@@ -909,7 +906,6 @@ export function getData() {
     { month: "Jul.", "Won deals": 85, "Lost deals": 78, "All deals": 98 },
   ];
 
-  // Series chart data
   const seriesData = [
     {
       id: 'A',
@@ -937,7 +933,6 @@ export function getData() {
     }
   ];
 
-  // Ribbon data
   const ribbonData = [
     {
       id: "fileBlock",
@@ -1032,7 +1027,6 @@ export function getData() {
     },
   ];
 
-  // Tickets Dataview Data
   const ticketsDataviewData = [
     {
       title: "Ticket for Technical Support #T742",
@@ -1096,7 +1090,6 @@ export function getData() {
     },
   ];
 
-  // Data for tree
   const treeData = [
     {
       value: "Books",
