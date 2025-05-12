@@ -17,7 +17,7 @@ export default function GridComponent() {
           id: "time",
           header: [{ text: "Time", align: "center" }],
           type: "date",
-          dateFormat: "%M %d, %H:%i",
+          dateFormat: "%M %d, %H:%i"
         },
         { id: "nights", header: [{ text: "Nights" }] },
         {
@@ -26,13 +26,13 @@ export default function GridComponent() {
           header: [{ text: "Price" }],
           type: "number",
           numberMask: {
-            prefix: "$",
-          },
+            prefix: "$"
+          }
         },
         {
           gravity: 3,
           id: "contactPerson",
-          header: [{ text: "Contact Person" }],
+          header: [{ text: "Contact Person" }]
         },
         {
           gravity: 4,
@@ -41,7 +41,7 @@ export default function GridComponent() {
           htmlEnable: true,
           template: (text) => {
             return `<span class="contact_email";>${text}</span>`;
-          },
+          }
         },
         {
           gravity: 2,
@@ -49,20 +49,20 @@ export default function GridComponent() {
           header: [{ text: "Total Cost" }],
           type: "number",
           numberMask: {
-            prefix: "$",
-          },
-        },
+            prefix: "$"
+          }
+        }
       ],
-      css: "grid",
+      css: 'grid',
       multiselection: true,
       selection: "complex",
-      editable: true,
+      editable: true
     };
 
     const grid = new Grid(grid_container.current, gridConfig);
     const pagination = new Pagination(pagination_container.current, {
       pageSize: 20,
-      data: grid.data,
+      data: grid.data
     });
 
     return () => {
@@ -72,8 +72,8 @@ export default function GridComponent() {
   }, []);
 
   return (
-    <div className="flex-cols dhx_widget--bordered">
-      <div ref={grid_container} className="grid_container"></div>
+    <div className="grid_container-wrapper">
+      <div ref={grid_container} className="grid_widget"></div>
       <div ref={pagination_container}></div>
     </div>
   );

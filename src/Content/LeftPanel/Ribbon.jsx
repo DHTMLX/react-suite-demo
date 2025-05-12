@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Ribbon } from "@dhx/trial-suite";
 import { getData } from "../../data";
 

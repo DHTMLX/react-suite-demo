@@ -12,7 +12,8 @@ export default function TreeComponent () {
       checkbox: true,
       editable: true,
       keyNavigation: true,
-      dragMode: "both"
+      dragMode: "both",
+      //css: 'dhx_widget--bordered'
     });
 
     setTree(tree);
@@ -25,5 +26,5 @@ export default function TreeComponent () {
     tree.data.parse(treeData);
   }, [tree]);
 
-  return <div ref={tree_container} className="dhx_widget--bordered" />;
+  return <div ref={tree_container} className="tree_widget" />;
 }

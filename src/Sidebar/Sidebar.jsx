@@ -10,6 +10,7 @@ export default function SidebarComponent () {
   useEffect(() => {
     const sidebar = new Sidebar(sidebar_container.current, {});
     setSidebar(sidebar);
+    
     return () => {
       sidebar?.destructor();
     };

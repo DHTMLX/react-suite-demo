@@ -101,5 +101,5 @@ export default function SlidersLayoutComponent() {
     return () => layout?.destructor();
   }, []);
 
-  return <div className="grow dhx_widget--bordered" ref={layout_container}></div>;
+  return <div className="sliders_widget" ref={layout_container}></div>;
 }

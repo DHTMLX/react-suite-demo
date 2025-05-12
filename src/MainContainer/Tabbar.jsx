@@ -22,5 +22,5 @@ export default function TabbarComponent () {
     };
   }, []);
 
-  return <div ref={tabbar_container}></div>;
+  return <div ref={tabbar_container} className="tabbar_widget"></div>;
 };

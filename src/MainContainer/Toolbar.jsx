@@ -27,7 +27,7 @@ export default function ToolbarComponent () {
             checked,
             icon: `mdi mdi-${
               !checked ? "weather-night" : "white-balance-sunny"
-            }`,
+            }`
           });
           setThemeState(checked ? "dark" : "light");
           break;

@@ -395,9 +395,15 @@
     gap: 12px;
   }
 
-  .grid_container {
-    min-height: 848px;
-    min-width: 800px;
+  .grid_container-wrapper {
+    display: flex;
+    flex-direction: column;
+    border: var(--dhx-border);
+    max-width: 800px;
+  }
+
+  .grid_widget {
+    min-height: 843px;
   }
 
   .col-wrap {
@@ -423,4 +429,23 @@
     width: 600px;
     flex-shrink: 0;
   }
+
+  .tabbar_widget {
+    border-top: 1px solid rgb(226, 225, 225);
+  }
   
+  .tree_widget {
+    padding: 10px;
+    background: white;
+    width: 50%;
+    flex-grow: 1;
+    border: var(--dhx-border);
+  }
+  
+  .sliders_widget {
+    padding: 10px;
+    background: white;
+    width: 50%;
+    flex-grow: 1;
+    border: var(--dhx-border);
+  }
