@@ -8,7 +8,7 @@ export default function RibbonComponent() {
 
   useEffect(() => {
     const ribbon = new Ribbon(ribbon_container.current, {
-      data: ribbonData,
+      data: JSON.parse(JSON.stringify(ribbonData)),
       css: "dhx_widget--bordered"
     });
 
