@@ -1,29 +1,22 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Tree } from "@dhx/trial-suite";
-import store from "../../store";
+import { getData } from "../../data";
 
 export default function TreeComponent() {
-  const node = useRef(null);
-  let [tree, setTree] = useState(null);
+  const { treeData } = getData();
+  const tree_container = useRef(null);
 
   useEffect(() => {
-    const tree = new Tree(node.current, {
+    const tree = new Tree(tree_container.current, {
+      data: JSON.parse(JSON.stringify(treeData)),
       checkbox: true,
       editable: true,
       keyNavigation: true,
-      dragMode: "both",
+      dragMode: "both"
     });
 
-    setTree(tree);
+    return () => tree?.destructor();
+  }, [treeData]);
 
-    // Cleanup
-    return () => tree.destructor();
-  }, []);
-
-  useEffect(() => {
-    if (!tree) return;
-    tree.data.parse(store.treeData);
-  }, [tree]);
-
-  return <div ref={node} className="bordered" />;
+  return <div ref={tree_container} className="tree_widget" />;
 }

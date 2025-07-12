@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 import { Form } from "@dhx/trial-suite";
 
-export default function ButtonsForm() {
-  const node = useRef(null);
+export default function ButtonsFormComponent() {
+  const buttons_form_container = useRef(null);
 
   useEffect(() => {
-    const form = new Form(node.current, {
+    const form = new Form(buttons_form_container.current, {
       height: "content",
       padding: 40,
       align: "between",
@@ -21,7 +21,7 @@ export default function ButtonsForm() {
               color: "primary",
               icon: "dxi dxi-plus",
               full: true,
-              size: "small",
+              size: "small"
             },
             {
               padding: 5,
@@ -31,7 +31,7 @@ export default function ButtonsForm() {
               color: "primary",
               full: true,
               view: "link",
-              size: "small",
+              size: "small"
             },
             {
               padding: 5,
@@ -41,9 +41,9 @@ export default function ButtonsForm() {
               color: "primary",
               full: true,
               disabled: true,
-              size: "small",
-            },
-          ],
+              size: "small"
+            }
+          ]
         },
         {
           align: "between",
@@ -56,7 +56,7 @@ export default function ButtonsForm() {
               color: "secondary",
               icon: "dxi dxi-plus",
               full: true,
-              size: "small",
+              size: "small"
             },
             {
               padding: 5,
@@ -66,7 +66,7 @@ export default function ButtonsForm() {
               color: "secondary",
               full: true,
               size: "small",
-              view: "link",
+              view: "link"
             },
             {
               padding: 5,
@@ -76,9 +76,9 @@ export default function ButtonsForm() {
               color: "secondary",
               full: true,
               size: "small",
-              disabled: true,
-            },
-          ],
+              disabled: true
+            }
+          ]
         },
         {
           align: "between",
@@ -91,7 +91,7 @@ export default function ButtonsForm() {
               color: "danger",
               icon: "dxi dxi-plus",
               full: true,
-              size: "small",
+              size: "small"
             },
             {
               padding: 5,
@@ -101,7 +101,7 @@ export default function ButtonsForm() {
               color: "danger",
               full: true,
               size: "small",
-              view: "link",
+              view: "link"
             },
             {
               padding: 5,
@@ -111,9 +111,9 @@ export default function ButtonsForm() {
               color: "danger",
               full: true,
               size: "small",
-              disabled: true,
-            },
-          ],
+              disabled: true
+            }
+          ]
         },
         {
           align: "between",
@@ -126,7 +126,7 @@ export default function ButtonsForm() {
               color: "success",
               icon: "dxi dxi-plus",
               full: true,
-              size: "small",
+              size: "small"
             },
             {
               padding: 5,
@@ -136,7 +136,7 @@ export default function ButtonsForm() {
               color: "success",
               full: true,
               size: "small",
-              view: "link",
+              view: "link"
             },
             {
               padding: 5,
@@ -146,16 +146,15 @@ export default function ButtonsForm() {
               color: "success",
               full: true,
               size: "small",
-              disabled: true,
-            },
-          ],
-        },
-      ],
+              disabled: true
+            }
+          ]
+        }
+      ]
     });
 
-    // Cleanup
-    return () => form.destructor();
+    return () => form?.destructor();
   }, []);
 
-  return <div ref={node} className="container bordered" />;
+  return <div ref={buttons_form_container} className="container dhx_widget--bordered" />;
 }

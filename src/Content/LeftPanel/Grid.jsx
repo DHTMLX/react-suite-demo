@@ -1,14 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Grid, Pagination } from "@dhx/trial-suite";
-import store from "../../store";
+import { getData } from "../../data";
 
 export default function GridComponent() {
-  let [grid, setGrid] = useState(null);
-  const gNode = useRef(null);
-  const pNode = useRef(null);
+  const { gridData } = getData();
+  const grid_container = useRef(null);
+  const pagination_container = useRef(null);
 
   useEffect(() => {
     const gridConfig = {
+      data: gridData,
       autoWidth: true,
       columns: [
         {
@@ -16,7 +17,7 @@ export default function GridComponent() {
           id: "time",
           header: [{ text: "Time", align: "center" }],
           type: "date",
-          dateFormat: "%M %d, %H:%i",
+          dateFormat: "%M %d, %H:%i"
         },
         { id: "nights", header: [{ text: "Nights" }] },
         {
@@ -25,13 +26,13 @@ export default function GridComponent() {
           header: [{ text: "Price" }],
           type: "number",
           numberMask: {
-            prefix: "$",
-          },
+            prefix: "$"
+          }
         },
         {
           gravity: 3,
           id: "contactPerson",
-          header: [{ text: "Contact Person" }],
+          header: [{ text: "Contact Person" }]
         },
         {
           gravity: 4,
@@ -40,7 +41,7 @@ export default function GridComponent() {
           htmlEnable: true,
           template: (text) => {
             return `<span class="contact_email";>${text}</span>`;
-          },
+          }
         },
         {
           gravity: 2,
@@ -48,39 +49,32 @@ export default function GridComponent() {
           header: [{ text: "Total Cost" }],
           type: "number",
           numberMask: {
-            prefix: "$",
-          },
-        },
+            prefix: "$"
+          }
+        }
       ],
       css: "grid",
       multiselection: true,
       selection: "complex",
-      editable: true,
+      editable: true
     };
 
-    const grid = new Grid(gNode.current, gridConfig);
-    const paginator = new Pagination(pNode.current, {
+    const grid = new Grid(grid_container.current, gridConfig);
+    const pagination = new Pagination(pagination_container.current, {
       pageSize: 20,
-      data: grid.data,
+      data: grid.data
     });
-    // Initialize grid and paginator here
-    setGrid(grid);
 
-    // Cleanup
     return () => {
       grid?.destructor();
-      paginator?.destructor();
+      pagination?.destructor();
     };
-  }, []);
-
-  useEffect(() => {
-    grid?.data.parse(store.gridDataset);
-  }, [grid]);
+  }, [gridData]);
 
   return (
-    <div className="flex-cols bordered">
-      <div ref={gNode} className="grid_container"></div>
-      <div ref={pNode}></div>
+    <div className="grid_container-wrapper">
+      <div ref={grid_container} className="grid_widget"></div>
+      <div ref={pagination_container}></div>
     </div>
   );
 }

@@ -1,18 +1,21 @@
 import { useRef, useEffect, useState } from "react";
 import { Toolbar, setTheme } from "@dhx/trial-suite";
-import store from "./store";
+import { getData } from "../data";
 
-const ToolbarComponent = () => {
+export default function ToolbarComponent() {
+  const { toolbarData } = getData();
   let [theme, setThemeState] = useState("light");
   let [contrast, setContrast] = useState(false);
   let [toolbar, setToolbar] = useState(null);
-  const node = useRef(null);
+  const toolbar_container = useRef(null);
 
   useEffect(() => {
-    const toolbar = new Toolbar(node.current, {});
+    const toolbar = new Toolbar(toolbar_container.current, {
+      data: toolbarData
+    });
     setToolbar(toolbar);
-    return () => toolbar.destructor();
-  }, []);
+    return () => toolbar?.destructor();
+  }, [toolbarData]);
 
   useEffect(() => {
     if (!toolbar) return;
@@ -22,9 +25,7 @@ const ToolbarComponent = () => {
           const checked = !toolbar.data.getItem("theme").checked;
           toolbar.data.update("theme", {
             checked,
-            icon: `mdi mdi-${
-              !checked ? "weather-night" : "white-balance-sunny"
-            }`,
+            icon: `mdi mdi-${!checked ? "weather-night" : "white-balance-sunny"}`
           });
           setThemeState(checked ? "dark" : "light");
           break;
@@ -35,14 +36,12 @@ const ToolbarComponent = () => {
         }
       }
     });
-    toolbar.data.parse(store.toolbarData);
-  }, [toolbar]);
+    toolbar.data.parse(toolbarData);
+  }, [toolbar, toolbarData]);
 
   useEffect(() => {
     setTheme(`${contrast ? "contrast-" : ""}${theme}`);
   }, [contrast, theme]);
 
-  return <div ref={node}></div>;
-};
-
-export default ToolbarComponent;
+  return <div ref={toolbar_container}></div>;
+}

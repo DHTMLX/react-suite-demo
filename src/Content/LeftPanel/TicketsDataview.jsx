@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { DataView } from "@dhx/trial-suite";
 import "@dhx/trial-suite/codebase/suite.min.css";
-import store from "../../store";
+import { getData } from "../../data";
 
-export default function TicketsDataview() {
-  const node = useRef(null);
-  let [dataview, setDataview] = useState(null);
+export default function TicketsDataviewComponent() {
+  const { ticketsDataviewData } = getData();
+  const dataview_container = useRef(null);
 
   const template = ({ title, text, type, avatar, name, comments, time }) => `
     <div class="dhx_dataview_template_a">
@@ -31,20 +31,15 @@ export default function TicketsDataview() {
   `;
 
   useEffect(() => {
-    const dataview = new DataView(node.current, {
+    const dataview = new DataView(dataview_container.current, {
+      data: ticketsDataviewData,
       template,
       itemsInRow: 2,
-      css: "dhx_dataview_template_a_box",
+      css: "dhx_dataview_template_a_box"
     });
-    setDataview(dataview);
-    // Cleanup
-    return () => dataview.destructor();
-  }, []);
 
-  useEffect(() => {
-    if (!dataview) return;
-    dataview.data.parse(store.ticketsDataviewData);
-  }, [dataview]);
+    return () => dataview?.destructor();
+  }, [ticketsDataviewData]);
 
-  return <div ref={node} />;
+  return <div ref={dataview_container} />;
 }

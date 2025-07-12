@@ -1,13 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Chart } from "@dhx/trial-suite";
-import store from "../../store";
+import { getData } from "../../data";
 
 export default function ChartComponent() {
-  const node = useRef(null);
-  let [chart, setChart] = useState(null);
+  const chart_container = useRef(null);
 
   useEffect(() => {
-    const chart = new Chart(node.current, {
+    const { chartData } = getData();
+    const chart = new Chart(chart_container.current, {
+      data: chartData,
       type: "pie",
       series: [
         {
@@ -17,32 +18,24 @@ export default function ChartComponent() {
           opacity: "opacity",
           text: "month",
           stroke: "var(--dhx-background-primary)",
-          strokeWidth: 0,
-        },
+          strokeWidth: 0
+        }
       ],
       legend: {
         values: {
           id: "value",
           text: "id",
-          color: "color",
+          color: "color"
         },
         // monochrome: "#0288D1",
         align: "right",
         valign: "middle",
-        width: 30,
-      },
+        width: 30
+      }
     });
 
-    setChart(chart);
-    chart.data.parse(store.chartData);
-    // Cleanup
-    return () => chart.destructor();
+    return () => chart?.destructor();
   }, []);
 
-  useEffect(() => {
-    if (!chart) return;
-    chart.data.parse(store.chartData);
-  }, [chart]);
-
-  return <div ref={node} className="bordered" />;
+  return <div ref={chart_container} className="dhx_widget--bordered" />;
 }

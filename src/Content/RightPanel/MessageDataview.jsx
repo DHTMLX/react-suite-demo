@@ -1,9 +1,10 @@
 import { useEffect, useRef } from "react";
 import { DataView } from "@dhx/trial-suite";
-import store from "../../store";
+import { getData } from "../../data";
 
-export default function MessageDataview() {
-  const node = useRef(null);
+export default function MessageDataviewComponent() {
+  const { messageDataviewData } = getData();
+  const dataview_container = useRef(null);
 
   function template({ mail, name, avatar, status, delivered }) {
     return `
@@ -22,17 +23,15 @@ export default function MessageDataview() {
   }
 
   useEffect(() => {
-    const dataview = new DataView(node.current, {
+    const dataview = new DataView(dataview_container.current, {
+      data: messageDataviewData,
       template,
       itemsInRow: 2,
-      css: "dhx_dataview_template_b_box",
+      css: "dhx_dataview_template_b_box"
     });
 
-    dataview.data.parse(store.messageDataviewData);
+    return () => dataview?.destructor();
+  }, [messageDataviewData]);
 
-    // Cleanup
-    return () => dataview.destructor();
-  }, []);
-
-  return <div ref={node} className="" />;
+  return <div ref={dataview_container} />;
 }

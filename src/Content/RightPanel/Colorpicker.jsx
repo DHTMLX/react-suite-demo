@@ -2,12 +2,13 @@ import { useEffect, useRef } from "react";
 import { Colorpicker, awaitRedraw } from "@dhx/trial-suite";
 
 export default function ColorpickerComponent() {
-  const node = useRef(null);
+  const colorpicker_container = useRef(null);
 
   const hexToHSLChema = (HEX) => {
     let r = 0,
       g = 0,
       b = 0;
+
     if (HEX.length == 4) {
       r = "0x" + HEX[1] + HEX[1];
       g = "0x" + HEX[2] + HEX[2];
@@ -17,6 +18,7 @@ export default function ColorpickerComponent() {
       g = "0x" + HEX[3] + HEX[4];
       b = "0x" + HEX[5] + HEX[6];
     }
+
     // Then to HSL
     r /= 255;
     g /= 255;
@@ -45,13 +47,13 @@ export default function ColorpickerComponent() {
     return {
       h,
       s,
-      l,
+      l
     };
   };
 
   useEffect(() => {
-    const colorpicker = new Colorpicker(node.current, {
-      mode: "picker",
+    const colorpicker = new Colorpicker(colorpicker_container.current, {
+      mode: "picker"
     });
 
     colorpicker.setValue("#0288d1");
@@ -64,15 +66,13 @@ export default function ColorpickerComponent() {
       el.style.setProperty("--dhx-l-primary", l + "%");
     });
 
-    // return () => colorpicker.destructor();
-    return () => awaitRedraw().then(() => colorpicker.destructor());
+    return () => awaitRedraw().then(() => colorpicker?.destructor());
   }, []);
 
   return (
     <div
-      ref={node}
-      className="container bordered dhx_layout_colorpicker_cell"
-      style={{ justifyContent: "center" }}
+      ref={colorpicker_container}
+      className="container dhx_widget--bordered dhx_layout_colorpicker_cell"
     />
   );
 }

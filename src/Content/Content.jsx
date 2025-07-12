@@ -1,14 +1,11 @@
-import LeftContent from "./LeftPanel/LeftContent";
-import RightContent from "./RightPanel/RightContent";
-import "./Content.css";
+import LeftContentComponent from "./LeftPanel/LeftContent";
+import RightContentComponent from "./RightPanel/RightContent";
 
-const Content = () => {
+export default function ContentComponent() {
   return (
     <div className="container wrapper-main">
-      <LeftContent />
-      <RightContent />
+      <LeftContentComponent />
+      <RightContentComponent />
     </div>
   );
-};
-
-export default Content;
+}
