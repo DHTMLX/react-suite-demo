@@ -55,7 +55,7 @@ export default function FormComponent() {
           type: "input",
           label: "Career objective",
           placeholder: "Type text",
-          helpMessage: " Help information"
+          helpMessage: "Help information"
         },
         {
           name: "motivation",
@@ -140,7 +140,7 @@ export default function FormComponent() {
       ]
     });
 
-    return () => awaitRedraw().then(() => form?.destructor());
+    return () => form?.destructor();
   }, [country]);
 
   return <div ref={form_container} className="dhx_widget--bordered" />;
