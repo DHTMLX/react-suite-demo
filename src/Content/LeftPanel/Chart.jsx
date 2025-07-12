@@ -47,7 +47,6 @@ export default function ChartComponent() {
 
     return () => {
       layout?.destructor();
-      chart?.destructor();
     };
   }, [seriesData, hotelsData]);
 
