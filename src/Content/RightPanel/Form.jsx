@@ -140,8 +140,8 @@ export default function FormComponent() {
       ]
     });
 
-    return () => form?.destructor();
-  }, []);
+    return () => awaitRedraw().then(() => form?.destructor());
+  }, [country]);
 
   return <div ref={form_container} className="dhx_widget--bordered" />;
 }

@@ -21,7 +21,7 @@ export default function ButtonsFormComponent() {
               color: "primary",
               icon: "dxi dxi-plus",
               full: true,
-              size: "small",
+              size: "small"
             },
             {
               padding: 5,
@@ -31,7 +31,7 @@ export default function ButtonsFormComponent() {
               color: "primary",
               full: true,
               view: "link",
-              size: "small",
+              size: "small"
             },
             {
               padding: 5,
@@ -41,7 +41,7 @@ export default function ButtonsFormComponent() {
               color: "primary",
               full: true,
               disabled: true,
-              size: "small",
+              size: "small"
             }
           ]
         },
@@ -56,7 +56,7 @@ export default function ButtonsFormComponent() {
               color: "secondary",
               icon: "dxi dxi-plus",
               full: true,
-              size: "small",
+              size: "small"
             },
             {
               padding: 5,
@@ -66,7 +66,7 @@ export default function ButtonsFormComponent() {
               color: "secondary",
               full: true,
               size: "small",
-              view: "link",
+              view: "link"
             },
             {
               padding: 5,
@@ -76,7 +76,7 @@ export default function ButtonsFormComponent() {
               color: "secondary",
               full: true,
               size: "small",
-              disabled: true,
+              disabled: true
             }
           ]
         },
@@ -91,7 +91,7 @@ export default function ButtonsFormComponent() {
               color: "danger",
               icon: "dxi dxi-plus",
               full: true,
-              size: "small",
+              size: "small"
             },
             {
               padding: 5,
@@ -101,7 +101,7 @@ export default function ButtonsFormComponent() {
               color: "danger",
               full: true,
               size: "small",
-              view: "link",
+              view: "link"
             },
             {
               padding: 5,
@@ -111,7 +111,7 @@ export default function ButtonsFormComponent() {
               color: "danger",
               full: true,
               size: "small",
-              disabled: true,
+              disabled: true
             }
           ]
         },
@@ -126,7 +126,7 @@ export default function ButtonsFormComponent() {
               color: "success",
               icon: "dxi dxi-plus",
               full: true,
-              size: "small",
+              size: "small"
             },
             {
               padding: 5,
@@ -136,7 +136,7 @@ export default function ButtonsFormComponent() {
               color: "success",
               full: true,
               size: "small",
-              view: "link",
+              view: "link"
             },
             {
               padding: 5,
@@ -146,7 +146,7 @@ export default function ButtonsFormComponent() {
               color: "success",
               full: true,
               size: "small",
-              disabled: true,
+              disabled: true
             }
           ]
         }

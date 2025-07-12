@@ -53,7 +53,7 @@ export default function GridComponent() {
           }
         }
       ],
-      css: 'grid',
+      css: "grid",
       multiselection: true,
       selection: "complex",
       editable: true
@@ -69,7 +69,7 @@ export default function GridComponent() {
       grid?.destructor();
       pagination?.destructor();
     };
-  }, []);
+  }, [gridData]);
 
   return (
     <div className="grid_container-wrapper">

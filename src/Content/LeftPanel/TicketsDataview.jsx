@@ -37,9 +37,9 @@ export default function TicketsDataviewComponent() {
       itemsInRow: 2,
       css: "dhx_dataview_template_a_box"
     });
-  
+
     return () => dataview?.destructor();
-  }, []);
+  }, [ticketsDataviewData]);
 
   return <div ref={dataview_container} />;
 }

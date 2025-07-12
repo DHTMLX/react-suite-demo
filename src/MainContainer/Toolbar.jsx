@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import { Toolbar, setTheme } from "@dhx/trial-suite";
 import { getData } from "../data";
 
-export default function ToolbarComponent () {
+export default function ToolbarComponent() {
   const { toolbarData } = getData();
   let [theme, setThemeState] = useState("light");
   let [contrast, setContrast] = useState(false);
@@ -15,7 +15,7 @@ export default function ToolbarComponent () {
     });
     setToolbar(toolbar);
     return () => toolbar?.destructor();
-  }, []);
+  }, [toolbarData]);
 
   useEffect(() => {
     if (!toolbar) return;
@@ -25,9 +25,7 @@ export default function ToolbarComponent () {
           const checked = !toolbar.data.getItem("theme").checked;
           toolbar.data.update("theme", {
             checked,
-            icon: `mdi mdi-${
-              !checked ? "weather-night" : "white-balance-sunny"
-            }`
+            icon: `mdi mdi-${!checked ? "weather-night" : "white-balance-sunny"}`
           });
           setThemeState(checked ? "dark" : "light");
           break;
@@ -39,11 +37,11 @@ export default function ToolbarComponent () {
       }
     });
     toolbar.data.parse(toolbarData);
-  }, [toolbar]);
+  }, [toolbar, toolbarData]);
 
   useEffect(() => {
     setTheme(`${contrast ? "contrast-" : ""}${theme}`);
   }, [contrast, theme]);
 
   return <div ref={toolbar_container}></div>;
-};
+}

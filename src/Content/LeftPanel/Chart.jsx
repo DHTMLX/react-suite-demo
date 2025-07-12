@@ -49,7 +49,7 @@ export default function ChartComponent() {
       layout?.destructor();
       chart?.destructor();
     };
-  }, []);
+  }, [seriesData, hotelsData]);
 
   return <div className="dhx_widget--bordered" ref={layout_container}></div>;
 }

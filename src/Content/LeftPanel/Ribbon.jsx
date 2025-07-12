@@ -13,7 +13,7 @@ export default function RibbonComponent() {
     });
 
     return () => ribbon.destructor();
-  }, []);
+  }, [ribbonData]);
 
   return <div ref={ribbon_container} className="dhx_widget--bordered ribbon_container" />;
 }

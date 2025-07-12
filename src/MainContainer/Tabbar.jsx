@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Tabbar } from "@dhx/trial-suite";
 
-export default function TabbarComponent () {
+export default function TabbarComponent() {
   const tabbar_container = useRef(null);
 
   useEffect(() => {
@@ -23,4 +23,4 @@ export default function TabbarComponent () {
   }, []);
 
   return <div ref={tabbar_container} className="tabbar_widget"></div>;
-};
+}

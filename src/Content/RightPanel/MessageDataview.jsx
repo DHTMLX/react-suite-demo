@@ -31,7 +31,7 @@ export default function MessageDataviewComponent() {
     });
 
     return () => dataview?.destructor();
-  }, []);
+  }, [messageDataviewData]);
 
   return <div ref={dataview_container} />;
 }

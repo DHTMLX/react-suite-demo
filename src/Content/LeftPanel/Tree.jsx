@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Tree } from "@dhx/trial-suite";
 import { getData } from "../../data";
 
-export default function TreeComponent () {
+export default function TreeComponent() {
   const { treeData } = getData();
   const tree_container = useRef(null);
 
@@ -16,7 +16,7 @@ export default function TreeComponent () {
     });
 
     return () => tree?.destructor();
-  }, []);
+  }, [treeData]);
 
   return <div ref={tree_container} className="tree_widget" />;
 }

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Colorpicker, awaitRedraw } from "@dhx/trial-suite";
 
-export default function ColorpickerComponent () {
+export default function ColorpickerComponent() {
   const colorpicker_container = useRef(null);
 
   const hexToHSLChema = (HEX) => {
@@ -18,7 +18,7 @@ export default function ColorpickerComponent () {
       g = "0x" + HEX[3] + HEX[4];
       b = "0x" + HEX[5] + HEX[6];
     }
-    
+
     // Then to HSL
     r /= 255;
     g /= 255;
