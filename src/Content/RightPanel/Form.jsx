@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Form } from "@dhx/trial-suite";
+import { Form, awaitRedraw } from "@dhx/trial-suite";
 import { getData } from "../../data";
 
 export default function FormComponent() {
@@ -55,7 +55,7 @@ export default function FormComponent() {
           type: "input",
           label: "Career objective",
           placeholder: "Type text",
-          helpMessage: " Help information"
+          helpMessage: "Help information"
         },
         {
           name: "motivation",
